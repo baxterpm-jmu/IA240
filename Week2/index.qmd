@@ -1,0 +1,619 @@
+---
+title: "Week 2: Data Types, Sources, and Collection Methods"
+subtitle: "IA 240: Technology Applications in a Networked World"
+---
+
+Intelligence analysts do not collect data randomly — they collect it systematically according to recognized disciplines, apply criteria for evaluating source quality, and understand that all data has provenance that shapes its reliability. This lecture covers intelligence collection disciplines (HUMINT through GEOINT), open data sources, source credibility frameworks, and the structural challenges of data collection including what data systematically fails to capture.
+
+# Part I: Intelligence Collection Methods
+
+## IC Collection Disciplines
+
+The U.S. Intelligence Community organizes data collection around distinct disciplines, each exploiting a different domain of the environment. Each has characteristic strengths, limitations, and tradecraft requirements.
+
+### Human Intelligence (HUMINT)
+
+HUMINT involves collecting intelligence through direct human interaction—with willing sources, recruited assets, or through elicitation. It remains the oldest and, in many ways, the richest collection discipline.
+
+**Key techniques:** clandestine operations, elicitation, diplomatic reporting, debriefing of travelers and defectors, interrogation.
+
+**Strengths:** provides access to intentions (not just capabilities), cultural and political context, and information that no technical sensor can collect.
+
+**Limitations:** sources can be unreliable, fabricated, or doubled; operations take time to develop; exposure risks human life.
+
+---
+
+### Signals Intelligence (SIGINT)
+
+SIGINT is the interception and analysis of electronic signals, divided into:
+
+- **COMINT** — communications intelligence (phone calls, emails, radio)
+- **ELINT** — electronic intelligence (radar emissions, telemetry)
+- **FISINT** — foreign instrumentation signals (missile test data)
+
+**Strengths:** large volume, often near-real-time, covert collection possible.
+
+**Limitations:** encryption reduces content access; legal and ethical constraints around surveillance; adversaries adapt (emissions control, frequency hopping).
+
+---
+
+### Imagery Intelligence (IMINT)
+
+IMINT uses visual data from satellites, drones, and reconnaissance aircraft to monitor physical locations, infrastructure, and activity.
+
+**Key techniques:** high-resolution photography, multispectral imaging, radar imagery (SAR), change detection over time.
+
+**Strengths:** visual confirmation of reported activity; monitoring of large areas; historical record through imagery archives.
+
+**Limitations:** weather-dependent for optical sensors; skilled analysts required; adversaries use camouflage, concealment, and deception (CC&D).
+
+---
+
+### Open-Source Intelligence (OSINT)
+
+OSINT refers to intelligence derived from publicly available sources—news media, academic publications, social media, government reports, commercial satellite imagery, and more.
+
+**Key techniques:** web scraping, social media monitoring, data mining, geolocation, reverse image search.
+
+**Strengths:** low cost, legal, abundant, no security classification required.
+
+**Limitations:** information overload; credibility and provenance challenges; adversaries deliberately plant false information in open sources.
+
+::: {.callout-warning}
+## OSINT in the Modern Environment
+The explosion of social media, publically available data, and publicly accessible satellite imagery has dramatically increased the value of OSINT. Organizations like Bellingcat have demonstrated that rigorous OSINT analysis can produce intelligence products that rival classified reporting—but the same open access is available to adversaries, disinformation actors, and criminal organizations.
+:::
+
+---
+
+### Measurement and Signature Intelligence (MASINT)
+
+MASINT detects, tracks, and characterizes distinctive physical, chemical, biological, nuclear, or acoustic signatures that other disciplines cannot capture.
+
+**Examples:** detecting chemical agent signatures from effluent analysis; characterizing a nuclear reactor's thermal output from infrared data; identifying underground facility activity from seismic signatures.
+
+**Strengths:** provides technical detail about *capabilities* that imagery and signals cannot resolve.
+
+**Limitations:** highly specialized sensors and analysts; expensive to deploy; often cannot be fused easily with other collection.
+
+---
+
+### Cyber Intelligence (CYBERINT)
+
+CYBERINT is the collection, analysis, and exploitation of information from cyberspace—network traffic, malware, digital communications, and system logs.
+
+**Key techniques:** penetration testing, digital forensics, malware reverse engineering, traffic analysis.
+
+**Strengths:** real-time threat identification; access to adversary systems.
+
+**Limitations:** significant legal and ethical boundaries; attribution is technically and politically difficult; collected data can be voluminous and noisy.
+
+---
+
+### Geospatial Intelligence (GEOINT)
+
+GEOINT integrates imagery and geospatial data to understand physical geography, human activity, and environmental change. It goes beyond single images to build spatially referenced intelligence products.
+
+**Key techniques:** GIS analysis, terrain modeling, change detection, pattern-of-life analysis.
+
+**Strengths:** provides spatial context; enables predictive analysis of movement and logistics.
+
+**Limitations:** resource-intensive; requires specialized training; geospatial data must be kept current.
+
+::: {.callout-note}
+## GEOINT vs. IMINT
+IMINT refers specifically to the exploitation of imagery. GEOINT is a broader discipline that *includes* imagery but also incorporates geospatial data, mapping, and spatial analysis. We will explore GEOINT in depth in Meeting 15.
+:::
+
+---
+
+## Collection Discipline Comparison
+
+| Discipline | Primary Sensor / Method | Collects Capabilities? | Collects Intentions? | Key Limitation |
+|---|---|---|---|---|
+| HUMINT | Human sources | Partial | Yes | Source reliability |
+| SIGINT | Electronic interception | Partial | Partial | Encryption; legal constraints |
+| IMINT | Cameras, radar | Yes | No | Weather; CC&D |
+| OSINT | Public sources | Partial | Partial | Volume; credibility |
+| MASINT | Physical/chemical sensors | Yes | No | Highly specialized |
+| CYBERINT | Network/digital forensics | Partial | Partial | Attribution difficulty |
+| GEOINT | GIS + imagery fusion | Yes | No | Currency of data |
+
+The distinction between **capabilities** (what an adversary *can* do) and **intentions** (what they *plan* to do) is one of the most persistent challenges in intelligence analysis. Technical collection disciplines (IMINT, SIGINT, MASINT) excel at capabilities; only HUMINT reliably provides access to intentions — and even then, only imperfectly.
+
+## Data Collection for Analysts Outside the IC
+
+Not every analyst collecting intelligence-relevant data works inside the Intelligence Community. Think tanks, academic researchers, investigative journalists, NGOs, law enforcement agencies, and corporate security teams all conduct analytical work that requires systematic data collection — but without access to classified sources, mission authority, or the legal frameworks that enable IC collection disciplines. Understanding how these actors collect data matters both for your own non-IC analytical work and for evaluating the open-source products they produce.
+
+### The Open-Source Constraint
+
+Non-IC analysts operate entirely within unclassified collection space. This is a meaningful constraint — and a meaningful advantage. It is a constraint because the most sensitive questions (adversary intentions, classified capabilities, covert operations) remain largely inaccessible. It is an advantage because products built entirely on open-source evidence are shareable, publishable, reproducible, and not subject to classification review. The organizations doing the most consequential open-source intelligence work — Bellingcat, 38 North, the Armed Conflict Location & Event Data (ACLED) project, SIPRI — have demonstrated that rigorous open-source analysis can produce findings that rival or exceed classified assessments on specific questions.
+
+### Primary Collection Methods for Non-IC Analysts
+
+::: {.key-terms}
+::: {dl}
+
+Freedom of Information Act (FOIA) and Public Records Requests
+:   The FOIA (5 U.S.C. § 552) and its state-level equivalents (Virginia's VOIA, California's CPRA, etc.) provide legal mechanisms to compel government disclosure of non-classified records. Journalists and researchers use FOIA systematically — for budget documents, inspector general reports, procurement records, internal communications, and administrative data. FOIA requests take time (often months to years) and agencies can withhold records under nine exemptions including national security (Exemption 1) and law enforcement sensitivity (Exemption 7). ProPublica, The Intercept, and MuckRock operate dedicated FOIA pipelines.
+
+Survey Research
+:   Academic researchers and polling organizations (Pew Research Center, Gallup, YouGov) design and administer surveys that collect primary data directly from respondents. Nationally representative probability samples enable statistical inference to broader populations. Surveys are the primary method for collecting data on public attitudes, beliefs, behavioral self-reports, and population-level conditions that cannot be observed directly. Limitations include non-response bias, social desirability effects on sensitive questions, and significant cost for large-N representative samples.
+
+Administrative Data Partnerships
+:   Government agencies hold large administrative datasets (crime records, health data, educational records, tax filings, immigration records) that are not publicly available but can be accessed through formal data-sharing agreements with academic institutions and approved researchers. These partnerships allow access to data well beyond FOIA scope, but require IRB approval, data security protocols, and often multi-year negotiation. Examples: researchers with Census Bureau access, NBER data sharing agreements, ICPSR restricted data programs.
+
+Commercial and Licensed Data
+:   Many analysts access proprietary datasets through institutional subscriptions: Bloomberg Terminal or Refinitiv for financial data; LexisNexis or Factiva for media archives; Jane's Defence Weekly databases for military equipment data; Moody's Analytics for economic indicators. These are neither government nor public data — they are commercial products with specific licensing terms. Their analytical value depends on transparency about their collection methodology, which commercial providers vary significantly in disclosing.
+
+Field Research and Direct Observation
+:   Academic researchers and NGO field staff conduct interviews, ethnographic observation, and systematic observation in the field — often in conflict zones, post-disaster settings, or politically sensitive environments. This is the civilian equivalent of HUMINT collection, operating under ethical constraints (informed consent, IRB review, confidentiality protection) rather than intelligence tradecraft. Organizations like the International Crisis Group place field staff in active conflict zones specifically to collect ground-level assessment data.
+
+Computational and Digital Methods
+:   Researchers increasingly collect data directly from digital environments: web scraping of social media and news sources, API-based extraction from platforms, satellite imagery analysis using commercial providers (Planet Labs, Maxar), network analysis of email or phone metadata (with consent), and analysis of leaked or published document corpora. These methods are covered in more detail later in the course. 
+
+:::
+:::
+
+### Key Non-IC Analytical Organizations
+
+::: {.col-pair}
+::: {.col-left}
+**Open-Source Intelligence (OSINT)**
+
+- **Bellingcat** — investigative OSINT using open-source imagery, social media, and public records; documented MH17 shootdown, Salisbury poisoners, and numerous conflict atrocities
+- **38 North** (Stimson Center) — continuous open-source monitoring of North Korea's nuclear and missile programs using commercial satellite imagery
+- **OCCRP** (Organized Crime and Corruption Reporting Project) — investigative journalism using leaked documents, public records, and financial data to track illicit financial flows
+
+**Conflict and Security Data**
+
+- **ACLED** — systematic event-level coding of political violence from media and field reports
+- **UCDP** (Uppsala Conflict Data Program) — longitudinal armed conflict data from 1946 to present
+- **SIPRI** — military expenditure, arms trade, and nuclear forces data
+:::
+::: {.col-right}
+**Policy Analysis**
+
+- **RAND Corporation** — quantitative policy analysis on defense, security, and social issues; often conducts primary surveys and field research
+- **IISS** (International Institute for Strategic Studies) — military balance data, political risk assessments, nuclear policy analysis
+- **Center for Strategic and International Studies (CSIS)** — analysis on technology, defense, and geopolitical competition
+
+**Academic Research**
+
+Academic researchers at universities produce the quantitative datasets that both IC and non-IC analysts use — the Correlates of War project, the Polity democracy scores, the Varieties of Democracy (V-Dem) index, and dozens of conflict datasets were all built by academic teams using systematic open-source coding and survey methods.
+:::
+:::
+
+::: {.callout-tip}
+## For IA Students: You Are Non-IC Analysts
+
+Unless you are working on a classified project or interning with an IC agency, you are functioning as a non-IC analyst — and the methods above are your primary collection toolkit. The tradecraft discipline that IC analysts apply to classified sources applies equally to your open-source collection: document your sources, evaluate their provenance, triangulate across independent sources, and be explicit about what you could not access and why that matters for the confidence you can place in your conclusions.
+:::
+
+## All-Source Analysis and Collection Fusion
+
+No single collection discipline provides a complete picture. All-source analysis fuses reporting from multiple INT disciplines to produce assessments that are stronger than any single source alone.
+
+::: {.col-pair}
+::: {.col-left}
+**Why fusion matters**
+
+Each discipline has blind spots that other disciplines can cover. IMINT can show that construction is occurring at a facility; SIGINT may reveal communications discussing what the facility is for; HUMINT may confirm the identity of workers entering it; MASINT can characterize the effluent coming out of it. Together, the converging streams make a much stronger analytical case than any single thread.
+
+The Khushab plutonium reactor case (Meeting 15) is a canonical example: imagery identified construction; technical analysis of the design identified it as a heavy-water reactor suited for weapons-grade plutonium production; OSINT confirmed Pakistan had not declared the facility to the IAEA.
+:::
+
+::: {.col-right}
+::: {.col-right}
+**Challenges in fusion**
+
+- **Source conflicts:** different INT disciplines may produce contradictory reporting. Resolving conflicts requires understanding each discipline's collection geometry, processing artifacts, and inherent limitations.
+- **Classification barriers:** compartmentalization of sensitive sources can prevent analysts from accessing all relevant reporting simultaneously.
+- **Timeliness mismatches:** HUMINT reporting may arrive weeks after an event; SIGINT may be near-real-time. Fusing time-stamped data requires careful attention to temporal alignment.
+- **Echo chambers:** when multiple collection streams derive from the same underlying source (a single human asset who reports through multiple channels), apparent corroboration can be illusory.
+:::
+:::
+
+::: {.callout-warning}
+## The Curveball Problem
+One of the most consequential intelligence failures of the post-9/11 era involved a single HUMINT source — codenamed "Curveball" — whose fabricated reporting about Iraqi mobile biological weapons labs was corroborated (incorrectly) by other collection streams and by imagery that was misinterpreted. The case illustrates how all-source fusion is only as strong as source validation and critical evaluation of each underlying thread. See: Jervis, R. (2006). Reports, politics, and intelligence failures: The case of Iraq. *Journal of Strategic Studies*, 29(1), 3–52.
+:::
+
+---
+
+# Part II: Open Data Sources
+
+## Government and Intelligence Sources
+
+The following resources provide publicly accessible data relevant to intelligence analysis:
+
+::: {.col-pair}
+::: {.col-left}
+**Government & IC Transparency**
+
+- [ODNI Intelligence Community Transparency Portal](https://www.intelligence.gov)
+- [FBI Vault](https://vault.fbi.gov)
+- [CIA FOIA Reading Room](https://www.cia.gov/readingroom/)
+- [State Department FOIA Reading Room](https://foia.state.gov)
+- [NSA Cybersecurity Advisories](https://www.nsa.gov/cybersecurity-advisories/)
+:::
+::: {.col-right}
+**Geospatial & Environmental**
+
+- [USGS Earth Explorer](https://earthexplorer.usgs.gov)
+- [NASA Earthdata](https://earthdata.nasa.gov)
+- [NOAA Open Data](https://data.noaa.gov)
+- [Copernicus Open Access Hub](https://scihub.copernicus.eu)
+- [Natural Earth Data](https://www.naturalearthdata.com)
+- [OpenStreetMap](https://www.openstreetmap.org)
+- [Humanitarian OpenStreetMap Team (HOT)](https://www.hotosm.org)
+:::
+:::
+
+::: {.col-pair}
+::: {.col-left}
+**National & International Portals**
+
+- [Data.gov](https://data.gov)
+- [UN Data](https://data.un.org)
+- [World Bank Open Data](https://data.worldbank.org)
+- [OECD Data](https://data.oecd.org)
+- [IMF Data](https://www.imf.org/en/Data)
+- [UNHCR Data Portal](https://data.unhcr.org)
+- [Humanitarian Data Exchange (HDX)](https://data.humdata.org)
+:::
+::: {.col-right}
+**Conflict, Security & Political Risk**
+
+- [Uppsala Conflict Data Program (UCDP)](https://ucdp.uu.se)
+- [Armed Conflict Location & Event Data (ACLED)](https://acleddata.com)
+- [Global Terrorism Database (START/GTD)](https://www.start.umd.edu/gtd/)
+- [SIPRI Military Expenditure Database](https://www.sipri.org/databases/milex)
+- [Correlates of War Project](https://correlatesofwar.org)
+- [PRIO Conflict Data](https://www.prio.org/data/)
+:::
+:::
+
+::: {.col-pair}
+::: {.col-left}
+**Social Media & Event Data**
+
+- [GDELT Project](https://www.gdeltproject.org)
+- [Google Trends](https://trends.google.com)
+- [Reddit Pushshift Dataset](https://pushshift.io)
+
+**Financial & Trade**
+
+- [World Trade Organization (WTO) Data](https://www.wto.org/english/res_e/statis_e/statis_e.htm)
+- [Bureau of Economic Analysis (BEA)](https://www.bea.gov/data)
+- [FRED Economic Data](https://fred.stlouisfed.org)
+- [UN Comtrade Database](https://comtradeplus.un.org)
+:::
+::: {.col-right}
+**Curated OSINT Resources**
+
+- [OSINT Framework](https://osintframework.com)
+- [Bellingcat OSINT Resources](https://www.bellingcat.com/resources/)
+- [Awesome OSINT (GitHub)](https://github.com/jivoi/awesome-osint)
+
+**Academic & Research**
+
+- [Harvard Dataverse](https://dataverse.harvard.edu)
+- [ICPSR](https://www.icpsr.umich.edu)
+- [Pew Research Datasets](https://www.pewresearch.org/tools-and-resources/)
+- [Kaggle Datasets](https://www.kaggle.com/datasets)
+:::
+:::
+
+::: {.callout-warning}
+## Critical Evaluation of Data Sources
+All data sources carry trade-offs. Consider: Who collected the data and why? What is the sampling methodology? When was it last updated? Is coverage complete or are there systematic gaps? Answers to these questions shape how much analytical weight you can place on a particular dataset.
+:::
+
+---
+
+# Part III: Source Credibility and Evaluation
+
+## Why Source Evaluation is a Core Analytic Skill
+
+Collecting data is only the beginning. Before any dataset or document can support an analytical conclusion, it must be evaluated for credibility, reliability, and relevance. This is especially critical in open-source and human intelligence contexts, where the line between accurate reporting, honest error, and deliberate deception is rarely obvious.
+
+::: {.callout-warning}
+## Garbage In, Garbage Out
+The quality of analytical conclusions is bounded by the quality of the underlying data. A sophisticated statistical model fed poor-quality or deliberately manipulated data will produce confidently wrong answers. Source evaluation is not a bureaucratic formality — it is a precondition for sound analysis.
+:::
+
+## The CRAAP Test (Adapted for Intelligence)
+
+::: {.key-terms}
+::: {dl}
+
+Currency
+:   When was the information produced or last updated? Intelligence products are time-sensitive. A report on military force posture from five years ago may not reflect current capabilities. Assess whether the temporal gap between collection and your analytical question materially affects relevance.
+
+Relevance
+:   Does this source actually address your intelligence requirement, or is it tangentially related? Partial relevance is a common pitfall — a source that addresses a neighboring topic can create misleading analytical support if used as evidence for a different claim.
+
+Authority
+:   Who produced this? What is their institutional role, access, and expertise? For human sources: what is the source's position relative to the information they're reporting? For documents: who authored them and in what capacity? For datasets: what methodology was used to generate the data?
+
+Accuracy
+:   Is the information consistent with what you know from other sources? Can it be corroborated? Are claims supported by evidence, or are they assertions? Does the source acknowledge uncertainty, or does it express false confidence?
+
+Purpose
+:   Why was this information produced and disseminated? Propaganda, disinformation, and influence operations produce technically accurate information specifically selected and framed to create false impressions. Ask what the producer gains from you accepting this information as true.
+
+:::
+:::
+
+## Source Types and Their Biases
+
+| Source Type | Common Biases | Evaluation Priority |
+|---|---|---|
+| **Government reports** | Institutional/political framing; selective disclosure | Authorization to release; what is omitted |
+| **News media** | Outlet bias; deadline pressure; access journalism | Who are the named sources? What's the dateline? |
+| **Academic publications** | Publication bias toward significant findings | Methodology section; replication status |
+| **Think tanks / NGOs** | Funding sources may shape conclusions | Funder disclosure; author affiliations |
+| **Social media** | Easy fabrication; bots; coordinated campaigns | Account age; network amplification; original source |
+| **HUMINT reporting** | Source motivation, access, and reliability | Source validation history; corroboration |
+| **Commercial data** | Collection methodology; sampling frames | Terms of service; methodology notes |
+
+## Provenance Tracing
+
+::: {.timeline}
+::: {dl}
+
+Identify the primary source
+:   What is the original document, dataset, or event? A tweet quoting a news article citing a government press release citing an internal report has four layers of potential distortion. Go to the original.
+
+Reverse image search
+:   Images in news coverage are often repurposed from unrelated contexts or fabricated. Google Images, TinEye, and Yandex Image Search can identify prior uses of a photograph.
+
+Geolocation and timestamp verification
+:   Video and photo content can be located and dated using visible landmarks, sun angle, shadow length, and social media metadata. Tools include SunCalc, Google Earth, and Sentinel satellite archives.
+
+Domain and account history
+:   When was the website domain registered? When was the social media account created? Accounts created shortly before they begin amplifying a specific narrative are a red flag.
+
+Cross-reference with known facts
+:   Does the claimed content contradict established facts — weather records, confirmed event timelines, satellite imagery? Contradiction with verifiable data is a strong indicator of fabrication.
+
+:::
+:::
+
+## Large Language Models and the Provenance Problem
+
+The source credibility framework above assumes that a piece of information has a traceable origin — an author, an institution, a methodology, a date. Large language models (LLMs) like GPT-4, Gemini, and Claude break that assumption in ways that create distinct analytical hazards.
+
+### What LLMs Are Trained On
+
+LLMs are trained on massive, heterogeneous text corpora assembled from web crawls, digitized books, code repositories, academic papers, and social media. Common Crawl — a non-profit that regularly scrapes and archives large fractions of the public web — is the backbone of most public training datasets. The Pile (used to train EleutherAI models), C4, and similar datasets each contain hundreds of billions of words from thousands of different sources, quality levels, and time periods.
+
+Several features of these training corpora are directly relevant to source evaluation:
+
+::: {.key-terms}
+::: {dl}
+
+Training data is largely undisclosed
+:   The major commercial LLMs (GPT-4, Gemini, Claude) do not release the full composition of their training data. Statements like "trained on data from the internet through [date]" convey little about what was included, how sources were weighted, how low-quality content was filtered (or not), or what biases were introduced by the collection and curation process. You cannot apply the CRAAP test to a training corpus you cannot examine.
+
+No output can be traced to a specific source
+:   The training process compresses billions of documents into billions of numerical weights. When an LLM generates text, it does not retrieve or quote a specific document — it generates statistically plausible token sequences based on patterns across the entire training corpus. There is no citation trail, no reference to recover, no primary source to verify. An LLM is epistemically opaque in a way that no human expert, published study, or government dataset is.
+
+LLMs hallucinate with confidence
+:   LLMs frequently generate text that is syntactically fluent and contextually plausible but factually incorrect — including fabricated citations with real author names and real journal titles, invented statistics attributed to real organizations, nonexistent court cases cited in legal analysis, and fictional historical events described in confident prose. This is not a bug being patched; it is a structural property of how generative models produce output. The text "sounds right" because it was trained to sound right, not because it is right.
+
+Training data reflects the past
+:   LLMs have a training cutoff date after which they have no knowledge of events. More subtly, the training data overrepresents events that were heavily documented on the internet at collection time — meaning recent events, obscure events, and events from low-resource languages or regions are systematically underrepresented relative to their actual importance.
+
+Synthetic content is contaminating future training data
+:   As AI-generated text floods the internet — articles, social media posts, product reviews, news summaries, analysis pieces — it is being incorporated into the web crawls that will train future models. This creates a feedback loop in which models increasingly train on outputs of prior models rather than on human-produced primary sources. Research on "model collapse" suggests this process degrades factual accuracy over successive training generations. For analysts relying on OSINT from current web content, the increasing prevalence of AI-generated text in the open-source environment is a genuine data quality problem.
+
+:::
+:::
+
+### Why This Matters for Intelligence Analysis
+
+::: {.callout-warning}
+## LLM Output Is Not a Source
+
+LLM output cannot be cited as a source in any intelligence product or analytical deliverable. It is not a primary source (it was not at the event), not a secondary source (it does not reliably trace to primary documents), and not a tertiary source (its synthesis is not subject to editorial accountability or fact-checking). It is synthetic text that mimics the surface appearance of sourced analysis.
+
+Using LLM output as evidence — even as a convenience summary of "what is known" — introduces unverifiable, potentially fabricated content into your analytical chain without any mechanism to detect the error. This is the exact failure mode that source evaluation is designed to prevent.
+:::
+
+The correct role for LLMs in analytical work is as a drafting, structuring, and synthesis aid — not as a data source. When you use an LLM to help draft a report, summarize a document you have already read, or suggest an organizational structure, you are using it as a writing tool. The underlying claims in that report must still be sourced to verifiable primary or secondary documents that you can evaluate using the CRAAP test and provenance tracing methods above.
+
+::: {.callout-note}
+## The "Dead Internet" Problem for OSINT
+
+Increasingly, OSINT collection from the open web encounters AI-generated content that was designed to appear authoritative — fake news articles with invented statistics, synthetic social media personas amplifying fabricated narratives, AI-generated academic-looking papers on disinformation-seeding platforms. The skills covered in Provenance Tracing are specifically required for identifying this material: trace to the original publisher, check domain registration dates, reverse-search images, cross-reference claims against verifiable facts. The ease with which LLMs produce plausible-sounding text has dramatically raised the prior probability that any given online "source" may be synthetic.
+:::
+
+---
+
+# Part IV: Data Collection Strategies
+
+## No Single Best Approach
+
+Data collection is not a mechanical step—it requires deliberate decisions shaped by your analytical question, available resources, and the nature of the phenomena you are studying. There is no universally superior collection method. The appropriate choice depends on:
+
+- **What you need to know:** Are you seeking numerical patterns or human explanations?
+- **Where the data reside:** In databases? In people's minds? In physical environments?
+- **Available resources and time:** Full census vs. rapid sample; automated vs. manual collection
+- **Complexity of the data:** How many variables? What measurement challenges exist?
+- **Frequency:** One-time collection or ongoing monitoring?
+- **Intended analysis:** The analytical method constrains and is constrained by the data structure
+
+## Rules for Data Collection
+
+::: {.callout-warning}
+## Foundational Principles
+1. **Use multiple collection methods** — triangulation across methods reduces blind spots and increases confidence
+2. **When using existing data, understand its provenance** — how were measures defined? How was data collected and cleaned? What is the extent of missing data? How was accuracy ensured?
+3. **Know when enough is enough** — the marginal value of additional data collection decreases; at some point, collecting more data is less valuable than analyzing what you have
+:::
+
+---
+
+# Part V: Data Collection Methods
+
+## Records and Secondary Data
+
+Secondary data refers to data that was collected originally for a different purpose and is being reused for a new analytical question. This is the most common data type in intelligence analysis.
+
+**Sources:**
+
+ - Administrative files and records (government databases, organizational archives)
+ - Prior research and evaluations
+ - Census data and household surveys
+ - Industry and government reports
+ - Electronic mailing lists and discussion archives
+ - Documents: budgets, organizational charts, policy documents, maps, monitoring reports
+ - News archives and broadcast records
+
+**Advantages:** already collected, often large-N, frequently longitudinal, no collection cost.
+
+**Key pitfalls when using secondary data:**
+
+::: {.callout-warning}
+## Critical Questions for Secondary Data
+1. Who collected it and for what purpose? Collection purpose can introduce systematic bias.
+2. What was the sampling frame? Who was included and excluded, and why?
+3. How were key concepts operationalized? "Conflict," "democracy," "poverty" are defined differently across datasets.
+4. What is the coverage period? Does it include the timeframe relevant to your question?
+5. Are there known data quality issues documented by the original collectors?
+:::
+
+## Observation
+
+Direct observation involves the analyst (or sensors) watching and recording what is happening in real or near-real time, without asking participants.
+
+**What can be observed:**
+- Traffic and movement patterns (vehicles, vessels, pedestrians)
+- Land use changes and urban development
+- Physical conditions of infrastructure (roads, buildings, facilities)
+- Patterns of life at specific locations
+- Who attends a health clinic, a rally, or a border crossing
+
+**Relevance to GEOINT and HUMINT:** satellite imagery change detection and pattern-of-life analysis are systematic forms of observation. Traditional surveillance is observational. Neither relies on self-report.
+
+**Limitation:** observation records *behavior*, not *intentions*. You can observe that a vehicle moved from Location A to Location B; you cannot observe why it moved.
+
+## Surveys and Interviews
+
+Surveys and interviews are particularly suited for collecting *perceptions, opinions, and self-reported attitudes*—data that cannot be directly observed.
+
+::: {.col-pair}
+::: {.col-left}
+**Surveys (Structured)**
+
+- Standardized questions, fixed response options
+- Large-N, statistically representative samples possible
+- Quantitative output; amenable to regression and other modeling
+- Limitation: less accurate for sensitive behaviors (social desirability bias); non-response bias when participation is uneven
+:::
+::: {.col-right}
+**Interviews (Qualitative)**
+
+- Open-ended or semi-structured questions
+- Rich, contextual data; captures reasoning and nuance
+- Sample is typically purposive, not random
+- Limitation: hard to generalize; time-intensive; interviewer effects possible
+:::
+:::
+
+::: {.callout-note}
+## Surveys in Intelligence Analysis
+Survey data enters intelligence analysis in several ways: public opinion polling, foreign media analysis, refugee debriefings, and structured elicitation of subject-matter experts (e.g., structured analytic techniques). In all cases, the representativeness and response honesty of the sample are critical validity concerns.
+:::
+
+## Expert Judgment
+
+Expert elicitation involves systematically collecting judgments from domain experts—country specialists, scientists, military planners—about uncertain quantities or probabilities.
+
+**Applications:** estimating missile range from technical specifications; forecasting election outcomes; assessing probability of conflict escalation.
+
+**Structured methods:** Delphi technique (iterative rounds to converge expert opinion), structured analytic techniques, prediction markets.
+
+**Caution:** experts are subject to anchoring, overconfidence, and groupthink. Structured elicitation methods exist precisely to mitigate these biases.
+
+---
+
+# Part VI: Evaluating Internet Data
+
+When collecting data from online sources, apply the following criteria:
+
+::: {.key-terms}
+::: {dl}
+
+Sourcing
+:   Who is the original publisher? What is the institutional affiliation? Is the organization transparent about its funding and methodology?
+
+Codebook / Methodology
+:   For structured datasets, is there documentation of how variables were defined and data was collected? Without a codebook, you cannot replicate or validate the data.
+
+Purpose / Intended Audience
+:   Was this data collected to inform policy, sell advertising, advocate a position, or manipulate perception? Purpose shapes what gets measured and how.
+
+Authorship
+:   Who wrote or compiled this? What are their credentials and potential biases?
+
+Accuracy / Reliability
+:   Is there corroborating data from independent sources? Has this dataset been used and cited in peer-reviewed work?
+
+Objectivity
+:   Is the collection and presentation methodology neutral, or does the framing of the data reflect a partisan or advocacy orientation?
+
+:::
+:::
+
+---
+
+# Part VII: The "Dark Figure" Problem
+
+## What Data Systematically Cannot Capture
+
+The **dark figure** — a concept originating in criminology — refers to the portion of a phenomenon that is systematically unobserved and unrecorded, not by accident but because of structural features of how data is collected.
+
+### The Original Problem: Crime Statistics
+
+Official crime statistics count *reported* crimes, *arrests*, and *convictions*. None of these is the same as crimes committed. Studies using victimization surveys consistently find that a substantial fraction of crimes — especially sexual assault, domestic violence, and financial fraud — are never reported to law enforcement. The FBI's Uniform Crime Reports (UCR), long considered the definitive U.S. crime database, capture only crimes that victims reported to local police departments that participated in voluntary reporting. The dark figure for murder is small (bodies are hard to hide); the dark figure for assault is large.
+
+### Dark Figures in Intelligence-Relevant Domains
+
+| Domain | What Is Counted | What Is Not Counted | Why the Gap Exists |
+|---|---|---|---|
+| Conflict fatalities | Deaths documented by media, NGOs, or governments | Deaths in inaccessible areas, unreported combatant deaths, deaths attributed to disease caused by conflict | Journalists cannot access active front lines; governments suppress casualties |
+| Cyber incidents | Breaches disclosed publicly or to regulators | Breaches concealed by victim organizations; state-on-state intrusions | Disclosure is costly; state operations are classified |
+| WMD proliferation | Known transfers, detected smuggling | Successful concealment by state programs | By definition, what is detected is the detected portion only |
+| Terrorist attacks | Incidents claimed or documented | Failed attacks, disrupted plots, attacks attributed to accidents | Operational security by actors; government classification |
+| Economic data | GDP, trade, employment statistics | Shadow economy, barter, unreported income, illicit flows | Informal sectors are unregistered by design |
+
+::: {.callout-note}
+## Methodological Implication
+A dataset's geographic and temporal coverage tells you where and when data collection was *attempted*. It does not tell you where *events occurred*. Studies that treat the absence of data as the absence of events will systematically undercount activity in exactly the areas where collection was most difficult — which are frequently the most analytically interesting areas.
+:::
+
+---
+
+
+# Suggested Readings
+
+*All readings are journal or news articles.*
+
+Omand, D., Bartlett, J., & Miller, C. (2012). Introducing social media intelligence (SOCMINT). *Intelligence and National Security*, *27*(6), 801–823. <https://doi.org/10.1080/02684527.2012.716965>
+
+> Introduces social media as a collection discipline, addresses legal and ethical constraints, and proposes an analytical framework. Directly relevant to both the OSINT content and the source evaluation section of this lecture.
+
+Glassman, M., & Kang, M. J. (2012). Intelligence in the internet age: The emergence and evolution of open source intelligence (OSINT). *Computers in Human Behavior*, *28*(2), 673–682. <https://doi.org/10.1016/j.chb.2011.11.014>
+
+> Examines how the internet has transformed OSINT collection — both the opportunities (vastly more accessible information) and the challenges (volume, verification, adversarial manipulation).
+
+Metzger, M. J. (2007). Making sense of credibility on the web: Models for evaluating online information and recommendations for future research. *Journal of the American Society for Information Science and Technology*, *58*(13), 2078–2091. <https://doi.org/10.1002/asi.20672>
+
+> Synthesizes research on how people evaluate the credibility of online information. Directly applicable to the source credibility and internet data evaluation content in this lecture.
+
+Loftin, C., Wiersema, B., McDowall, D., & Dobrin, A. (2003). Underreporting of justifiable homicides committed by police officers in the United States, 1976–1998. *American Journal of Public Health*, *93*(7), 1117–1121. <https://doi.org/10.2105/ajph.93.7.1117>
+
+> Empirical documentation of the dark figure problem in an authoritative official data series. The methodology — comparing official records to alternative sources to estimate the gap — is transferable to conflict, security, and economic data.

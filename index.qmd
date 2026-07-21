@@ -1,0 +1,43 @@
+---
+title: "IA 240: Technology Applications in a Networked World"
+author: "Professor Philip Baxter, Intelligence Analysis Program, James Madison University"
+---
+
+# Welcome to the course website for IA 240: Technology Applications in a Networked World
+
+In this course, students are introduced to a broad array of technical concepts and applications, such as data structure, databases, statistical models, and computational tools, that apply and advance their analytical skills. They will gain an appreciation of the technical analysis landscape, models, and best practices in exploring and assessing a variety of data types. This hands-on course supports the development of working technical knowledge in accessing, evaluating, modeling, and analyzing information and data for problem-solving. 
+
+## Course Goals
+
+Upon completion of this course, students are expected to:
+
+- Differentiate between types of data, how they are collected, and how they can be used in effectively in different analytical models
+- Develop a research plan to address a strategic intelligence question 
+- Demonstrate understanding of application in and interpretation of hypothesis testing, probabilities, and statistical analysis. 
+- Demonstrate understanding of best practices in visualizing data
+- Explain how quantitative data and technology methods are helpful for: establishing situational awareness, explaining causality, estimating future probabilities, and communicating analysis
+- Clarify the theoretical foundations of quantitative methods, the purposes of those methods, and their limitations
+- Identify and explain the role of technology in the intelligence cycle
+
+## Weekly Materials
+
+This course is organized into weekly modules, each containing lecture materials, readings, and assignments. The following links will take you to the respective week's materials. Please note that the course is designed to be completed sequentially, and it is recommended to follow the order of the weeks for optimal learning.
+
+- [Week 1](/Week1/index.qmd) - Course Introduction & Technology and the Intelligence Cycle
+- [Week 2](/Week2/index.qmd) - Data Types, Sources, and Collection Methods
+- [Week 3](/Week3/index.qmd) - Introduction to Data Science and the Analytical Workflow
+- [Week 4](/Week4/index.qmd) - Research Design and Finding Data
+- [Week 5](/Week5/index.qmd) - Probability and Uncertainty in Analysis
+- [Week 6](/Week6/index.qmd) - Data Structures, Databases, and Computational Tools
+- [Week 7](/Week7/index.qmd) - Descriptive Statistics, EDA, and Hypothesis Testing | Fall Break 
+- [Week 8](/Week8/index.qmd) - Data Modeling: Regression and Model Evaluation
+- [Week 9](/Week9/index.qmd) - Machine Learning and Natural Language Processing
+- [Week 10](/Week10/index.qmd) - Systems Thinking and Agent-Based Modeling
+- [Week 11](/Week11/index.qmd) - Social Network Analysis
+- [Week 12](/Week12/index.qmd) - Geospatial and GEOINT Analysis
+- [Week 13](/Week13/index.qmd) - Principles of Data Visualization
+- Week 14 - Thanksgiving Break
+- [Week 15](/Week15/index.qmd) - Communicating Analysis
+- Week 16 - Project Presentations
+- Finals Week - Project Wrap-Up and Submission
+

@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Week 12: Geospatial and GEOINT Analysis – IA 240: Technology Applications in a Networked World</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-d6fbb5bfb24a4f1906c428146fc3bdde.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-372172bdf95b76f2693523edf8cf275f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">IA 240: Technology Applications in a Networked World</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-weekly-materials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Weekly Materials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-weekly-materials">    
+        <li>
+    <a class="dropdown-item" href="../Week1/index.html">
+ <span class="dropdown-text">Week 1: Technology and the Intelligence Cycle</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week2/index.html">
+ <span class="dropdown-text">Week 2: Data Types, Sources, and Collection Methods</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week3/index.html">
+ <span class="dropdown-text">Week 3: Introduction to Data Science and the Analytical Workflow</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week4/index.html">
+ <span class="dropdown-text">Week 4: Research Design and Finding Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week5/index.html">
+ <span class="dropdown-text">Week 5: Probability and Uncertainty in Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week6/index.html">
+ <span class="dropdown-text">Week 6: Data Structures, Databases, and Computational Tools</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week7/index.html">
+ <span class="dropdown-text">Week 7: Descriptive Statistics, EDA, and Hypothesis Testing (and Fall Break!)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week8/index.html">
+ <span class="dropdown-text">Week 8: Data Modeling: Regression and Model Evaluation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week9/index.html">
+ <span class="dropdown-text">Week 9: Machine Learning and Natural Language Processing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week10/index.html">
+ <span class="dropdown-text">Week 10: Systems Thinking and Agent-Based Modeling</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week11/index.html">
+ <span class="dropdown-text">Week 11: Social Network Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week12/index.html">
+ <span class="dropdown-text">Week 12: Geospatial and GEOINT Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week13/index.html">
+ <span class="dropdown-text">Week 13: Principles of Data Visualization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week15/index.html">
+ <span class="dropdown-text">Week 15: Communicating Analysis</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#part-i-what-is-geoint" id="toc-part-i-what-is-geoint" class="nav-link active" data-scroll-target="#part-i-what-is-geoint">Part I: What is GEOINT?</a>
+  <ul class="collapse">
+  <li><a href="#defining-geospatial-intelligence" id="toc-defining-geospatial-intelligence" class="nav-link" data-scroll-target="#defining-geospatial-intelligence">Defining Geospatial Intelligence</a></li>
+  </ul></li>
+  <li><a href="#part-ii-imagery-analysis" id="toc-part-ii-imagery-analysis" class="nav-link" data-scroll-target="#part-ii-imagery-analysis">Part II: Imagery Analysis</a>
+  <ul class="collapse">
+  <li><a href="#what-imagery-analysis-involves" id="toc-what-imagery-analysis-involves" class="nav-link" data-scroll-target="#what-imagery-analysis-involves">What Imagery Analysis Involves</a></li>
+  </ul></li>
+  <li><a href="#part-iii-geographic-information-systems-gis" id="toc-part-iii-geographic-information-systems-gis" class="nav-link" data-scroll-target="#part-iii-geographic-information-systems-gis">Part III: Geographic Information Systems (GIS)</a>
+  <ul class="collapse">
+  <li><a href="#what-is-gis" id="toc-what-is-gis" class="nav-link" data-scroll-target="#what-is-gis">What is GIS?</a></li>
+  </ul></li>
+  <li><a href="#part-iv-a-process-for-imagery-interpretation" id="toc-part-iv-a-process-for-imagery-interpretation" class="nav-link" data-scroll-target="#part-iv-a-process-for-imagery-interpretation">Part IV: A Process for Imagery Interpretation</a>
+  <ul class="collapse">
+  <li><a href="#analytical-methodology" id="toc-analytical-methodology" class="nav-link" data-scroll-target="#analytical-methodology">Analytical Methodology</a></li>
+  </ul></li>
+  <li><a href="#part-v-case-study-pakistans-khushab-reactors" id="toc-part-v-case-study-pakistans-khushab-reactors" class="nav-link" data-scroll-target="#part-v-case-study-pakistans-khushab-reactors">Part V: Case Study — Pakistan’s Khushab Reactors</a>
+  <ul class="collapse">
+  <li><a href="#assessing-nuclear-capability-from-satellite-imagery" id="toc-assessing-nuclear-capability-from-satellite-imagery" class="nav-link" data-scroll-target="#assessing-nuclear-capability-from-satellite-imagery">Assessing Nuclear Capability from Satellite Imagery</a></li>
+  </ul></li>
+  <li><a href="#part-vi-spatial-analysis-tools" id="toc-part-vi-spatial-analysis-tools" class="nav-link" data-scroll-target="#part-vi-spatial-analysis-tools">Part VI: Spatial Analysis Tools</a>
+  <ul class="collapse">
+  <li><a href="#analysis-tools-in-gis" id="toc-analysis-tools-in-gis" class="nav-link" data-scroll-target="#analysis-tools-in-gis">Analysis Tools in GIS</a></li>
+  <li><a href="#spatial-statistics-tools" id="toc-spatial-statistics-tools" class="nav-link" data-scroll-target="#spatial-statistics-tools">Spatial Statistics Tools</a></li>
+  </ul></li>
+  <li><a href="#part-vii-applications" id="toc-part-vii-applications" class="nav-link" data-scroll-target="#part-vii-applications">Part VII: Applications</a></li>
+  <li><a href="#part-viii-geolocation-activity" id="toc-part-viii-geolocation-activity" class="nav-link" data-scroll-target="#part-viii-geolocation-activity">Part VIII: Geolocation Activity</a>
+  <ul class="collapse">
+  <li><a href="#activity-i-image-geolocation" id="toc-activity-i-image-geolocation" class="nav-link" data-scroll-target="#activity-i-image-geolocation">Activity I — Image Geolocation</a></li>
+  <li><a href="#activity-ii-jmu-campus-facility-analysis" id="toc-activity-ii-jmu-campus-facility-analysis" class="nav-link" data-scroll-target="#activity-ii-jmu-campus-facility-analysis">Activity II — JMU Campus Facility Analysis</a></li>
+  </ul></li>
+  <li><a href="#part-x-the-commercial-satellite-revolution" id="toc-part-x-the-commercial-satellite-revolution" class="nav-link" data-scroll-target="#part-x-the-commercial-satellite-revolution">Part X: The Commercial Satellite Revolution</a>
+  <ul class="collapse">
+  <li><a href="#from-classified-to-open-geoint-goes-democratic" id="toc-from-classified-to-open-geoint-goes-democratic" class="nav-link" data-scroll-target="#from-classified-to-open-geoint-goes-democratic">From Classified to Open: GEOINT Goes Democratic</a></li>
+  <li><a href="#what-commercial-geoint-has-enabled-open-source-intelligence-operations" id="toc-what-commercial-geoint-has-enabled-open-source-intelligence-operations" class="nav-link" data-scroll-target="#what-commercial-geoint-has-enabled-open-source-intelligence-operations">What Commercial GEOINT Has Enabled: Open-Source Intelligence Operations</a></li>
+  </ul></li>
+  <li><a href="#part-xi-real-world-case-studies" id="toc-part-xi-real-world-case-studies" class="nav-link" data-scroll-target="#part-xi-real-world-case-studies">Part XI: Real-World Case Studies</a>
+  <ul class="collapse">
+  <li><a href="#case-1-xinjiang-detention-facilities-open-source-geoint-at-scale" id="toc-case-1-xinjiang-detention-facilities-open-source-geoint-at-scale" class="nav-link" data-scroll-target="#case-1-xinjiang-detention-facilities-open-source-geoint-at-scale">Case 1: Xinjiang Detention Facilities — Open-Source GEOINT at Scale</a></li>
+  <li><a href="#case-2-russian-military-buildup-202122" id="toc-case-2-russian-military-buildup-202122" class="nav-link" data-scroll-target="#case-2-russian-military-buildup-202122">Case 2: Russian Military Buildup 2021–22</a></li>
+  <li><a href="#case-3-monitoring-north-koreas-nuclear-and-missile-programs-38-north" id="toc-case-3-monitoring-north-koreas-nuclear-and-missile-programs-38-north" class="nav-link" data-scroll-target="#case-3-monitoring-north-koreas-nuclear-and-missile-programs-38-north">Case 3: Monitoring North Korea’s Nuclear and Missile Programs — 38 North</a></li>
+  </ul></li>
+  <li><a href="#part-xii-counter-geoint-and-denial-and-deception" id="toc-part-xii-counter-geoint-and-denial-and-deception" class="nav-link" data-scroll-target="#part-xii-counter-geoint-and-denial-and-deception">Part XII: Counter-GEOINT and Denial and Deception</a>
+  <ul class="collapse">
+  <li><a href="#adversary-countermeasures-to-overhead-imagery" id="toc-adversary-countermeasures-to-overhead-imagery" class="nav-link" data-scroll-target="#adversary-countermeasures-to-overhead-imagery">Adversary Countermeasures to Overhead Imagery</a></li>
+  </ul></li>
+  <li><a href="#suggested-readings" id="toc-suggested-readings" class="nav-link" data-scroll-target="#suggested-readings">Suggested Readings</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Week 12: Geospatial and GEOINT Analysis</h1>
+<p class="subtitle lead">IA 240: Technology Applications in a Networked World</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Geospatial intelligence (GEOINT) integrates imagery analysis, geographic information systems (GIS), and spatial statistics to produce intelligence from the physical world. The commercialization of satellite imagery has simultaneously democratized GEOINT and raised new questions about open-source collection, verification, and the limits of overhead analysis. This lecture covers imagery interpretation methodology, GIS tools, spatial statistical methods, and the major contemporary applications and case studies.</p>
+<section id="part-i-what-is-geoint" class="level1">
+<h1>Part I: What is GEOINT?</h1>
+<section id="defining-geospatial-intelligence" class="level2">
+<h2 class="anchored" data-anchor-id="defining-geospatial-intelligence">Defining Geospatial Intelligence</h2>
+<p><strong>GEOINT</strong> is the process of collecting, analyzing, and using geospatial information to produce intelligence products. It integrates imagery, geospatial data, and analytic techniques to generate actionable insights that help decision-makers understand and monitor physical locations, activities, and patterns on Earth.</p>
+<p>GEOINT rests on three pillars:</p>
+<div class="col-pair">
+<div class="col-left">
+<p><strong>Imagery</strong></p>
+<p>Visual data from satellites, drones, manned aircraft, and ground-based sensors that capture the Earth’s surface and activities on it. Includes electro-optical (EO), infrared (IR), multispectral, hyperspectral, and radar imagery.</p>
+<p><strong>Geospatial Data</strong></p>
+<p>Geographic information about natural and man-made features and their spatial relationships: maps, terrain elevation models, road networks, population distributions, administrative boundaries.</p>
+</div>
+<div class="col-right">
+<p><strong>Analytic Processes</strong></p>
+<p>Methods for interpreting imagery and geospatial data to produce intelligence products. This encompasses imagery analysis, spatial statistics, change detection, pattern recognition, and predictive modeling.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>GEOINT ≠ IMINT
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>IMINT refers specifically to imagery exploitation. GEOINT is a broader discipline that <em>includes</em> IMINT but also incorporates geospatial data, GIS analysis, and spatial modeling. GIS <em>enables</em> GEOINT; GEOINT is not GIS.</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-ii-imagery-analysis" class="level1">
+<h1>Part II: Imagery Analysis</h1>
+<section id="what-imagery-analysis-involves" class="level2">
+<h2 class="anchored" data-anchor-id="what-imagery-analysis-involves">What Imagery Analysis Involves</h2>
+<p>Imagery analysis is the systematic examination of visual data—satellite photographs, aerial imagery, radar returns—to extract intelligence. Key tasks:</p>
+<div class="key-terms">
+<div class="{dl}">
+<dl>
+<dt>Feature Identification</dt>
+<dd>
+Recognizing and locating specific objects or phenomena within an image: buildings, vehicles, vessels, infrastructure, vegetation type. Requires knowledge of the appearance of objects at different resolutions, angles, and seasons.
+</dd>
+<dt>Change Detection</dt>
+<dd>
+Comparing imagery from different time periods to identify what has changed: new construction, deforestation, movement of military equipment, changes in irrigation patterns. Change detection is the foundation of monitoring programs.
+</dd>
+<dt>Pattern Recognition</dt>
+<dd>
+Identifying regular, recurring formations or activities that suggest systematic behavior. Examples: distinguishing legitimate fishing fleets from illegal, unreported, and unregulated (IUU) fishing by vessel pattern and transponder behavior; identifying industrial waste dumping from drainage patterns.
+</dd>
+<dt>Spectral Analysis</dt>
+<dd>
+Evaluating the reflectance or emission properties of surface features across multiple wavelength bands (multispectral/hyperspectral). Healthy vegetation has a distinctive spectral signature that differs from stressed vegetation, bare soil, or water—enabling discrimination invisible to the naked eye.
+</dd>
+<dt>Photogrammetry and Measurement</dt>
+<dd>
+Using the geometry of imagery to derive metric information: building heights from shadow lengths, storage tank capacity from diameter and roof height, vehicle dimensions for type identification.
+</dd>
+</dl>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-iii-geographic-information-systems-gis" class="level1">
+<h1>Part III: Geographic Information Systems (GIS)</h1>
+<section id="what-is-gis" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-gis">What is GIS?</h2>
+<p>A <strong>Geographic Information System</strong> is a framework for capturing, managing, analyzing, and displaying all forms of geographically referenced information. GIS enables analysts to:</p>
+<ul>
+<li>Integrate layers of spatial data (terrain, infrastructure, population, weather)</li>
+<li>Perform spatial queries: “Show all facilities within 50km of this border crossing”</li>
+<li>Apply statistical analysis to spatially distributed data</li>
+<li>Produce maps, models, and visualizations that communicate spatial patterns</li>
+</ul>
+<p>GIS enables GEOINT; GEOINT is not reducible to GIS.</p>
+<p><strong>Broad applications:</strong> urban planning, environmental monitoring, transportation, public health (disease mapping), agriculture (precision farming), disaster management, and military operations.</p>
+<hr>
+</section>
+</section>
+<section id="part-iv-a-process-for-imagery-interpretation" class="level1">
+<h1>Part IV: A Process for Imagery Interpretation</h1>
+<section id="analytical-methodology" class="level2">
+<h2 class="anchored" data-anchor-id="analytical-methodology">Analytical Methodology</h2>
+<p>The following steps describe a rigorous approach to imagery interpretation—applicable to satellite imagery, aerial photographs, or any visual intelligence product:</p>
+<div class="timeline">
+<div class="{dl}">
+<dl>
+<dt>Step 1: Where do I look?</dt>
+<dd>
+Establish the geographic area of interest (AOI) based on the analytical question. Determine relevant spatial context: what should be nearby if the hypothesis is correct? Reference maps, prior imagery, and geospatial data to orient yourself.
+</dd>
+<dt>Step 2: What am I looking at?</dt>
+<dd>
+Initial assessment of the scene. Identify land cover types, infrastructure, and major features. Establish what is expected to be present based on geospatial context and prior knowledge.
+</dd>
+<dt>Step 3: Look closely at details</dt>
+<dd>
+Zoom in systematically. Small details—vehicle tracks, construction debris, new fencing, temporary structures, exhaust stains—often carry more intelligence value than large-scale features. Resist the tendency to categorize quickly.
+</dd>
+<dt>Step 4: Look at developments over time</dt>
+<dd>
+Compare current imagery with historical imagery. What has changed? When did it change? The <em>rate</em> of change can be as informative as the change itself. Rapid construction often signals urgency.
+</dd>
+<dt>Step 5: Apply measurement and technical techniques</dt>
+<dd>
+Measure structures, shadows, vehicles, and infrastructure using photogrammetric methods. Measure storage capacity. Apply spectral analysis if multispectral data is available.
+</dd>
+<dt>Step 6: Look at what <em>should</em> be there</dt>
+<dd>
+If this is what you think it is, what else should you expect to see? A plutonium production reactor requires cooling water, electrical power, ventilation, security infrastructure, and transportation access. Absence of expected features is evidence too.
+</dd>
+<dt>Step 7: Investigate what you don’t know</dt>
+<dd>
+Research technical specifications, construction standards, and comparable facilities. Consult domain experts. Use open-source references to understand what you are looking at.
+</dd>
+<dt>Step 8: Validate with other evidence</dt>
+<dd>
+No imagery finding should stand alone. Cross-check with SIGINT, HUMINT, OSINT, and other GEOINT to confirm or challenge the interpretation.
+</dd>
+<dt>Step 9: Confirm with others</dt>
+<dd>
+Have a colleague examine the same imagery independently. Seek review from technical specialists when the interpretation requires specialized knowledge. Document dissenting views.
+</dd>
+</dl>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-v-case-study-pakistans-khushab-reactors" class="level1">
+<h1>Part V: Case Study — Pakistan’s Khushab Reactors</h1>
+<section id="assessing-nuclear-capability-from-satellite-imagery" class="level2">
+<h2 class="anchored" data-anchor-id="assessing-nuclear-capability-from-satellite-imagery">Assessing Nuclear Capability from Satellite Imagery</h2>
+<p>One of the more challenging tasks in GEOINT is assessing the <em>capacity</em> of facilities whose function cannot be directly observed. A notable example: estimating the plutonium production capability of Pakistan’s Khushab reactor complex.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p><strong>The challenge:</strong> Experts disagreed sharply on reactor capacity, with estimates ranging from 40 MWt to 1,000 MWt. The range was so wide as to render policy conclusions nearly meaningless.</p>
+<p><strong>The approach:</strong> Patton used satellite imagery of the cooling towers combined with 3D facility modeling and thermodynamic principles. Cooling tower dimensions constrain the heat load they can dissipate, which is directly related to reactor thermal output.</p>
+<p><strong>The findings:</strong> - Khushab II: estimated at 58–73 MWt - Khushab III: estimated at 72–90 MWt</p>
+<p>These estimates dramatically narrowed the policy-relevant uncertainty range using only open-source imagery and physics-based reasoning—no classified collection required.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Key Principle: Facility Modeling
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Physical constraints impose limits on what a facility can be or do. A cooling tower of given dimensions cannot dissipate more than a certain heat load. A storage tank of given dimensions cannot hold more than a certain volume. Building dimensions constrain interpretations. This is the logic of facility modeling: use what you can measure to constrain what you cannot observe directly.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-vi-spatial-analysis-tools" class="level1">
+<h1>Part VI: Spatial Analysis Tools</h1>
+<section id="analysis-tools-in-gis" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-tools-in-gis">Analysis Tools in GIS</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tool Category</th>
+<th>Tool</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Overlay</strong></td>
+<td>Buffer</td>
+<td>Creates zone polygons at specified distances around features</td>
+</tr>
+<tr class="even">
+<td><strong>Overlay</strong></td>
+<td>Clip</td>
+<td>Extracts features within another layer’s boundary</td>
+</tr>
+<tr class="odd">
+<td><strong>Overlay</strong></td>
+<td>Intersect</td>
+<td>Identifies where features from multiple layers overlap</td>
+</tr>
+<tr class="even">
+<td><strong>Overlay</strong></td>
+<td>Union</td>
+<td>Combines spatial and attribute data from two layers</td>
+</tr>
+<tr class="odd">
+<td><strong>Overlay</strong></td>
+<td>Spatial Join</td>
+<td>Joins attributes based on spatial relationship</td>
+</tr>
+<tr class="even">
+<td><strong>Proximity</strong></td>
+<td>Near</td>
+<td>Identifies nearest feature and computes distance</td>
+</tr>
+<tr class="odd">
+<td><strong>Proximity</strong></td>
+<td>Generate Near Table</td>
+<td>Describes distances between all features and their nearest neighbors</td>
+</tr>
+<tr class="even">
+<td><strong>Surface</strong></td>
+<td>Slope / Aspect</td>
+<td>Gradient and direction of steepest descent</td>
+</tr>
+<tr class="odd">
+<td><strong>Surface</strong></td>
+<td>Hillshade</td>
+<td>Shaded relief from a surface raster</td>
+</tr>
+<tr class="even">
+<td><strong>Distance</strong></td>
+<td>Euclidean Distance</td>
+<td>Straight-line distance from each cell to nearest source</td>
+</tr>
+<tr class="odd">
+<td><strong>Distance</strong></td>
+<td>Cost Distance</td>
+<td>Least-cost path considering friction surface</td>
+</tr>
+<tr class="even">
+<td><strong>Extraction</strong></td>
+<td>Extract by Mask</td>
+<td>Extracts raster cells within a polygon boundary</td>
+</tr>
+<tr class="odd">
+<td><strong>Hydrology</strong></td>
+<td>Flow Direction / Watershed</td>
+<td>Models water flow and catchment areas</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="spatial-statistics-tools" class="level2">
+<h2 class="anchored" data-anchor-id="spatial-statistics-tools">Spatial Statistics Tools</h2>
+<p><strong>Pattern Analysis:</strong></p>
+<ul>
+<li><p><strong>Hot Spot Analysis (Getis-Ord Gi*):</strong> Identifies statistically significant clusters of high values (hot spots) and low values (cold spots). For each feature, computes a Z-score comparing its value and its neighbors’ values to the global mean. Applications: IED emplacement patterns, conflict event clustering, disease outbreak mapping.</p></li>
+<li><p><strong>Cluster and Outlier Analysis (Anselin Local Moran’s I):</strong> Categorizes each feature into one of five spatial relationship types: High-High (HH), Low-Low (LL), High-Low (HL), Low-High (LH), or Not Significant. Useful for identifying anomalous features embedded in otherwise uniform landscapes.</p></li>
+<li><p><strong>Kernel Density:</strong> Estimates the density of point features across a continuous surface, producing a smooth density raster. Applications: visualizing concentration of activity in an operational area.</p></li>
+</ul>
+<p><strong>Spatial Autocorrelation:</strong></p>
+<ul>
+<li><strong>Global Moran’s I:</strong> Tests whether similar values cluster spatially across the entire dataset (positive autocorrelation) or are dispersed (negative autocorrelation). A prerequisite check before many spatial statistical analyses.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="part-vii-applications" class="level1">
+<h1>Part VII: Applications</h1>
+<div class="col-pair">
+<div class="col-left">
+<p><strong>Military and Security</strong></p>
+<ul>
+<li>Target identification and Battle Damage Assessment (BDA)</li>
+<li>Maritime domain awareness and vessel tracking</li>
+<li>Border security monitoring and pattern of life analysis</li>
+<li>Force positioning and logistics route assessment</li>
+</ul>
+<p><strong>Humanitarian Assistance and Disaster Response (HADR)</strong></p>
+<ul>
+<li>Post-disaster damage assessment (earthquake, flood, conflict)</li>
+<li>Population displacement tracking</li>
+<li>Resource allocation and evacuation route planning</li>
+<li>Refugee camp site selection and management</li>
+</ul>
+</div>
+<div class="col-right">
+<p><strong>Proliferation and Arms Control Monitoring</strong></p>
+<ul>
+<li>Facility construction tracking (centrifuge halls, missile assembly)</li>
+<li>Change detection at nuclear and chemical sites</li>
+<li>Missile test monitoring and trajectory analysis</li>
+<li>Naval vessel counts and classification</li>
+</ul>
+<p><strong>Environmental and Climate Intelligence</strong></p>
+<ul>
+<li>Deforestation and land cover change (drivers of instability)</li>
+<li>Glacier and ice sheet retreat (freshwater security implications)</li>
+<li>Agricultural productivity monitoring (food security)</li>
+<li>Air quality and pollution source attribution</li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+<section id="part-viii-geolocation-activity" class="level1">
+<h1>Part VIII: Geolocation Activity</h1>
+<section id="activity-i-image-geolocation" class="level2">
+<h2 class="anchored" data-anchor-id="activity-i-image-geolocation">Activity I — Image Geolocation</h2>
+<p>Examine a provided image. Working in groups, identify <strong>five pieces of evidence</strong> that could help determine where the image was taken. Evidence types might include: architecture style, vegetation, road markings, signage, terrain, vehicle types, utility infrastructure, or sun angle.</p>
+<p>Then: attempt to geolocate the image using open-source tools. Document your process.</p>
+<p><strong>Reference resources:</strong> - <a href="https://www.osintme.com/index.php/2022/01/31/osint-dojo-student-challenge-geolocation-puzzles/">OSINT Dojo Geolocation Puzzles</a> - <a href="https://www.whiteoaksecurity.com/blog/osint-challenge-hacktoria-geolocation-16/">White Oak Security OSINT Challenge</a></p>
+</section>
+<section id="activity-ii-jmu-campus-facility-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="activity-ii-jmu-campus-facility-analysis">Activity II — JMU Campus Facility Analysis</h2>
+<p>Select a building on JMU’s campus (your choice). Without using prior knowledge of the building’s purpose:</p>
+<ol type="1">
+<li>Identify <strong>five pieces of evidence visible from satellite imagery or ground observation</strong> that would help determine what the building is used for</li>
+<li>Formulate a hypothesis about the facility’s purpose</li>
+<li>Describe how you would validate that hypothesis using additional sources</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="part-x-the-commercial-satellite-revolution" class="level1">
+<h1>Part X: The Commercial Satellite Revolution</h1>
+<section id="from-classified-to-open-geoint-goes-democratic" class="level2">
+<h2 class="anchored" data-anchor-id="from-classified-to-open-geoint-goes-democratic">From Classified to Open: GEOINT Goes Democratic</h2>
+<p>For most of the Cold War, high-resolution satellite imagery was the exclusive province of national technical means (NTM) — classified satellite systems operated by the United States (KH-series, later CORONA and successors) and the Soviet Union. Imagery was closely guarded and rarely shared even among allied intelligence services.</p>
+<p>This has fundamentally changed. The commercial satellite industry now operates hundreds of imaging satellites that provide sub-meter resolution imagery to paying customers worldwide, including academic researchers, journalists, NGOs, and foreign governments. This transformation has profound implications for intelligence analysis.</p>
+<p><strong>Key commercial satellite providers:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Provider</th>
+<th>Notable Systems</th>
+<th>Resolution</th>
+<th>Revisit Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Maxar Technologies</strong></td>
+<td>WorldView-3, WorldView-4, GeoEye-1</td>
+<td>30 cm panchromatic</td>
+<td>1 day (at mid-latitudes)</td>
+</tr>
+<tr class="even">
+<td><strong>Planet Labs</strong></td>
+<td>Dove constellation (200+ satellites), SkySat</td>
+<td>3–5 m (Dove), 50 cm (SkySat)</td>
+<td>Daily full-Earth coverage (Dove)</td>
+</tr>
+<tr class="odd">
+<td><strong>Airbus Defence &amp; Space</strong></td>
+<td>Pleiades, Pleiades Neo</td>
+<td>30 cm</td>
+<td>1 day</td>
+</tr>
+<tr class="even">
+<td><strong>Capella Space</strong></td>
+<td>SAR satellites</td>
+<td>50 cm (SAR)</td>
+<td>Day/night, all-weather</td>
+</tr>
+<tr class="odd">
+<td><strong>Satellogic</strong></td>
+<td>High-cadence optical</td>
+<td>70 cm</td>
+<td>Sub-daily</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Why SAR Matters
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Synthetic Aperture Radar (SAR) satellites transmit their own microwave radar pulses and measure the return signal. Unlike electro-optical imagery, SAR does not require sunlight and penetrates cloud cover. This makes SAR invaluable for monitoring areas with persistent cloud cover (tropical regions, Arctic conditions) or for time-sensitive military monitoring where nighttime collection is required.</p>
+</div>
+</div>
+</section>
+<section id="what-commercial-geoint-has-enabled-open-source-intelligence-operations" class="level2">
+<h2 class="anchored" data-anchor-id="what-commercial-geoint-has-enabled-open-source-intelligence-operations">What Commercial GEOINT Has Enabled: Open-Source Intelligence Operations</h2>
+<p>The democratization of imagery has enabled non-governmental organizations, journalists, and academic researchers to conduct satellite-based investigations that previously required government-level access.</p>
+<p><strong>Notable open-source GEOINT investigations:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Investigation</th>
+<th>Organization</th>
+<th>Finding</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Uyghur detention facilities</td>
+<td>BuzzFeed News, Australian Strategic Policy Institute</td>
+<td>Identified and mapped over 380 suspected detention facilities in Xinjiang using commercial imagery and building footprint analysis</td>
+</tr>
+<tr class="even">
+<td>Russia-Ukraine military buildup (2021–22)</td>
+<td>Maxar Technologies / multiple journalists</td>
+<td>Documented 100+ km Russian armor and logistics columns approaching Ukraine before the February 2022 invasion; updated daily</td>
+</tr>
+<tr class="odd">
+<td>North Korean missile sites</td>
+<td>38 North (Stimson Center)</td>
+<td>Ongoing monitoring of DPRK missile launch facilities, nuclear sites, and construction activity</td>
+</tr>
+<tr class="even">
+<td>Myanmar military atrocities</td>
+<td>Amnesty International, Human Rights Watch</td>
+<td>Documented village burning patterns in Rakhine State consistent with systematic destruction</td>
+</tr>
+<tr class="odd">
+<td>Venezuelan economic collapse</td>
+<td>Various</td>
+<td>Tracked agricultural activity and power outage patterns from space</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="part-xi-real-world-case-studies" class="level1">
+<h1>Part XI: Real-World Case Studies</h1>
+<section id="case-1-xinjiang-detention-facilities-open-source-geoint-at-scale" class="level2">
+<h2 class="anchored" data-anchor-id="case-1-xinjiang-detention-facilities-open-source-geoint-at-scale">Case 1: Xinjiang Detention Facilities — Open-Source GEOINT at Scale</h2>
+<p>Beginning in 2017, journalists and researchers began receiving accounts of mass detention of Uyghurs and other Muslim minorities in China’s Xinjiang region. The Chinese government denied the existence of the facilities or characterized them as voluntary “vocational training centers.”</p>
+<p><strong>The GEOINT investigation:</strong></p>
+<p>Researchers at the Australian Strategic Policy Institute (ASPI) and BuzzFeed News developed a methodology to identify, locate, and characterize suspected detention facilities using:</p>
+<ol type="1">
+<li><strong>Change detection:</strong> Comparing imagery from 2016–2017 (pre-expansion) to 2018–2020 (post-expansion) to identify new large-scale construction in previously undeveloped areas</li>
+<li><strong>Facility signature identification:</strong> Guard towers, double perimeter fencing, internal spatial division consistent with detention architecture, exercise yards, and administrative buildings</li>
+<li><strong>Corroboration with leaked documents:</strong> The “China Cables” and “Xinjiang Papers” (2019) provided internal Chinese government documentation that could be cross-referenced with the imagery findings</li>
+<li><strong>Measurement:</strong> Shadow-based height estimates of guard towers; perimeter wall length and construction quality estimation</li>
+</ol>
+<p><strong>Findings:</strong> Over 380 suspected detention sites identified across Xinjiang, with a cumulative capacity estimated at approximately 1 million detainees. The spatial distribution of facilities corresponded with areas of highest Uyghur population concentration.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Limitations and Counter-Arguments
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Chinese government disputed both the detention characterization and the capacity estimates. Imagery analysis can confirm <em>that</em> a facility exists and <em>that</em> it has detention-consistent architectural features — it cannot directly confirm what occurs inside. The investigation required corroboration from documentary leaks, survivor testimony, and procurement records to reach its conclusions. No single source was sufficient.</p>
+</div>
+</div>
+</section>
+<section id="case-2-russian-military-buildup-202122" class="level2">
+<h2 class="anchored" data-anchor-id="case-2-russian-military-buildup-202122">Case 2: Russian Military Buildup 2021–22</h2>
+<p>In the fall and winter of 2021–22, commercial satellite providers — particularly Maxar Technologies — documented an unprecedented massing of Russian military forces along the Ukrainian border. This imagery was declassified and publicly shared by U.S. officials and media organizations, creating an unusual intelligence transparency initiative.</p>
+<p><strong>What imagery showed:</strong></p>
+<div class="col-pair">
+<div class="col-left">
+<p><strong>October–November 2021</strong></p>
+<ul>
+<li>New armored vehicle deployments to Yelnya (450 km from Ukraine)</li>
+<li>Artillery systems and logistics convoys</li>
+<li>Field maintenance and staging activity</li>
+<li>Temporary field hospitals</li>
+</ul>
+<p><strong>Key indicator:</strong> The <em>combination</em> of combat systems + logistics + medical capacity at field staging areas — not merely the combat systems alone</p>
+</div>
+<div class="col-right">
+<p><strong>January–February 2022</strong></p>
+<ul>
+<li>Forces moved forward from staging areas to jump-off positions</li>
+<li>Bridging equipment deployed near river crossing points</li>
+<li>Helicopter units repositioned to forward air bases</li>
+<li>Ammunition and fuel pre-positioned at forward logistics bases</li>
+</ul>
+<p><strong>Key indicator:</strong> The transition from staging to pre-attack positioning: forces moving from sustainable garrison posture to unsustainable forward deployment requiring action or withdrawal</p>
+</div>
+</div>
+<p><strong>The intelligence transparency dimension:</strong> The U.S. government’s decision to publicly release intelligence (including satellite imagery) before the invasion was a deliberate policy choice to deny Russia the element of surprise, complicate its information operation (which denied invasion intent), and build allied coalition cohesion. This represented a novel use of commercial GEOINT as a diplomatic and deterrence instrument.</p>
+</section>
+<section id="case-3-monitoring-north-koreas-nuclear-and-missile-programs-38-north" class="level2">
+<h2 class="anchored" data-anchor-id="case-3-monitoring-north-koreas-nuclear-and-missile-programs-38-north">Case 3: Monitoring North Korea’s Nuclear and Missile Programs — 38 North</h2>
+<p>The 38 North project at the Stimson Center has maintained continuous open-source GEOINT monitoring of North Korea’s nuclear and missile infrastructure since 2009. The North Korean case is analytically important because almost no HUMINT source access exists and most SIGINT is inaccessible. GEOINT is one of the few available collection methods.</p>
+<p><strong>What has been revealed through commercial imagery:</strong></p>
+<ul>
+<li>Expansion of uranium enrichment halls at Yongbyon (2010–present)</li>
+<li>Construction and testing activity at the Sohae Satellite Launching Station</li>
+<li>Submarine construction at Sinpo shipyard (ongoing monitoring of SLBM-capable submarines)</li>
+<li>Rocket engine test stand activity at facilities linked to ICBM development</li>
+<li>Evidence of activity consistent with plutonium reprocessing operations</li>
+</ul>
+<p><strong>The shadow measurement technique at Yongbyon:</strong> The Khushab case study in Part V illustrates the general technique. At Yongbyon, analysts have used: - Smoke stack emissions height estimation (indicates operational vs.&nbsp;inactive status) - Vehicle and crane presence patterns (construction or maintenance activity) - Snow melt patterns around reactor buildings (warm coolant outflow indicating reactor operation) - Water vapor plumes from cooling towers (operational signatures)</p>
+<p>These physical indicators — none of which directly observes the classified process occurring inside the facility — together constitute a compelling composite picture of operational status.</p>
+<hr>
+</section>
+</section>
+<section id="part-xii-counter-geoint-and-denial-and-deception" class="level1">
+<h1>Part XII: Counter-GEOINT and Denial and Deception</h1>
+<section id="adversary-countermeasures-to-overhead-imagery" class="level2">
+<h2 class="anchored" data-anchor-id="adversary-countermeasures-to-overhead-imagery">Adversary Countermeasures to Overhead Imagery</h2>
+<p>Sophisticated state actors are aware that their facilities are observed by satellite and take active measures to complicate imagery analysis.</p>
+<div class="key-terms">
+<div class="{dl}">
+<dl>
+<dt>Camouflage and Concealment</dt>
+<dd>
+Physical measures to make facilities appear to be something other than what they are, or to blend into the background. Examples: painting building roofs to blend with surrounding terrain; covering equipment with nets; constructing false rooftop features.
+</dd>
+<dt>Covered Operations</dt>
+<dd>
+Building covered structures (hangars, tunnels, underground facilities) to deny overhead observation of sensitive activities. North Korea has extensively tunneled its military and nuclear infrastructure; Iran constructs enrichment and missile facilities partially or entirely underground.
+</dd>
+<dt>Scheduling Around Satellite Passes</dt>
+<dd>
+When satellite pass times are predictable, adversaries can schedule sensitive activities between passes or during periods of cloud cover. Reducing revisit time (more frequent collections) and using SAR (which penetrates cloud) partially counters this technique.
+</dd>
+<dt>Deception Structures</dt>
+<dd>
+Constructing facilities that mimic the appearance of legitimate civilian or military uses while concealing their actual function. May include creating “dummy” facilities to draw collection attention away from actual sites.
+</dd>
+<dt>Pattern of Life Disruption</dt>
+<dd>
+Deliberately altering normal activity patterns to complicate change detection and pattern-of-life analysis. If normal activity resumes, analysts may discount genuine anomalies as within-baseline variation.
+</dd>
+</dl>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>The Analyst’s Response: Multi-Source Corroboration
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>No single denial and deception technique is effective against multi-source collection. Camouflage that deceives optical imagery does not defeat thermal IR (which detects heat signatures) or SAR (which responds to surface roughness and structure). Underground facilities can be detected by seismic monitoring, airborne sampling, and supply chain tracking. The intelligence response to D&amp;D is multi-INT collection and structured analysis that asks: what <em>should</em> be present here if this is what it appears to be — and why isn’t it?</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="suggested-readings" class="level1">
+<h1>Suggested Readings</h1>
+<p><em>All readings are journal or news articles.</em></p>
+<p>Patton, T. (2012). Combining satellite imagery and 3D drawing tools for nonproliferation analysis: A case study of Pakistan’s Khushab plutonium production reactors. <em>Science &amp; Global Security</em>, <em>20</em>(2–3), 117–140. <a href="https://doi.org/10.1080/08929882.2012.719383" class="uri">https://doi.org/10.1080/08929882.2012.719383</a></p>
+<blockquote class="blockquote">
+<p>The Khushab case study discussed in this lecture. A model for rigorous open-source facility analysis using imagery, physical modeling, and nuclear physics — demonstrates what commercial imagery and public technical knowledge can achieve.</p>
+</blockquote>
+<p>Witze, A. (2021). How AI is helping to reshape the geography of intelligence. <em>Nature</em>, <em>600</em>, 574–577. <a href="https://doi.org/10.1038/d41586-021-03619-8" class="uri">https://doi.org/10.1038/d41586-021-03619-8</a></p>
+<blockquote class="blockquote">
+<p>Surveys how commercial satellite imagery combined with machine learning is transforming open-source intelligence — counting vehicles, tracking ships, monitoring power infrastructure.</p>
+</blockquote>
+<p>Witmer, F. D., Linke, A. M., O’Loughlin, J., Gettelman, A., &amp; Laing, A. (2017). Subnational violent conflict forecasts for sub-Saharan Africa, 2015–65, using climate-sensitive models. <em>Journal of Peace Research</em>, <em>54</em>(2), 175–193. <a href="https://doi.org/10.1177/0022343316684262" class="uri">https://doi.org/10.1177/0022343316684262</a></p>
+<blockquote class="blockquote">
+<p>Integrates satellite-derived climate data with conflict event data to forecast subnational conflict. A methodological model for integrating GEOINT-derived environmental data with social science analysis.</p>
+</blockquote>
+<p>Leibold, J. (2020). Surveillance in China’s Xinjiang region: Ethnic sorting, coercion, and the Hutong app. <em>Journal of Contemporary China</em>, <em>29</em>(121), 46–60. <a href="https://doi.org/10.1080/10670564.2019.1700008" class="uri">https://doi.org/10.1080/10670564.2019.1700008</a></p>
+<blockquote class="blockquote">
+<p>Academic analysis of the Xinjiang surveillance infrastructure, complementing the satellite-based investigation case study. Provides policy and human rights context for interpreting what imagery evidence shows.</p>
+</blockquote>
+<p>O’Brien, S. P. (2010). Crisis early warning and decision support: Contemporary approaches and thoughts on future research. <em>International Studies Review</em>, <em>12</em>(1), 87–104. <a href="https://doi.org/10.1111/j.1468-2486.2009.00914.x" class="uri">https://doi.org/10.1111/j.1468-2486.2009.00914.x</a></p>
+<blockquote class="blockquote">
+<p>Reviews conflict early warning systems, including those that rely on geospatial data. Identifies the gap between analytical capability and decision-relevant product delivery that GEOINT applications continue to face. </p>
+</blockquote>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Tamara Patton (2012), “Combining Satellite Imagery and 3D Drawing Tools for Nonproliferation Analysis: A Case Study of Pakistan’s Khushab Plutonium Production Reactors,” <em>Science &amp; Global Security</em>, 20(2-3), 117–140. DOI: 10.1080/08929882.2012.719383.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

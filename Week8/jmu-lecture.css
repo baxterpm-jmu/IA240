@@ -1,0 +1,672 @@
+/*-- scss:defaults --*/
+
+// Typography — IBM Plex family for institutional/technical academic feel
+$font-family-sans-serif:  'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+$headings-font-family:    'IBM Plex Serif', Georgia, serif;
+$font-family-monospace:   'IBM Plex Mono', 'Courier New', monospace;
+
+// JMU brand colors wired into Bootstrap variables
+$body-color:     #333333;   // JMUSlate
+$body-bg:        #ffffff;
+$link-color:     #450084;   // JMUPurple
+$headings-color: #450084;
+$primary:        #450084;
+$secondary:      #CBB677;   // JMUGold
+
+// Readable prose line height and size
+$line-height-base: 1.75;
+$font-size-base:   1.0rem;
+
+/*-- scss:rules --*/
+
+/* ============================================================
+   Google Fonts
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap');
+
+/* ============================================================
+   JMU Color Tokens
+   ============================================================ */
+:root {
+  --jmu-purple:       #450084;
+  --jmu-gold:         #CBB677;
+  --jmu-slate:        #333333;
+  --jmu-dark-gray:    #595959;
+  --jmu-med-gray:     #B2B2B2;
+  --jmu-light-gray:   #D6D6D6;
+  --jmu-light-purple: #DACCE6;
+  --jmu-med-purple:   #B599CE;
+  --jmu-dark-gold:    #AD9C65;
+  --jmu-light-gold:   #F4EFE1;
+}
+
+/* ============================================================
+   Page Title Block
+   ============================================================ */
+.quarto-title-block {
+  border-bottom: 4px solid var(--jmu-gold);
+  padding-bottom: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.quarto-title h1.title {
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color:  #ffffff;
+  line-height: 1.25;
+  margin-bottom: 0.3rem;
+}
+
+.quarto-title .subtitle {
+  color: var(--jmu-dark-gray);
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 400;
+  margin-top: 0.2rem;
+}
+
+.quarto-title-meta-contents p {
+  font-size: 0.85rem;
+  color: var(--jmu-dark-gray);
+}
+
+/* ============================================================
+   Table of Contents
+   ============================================================ */
+nav#TOC {
+  border-left: 3px solid var(--jmu-purple);
+  padding-left: 0.9rem;
+  font-size: 0.84rem;
+}
+
+nav#TOC .toc-title {
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--jmu-purple);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+nav#TOC a {
+  color: var(--jmu-slate);
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+nav#TOC a:hover {
+  color: var(--jmu-purple);
+  text-decoration: underline;
+}
+
+/* Top-level TOC entries (Part headers) */
+nav#TOC > ul > li > a {
+  font-weight: 600;
+  color: var(--jmu-purple);
+  font-size: 0.83rem;
+}
+
+nav#TOC ul {
+  padding-left: 0.8rem;
+  list-style: none;
+}
+
+nav#TOC > ul {
+  padding-left: 0;
+}
+
+/* ============================================================
+   Heading Hierarchy
+   ============================================================ */
+
+/* H1 = Part headers — full-width purple bar with gold accent */
+h1, .h1 {
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: var(--jmu-purple);
+  padding: 0.55em 1.1em;
+  margin: 2.8rem -1rem 1.5rem;
+  border-bottom: 4px solid var(--jmu-gold);
+  letter-spacing: 0.01em;
+}
+
+/* H2 = Slide title equivalents */
+h2, .h2 {
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--jmu-purple);
+  border-bottom: 2px solid var(--jmu-gold);
+  padding-bottom: 0.25em;
+  margin-top: 2.2rem;
+  margin-bottom: 0.9rem;
+}
+
+/* H3 = Sub-topic headers */
+h3, .h3 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1.0rem;
+  font-weight: 700;
+  color: var(--jmu-dark-gray);
+  margin-top: 1.4rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.88rem;
+}
+
+/* H4 = Card/block headings */
+h4, .h4 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--jmu-purple);
+  margin-bottom: 0.4rem;
+}
+
+/* ============================================================
+   Body & Links
+   ============================================================ */
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: var(--jmu-slate);
+  font-size: 1.0rem;
+  line-height: 1.75;
+}
+
+a {
+  color: var(--jmu-purple);
+}
+
+a:hover {
+  color: var(--jmu-dark-gold);
+  text-decoration: underline;
+}
+
+strong {
+  font-weight: 700;
+  color: var(--jmu-purple);
+}
+
+em {
+  color: inherit;
+}
+
+/* ============================================================
+   Lists
+   ============================================================ */
+ul li::marker {
+  color: var(--jmu-purple);
+  font-size: 0.8em;
+}
+
+ol li::marker {
+  color: var(--jmu-purple);
+  font-weight: 700;
+}
+
+/* ============================================================
+   Callouts
+   block       → callout-note    (purple header / light-gold body)
+   alertblock  → callout-warning (gold header   / light-gold body)
+   exampleblock→ callout-tip     (dark-gray hdr / light-gray body)
+   ============================================================ */
+
+/* Strip Quarto's default left-colored border; we control the header instead */
+div.callout {
+  border: none;
+  border-radius: 3px;
+  margin: 1.2rem 0;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+}
+
+/* ── block (callout-note) ── */
+div.callout-note {
+  border-left: 5px solid var(--jmu-purple) !important;
+}
+div.callout-note > .callout-header {
+  background-color: var(--jmu-purple) !important;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.45em 0.9em;
+}
+div.callout-note > .callout-body-container {
+  background-color: var(--jmu-light-gold);
+  padding: 0.7em 1em;
+  color: var(--jmu-slate);
+  font-size: 0.93rem;
+}
+
+/* ── alertblock (callout-warning) ── */
+div.callout-warning {
+  border-left: 5px solid var(--jmu-gold) !important;
+}
+div.callout-warning > .callout-header {
+  background-color: var(--jmu-med-purple) !important;
+  color: var(--jmu-purple);
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.45em 0.9em;
+}
+div.callout-warning > .callout-body-container {
+  background-color: var(--jmu-light-gold);
+  padding: 0.7em 1em;
+  color: var(--jmu-slate);
+  font-size: 0.93rem;
+}
+
+/* ── exampleblock (callout-tip) ── */
+div.callout-tip {
+  border-left: 5px solid var(--jmu-dark-gray) !important;
+}
+div.callout-tip > .callout-header {
+  background-color: var(--jmu-dark-gray) !important;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.45em 0.9em;
+}
+div.callout-tip > .callout-body-container {
+  background-color: var(--jmu-light-gray);
+  padding: 0.7em 1em;
+  color: var(--jmu-slate);
+  font-size: 0.93rem;
+}
+
+/* Hide default callout icons for a cleaner academic look */
+div.callout .callout-icon-container {
+  display: none;
+}
+
+/* ============================================================
+   Tables (booktabs-style)
+   ============================================================ */
+table {
+  font-size: 0.90rem;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+table thead tr th {
+  background-color: var(--jmu-purple);
+  color: #ffffff;
+  padding: 0.5em 0.8em;
+  font-weight: 600;
+  text-align: left;
+  border: none;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.86rem;
+  letter-spacing: 0.03em;
+}
+
+table tbody tr td {
+  padding: 0.38em 0.8em;
+  border-bottom: 1px solid var(--jmu-light-gray);
+  vertical-align: top;
+}
+
+table tbody tr:last-child td {
+  border-bottom: 2px solid var(--jmu-slate);
+}
+
+table tbody tr:nth-child(even) td {
+  background-color: var(--jmu-light-gold);
+}
+
+table caption {
+  font-size: 0.82rem;
+  color: var(--jmu-dark-gray);
+  caption-side: top;
+  text-align: left;
+  font-style: italic;
+  margin-bottom: 0.4rem;
+}
+
+/* ============================================================
+   Math
+   ============================================================ */
+.math.display {
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+mjx-container {
+  color: var(--jmu-slate);
+}
+
+/* ============================================================
+   Two-column layout helper (used for Can/Cannot, Questions)
+   ============================================================ */
+.col-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.8rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.col-pair .col-left,
+.col-pair .col-right {
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .col-pair {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   History Timeline (definition list styling)
+   ============================================================ */
+.timeline dl {
+  margin: 0;
+  padding: 0;
+}
+
+.timeline dt {
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: var(--jmu-purple);
+  margin-top: 1.1rem;
+  padding-bottom: 0.1em;
+}
+
+.timeline dd {
+  border-left: 3px solid var(--jmu-gold);
+  padding-left: 1.1em;
+  margin-left: 0.2em;
+  margin-bottom: 0;
+  color: var(--jmu-slate);
+  font-size: 0.95rem;
+}
+
+/* ============================================================
+   Network Type Cards (2×2 grid for typology section)
+   ============================================================ */
+.network-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+  margin: 1.2rem 0;
+}
+
+.net-card {
+  border: 1px solid var(--jmu-light-gray);
+  border-top: 4px solid var(--jmu-purple);
+  border-radius: 2px;
+  padding: 0.9rem 1.1rem 1rem;
+  background: #ffffff;
+}
+
+.net-card h4 {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--jmu-purple);
+  border-bottom: 1px solid var(--jmu-light-gold);
+  padding-bottom: 0.3em;
+}
+
+.net-card dl {
+  margin: 0;
+  font-size: 0.88rem;
+}
+
+.net-card dt {
+  font-weight: 600;
+  color: var(--jmu-dark-gray);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.55rem;
+}
+
+.net-card dd {
+  margin-left: 0;
+  color: var(--jmu-slate);
+  line-height: 1.45;
+}
+
+/* Financial card accent */
+.net-card.financial { border-top-color: var(--jmu-dark-gold); }
+/* Dark networks card accent */
+.net-card.dark       { border-top-color: var(--jmu-slate); }
+
+@media (max-width: 700px) {
+  .network-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   Key Terms Definition List
+   ============================================================ */
+.key-terms dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.3rem 1.2rem;
+  font-size: 0.94rem;
+}
+
+.key-terms dt {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  color: var(--jmu-purple);
+  font-size: 0.88rem;
+  padding-top: 0.15em;
+  white-space: nowrap;
+}
+
+.key-terms dd {
+  margin: 0;
+  padding: 0.1em 0 0.4em;
+  border-bottom: 1px solid var(--jmu-light-gray);
+  color: var(--jmu-slate);
+}
+
+/* ============================================================
+   Course Meta block (intro table)
+   ============================================================ */
+.course-meta {
+  background-color: var(--jmu-light-gold);
+  border-left: 5px solid var(--jmu-purple);
+  padding: 0.8rem 1.2rem;
+  margin: 1.2rem 0 2rem;
+  font-size: 0.88rem;
+}
+
+.course-meta table {
+  margin: 0;
+  font-size: 0.88rem;
+}
+
+.course-meta table thead {
+  display: none;
+}
+
+.course-meta table tbody tr td {
+  border: none;
+  padding: 0.15em 0.5em;
+  background: transparent;
+}
+
+.course-meta table tbody tr:last-child td {
+  border: none;
+}
+
+.course-meta table tbody tr td:first-child {
+  font-weight: 700;
+  color: var(--jmu-dark-gray);
+  width: 8rem;
+  font-size: 0.80rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.course-meta table tbody tr td:last-child {
+  color: var(--jmu-slate);
+}
+
+/* ============================================================
+   Network SVG diagram
+   ============================================================ */
+.net-diagram-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--jmu-light-gold);
+  border: 1px solid var(--jmu-light-gray);
+  border-radius: 3px;
+  padding: 1.2rem;
+  margin: 1rem 0;
+}
+
+.net-diagram-container figcaption {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.80rem;
+  color: var(--jmu-dark-gray);
+  text-align: center;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   Lecture Roadmap overview boxes
+   ============================================================ */
+.roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.9rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.roadmap-part {
+  border: 1px solid var(--jmu-light-gray);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.roadmap-part-header {
+  background-color: var(--jmu-purple);
+  color: #ffffff;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.4em 0.8em;
+}
+
+.roadmap-part ul {
+  margin: 0;
+  padding: 0.5rem 0.5rem 0.5rem 1.3rem;
+  font-size: 0.83rem;
+  list-style: disc;
+  color: var(--jmu-slate);
+  background-color: var(--jmu-light-gold);
+}
+
+.roadmap-part ul li {
+  padding: 0.1em 0;
+  line-height: 1.5;
+}
+
+.roadmap-part ul li::marker {
+  color: var(--jmu-gold);
+}
+
+@media (max-width: 700px) {
+  .roadmap-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   Course sequence checklist
+   ============================================================ */
+.course-sequence {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+  font-size: 0.92rem;
+}
+
+.course-sequence li {
+  padding: 0.25em 0;
+  border-bottom: 1px solid var(--jmu-light-gray);
+  display: flex;
+  align-items: baseline;
+  gap: 0.6em;
+}
+
+.course-sequence li:last-child {
+  border-bottom: none;
+}
+
+.seq-icon {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85em;
+  min-width: 1.2em;
+  text-align: center;
+}
+
+.seq-done .seq-icon   { color: var(--jmu-dark-gold); }
+.seq-done             { color: var(--jmu-dark-gray); }
+.seq-active .seq-icon { color: var(--jmu-purple); font-weight: 700; }
+.seq-active           { color: var(--jmu-purple); font-weight: 700; }
+.seq-todo .seq-icon   { color: var(--jmu-med-gray); }
+.seq-todo             { color: var(--jmu-med-gray); }
+
+/* ============================================================
+   Page footer
+   ============================================================ */
+.page-footer-custom {
+  border-top: 4px solid var(--jmu-gold);
+  background-color: var(--jmu-purple);
+  color: rgba(255,255,255,0.85);
+  text-align: center;
+  font-size: 0.76rem;
+  padding: 0.6em 0;
+  margin-top: 3rem;
+  font-family: 'IBM Plex Sans', sans-serif;
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   Footnotes
+   ============================================================ */
+section.footnotes {
+  border-top: 2px solid var(--jmu-light-gray);
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  font-size: 0.82rem;
+  color: var(--jmu-dark-gray);
+}
+
+section.footnotes ol {
+  padding-left: 1.4em;
+}
+
+section.footnotes ol li {
+  margin-bottom: 0.3em;
+  line-height: 1.55;
+}
+
+/* ============================================================
+   Responsive body width
+   ============================================================ */
+@media (max-width: 900px) {
+  h1, .h1 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

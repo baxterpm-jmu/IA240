@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Week 3: Introduction to Data Science and the Analytical Workflow</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-d6fbb5bfb24a4f1906c428146fc3bdde.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-5f44e4ae0d7c29399185f19497bd42a1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="floating quarto-light">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#part-i-what-is-data-science" id="toc-part-i-what-is-data-science" class="nav-link active" data-scroll-target="#part-i-what-is-data-science">Part I: What is Data Science?</a>
+  <ul class="collapse">
+  <li><a href="#defining-the-field" id="toc-defining-the-field" class="nav-link" data-scroll-target="#defining-the-field">Defining the Field</a></li>
+  <li><a href="#core-functions" id="toc-core-functions" class="nav-link" data-scroll-target="#core-functions">Core Functions</a></li>
+  <li><a href="#data-science-in-intelligence-analysis" id="toc-data-science-in-intelligence-analysis" class="nav-link" data-scroll-target="#data-science-in-intelligence-analysis">Data Science in Intelligence Analysis</a></li>
+  </ul></li>
+  <li><a href="#part-ii-the-data-science-process" id="toc-part-ii-the-data-science-process" class="nav-link" data-scroll-target="#part-ii-the-data-science-process">Part II: The Data Science Process</a>
+  <ul class="collapse">
+  <li><a href="#a-standard-workflow" id="toc-a-standard-workflow" class="nav-link" data-scroll-target="#a-standard-workflow">A Standard Workflow</a></li>
+  </ul></li>
+  <li><a href="#part-iii-problem-statements" id="toc-part-iii-problem-statements" class="nav-link" data-scroll-target="#part-iii-problem-statements">Part III: Problem Statements</a>
+  <ul class="collapse">
+  <li><a href="#what-makes-a-good-problem-statement" id="toc-what-makes-a-good-problem-statement" class="nav-link" data-scroll-target="#what-makes-a-good-problem-statement">What Makes a Good Problem Statement?</a></li>
+  </ul></li>
+  <li><a href="#part-iv-understanding-data-types-in-an-intelligence-context" id="toc-part-iv-understanding-data-types-in-an-intelligence-context" class="nav-link" data-scroll-target="#part-iv-understanding-data-types-in-an-intelligence-context">Part IV: Understanding Data Types in an Intelligence Context</a>
+  <ul class="collapse">
+  <li><a href="#the-three-categories" id="toc-the-three-categories" class="nav-link" data-scroll-target="#the-three-categories">The Three Categories</a></li>
+  <li><a href="#key-considerations-for-analysts" id="toc-key-considerations-for-analysts" class="nav-link" data-scroll-target="#key-considerations-for-analysts">Key Considerations for Analysts</a></li>
+  </ul></li>
+  <li><a href="#part-v-the-data-workflow-and-analytical-process" id="toc-part-v-the-data-workflow-and-analytical-process" class="nav-link" data-scroll-target="#part-v-the-data-workflow-and-analytical-process">Part V: The Data Workflow and Analytical Process</a>
+  <ul class="collapse">
+  <li><a href="#why-a-disciplined-workflow-matters" id="toc-why-a-disciplined-workflow-matters" class="nav-link" data-scroll-target="#why-a-disciplined-workflow-matters">Why a Disciplined Workflow Matters</a></li>
+  <li><a href="#core-workflow-stages" id="toc-core-workflow-stages" class="nav-link" data-scroll-target="#core-workflow-stages">Core Workflow Stages</a></li>
+  <li><a href="#the-intelligence-data-lifecycle" id="toc-the-intelligence-data-lifecycle" class="nav-link" data-scroll-target="#the-intelligence-data-lifecycle">The Intelligence Data Lifecycle</a></li>
+  </ul></li>
+  <li><a href="#suggested-readings" id="toc-suggested-readings" class="nav-link" data-scroll-target="#suggested-readings">Suggested Readings</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Week 3: Introduction to Data Science and the Analytical Workflow</h1>
+<p class="subtitle lead">IA 240: Technology Applications in a Networked World</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Data science is the methodological foundation for systematic, rigorous analysis. Before learning specific statistical techniques, analysts need to understand the workflow those techniques serve: how analytical problems are framed, how the data science process is structured, and how different data types shape what analysis is possible. This lecture establishes that foundation.</p>
+<p>Before testing hypotheses, analysts must understand what their data looks like. Descriptive statistics and exploratory data analysis (EDA) are the systematic tools for that understanding — revealing distributions, central tendencies, variability, outliers, and relationships that formal models can miss or distort if applied without first examining the data.</p>
+<section id="part-i-what-is-data-science" class="level1">
+<h1>Part I: What is Data Science?</h1>
+<section id="defining-the-field" class="level2">
+<h2 class="anchored" data-anchor-id="defining-the-field">Defining the Field</h2>
+<p>Data science is the multidisciplinary field concerned with extracting knowledge and insight from data—structured or unstructured, large or small. It draws on mathematics, statistics, computer science, and domain expertise to turn raw information into actionable understanding.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>The Core Insight
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Data science is what enables us to move from large, incomprehensible datasets to actionable knowledge. The goal is not the technique—it is the insight the technique produces.</p>
+</div>
+</div>
+<p>Data science principles apply across scales: the methods used to analyze a 10-row spreadsheet and a billion-row database share underlying logic, even if the computational tools differ.</p>
+</section>
+<section id="core-functions" class="level2">
+<h2 class="anchored" data-anchor-id="core-functions">Core Functions</h2>
+<p>A practicing data scientist (or a data-literate analyst) draws on competencies across several domains:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Description</th>
+<th>Relevance to IA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Mathematics &amp; Applied Mathematics</strong></td>
+<td>Foundations of algorithms, optimization, and statistical theory</td>
+<td>Understanding what analytical tools actually compute</td>
+</tr>
+<tr class="even">
+<td><strong>Computer Programming (R, Python, Julia, SQL)</strong></td>
+<td>Implementing analysis, automating tasks, querying databases</td>
+<td>Scale: computers process millions of records in seconds</td>
+</tr>
+<tr class="odd">
+<td><strong>Data Mining</strong></td>
+<td>Discovering patterns in large datasets without predefined hypotheses</td>
+<td>Identifying anomalies, clusters, or trends in raw intelligence data</td>
+</tr>
+<tr class="even">
+<td><strong>Database Management</strong></td>
+<td>Storing, organizing, and querying structured data</td>
+<td>Working with IC data warehouses and relational databases</td>
+</tr>
+<tr class="odd">
+<td><strong>Machine Learning</strong></td>
+<td>Building systems that improve from data</td>
+<td>Automated classification, prediction, and anomaly detection</td>
+</tr>
+<tr class="even">
+<td><strong>Data Visualization</strong></td>
+<td>Communicating findings through charts, maps, and dashboards</td>
+<td>Presenting analysis to policymakers and consumers</td>
+</tr>
+<tr class="odd">
+<td><strong>Applied Statistics</strong></td>
+<td>Formal inference, hypothesis testing, uncertainty quantification</td>
+<td>Calibrating confidence in analytic judgments</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="data-science-in-intelligence-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="data-science-in-intelligence-analysis">Data Science in Intelligence Analysis</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Course Framing — Not Training Data Scientists
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The goal of this course is <strong>not</strong> to make you a data scientist. The goal is to make you a data-literate analyst who understands how to connect data—of all kinds—to analytical problems. That means knowing when to use a tool, what it assumes, and how to interpret its output, even if you are not the one writing the code.</p>
+</div>
+</div>
+<p>Applications of data science methods in intelligence analysis include:</p>
+<ul>
+<li><strong>Data Integration and Fusion</strong> — combining HUMINT, SIGINT, OSINT, and GEOINT into unified pictures</li>
+<li><strong>Text Analysis and NLP</strong> — extracting meaning from foreign-language documents, social media, and intercepted communications</li>
+<li><strong>Social Network Analysis</strong> — mapping relationships between individuals, organizations, and entities</li>
+<li><strong>Geospatial Analysis</strong> — identifying spatial patterns in conflict, migration, or economic activity</li>
+<li><strong>Machine Learning for Pattern Recognition</strong> — flagging anomalies in financial flows, communications metadata, or imagery</li>
+<li><strong>Predictive Analytics</strong> — forecasting conflict onset, proliferation timelines, or election outcomes</li>
+<li><strong>Cybersecurity</strong> — detecting intrusions, attributing attacks, and modeling adversary behavior</li>
+<li><strong>Visualization</strong> — producing products that communicate complex findings clearly to consumers</li>
+<li><strong>Risk Assessment</strong> — quantifying uncertainty and supporting structured decision-making</li>
+<li><strong>Early Warning Systems</strong> — automated monitoring of indicators that precede significant events</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="part-ii-the-data-science-process" class="level1">
+<h1>Part II: The Data Science Process</h1>
+<section id="a-standard-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="a-standard-workflow">A Standard Workflow</h2>
+<p>Data science projects follow a recognizable lifecycle. Understanding this cycle is as important as any individual technique, because most analytical failures occur at the transitions between stages—not within them.</p>
+<p>The following stages describe the approach used in this program:</p>
+<div class="timeline">
+<div class="{dl}">
+<ol type="1">
+<li><dl>
+<dt>Problem Statement</dt>
+<dd>
+Before collecting a single data point, define what you are trying to answer. A problem statement is an explanation of the gap between what is known and what needs to be known, and why that gap matters. In intelligence, this is often framed as: <em>What is the probability that X will occur?</em> or <em>What factors are driving Y?</em> A weak problem statement produces a weak analysis regardless of data quality.
+</dd>
+</dl></li>
+<li><dl>
+<dt>Identification &amp; Procurement</dt>
+<dd>
+Identify what data exists that is relevant to the problem. Determine how to obtain it—open sources, databases, collection operations, surveys. Document provenance, collection methodology, and known limitations before analysis begins.
+</dd>
+</dl></li>
+<li><dl>
+<dt>Selection</dt>
+<dd>
+Not all available data is relevant. Select the variables, time ranges, geographic units, and sources that address the problem statement. This decision embeds analytical judgment—what you exclude matters as much as what you include.
+</dd>
+</dl></li>
+<li><dl>
+<dt>Preprocessing &amp; Transformation</dt>
+<dd>
+Clean the data (address missing values, inconsistencies, and errors), standardize formats, and transform variables for analysis (e.g., converting categorical to numerical, creating ratio variables, normalizing scales). This is typically 60–80% of total project time.
+</dd>
+</dl></li>
+<li><dl>
+<dt>EDA and Modeling</dt>
+<dd>
+Explore the data visually and statistically to understand its structure before applying formal models. Then apply appropriate analytical or statistical methods to test hypotheses or discover patterns.
+</dd>
+</dl></li>
+<li><dl>
+<dt>Interpretation</dt>
+<dd>
+Translate statistical outputs into intelligence judgments. What do the results mean for the problem statement? What is the confidence level? What alternative explanations have been considered?
+</dd>
+</dl></li>
+<li><dl>
+<dt>Knowledge / Dissemination</dt>
+<dd>
+Communicate findings in a form appropriate to the consumer—written product, briefing, dashboard, or visualization. The best analysis is worthless if it cannot be understood and acted upon.
+</dd>
+</dl></li>
+</ol>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-iii-problem-statements" class="level1">
+<h1>Part III: Problem Statements</h1>
+<section id="what-makes-a-good-problem-statement" class="level2">
+<h2 class="anchored" data-anchor-id="what-makes-a-good-problem-statement">What Makes a Good Problem Statement?</h2>
+<p>A problem statement is the analytical foundation of every data-driven project. It must be:</p>
+<ul>
+<li><strong>Specific</strong> — describes a precise gap in knowledge, not a broad topic</li>
+<li><strong>Significant</strong> — explains why the gap matters to a decision-maker or stakeholder</li>
+<li><strong>Researchable</strong> — can be addressed with available (or acquirable) data</li>
+<li><strong>Bounded</strong> — scoped so that it can be answered within available time and resources</li>
+</ul>
+<div class="col-pair">
+<div class="col-left">
+<p><strong>Weak Problem Statement</strong></p>
+<p>“I want to study terrorism.”</p>
+<p>This is a topic, not a problem statement. It does not specify what question is being asked, what data could answer it, or why the answer matters.</p>
+</div>
+<div class="col-right">
+<p><strong>Stronger Problem Statement</strong></p>
+<p>“It is unclear whether economic grievances or ideological affiliation is the stronger predictor of individual radicalization in Western Europe between 2010 and 2023. Identifying the dominant pathway has direct implications for counter-terrorism resource allocation.”</p>
+<p>This specifies the gap, the scope, the data needed, and the policy relevance.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>The “Identifying the Unexpected” Approach
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In intelligence analysis, problem statements sometimes emerge not from pre-specified questions but from anomalies in data—things that should not be there, or patterns that deviate from baseline. A rigorous EDA phase (see Meeting 20) often surfaces these unexpected signals, which then become the basis of a new problem statement and deeper analytical effort.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-iv-understanding-data-types-in-an-intelligence-context" class="level1">
+<h1>Part IV: Understanding Data Types in an Intelligence Context</h1>
+<section id="the-three-categories" class="level2">
+<h2 class="anchored" data-anchor-id="the-three-categories">The Three Categories</h2>
+<div class="col-pair">
+<div class="col-left">
+<p><strong>Qualitative</strong></p>
+<ul>
+<li>Interview transcripts</li>
+<li>Intelligence reports</li>
+<li>Social media posts</li>
+<li>Diplomatic cables</li>
+<li>Images and videos (unprocessed)</li>
+</ul>
+<p><strong>Strengths:</strong> depth, context, nuance, access to meaning and intention</p>
+<p><strong>Limitations:</strong> time-consuming to collect and analyze; harder to standardize; analyst interpretation bias; selective coding</p>
+</div>
+<div class="col-right">
+<p><strong>Quantitative</strong></p>
+<ul>
+<li>Population sizes</li>
+<li>Crime statistics</li>
+<li>Economic indicators</li>
+<li>Sensor readings</li>
+<li>Satellite imagery pixel values (processed)</li>
+</ul>
+<p><strong>Strengths:</strong> objective, replicable, aggregable, comparable across time and place</p>
+<p><strong>Limitations:</strong> can oversimplify complex phenomena; vulnerable to missing variables; sampling bias; measurement errors</p>
+<p><strong>Unstructured</strong></p>
+<ul>
+<li>Raw satellite imagery</li>
+<li>Social media video</li>
+<li>Intercepted audio</li>
+<li>Web scraped text</li>
+</ul>
+<p><strong>Strengths:</strong> captures real-world signals in near-real-time; essential for modern OSINT and GEOINT</p>
+<p><strong>Limitations:</strong> requires expensive tools and specialized processing; data-source bias; limited accessibility without technical infrastructure</p>
+</div>
+</div>
+</section>
+<section id="key-considerations-for-analysts" class="level2">
+<h2 class="anchored" data-anchor-id="key-considerations-for-analysts">Key Considerations for Analysts</h2>
+<div class="key-terms">
+<div class="{dl}">
+<dl>
+<dt>Reliability</dt>
+<dd>
+Are the data collected and measured consistently? If you use the same instrument at different times or by different collectors, do you get the same result? Inconsistent collection procedures undermine comparability.
+</dd>
+<dt>Validity</dt>
+<dd>
+Does the data actually measure what you claim it measures? A dataset of diplomatic cable volume may be <em>reliable</em> (consistently counted) but <em>invalid</em> as a measure of diplomatic engagement if cables are not the primary communication channel.
+</dd>
+<dt>Triangulation</dt>
+<dd>
+Combining multiple data types and sources to strengthen findings and reduce blind spots. When qualitative HUMINT, quantitative economic indicators, and IMINT all point in the same direction, confidence increases. When they diverge, that divergence is itself analytically significant.
+</dd>
+<dt>Ethical Issues</dt>
+<dd>
+Unstructured and OSINT data often involves private individuals who did not consent to intelligence collection. Privacy, misrepresentation, and manipulation risks must be weighed, especially when data informs operations or policy that affects those individuals.
+</dd>
+</dl>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-v-the-data-workflow-and-analytical-process" class="level1">
+<h1>Part V: The Data Workflow and Analytical Process</h1>
+<section id="why-a-disciplined-workflow-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-a-disciplined-workflow-matters">Why a Disciplined Workflow Matters</h2>
+<p>Intelligence analysis deals with noisy, incomplete, and uncertain data collected under adversarial conditions. Without a disciplined analytical process:</p>
+<ul>
+<li>Conclusions may be driven by assumptions rather than evidence</li>
+<li>Errors introduced in early stages compound through the analysis</li>
+<li>Results cannot be reviewed, replicated, or challenged by colleagues or consumers</li>
+</ul>
+<p>A documented workflow makes analysis <strong>traceable</strong>, <strong>reproducible</strong>, and <strong>auditable</strong>.</p>
+</section>
+<section id="core-workflow-stages" class="level2">
+<h2 class="anchored" data-anchor-id="core-workflow-stages">Core Workflow Stages</h2>
+<div class="timeline">
+<div class="{dl}">
+<ol type="1">
+<li><dl>
+<dt>Data Collection</dt>
+<dd>
+Gather raw data from classified, commercial, or open sources. Includes structured (databases), unstructured (text, images), and semi-structured (JSON, logs) data. Document every source, access date, and known limitations.
+</dd>
+</dl></li>
+<li><dl>
+<dt>Data Cleaning and Preprocessing</dt>
+<dd>
+Remove errors, fill gaps, and standardize values to make data usable. Common issues: missing values (impute, interpolate, or flag), duplicates (identify by unique ID and remove), inconsistent formats (standardize date/time and coordinate formats), outliers (assess whether they are real signals or data errors), noise (filter irrelevant text, bot activity, or spam).
+</dd>
+</dl></li>
+<li><dl>
+<dt>Data Transformation and Integration</dt>
+<dd>
+Convert raw data into analytical formats. Align units, time intervals, and coordinate systems. Aggregate or disaggregate to the appropriate level of analysis (e.g., event-level → country-year). Combine multiple datasets through join operations; validate joins by manually spot-checking records.
+</dd>
+</dl></li>
+<li><dl>
+<dt>Analysis and Modeling</dt>
+<dd>
+Apply statistical or computational techniques to discover meaning. Combine descriptive summaries with inferential or predictive models.
+</dd>
+</dl></li>
+<li><dl>
+<dt>Validation and Quality Assurance</dt>
+<dd>
+Check results for plausibility. Run sensitivity analyses—do conclusions hold under different assumptions or subsets of data? Seek independent review.
+</dd>
+</dl></li>
+<li><dl>
+<dt>Visualization and Communication</dt>
+<dd>
+Translate findings into products appropriate to the consumer. Tailor complexity to audience expertise (Meeting 26).
+</dd>
+</dl></li>
+<li><dl>
+<dt>Feedback and Iteration</dt>
+<dd>
+Review the impact and accuracy of analysis. Adjust collection priorities or methods for future cycles. The analytical process is iterative, not linear.
+</dd>
+</dl></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="the-intelligence-data-lifecycle" class="level2">
+<h2 class="anchored" data-anchor-id="the-intelligence-data-lifecycle">The Intelligence Data Lifecycle</h2>
+<div class="col-pair">
+<div class="col-left">
+<p><strong>Collection → Processing → Analysis</strong></p>
+<p>Raw data from any source requires processing before analysis. Processing involves: tagging metadata, parsing documents, extracting named entities, and removing noise. Only then is the data ready for statistical or computational treatment.</p>
+</div>
+<div class="col-right">
+<p><strong>Interpretation → Dissemination → Feedback</strong></p>
+<p>Analytical results must be <em>interpreted</em>—linked to the original intelligence question and decision need. Dissemination must be tailored to the consumer’s expertise. Feedback from consumers informs future collection priorities, closing the intelligence cycle.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="suggested-readings" class="level1">
+<h1>Suggested Readings</h1>
+<p><em>All readings are journal or news articles.</em></p>
+<p>Donoho, D. (2017). 50 years of data science. <em>Journal of Computational and Graphical Statistics</em>, <em>26</em>(4), 745–766. <a href="https://doi.org/10.1080/10618600.2017.1384734" class="uri">https://doi.org/10.1080/10618600.2017.1384734</a></p>
+<blockquote class="blockquote">
+<p>A historical and conceptual overview of data science as a discipline. Places EDA in its intellectual genealogy — from Tukey’s foundational work through modern computational methods. Relevant background for understanding where descriptive and exploratory analysis fit in the broader analytical enterprise.</p>
+</blockquote>
+<p>Provost, F., &amp; Fawcett, T. (2013). Data science and its relationship to big data and data-driven decision making. <em>Big Data</em>, <em>1</em>(1), 51–59. <a href="https://doi.org/10.1089/big.2013.1508" class="uri">https://doi.org/10.1089/big.2013.1508</a></p>
+<blockquote class="blockquote">
+<p>Examines the conceptual foundations of data-driven decision making and what distinguishes genuine data science from data mining. Directly relevant to the data science process and intelligence application content.</p>
+</blockquote>
+<p>Davenport, T. H., &amp; Patil, D. J. (2012). Data scientist: The sexiest job of the 21st century. <em>Harvard Business Review</em>, <em>90</em>(10), 70–76.</p>
+<blockquote class="blockquote">
+<p>Widely-read piece establishing the role of the data scientist in analytical organizations. Relevant to understanding the workflow and professional context in which the descriptive analysis skills of this lecture are deployed. </p>
+</blockquote>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

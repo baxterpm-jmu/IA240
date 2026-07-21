@@ -1,0 +1,24 @@
+
+project:
+  type: website
+  output-dir: _site
+
+format:
+  html:
+    theme: [cosmo, jmu-lecture.css]
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    toc-title: "Contents"
+    smooth-scroll: true
+    html-math-method: mathjax
+    number-sections: false
+    anchor-sections: true
+    footnotes-hover: true
+    citations-hover: true
+    link-external-newwindow: true
+    fig-align: center
+    grid:
+      sidebar-width: 270px
+      body-width:    1200px
+      margin-width:  200px

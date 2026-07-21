@@ -1,0 +1,205 @@
+---
+title: "Week 10: Systems Thinking and Agent-Based Modeling"
+subtitle: "IA 240: Technology Applications in a Networked World"
+---
+
+# Systems Thinking
+
+## What is Systems Thinking?
+
+Systems thinking is an analytical approach that views complex phenomena as *systems*—sets of interconnected, interdependent components whose interactions produce emergent behavior that cannot be understood by examining parts in isolation.
+
+Rather than asking "What causes X?", systems thinking asks "How do the relationships *among* multiple variables produce the pattern we observe in X?"
+
+::: {.callout-note}
+## Relevance to Hypothesis Development
+When you identify variables for a model, you are making implicit claims about what matters and what does not. Systems thinking forces you to be explicit about those claims—and to consider feedback loops and unintended consequences that purely linear thinking misses.
+:::
+
+## Key Principles of Systems Thinking
+
+::: {.key-terms}
+::: {dl}
+
+Interconnectedness
+:   Every element of a system is connected to other elements through relationships. Changes in one variable propagate through the system. Analyzing any single variable in isolation produces an incomplete picture.
+
+Feedback Loops
+:   Closed causal chains where an effect loops back to influence its own cause. There are two types (see below).
+
+Reinforcing (Positive) Feedback Loops
+:   Change in one direction amplifies further change in the same direction. Not inherently positive in valence—can represent escalation, arms races, or cascading instability. Example: military spending increases → perceived threat increases → adversary military spending increases → perceived threat increases further.
+
+Balancing (Negative) Feedback Loops
+:   System-level resistance to change; the loop pushes back against deviation from a target state. Example: high inflation → interest rate increases → borrowing decreases → economic activity slows → inflation decreases.
+
+Non-linearity
+:   Relationships in complex systems are often non-linear—a small change in an input may have a large effect on an output (tipping points), or a large change may have negligible effect (thresholds). Linear models cannot capture these dynamics.
+
+Emergence
+:   System-level properties that are not present in any individual component. The whole behaves differently than the sum of its parts. Terrorist network resilience is an emergent property—no single node produces it.
+
+Delayed Effects
+:   Effects may manifest long after their cause. Sanctions imposed today may not produce intended economic effects for months or years. Models that ignore time lags will misattribute causation.
+
+Holistic View
+:   Analysis must encompass the whole system, not just the most visible or accessible parts. Focusing only on measurable variables creates blind spots.
+
+:::
+:::
+
+---
+
+# Part VIII: Causal Loop Diagrams
+
+## Building a Causal Loop Diagram (CLD)
+
+A causal loop diagram is a visual representation of the causal relationships and feedback loops within a system. It does not quantify relationships—it maps their direction and structure.
+
+**Step-by-step process:**
+
+::: {.timeline}
+::: {dl}
+
+Step 1: Define the System
+:   State the key problem or question you are exploring. What are the boundaries of the system? What outcomes are you trying to explain?
+
+Step 2: Identify Key Variables
+:   List and categorize the variables relevant to your system. Are they independent, dependent, or intermediate? What scale and type are they?
+
+Step 3: Establish Causal Links
+:   For each pair of related variables, draw an arrow from cause to effect. Label each arrow: **(+)** if an increase in the cause produces an increase in the effect; **(-)** if an increase in the cause produces a decrease in the effect.
+
+Step 4: Identify Feedback Loops
+:   Trace closed loops in your diagram. Count the number of negative links: an **even number** (including zero) indicates a reinforcing loop; an **odd number** indicates a balancing loop.
+
+Step 5: Draw the Diagram
+:   List all variables, then add arrows and signs. Clarity and legibility matter—a cluttered CLD is as useless as a cluttered chart.
+
+Step 6: Review and Adjust
+:   Are there gaps? Are feedback loops internally consistent? Have you included all major drivers and consequences? Have independent reviewers examine the diagram.
+
+:::
+:::
+
+## Benefits of Systems Thinking for Analysis
+
+::: {.col-pair}
+::: {.col-left}
+**Better Variable Identification**
+
+Systems thinking forces analysts to think beyond obvious first-order causes. A system diagram of "nuclear proliferation" might reveal that domestic politics, alliance commitments, and regime security concerns interact with the technical capability variables that tend to dominate quantitative models.
+
+**Enhanced Predictive Power**
+
+By mapping how variables interact—including delayed effects and feedback loops—analysts can anticipate how a change in one variable will ripple through the system. Interventions that appear effective in isolation may be counterproductive at the system level.
+:::
+::: {.col-right}
+**Better Decision-Making**
+
+Systems thinking highlights potential unintended consequences *before* they occur. Sanctions designed to reduce a regime's capability may strengthen its internal cohesion through a rally-around-the-flag effect—a balancing loop that counteracts the intended effect.
+
+**More Robust Hypotheses**
+
+Hypotheses derived from systems thinking are more likely to specify the *mechanism* connecting variables, not just the correlation. Mechanistic specificity is a hallmark of analytically rigorous hypothesis development.
+:::
+:::
+
+---
+
+# Part IX: Real-World Systems Thinking Cases
+
+## Case 1: Sanctions Against North Korea — A Feedback Loop Analysis
+
+Sanctions imposed on North Korea to compel denuclearization have operated for decades with limited observable effect on North Korea's weapons programs. Systems thinking explains why. The causal structure contains multiple feedback loops that counteract the intended effect of economic coercion.
+
+**Intended mechanism (the linear assumption):**
+> Sanctions → Economic pain → Regime capitulation → Denuclearization
+
+**What systems analysis reveals:**
+
+::: {.col-pair}
+::: {.col-left}
+**Reinforcing loop — Rally-around-the-flag**
+
+Sanctions-induced economic hardship → Regime frames hardship as foreign aggression → Domestic nationalism increases → Regime legitimacy strengthens → Hardline position becomes domestically necessary to sustain
+
+This reinforcing loop amplifies regime cohesion in direct response to the pressure intended to weaken it. Empirical studies on North Korea have found that periods of intensified sanctions correspond with increased domestic propaganda output, not capitulation signals.
+:::
+::: {.col-right}
+**Balancing loop — Elite defection risk**
+
+Sanctions → Economic contraction → Elite material wellbeing threatened → Elite defection or coup risk → Regime redistributes resources to core loyalists → Economic contraction among population deepens, but regime stability is maintained
+
+This balancing loop absorbs the potential political threat from sanctions by concentrating resources within the elite network—precisely the opposite of the intended distributional effect.
+:::
+:::
+
+::: {.callout-note}
+## Analytical Takeaway
+A linear model of sanctions predicts capitulation. A systems model predicts adaptation and consolidation—which is what the empirical record shows. Before recommending or evaluating a coercive policy instrument, mapping the full causal structure (including second- and third-order loops) is essential analytical due diligence.
+:::
+
+## Case 2: The 2003 Iraq Occupation — Institutional Collapse as a System Failure
+
+The postwar period in Iraq demonstrated how policy interventions can trigger cascading system failures through mechanisms that linear planning does not anticipate.
+
+**The critical decision:** Coalition Provisional Authority Order No. 2 (May 2003) disbanded the Iraqi Army, removing approximately 400,000 armed men from institutional employment overnight.
+
+**System consequences:**
+
+::: {.timeline}
+::: {dl}
+
+Phase 1: Initial shock
+:   Army dissolution → immediate loss of income and status for 400,000 individuals with weapons training → security vacuum as the primary order-providing institution disappears
+
+Phase 2: Grievance amplification (reinforcing loop)
+:   Unemployed soldiers → economic desperation + institutional grievance → insurgent recruitment becomes easy and cheap → insurgency capability increases
+
+Phase 3: Sectarian activation
+:   Security vacuum → Shia militias and Kurdish peshmerga expand to fill void → Sunni population perceives ethnic threat → Sunni fighters join insurgency as both economic actors and sectarian defenders (two independent recruitment pathways reinforcing each other)
+
+Phase 4: External involvement
+:   Instability → Al-Qaeda in Iraq enters → foreign fighters provide financing and ideological framing → insurgency becomes internationalized → coalition military response intensifies → civilian casualties → insurgent recruitment further increases (another reinforcing loop)
+
+:::
+:::
+
+The system dynamics perspective reveals that the insurgency was not primarily caused by the presence of foreign fighters or by "bad actors" who could have been identified in advance — it was produced by the institutional architecture of the intervention itself. A systems analysis conducted before Order No. 2 could have identified these cascading pathways.
+
+---
+
+# Part X: Tipping Points and Threshold Dynamics
+
+## When Systems Shift Suddenly
+
+Some of the most important outcomes in international security are characterized by sudden, discontinuous change — the collapse of a regime that appeared stable, the rapid escalation of a conflict that seemed contained, the sudden spread of a protest movement. Systems thinking offers a framework for understanding why these transitions happen.
+
+**Key concept: tipping points and bifurcations**
+
+In a system with strong balancing loops, a variable (say, regime stability) may remain near its equilibrium despite perturbations — the system "absorbs" small shocks. But once a critical threshold is crossed, the system reorganizes abruptly. The balancing loops that maintained the old equilibrium weaken or reverse; reinforcing loops that were previously dominated begin to dominate. The system bifurcates to a new state.
+
+**Illustrative cases:**
+
+| Phenomenon | Pre-tip Dynamics | Tipping Mechanism | Post-tip Dynamics |
+|---|---|---|---|
+| Arab Spring 2010–11 | Authoritarian stability through repression (balancing loop) | Mohamed Bouazizi self-immolation → social media amplification of grievance → cost of protest fell below cost of silence | Reinforcing loop: protests → government crackdowns → more protests; cascade across regional states |
+| Soviet collapse 1989–91 | Ideological legitimacy + military deterrence maintained stability | Gorbachev's signals that force would not be used → cost of defection fell for Eastern European elites | Cascade: each defection reduced the expected cost of the next; the system reorganized faster than anyone predicted |
+| Financial contagion 2008 | Mortgage-backed securities held by globally interconnected financial institutions | Lehman Brothers failure → counterparty uncertainty → credit markets freeze | Reinforcing loop: credit freeze → institutional failures → more uncertainty → deeper freeze |
+
+::: {.callout-warning}
+## The Prediction Problem
+Tipping points are extraordinarily difficult to predict precisely because the systems that generate them appear stable until they are not. Leading indicators exist — accelerating protest frequency before regime collapse, rising volatility before financial crisis — but threshold identification requires continuous system monitoring, not periodic snapshot analysis. Intelligence that reports on what a system *is* without modeling where it is relative to its thresholds will miss the discontinuity.
+:::
+
+---
+# Suggested Readings
+
+Haggard, S., & Noland, M. (2010). Sanctioning North Korea: The political economy of denuclearization and proliferation. *Asian Survey*, *50*(3), 539–568. <https://doi.org/10.1525/as.2010.50.3.539>
+
+> Empirical examination of feedback dynamics in the North Korea sanctions case — directly relevant to the systems thinking case studies in this lecture.
+
+Cederman, L. E. (2003). Modeling the size of wars: From billiard balls to sandpiles. *American Political Science Review*, *97*(1), 135–150. <https://doi.org/10.1017/S0003055403000571>
+
+> Applies complex systems and self-organized criticality to war size distributions. Formal demonstration that conflict systems exhibit tipping point dynamics inconsistent with standard linear models.

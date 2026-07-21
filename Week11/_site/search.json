@@ -1,0 +1,107 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Week 11: Social Network Analysis",
+    "section": "",
+    "text": "Intelligence analysis is fundamentally about finding meaningful patterns in complex, noisy environments. Social Network Analysis (SNA) provides the conceptual and computational vocabulary for identifying non-obvious relational structure in intelligence data — mapping covert networks, identifying key actors, and understanding how information and influence flow through connected systems."
+  },
+  {
+    "objectID": "index.html#what-is-social-network-analysis",
+    "href": "index.html#what-is-social-network-analysis",
+    "title": "Week 11: Social Network Analysis",
+    "section": "What is Social Network Analysis?",
+    "text": "What is Social Network Analysis?\nSocial network analysis (SNA) is the application of network science to analyze social phenomena—in particular, patterns of relations, connections, and configurations among people, groups, institutions, and other entities.\nSNA is fundamentally a structural approach: it focuses on the architecture of relationships rather than the attributes of individual actors. Two people with identical demographic profiles will behave very differently if one occupies a central bridging position in a network and the other sits at the periphery.\n\n\n\n\n\n\nNoteValue for Intelligence Analysis\n\n\n\nSNA is increasingly used in intelligence to identify and map terrorist networks, criminal organizations, proliferation networks, and other covert structures. Its advantages over traditional hierarchical analysis include:\n\nCaptures informal and covert linkages that formal organizational charts miss\nQuantifies qualitative relationships, supporting data-driven decision-making\nReveals how networks operate, how information flows, and—critically—how they can be disrupted or dismantled\nIdentifies key leaders, financiers, brokers, and operatives based on structural position rather than title"
+  },
+  {
+    "objectID": "index.html#core-centrality-measures",
+    "href": "index.html#core-centrality-measures",
+    "title": "Week 11: Social Network Analysis",
+    "section": "Core Centrality Measures",
+    "text": "Core Centrality Measures\nCentrality measures quantify how important or influential a node is, but each definition of “important” captures something different:\n\n\nDegree Centrality\nThe simplest measure: the number of direct connections a node has. High degree nodes are potential hubs or communicators—they interact with many others and are often the most visible actors in the network.\nIntelligence application: identifies highly connected operatives or facilitators within a cell or network.\n\nCloseness Centrality\nThe inverse of a node’s average distance to all other nodes. High closeness means the node can reach all others quickly.\nIntelligence application: identifies actors who can rapidly disseminate information or coordinate across the network—even if they are not the most connected.\n\n\nBetweenness Centrality\nThe frequency with which a node lies on the shortest path between pairs of other nodes. High betweenness nodes are brokers or gatekeepers—information, resources, or personnel flowing between different parts of the network must pass through them.\nIntelligence application: brokers are the highest-value targets for network disruption. Removing a high-betweenness actor can sever the network into disconnected components more effectively than removing the most-connected actor.\n\nEigenvector Centrality\nA node’s influence is proportional to the influence of its neighbors. Connections to high-influence nodes contribute more than connections to low-influence nodes. Google’s PageRank is a variant of this measure.\nIntelligence application: identifies actors who are influential because they are connected to other influential actors, even if their own degree is moderate."
+  },
+  {
+    "objectID": "index.html#network-level-measures",
+    "href": "index.html#network-level-measures",
+    "title": "Week 11: Social Network Analysis",
+    "section": "Network-Level Measures",
+    "text": "Network-Level Measures\n\n\n\nDensity\n\nThe proportion of all possible edges that actually exist. A dense network (density near 1) has high redundancy—removing any single link or node has limited effect. A sparse network (density near 0) is more vulnerable to targeted disruption. Formula: \\(\\frac{2L}{n(n-1)}\\) for undirected networks, where \\(L\\) = number of edges and \\(n\\) = number of nodes.\n\nClustering Coefficient\n\nThe degree to which a node’s neighbors are also connected to each other. High clustering indicates tightly-knit local groups or cliques. The network-level clustering coefficient averages across all nodes. Intelligence application: high local clustering suggests cell-based structures where each cell operates semi-independently.\n\nShortest Path (Geodesic Distance)\n\nThe minimum number of edges that must be traversed to get from one node to another. Shorter paths indicate faster information flow.\n\nDiameter\n\nThe longest shortest path in the network—the maximum number of steps required to connect any two nodes. A smaller diameter indicates a more tightly integrated network.\n\nAverage Distance\n\nThe mean shortest path length across all node pairs. A low average distance (as in “six degrees of separation”) characterizes small-world networks."
+  },
+  {
+    "objectID": "index.html#the-strength-of-weak-ties",
+    "href": "index.html#the-strength-of-weak-ties",
+    "title": "Week 11: Social Network Analysis",
+    "section": "The Strength of Weak Ties",
+    "text": "The Strength of Weak Ties\nMark Granovetter’s classic finding: weak ties (acquaintances, distant connections) are often more valuable for information diffusion than strong ties (close friends, family).1\nWhy? Strong ties connect you to people who already share your information. Weak ties bridge to different social circles, providing access to novel information and resources.\nIntelligence implication: in covert networks, communication often travels through weak ties precisely because they are harder to detect and because strong-tie clusters tend to be operationally separated for security reasons."
+  },
+  {
+    "objectID": "index.html#the-small-world-phenomenon",
+    "href": "index.html#the-small-world-phenomenon",
+    "title": "Week 11: Social Network Analysis",
+    "section": "The Small World Phenomenon",
+    "text": "The Small World Phenomenon\nMany real-world networks—social, terrorist, biological, technological—exhibit “small world” properties: high local clustering combined with short average path lengths. Despite containing thousands or millions of nodes, most pairs of nodes can be connected through a surprisingly small number of steps.\nIntelligence implication: small-world structure means that even large, seemingly complex networks may have critical structural bottlenecks (high-betweenness nodes) through which targeting can produce disproportionate disruption."
+  },
+  {
+    "objectID": "index.html#the-intelligence-sna-pipeline",
+    "href": "index.html#the-intelligence-sna-pipeline",
+    "title": "Week 11: Social Network Analysis",
+    "section": "The Intelligence SNA Pipeline",
+    "text": "The Intelligence SNA Pipeline\n\n\n\nData Collection\n\nGather relational data from HUMINT (informant reports, interrogation), SIGINT (call records, metadata), OSINT (social media, public records), SOCMINT (social media intelligence), cyber logs, and financial transaction records. The richness of SNA is only as good as the data fed into it.\n\nData Cleaning and Structuring\n\nConvert unstructured text or metadata into nodes and edges. Resolve entity names (is “Abu Ahmad” the same person across three databases?). Standardize relationship types. Build the edge list and node attribute table.\n\nNetwork Construction\n\nMap relationships using analytical tools: i2 Analyst’s Notebook, Gephi, Palantir Gotham, or Python’s NetworkX. Decisions about directionality, weighting, and time-slicing are made at this stage.\n\nAnalysis\n\nApply SNA metrics. Compute centrality measures. Identify community structures (subgroups). Detect structural holes (where a broker would gain advantage). Compare the network to baseline or prior-period networks.\n\nInterpretation\n\nLink quantitative findings to contextual intelligence. A high-betweenness node is statistically significant—but is it operationally significant? Validate with HUMINT. Consider alternative structural interpretations."
+  },
+  {
+    "objectID": "index.html#visualization-principles",
+    "href": "index.html#visualization-principles",
+    "title": "Week 11: Social Network Analysis",
+    "section": "Visualization Principles",
+    "text": "Visualization Principles\nThe way a network is drawn affects what patterns are visible—and what conclusions the viewer draws. Key decisions:\n\nLayout algorithm: Force-directed layouts (Fruchterman-Reingold, ForceAtlas2) tend to reveal community structure. Hierarchical layouts emphasize chains of command. Circular layouts enable comparison of node-level statistics.\nNode size and color: Encode centrality, group membership, or attribute values. Make the encoding explicit in a legend.\nEdge width and color: Encode tie strength or relationship type (communication vs. financial vs. co-membership).\nFiltering: Temporal filters (before/after a key event) or attribute filters (restrict to nodes above a centrality threshold) can reveal patterns hidden in a fully rendered network.\n\n\n\n\n\n\n\nWarningVisualization Bias\n\n\n\nNetwork visualizations are highly persuasive and intuitive—but they can also be highly misleading. A central-looking node may appear central because of layout choices, not because of its true structural position. Always supplement visual interpretation with computed metrics."
+  },
+  {
+    "objectID": "index.html#case-1-mapping-the-911-network",
+    "href": "index.html#case-1-mapping-the-911-network",
+    "title": "Week 11: Social Network Analysis",
+    "section": "Case 1: Mapping the 9/11 Network",
+    "text": "Case 1: Mapping the 9/11 Network\nIn 2002, Valdis Krebs published a network analysis of the 9/11 hijacker cell using information available in the public record after the attack. The analysis reconstructed the network structure of the 19 hijackers and their connections to key Al-Qaeda facilitators.\nKey findings:\n\nMohamed Atta had the highest betweenness centrality — consistent with his role as operational coordinator\nThe network had a characteristic small-world structure: tight local clusters (operational cells in Hamburg and flight training locations in the U.S.) connected through a small number of bridge nodes\nThe bridge nodes were the most valuable targets for pre-attack disruption — but they were also the least visible to conventional surveillance methods focused on known suspects\n\nThe analytical challenge Krebs identified: The U.S. intelligence community had information on some of the nodes in this network before 9/11. The structural analysis that would have revealed their significance — their bridging position connecting different parts of the network — was not performed. Individual-level investigation without network-level analysis missed the architectural significance of key actors.\n\n\n\n\n\n\nNoteThe “Start with Yourself” Problem\n\n\n\nKrebs’s 2002 analysis used only public information — newspaper accounts, trial records, and government reports. The network could have been partially mapped before the attack from open sources alone. The constraint was not data availability but analytical approach: tracking individuals rather than mapping structures."
+  },
+  {
+    "objectID": "index.html#case-2-russian-internet-research-agency-social-media-network-analysis",
+    "href": "index.html#case-2-russian-internet-research-agency-social-media-network-analysis",
+    "title": "Week 11: Social Network Analysis",
+    "section": "Case 2: Russian Internet Research Agency — Social Media Network Analysis",
+    "text": "Case 2: Russian Internet Research Agency — Social Media Network Analysis\nFollowing the 2016 U.S. presidential election, researchers obtained a dataset of approximately 3 million tweets posted by accounts linked to the Russian Internet Research Agency (IRA). Network analysis of this dataset revealed how the IRA’s influence operation was structured.\nStructural characteristics:\n\n\nSeeder accounts\n\nCreated authentic-seeming personas with long posting histories\nEstablished credibility by sharing non-controversial content before activating on political topics\nHad high follower counts built over months or years before the operation’s active phase\nHigh eigenvector centrality — connected to other high-influence accounts\n\n\n\nAmplifier accounts\n\nLower profile, larger in number\nPrimary function: boost seeder content into algorithmic visibility thresholds\nHad lower degree centrality but were essential for triggering platform amplification systems\nActed as the “weak tie” network: connecting seeder content to broader audiences across distinct social communities\n\n\n\nWhat made the network effective: The IRA network exploited the fact that both Twitter’s algorithm and human psychological perception privilege content that appears to have many interactions. The amplifier layer created the appearance of organic virality — a structural feature invisible to users but apparent to network analysis."
+  },
+  {
+    "objectID": "index.html#case-3-disrupting-a-drug-trafficking-network-the-deas-el-paso-intelligence-center",
+    "href": "index.html#case-3-disrupting-a-drug-trafficking-network-the-deas-el-paso-intelligence-center",
+    "title": "Week 11: Social Network Analysis",
+    "section": "Case 3: Disrupting a Drug Trafficking Network — The DEA’s El Paso Intelligence Center",
+    "text": "Case 3: Disrupting a Drug Trafficking Network — The DEA’s El Paso Intelligence Center\nLaw enforcement applications of network analysis have increasingly focused on distinguishing between nodes by replaceability rather than centrality. A high-degree hub in a criminal network is easy to identify — but if the network has resilient redundancy, removing the hub produces only temporary disruption.\nResearch on the Sinaloa cartel network structure found:\n\nThe network exhibited scale-free properties: a small number of very high-degree nodes (cartel leaders) and many low-degree nodes (street-level distributors)\nRemoving top leadership nodes (the most common enforcement strategy) was less disruptive than predicted because the organizational knowledge required to reconstitute the network was distributed\nRemoving financial brokers — often lower-degree but high-betweenness nodes connecting money flows between operational cells and leadership — produced more lasting disruption\nThe key insight: structural role matters more than hierarchy label. The most valuable targets were often mid-level financial intermediaries who appeared unimportant by traditional organizational analysis"
+  },
+  {
+    "objectID": "index.html#finding-subgroups-within-networks",
+    "href": "index.html#finding-subgroups-within-networks",
+    "title": "Week 11: Social Network Analysis",
+    "section": "Finding Subgroups Within Networks",
+    "text": "Finding Subgroups Within Networks\nReal-world covert and criminal networks are not uniform — they are composed of semi-autonomous subgroups that share dense internal connections and maintain sparser connections across groups. Identifying these communities is both analytically important (what are the functional units?) and operationally important (where are the structural seams that divide the network?).\nCommon community detection algorithms:\n\n\n\nModularity Optimization (Louvain, Leiden)\n\nAssigns nodes to communities by maximizing “modularity” — a measure of whether the internal density of a community exceeds what would be expected by chance. The Louvain and Leiden algorithms efficiently approximate optimal modularity partitions for large networks. Implemented in Gephi, Python’s community library, and NetworkX.\n\nGirvan-Newman Algorithm\n\nIteratively removes the highest-betweenness edges from the network. As the highest-betweenness edges (the bridges between communities) are removed, the network breaks into progressively smaller components, revealing its community structure. Computationally expensive for large networks but conceptually transparent.\n\nk-Clique Percolation\n\nIdentifies communities as maximal unions of k-cliques (complete subgraphs of k nodes) that share at least k-1 nodes. Allows overlapping community membership — a node can belong to multiple communities simultaneously. Particularly useful for networks where actors belong to multiple organizations or operational cells.\n\nHierarchical Clustering\n\nBuilds a dendrogram showing the nested community structure at different levels of resolution. Allows analysts to see both fine-grained cell-level structure and coarser group-level structure within the same network."
+  },
+  {
+    "objectID": "index.html#structural-holes-and-brokerage",
+    "href": "index.html#structural-holes-and-brokerage",
+    "title": "Week 11: Social Network Analysis",
+    "section": "Structural Holes and Brokerage",
+    "text": "Structural Holes and Brokerage\nRonald Burt’s concept of structural holes extends betweenness centrality analytically: a structural hole exists where there is no connection between two otherwise-separate parts of a network. The node that bridges a structural hole — the broker — gains power from this position: they control the information and resource flow between otherwise-unconnected groups.\nIn covert network analysis: - Brokers are the highest-value disruption targets — removing them severs communities - Brokers are also the highest-value penetration targets — turning a broker provides access to multiple communities simultaneously - Adversaries often deliberately minimize structural holes in critical communications to reduce this vulnerability, creating redundant paths between cells"
+  },
+  {
+    "objectID": "index.html#networks-change-temporal-analysis-captures-how",
+    "href": "index.html#networks-change-temporal-analysis-captures-how",
+    "title": "Week 11: Social Network Analysis",
+    "section": "Networks Change — Temporal Analysis Captures How",
+    "text": "Networks Change — Temporal Analysis Captures How\nA static network map is a photograph of relationships at one moment. Covert networks are constantly evolving: members are recruited and killed, cells are activated and dormant, communication patterns shift in response to operational security concerns. Temporal network analysis tracks how network structure changes over time.\nKey questions in temporal network analysis:\n\nWhen were new connections formed? (Who introduced whom, and when?)\nWhich connections are stable over time, and which are transient?\nDoes the network’s structural vulnerability (betweenness distribution, diameter) change after a disruption event?\nAre there patterns in communication timing that reveal operational planning cycles?\n\nPractical application: Following the arrest or killing of a key node, analysts can compare the network’s pre- and post-disruption structure: - Did betweenness redistribute? (Did new brokers emerge?) - Did communities disconnect? (Did the disruption sever a critical bridge?) - Did edge weight patterns change? (Did remaining nodes increase communication — a potential indicator of reconstitution activity?)\n\n\n\n\n\n\nTipTemporal SNA in Practice\n\n\n\nIn Python, the networkx library supports temporal networks through multigraph representations with timestamped edges. The teneto package provides dedicated temporal network analysis tools. Gephi supports temporal filtering through its dynamic network capabilities. In classified environments, Palantir Gotham’s timeline features perform similar functions at scale."
+  },
+  {
+    "objectID": "index.html#footnotes",
+    "href": "index.html#footnotes",
+    "title": "Week 11: Social Network Analysis",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nMark Granovetter, “The Strength of Weak Ties,” American Journal of Sociology 78(6), 1973.↩︎"
+  }
+]

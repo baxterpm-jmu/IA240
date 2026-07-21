@@ -1,0 +1,272 @@
+---
+title: "Week 3: Introduction to Data Science and the Analytical Workflow"
+subtitle: "IA 240: Technology Applications in a Networked World"
+---
+
+Data science is the methodological foundation for systematic, rigorous analysis. Before learning specific statistical techniques, analysts need to understand the workflow those techniques serve: how analytical problems are framed, how the data science process is structured, and how different data types shape what analysis is possible. This lecture establishes that foundation.
+
+Before testing hypotheses, analysts must understand what their data looks like. Descriptive statistics and exploratory data analysis (EDA) are the systematic tools for that understanding — revealing distributions, central tendencies, variability, outliers, and relationships that formal models can miss or distort if applied without first examining the data.
+
+# Part I: What is Data Science?
+
+## Defining the Field
+
+Data science is the multidisciplinary field concerned with extracting knowledge and insight from data—structured or unstructured, large or small. It draws on mathematics, statistics, computer science, and domain expertise to turn raw information into actionable understanding.
+
+::: {.callout-note}
+## The Core Insight
+Data science is what enables us to move from large, incomprehensible datasets to actionable knowledge. The goal is not the technique—it is the insight the technique produces.
+:::
+
+Data science principles apply across scales: the methods used to analyze a 10-row spreadsheet and a billion-row database share underlying logic, even if the computational tools differ.
+
+## Core Functions
+
+A practicing data scientist (or a data-literate analyst) draws on competencies across several domains:
+
+| Function | Description | Relevance to IA |
+|---|---|---|
+| **Mathematics & Applied Mathematics** | Foundations of algorithms, optimization, and statistical theory | Understanding what analytical tools actually compute |
+| **Computer Programming (R, Python, Julia, SQL)** | Implementing analysis, automating tasks, querying databases | Scale: computers process millions of records in seconds |
+| **Data Mining** | Discovering patterns in large datasets without predefined hypotheses | Identifying anomalies, clusters, or trends in raw intelligence data |
+| **Database Management** | Storing, organizing, and querying structured data | Working with IC data warehouses and relational databases |
+| **Machine Learning** | Building systems that improve from data | Automated classification, prediction, and anomaly detection |
+| **Data Visualization** | Communicating findings through charts, maps, and dashboards | Presenting analysis to policymakers and consumers |
+| **Applied Statistics** | Formal inference, hypothesis testing, uncertainty quantification | Calibrating confidence in analytic judgments |
+
+## Data Science in Intelligence Analysis
+
+::: {.callout-warning}
+## Course Framing — Not Training Data Scientists
+The goal of this course is **not** to make you a data scientist. The goal is to make you a data-literate analyst who understands how to connect data—of all kinds—to analytical problems. That means knowing when to use a tool, what it assumes, and how to interpret its output, even if you are not the one writing the code.
+:::
+
+Applications of data science methods in intelligence analysis include:
+
+- **Data Integration and Fusion** — combining HUMINT, SIGINT, OSINT, and GEOINT into unified pictures
+- **Text Analysis and NLP** — extracting meaning from foreign-language documents, social media, and intercepted communications
+- **Social Network Analysis** — mapping relationships between individuals, organizations, and entities
+- **Geospatial Analysis** — identifying spatial patterns in conflict, migration, or economic activity
+- **Machine Learning for Pattern Recognition** — flagging anomalies in financial flows, communications metadata, or imagery
+- **Predictive Analytics** — forecasting conflict onset, proliferation timelines, or election outcomes
+- **Cybersecurity** — detecting intrusions, attributing attacks, and modeling adversary behavior
+- **Visualization** — producing products that communicate complex findings clearly to consumers
+- **Risk Assessment** — quantifying uncertainty and supporting structured decision-making
+- **Early Warning Systems** — automated monitoring of indicators that precede significant events
+
+---
+
+# Part II: The Data Science Process
+
+## A Standard Workflow
+
+Data science projects follow a recognizable lifecycle. Understanding this cycle is as important as any individual technique, because most analytical failures occur at the transitions between stages—not within them.
+
+The following stages describe the approach used in this program:
+
+::: {.timeline}
+::: {dl}
+
+1. Problem Statement
+:   Before collecting a single data point, define what you are trying to answer. A problem statement is an explanation of the gap between what is known and what needs to be known, and why that gap matters. In intelligence, this is often framed as: *What is the probability that X will occur?* or *What factors are driving Y?* A weak problem statement produces a weak analysis regardless of data quality.
+
+2. Identification & Procurement
+:   Identify what data exists that is relevant to the problem. Determine how to obtain it—open sources, databases, collection operations, surveys. Document provenance, collection methodology, and known limitations before analysis begins.
+
+3. Selection
+:   Not all available data is relevant. Select the variables, time ranges, geographic units, and sources that address the problem statement. This decision embeds analytical judgment—what you exclude matters as much as what you include.
+
+4. Preprocessing & Transformation
+:   Clean the data (address missing values, inconsistencies, and errors), standardize formats, and transform variables for analysis (e.g., converting categorical to numerical, creating ratio variables, normalizing scales). This is typically 60–80% of total project time.
+
+5. EDA and Modeling
+:   Explore the data visually and statistically to understand its structure before applying formal models. Then apply appropriate analytical or statistical methods to test hypotheses or discover patterns.
+
+6. Interpretation
+:   Translate statistical outputs into intelligence judgments. What do the results mean for the problem statement? What is the confidence level? What alternative explanations have been considered?
+
+7. Knowledge / Dissemination
+:   Communicate findings in a form appropriate to the consumer—written product, briefing, dashboard, or visualization. The best analysis is worthless if it cannot be understood and acted upon.
+
+:::
+:::
+
+---
+
+# Part III: Problem Statements
+
+## What Makes a Good Problem Statement?
+
+A problem statement is the analytical foundation of every data-driven project. It must be:
+
+- **Specific** — describes a precise gap in knowledge, not a broad topic
+- **Significant** — explains why the gap matters to a decision-maker or stakeholder
+- **Researchable** — can be addressed with available (or acquirable) data
+- **Bounded** — scoped so that it can be answered within available time and resources
+
+::: {.col-pair}
+::: {.col-left}
+**Weak Problem Statement**
+
+"I want to study terrorism."
+
+This is a topic, not a problem statement. It does not specify what question is being asked, what data could answer it, or why the answer matters.
+:::
+::: {.col-right}
+**Stronger Problem Statement**
+
+"It is unclear whether economic grievances or ideological affiliation is the stronger predictor of individual radicalization in Western Europe between 2010 and 2023. Identifying the dominant pathway has direct implications for counter-terrorism resource allocation."
+
+This specifies the gap, the scope, the data needed, and the policy relevance.
+:::
+:::
+
+::: {.callout-note}
+## The "Identifying the Unexpected" Approach
+In intelligence analysis, problem statements sometimes emerge not from pre-specified questions but from anomalies in data—things that should not be there, or patterns that deviate from baseline. A rigorous EDA phase (see Meeting 20) often surfaces these unexpected signals, which then become the basis of a new problem statement and deeper analytical effort.
+:::
+
+---
+
+# Part IV: Understanding Data Types in an Intelligence Context
+
+## The Three Categories
+
+::: {.col-pair}
+::: {.col-left}
+**Qualitative**
+
+- Interview transcripts
+- Intelligence reports
+- Social media posts
+- Diplomatic cables
+- Images and videos (unprocessed)
+
+**Strengths:** depth, context, nuance, access to meaning and intention
+
+**Limitations:** time-consuming to collect and analyze; harder to standardize; analyst interpretation bias; selective coding
+:::
+::: {.col-right}
+**Quantitative**
+
+- Population sizes
+- Crime statistics
+- Economic indicators
+- Sensor readings
+- Satellite imagery pixel values (processed)
+
+**Strengths:** objective, replicable, aggregable, comparable across time and place
+
+**Limitations:** can oversimplify complex phenomena; vulnerable to missing variables; sampling bias; measurement errors
+
+**Unstructured**
+
+- Raw satellite imagery
+- Social media video
+- Intercepted audio
+- Web scraped text
+
+**Strengths:** captures real-world signals in near-real-time; essential for modern OSINT and GEOINT
+
+**Limitations:** requires expensive tools and specialized processing; data-source bias; limited accessibility without technical infrastructure
+:::
+:::
+
+## Key Considerations for Analysts
+
+::: {.key-terms}
+::: {dl}
+
+Reliability
+:   Are the data collected and measured consistently? If you use the same instrument at different times or by different collectors, do you get the same result? Inconsistent collection procedures undermine comparability.
+
+Validity
+:   Does the data actually measure what you claim it measures? A dataset of diplomatic cable volume may be *reliable* (consistently counted) but *invalid* as a measure of diplomatic engagement if cables are not the primary communication channel.
+
+Triangulation
+:   Combining multiple data types and sources to strengthen findings and reduce blind spots. When qualitative HUMINT, quantitative economic indicators, and IMINT all point in the same direction, confidence increases. When they diverge, that divergence is itself analytically significant.
+
+Ethical Issues
+:   Unstructured and OSINT data often involves private individuals who did not consent to intelligence collection. Privacy, misrepresentation, and manipulation risks must be weighed, especially when data informs operations or policy that affects those individuals.
+
+:::
+:::
+
+---
+
+
+
+# Part V: The Data Workflow and Analytical Process
+
+## Why a Disciplined Workflow Matters
+
+Intelligence analysis deals with noisy, incomplete, and uncertain data collected under adversarial conditions. Without a disciplined analytical process:
+
+- Conclusions may be driven by assumptions rather than evidence
+- Errors introduced in early stages compound through the analysis
+- Results cannot be reviewed, replicated, or challenged by colleagues or consumers
+
+A documented workflow makes analysis **traceable**, **reproducible**, and **auditable**.
+
+## Core Workflow Stages
+
+::: {.timeline}
+::: {dl}
+
+1. Data Collection
+:   Gather raw data from classified, commercial, or open sources. Includes structured (databases), unstructured (text, images), and semi-structured (JSON, logs) data. Document every source, access date, and known limitations.
+
+2. Data Cleaning and Preprocessing
+:   Remove errors, fill gaps, and standardize values to make data usable. Common issues: missing values (impute, interpolate, or flag), duplicates (identify by unique ID and remove), inconsistent formats (standardize date/time and coordinate formats), outliers (assess whether they are real signals or data errors), noise (filter irrelevant text, bot activity, or spam).
+
+3. Data Transformation and Integration
+:   Convert raw data into analytical formats. Align units, time intervals, and coordinate systems. Aggregate or disaggregate to the appropriate level of analysis (e.g., event-level → country-year). Combine multiple datasets through join operations; validate joins by manually spot-checking records.
+
+4. Analysis and Modeling
+:   Apply statistical or computational techniques to discover meaning. Combine descriptive summaries with inferential or predictive models.
+
+5. Validation and Quality Assurance
+:   Check results for plausibility. Run sensitivity analyses—do conclusions hold under different assumptions or subsets of data? Seek independent review.
+
+6. Visualization and Communication
+:   Translate findings into products appropriate to the consumer. Tailor complexity to audience expertise (Meeting 26).
+
+7. Feedback and Iteration
+:   Review the impact and accuracy of analysis. Adjust collection priorities or methods for future cycles. The analytical process is iterative, not linear.
+
+:::
+:::
+
+## The Intelligence Data Lifecycle
+
+::: {.col-pair}
+::: {.col-left}
+**Collection → Processing → Analysis**
+
+Raw data from any source requires processing before analysis. Processing involves: tagging metadata, parsing documents, extracting named entities, and removing noise. Only then is the data ready for statistical or computational treatment.
+:::
+::: {.col-right}
+**Interpretation → Dissemination → Feedback**
+
+Analytical results must be *interpreted*—linked to the original intelligence question and decision need. Dissemination must be tailored to the consumer's expertise. Feedback from consumers informs future collection priorities, closing the intelligence cycle.
+:::
+:::
+
+---
+
+# Suggested Readings
+
+*All readings are journal or news articles.*
+
+Donoho, D. (2017). 50 years of data science. *Journal of Computational and Graphical Statistics*, *26*(4), 745–766. <https://doi.org/10.1080/10618600.2017.1384734>
+
+> A historical and conceptual overview of data science as a discipline. Places EDA in its intellectual genealogy — from Tukey's foundational work through modern computational methods. Relevant background for understanding where descriptive and exploratory analysis fit in the broader analytical enterprise.
+
+Provost, F., & Fawcett, T. (2013). Data science and its relationship to big data and data-driven decision making. *Big Data*, *1*(1), 51–59. <https://doi.org/10.1089/big.2013.1508>
+
+> Examines the conceptual foundations of data-driven decision making and what distinguishes genuine data science from data mining. Directly relevant to the data science process and intelligence application content.
+
+Davenport, T. H., & Patil, D. J. (2012). Data scientist: The sexiest job of the 21st century. *Harvard Business Review*, *90*(10), 70–76.
+
+> Widely-read piece establishing the role of the data scientist in analytical organizations. Relevant to understanding the workflow and professional context in which the descriptive analysis skills of this lecture are deployed.
+                  

@@ -1,0 +1,302 @@
+---
+title: "Week 8: Data Modeling: Regression and Model Evaluation"
+subtitle: "IA 240: Technology Applications in a Networked World"
+---
+
+Models are deliberate simplifications that make data interpretable. This lecture covers the principal modeling frameworks available to intelligence analysts: from regression and classification to model evaluation metrics. The emphasis is on matching the right model to the analytical question, evaluating model performance rigorously, and understanding the assumptions and failure modes of each approach. The lecture concludes with a conceptual bridge to machine learning, covered in depth in Lecture 10.
+
+# Part I: Analytical Approaches and Their Intelligence Applications
+
+| Approach | Core Function | Intelligence Applications |
+|---|---|---|
+| **Statistical Analysis** | Pattern detection in structured data | Identifying correlations between conflict indicators and escalation; economic forecasting |
+| **Geospatial Analysis** | Spatial correlations, clustering, hotspot mapping | Tracking facility construction, conflict event distribution, refugee movements |
+| **Network Analysis** | Mapping key actors and relationships | Terrorist network structure, financial flows, illicit procurement chains |
+| **Text & Sentiment Analysis** | Extracting meaning from unstructured text | Foreign media monitoring, social media sentiment, document exploitation |
+| **Machine Learning** | Anomaly detection and predictive assessment | Flagging suspicious transactions, classifying imagery, predicting conflict onset |
+
+---
+
+# Part II: The Need for Models
+
+## Why Model?
+
+> "All models are wrong, but some are useful." — George Box
+
+Data is never the world itself—it is a trace of the world, filtered through collection processes that introduce their own noise and distortions. Models are deliberate simplifications that make data interpretable.
+
+There are two fundamental sources of uncertainty in any dataset:
+
+1. **Process randomness:** the underlying phenomenon itself contains randomness (e.g., when exactly a volcano will erupt)
+2. **Measurement uncertainty:** our instruments, sensors, and collection methods introduce noise and error
+
+A statistical model is a mathematical function that separates signal from noise—it represents the systematic patterns in the data while acknowledging that residual variation exists and is unmodeled.
+
+---
+
+# Part III: Choosing a Modeling Approach
+
+## Match the Model to the Problem
+
+Different problems require different modeling approaches. The nature of your outcome variable (dependent variable) and the goal of the analysis are the primary determinants:
+
+| Approach | Goal | DV Type | Examples |
+|---|---|---|---|
+| **Regression** | Predict a continuous outcome | Continuous/Ratio | Estimating GDP, forecasting temperature, predicting casualties |
+| **Classification** | Predict a category | Nominal/Binary | Spam vs. not spam; conflict onset vs. no conflict; weapon type identification |
+| **Clustering** | Discover groups | None (unsupervised) | Segmenting states by behavior, detecting anomalous financial accounts |
+| **Time Series Analysis** | Analyze ordered temporal data | Continuous over time | Stock prices, conflict event rates, satellite signal patterns |
+
+## Variable Type and Model Selection
+
+| DV Variable Type | Appropriate Statistical Models |
+|---|---|
+| **Nominal** | Chi-square tests, Logistic Regression (Multinomial), Log-linear models |
+| **Ordinal** | Ordinal Logistic Regression, Non-parametric tests (Kruskal-Wallis, Mann-Whitney U), Cumulative link models |
+| **Interval / Ratio** | Linear Regression, ANOVA, Multiple Regression, Factor Analysis, ANCOVA |
+| **Continuous** | Linear Regression, GLM, Pearson's Correlation, T-tests |
+
+---
+
+# Part IV: Multiple Regression Analysis
+
+## What is Multiple Regression?
+
+Multiple regression models the relationship between one **dependent variable** (DV) and two or more **independent variables** (IVs). The goal is to build a statistical model that:
+
+- **Predicts** values of the DV based on observed IVs
+- **Estimates** the contribution of each IV while controlling for the others
+- **Measures effects** in a way that isolates each variable's unique contribution
+
+The general linear model:
+
+$$Y = \alpha + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_k X_k + \varepsilon$$
+
+where $\alpha$ is the intercept, each $\beta_i$ is the slope (partial regression coefficient) for variable $X_i$, and $\varepsilon$ is the residual error.
+
+::: {.callout-note}
+## Interpreting Partial Regression Coefficients
+$\beta_i$ represents the expected unit change in Y for a one-unit increase in $X_i$, *holding all other variables constant*. This "net regression coefficient" is the fundamental advantage of multiple regression over simple regression: it controls for the influence of other variables.
+:::
+
+## Regression Modeling Steps
+
+1. Define the problem or question
+2. Specify the model (select IVs based on theory and prior research)
+3. Collect and clean data
+4. Conduct descriptive data analysis (EDA)
+5. Estimate model parameters (using OLS, MLE, or another estimator)
+6. Evaluate model fit and assumptions
+7. Use model for prediction or inference
+
+## Design Requirements
+
+- **One dependent variable** (criterion)
+- **Two or more independent variables** (predictors)
+- **Sample size:** at minimum 50 observations, with at least 10 cases per independent variable (so 10 IVs → need 100+ observations)
+
+## Assumptions
+
+::: {.key-terms}
+::: {dl}
+
+Independence
+:   Observations are independent of each other. Violated by time series data, clustered data (students within schools), or repeated measures without correction.
+
+Normality
+:   In the population, the dependent variable is approximately normally distributed for each combination of IV values. Less critical with large samples due to the Central Limit Theorem.
+
+Homoscedasticity
+:   The variance of residuals is constant across all levels of the IVs. Violated when errors are larger for some values of X than others (e.g., variance in income increases at higher income levels).
+
+Linearity
+:   The relationship between the DV and each IV is linear when all other IVs are held constant. Non-linear relationships require polynomial terms or non-linear models.
+
+:::
+:::
+
+## Evaluating Model Fit
+
+- **R²:** The proportion of variance in Y explained by the model. R² = 0.60 means the model accounts for 60% of variation in the outcome.
+- **Adjusted R²:** Penalizes for adding variables that do not improve fit. Always use adjusted R² when comparing models with different numbers of predictors.
+- **F-test (ANOVA table):** Tests whether the overall model explains significantly more variance than a null model with no predictors.
+- **t-tests for individual coefficients:** Tests whether each $\beta_i$ differs significantly from zero.
+- **Residual analysis:** Plot residuals vs. fitted values (checking homoscedasticity), Q-Q plot (checking normality), residuals vs. each IV (detecting nonlinearity).
+
+## Multicollinearity
+
+**Multicollinearity** occurs when IVs are highly correlated with each other. Consequences:
+
+- Coefficient estimates become unstable and sensitive to which variables are included
+- Standard errors inflate, reducing statistical power
+- Interpretation becomes difficult—coefficients reflect the combined effect of correlated predictors
+
+**Detection:** Examine the correlation matrix between IVs. Variance Inflation Factor (VIF) > 10 indicates problematic multicollinearity.
+
+**Solutions:** remove one of the correlated variables; combine them into a composite index; collect new data with greater variation in predictors.
+
+---
+
+# Part V: Logistic Regression
+
+## Why Not Linear Regression for Binary Outcomes?
+
+When the dependent variable is binary (0/1, Yes/No), linear regression produces predictions outside the [0,1] probability range and violates normality and homoscedasticity assumptions. The solution is **logistic regression**.
+
+## The Logistic (Sigmoid) Function
+
+Logistic regression models the log-odds of the outcome as a linear function of the IVs:
+
+$$\ln\left(\frac{P(Y=1)}{1-P(Y=1)}\right) = \alpha + \beta_1 X_1 + \cdots + \beta_k X_k$$
+
+The predicted log-odds are then transformed back to a probability through the logistic function:
+
+$$P(Y=1) = \frac{e^{\alpha + \beta_1 X_1 + \cdots}}{1 + e^{\alpha + \beta_1 X_1 + \cdots}}$$
+
+This constrains predictions to (0, 1) regardless of IV values—solving the out-of-range problem.
+
+## Interpreting Coefficients
+
+Logistic regression coefficients are in **log-odds units**. A coefficient of $\beta_i = 1.48$ for a binary variable means:
+- The log-odds of $Y=1$ increase by 1.48 for a one-unit increase in $X_i$
+- Equivalently: the odds of $Y=1$ are multiplied by $e^{1.48} \approx 4.39$ for a one-unit increase in $X_i$
+
+## Model Comparison
+
+For logistic regression, model comparison uses the **likelihood-ratio test** rather than changes in R²:
+- Compute the log-likelihood for two nested models
+- The difference in log-likelihoods follows a chi-square distribution
+- A statistically significant improvement in log-likelihood justifies including the added variable
+
+## Multinomial Logistic Regression
+
+When the outcome has more than two categories (e.g., preferred mode of transport: car, bus, train, bicycle), **multinomial logistic regression** extends the binary case by estimating the log-odds of each category relative to a chosen baseline.
+
+---
+
+---
+
+# Part VI: Bridge to Machine Learning
+
+The modeling frameworks in Parts I–V — regression, classification, model evaluation — provide the statistical foundation for understanding machine learning. ML methods extend these principles to high-dimensional data, complex non-linear relationships, and large-scale prediction tasks. The next lecture (Lecture 10) covers ML methods in depth; this section introduces the conceptual distinction.
+
+## ML vs. Statistical Models
+
+::: {.col-pair}
+::: {.col-left}
+**Statistical Models**
+
+- Goal: understand the underlying generative process
+- "White box" — coefficients have interpretable meaning
+- Concerned with uncertainty quantification (standard errors, confidence intervals)
+- Better for causal inference and hypothesis testing
+- Output includes inference about parameters and their significance
+:::
+::: {.col-right}
+**Machine Learning Algorithms**
+
+- Goal: maximize predictive accuracy
+- Often "black box" — internal workings are opaque
+- Less concerned with understanding the generative process
+- Suited for high-dimensional data and large samples
+- Output is a prediction or classification, not a parameter estimate
+:::
+:::
+
+The choice between statistical and ML approaches is not "which is better" — it depends on whether the analytical goal is *understanding* (statistical modeling) or *prediction* (ML). Intelligence analysts often need both: ML to flag anomalies at scale, statistical modeling to explain and justify findings to consumers.
+
+::: {.callout-tip}
+## When to Use Each
+Use statistical regression when: the outcome has clear theoretical predictors, sample sizes are moderate, and the consumer needs to understand *why* the model predicts what it predicts.
+
+Use machine learning when: prediction accuracy is the primary goal, the feature space is large and complex, labeled training data is available, and interpretability can be traded for performance.
+:::
+
+---
+
+# Part VII: Model Evaluation Metrics
+
+## Beyond Accuracy: How to Evaluate a Classifier
+
+When a model predicts a binary outcome (conflict/no-conflict; threat/no-threat; spam/not-spam), **accuracy** — the percentage of correct predictions — is often a misleading metric. A model that predicts "no attack" for every observation in a terrorism dataset would be highly accurate (since attacks are rare) but analytically worthless.
+
+## The Confusion Matrix
+
+The confusion matrix maps predicted vs. actual outcomes:
+
+|  | **Predicted Positive** | **Predicted Negative** |
+|---|---|---|
+| **Actual Positive** | True Positive (TP) | False Negative (FN) — Type II Error |
+| **Actual Negative** | False Positive (FP) — Type I Error | True Negative (TN) |
+
+From these four cells, the key metrics:
+
+| Metric | Formula | Intelligence Meaning |
+|---|---|---|
+| **Accuracy** | (TP + TN) / Total | Overall correct predictions |
+| **Precision** | TP / (TP + FP) | When model says "attack," how often is it right? |
+| **Recall (Sensitivity)** | TP / (TP + FN) | Of all actual attacks, how many did the model catch? |
+| **F1 Score** | 2 × (Precision × Recall) / (Precision + Recall) | Harmonic mean of precision and recall |
+| **Specificity** | TN / (TN + FP) | Of actual negatives, how many did the model correctly classify? |
+
+**The precision-recall tradeoff:**
+
+Lowering the classification threshold (flagging more cases as positive) increases recall but decreases precision — more true threats caught, more false alarms generated. Raising the threshold does the reverse. The optimal balance depends entirely on the cost ratio between false positives and false negatives — a decision that must be made by the analyst and consumer, not the algorithm.
+
+::: {.callout-warning}
+## Intelligence-Specific Threshold Setting
+In an intelligence context, the cost of a false negative (missing an actual attack) vastly exceeds the cost of a false positive (investigating an innocent party) for most applications. This asymmetry should drive threshold setting toward high recall / lower precision. But there are contexts where false positives carry very high costs — air strike targeting, no-fly list additions, lethal autonomous weapons systems. Threshold setting is an ethical and policy decision, not a technical one.
+:::
+
+## The ROC Curve and AUC
+
+The **Receiver Operating Characteristic (ROC)** curve plots True Positive Rate (recall) against False Positive Rate (1 − specificity) at every possible threshold. The **Area Under the Curve (AUC)** summarizes model performance across all thresholds:
+
+- AUC = 1.0: perfect classifier
+- AUC = 0.5: no better than random
+- AUC < 0.5: worse than random (predictions are inverted)
+
+AUC is threshold-independent, making it useful for comparing models before deciding where to set the operational threshold.
+
+## Train-Test Split and Cross-Validation
+
+A model that performs well on the data it was trained on may perform poorly on new data — the overfitting problem. Rigorous model evaluation requires evaluation on data the model has not seen.
+
+**Standard practices:**
+
+::: {.col-pair}
+::: {.col-left}
+**Train-test split**
+
+Divide data into training set (typically 70–80%) and held-out test set (20–30%). Train the model on the training set; evaluate performance *only* on the test set. Never use the test set for model development decisions — only for final evaluation.
+
+**Validation set**
+
+If hyperparameter tuning is needed, add a third partition (validation set) between training and final testing. Training set: fit; validation set: tune; test set: evaluate.
+:::
+::: {.col-right}
+**k-Fold Cross-Validation**
+
+Divide data into k equal folds. Train on k−1 folds, evaluate on the held-out fold. Repeat k times (each fold serves as the test set once). Average performance across folds. More robust than a single split, particularly with small datasets.
+
+**Temporal holdout for time-series data**
+
+In conflict or financial forecasting, always hold out the most *recent* observations for testing — never random observations. Future data cannot be used to predict past events; temporal ordering must be preserved.
+:::
+:::
+
+---
+
+---
+
+# Suggested Readings
+
+*All readings are journal or news articles.*
+
+Rudin, C. (2019). Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead. *Nature Machine Intelligence*, *1*(5), 206–215. <https://doi.org/10.1038/s42256-019-0048-x>
+
+> Argues that in high-stakes applications, interpretable models should be prioritized. Directly relevant to the model selection framework — and the bridge to machine learning methods in Lecture 10.
+
+Obermeyer, Z., Powers, B., Vogeli, C., & Mullainathan, S. (2019). Dissecting racial bias in an algorithm used to manage the health of populations. *Science*, *366*(6464), 447–453. <https://doi.org/10.1126/science.aax2342>
+
+> Documents how a deployed risk algorithm encoded systematic bias through proxy variable selection. A methodological template for auditing models for discriminatory outcomes.

@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Week 11: Social Network Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-d6fbb5bfb24a4f1906c428146fc3bdde.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-5f44e4ae0d7c29399185f19497bd42a1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="floating quarto-light">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#part-i-foundations-of-social-network-analysis" id="toc-part-i-foundations-of-social-network-analysis" class="nav-link active" data-scroll-target="#part-i-foundations-of-social-network-analysis">Part I: Foundations of Social Network Analysis</a>
+  <ul class="collapse">
+  <li><a href="#what-is-social-network-analysis" id="toc-what-is-social-network-analysis" class="nav-link" data-scroll-target="#what-is-social-network-analysis">What is Social Network Analysis?</a></li>
+  </ul></li>
+  <li><a href="#part-ii-core-concepts-and-terminology" id="toc-part-ii-core-concepts-and-terminology" class="nav-link" data-scroll-target="#part-ii-core-concepts-and-terminology">Part II: Core Concepts and Terminology</a></li>
+  <li><a href="#part-iii-network-measures" id="toc-part-iii-network-measures" class="nav-link" data-scroll-target="#part-iii-network-measures">Part III: Network Measures</a>
+  <ul class="collapse">
+  <li><a href="#core-centrality-measures" id="toc-core-centrality-measures" class="nav-link" data-scroll-target="#core-centrality-measures">Core Centrality Measures</a></li>
+  <li><a href="#network-level-measures" id="toc-network-level-measures" class="nav-link" data-scroll-target="#network-level-measures">Network-Level Measures</a></li>
+  </ul></li>
+  <li><a href="#part-iv-interesting-network-dynamics" id="toc-part-iv-interesting-network-dynamics" class="nav-link" data-scroll-target="#part-iv-interesting-network-dynamics">Part IV: Interesting Network Dynamics</a>
+  <ul class="collapse">
+  <li><a href="#the-strength-of-weak-ties" id="toc-the-strength-of-weak-ties" class="nav-link" data-scroll-target="#the-strength-of-weak-ties">The Strength of Weak Ties</a></li>
+  <li><a href="#the-small-world-phenomenon" id="toc-the-small-world-phenomenon" class="nav-link" data-scroll-target="#the-small-world-phenomenon">The Small World Phenomenon</a></li>
+  </ul></li>
+  <li><a href="#part-v-applying-sna-in-intelligence-workflows" id="toc-part-v-applying-sna-in-intelligence-workflows" class="nav-link" data-scroll-target="#part-v-applying-sna-in-intelligence-workflows">Part V: Applying SNA in Intelligence Workflows</a>
+  <ul class="collapse">
+  <li><a href="#the-intelligence-sna-pipeline" id="toc-the-intelligence-sna-pipeline" class="nav-link" data-scroll-target="#the-intelligence-sna-pipeline">The Intelligence SNA Pipeline</a></li>
+  </ul></li>
+  <li><a href="#part-vi-tools" id="toc-part-vi-tools" class="nav-link" data-scroll-target="#part-vi-tools">Part VI: Tools</a></li>
+  <li><a href="#part-vii-analytical-pitfalls-and-limitations" id="toc-part-vii-analytical-pitfalls-and-limitations" class="nav-link" data-scroll-target="#part-vii-analytical-pitfalls-and-limitations">Part VII: Analytical Pitfalls and Limitations</a></li>
+  <li><a href="#part-viii-network-visualization" id="toc-part-viii-network-visualization" class="nav-link" data-scroll-target="#part-viii-network-visualization">Part VIII: Network Visualization</a>
+  <ul class="collapse">
+  <li><a href="#visualization-principles" id="toc-visualization-principles" class="nav-link" data-scroll-target="#visualization-principles">Visualization Principles</a></li>
+  </ul></li>
+  <li><a href="#part-ix-real-world-cases-in-network-intelligence" id="toc-part-ix-real-world-cases-in-network-intelligence" class="nav-link" data-scroll-target="#part-ix-real-world-cases-in-network-intelligence">Part IX: Real-World Cases in Network Intelligence</a>
+  <ul class="collapse">
+  <li><a href="#case-1-mapping-the-911-network" id="toc-case-1-mapping-the-911-network" class="nav-link" data-scroll-target="#case-1-mapping-the-911-network">Case 1: Mapping the 9/11 Network</a></li>
+  <li><a href="#case-2-russian-internet-research-agency-social-media-network-analysis" id="toc-case-2-russian-internet-research-agency-social-media-network-analysis" class="nav-link" data-scroll-target="#case-2-russian-internet-research-agency-social-media-network-analysis">Case 2: Russian Internet Research Agency — Social Media Network Analysis</a></li>
+  <li><a href="#case-3-disrupting-a-drug-trafficking-network-the-deas-el-paso-intelligence-center" id="toc-case-3-disrupting-a-drug-trafficking-network-the-deas-el-paso-intelligence-center" class="nav-link" data-scroll-target="#case-3-disrupting-a-drug-trafficking-network-the-deas-el-paso-intelligence-center">Case 3: Disrupting a Drug Trafficking Network — The DEA’s El Paso Intelligence Center</a></li>
+  </ul></li>
+  <li><a href="#part-x-community-detection-and-network-partitioning" id="toc-part-x-community-detection-and-network-partitioning" class="nav-link" data-scroll-target="#part-x-community-detection-and-network-partitioning">Part X: Community Detection and Network Partitioning</a>
+  <ul class="collapse">
+  <li><a href="#finding-subgroups-within-networks" id="toc-finding-subgroups-within-networks" class="nav-link" data-scroll-target="#finding-subgroups-within-networks">Finding Subgroups Within Networks</a></li>
+  <li><a href="#structural-holes-and-brokerage" id="toc-structural-holes-and-brokerage" class="nav-link" data-scroll-target="#structural-holes-and-brokerage">Structural Holes and Brokerage</a></li>
+  </ul></li>
+  <li><a href="#part-xi-temporal-networks-and-dynamic-analysis" id="toc-part-xi-temporal-networks-and-dynamic-analysis" class="nav-link" data-scroll-target="#part-xi-temporal-networks-and-dynamic-analysis">Part XI: Temporal Networks and Dynamic Analysis</a>
+  <ul class="collapse">
+  <li><a href="#networks-change-temporal-analysis-captures-how" id="toc-networks-change-temporal-analysis-captures-how" class="nav-link" data-scroll-target="#networks-change-temporal-analysis-captures-how">Networks Change — Temporal Analysis Captures How</a></li>
+  </ul></li>
+  <li><a href="#suggested-readings" id="toc-suggested-readings" class="nav-link" data-scroll-target="#suggested-readings">Suggested Readings</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Week 11: Social Network Analysis</h1>
+<p class="subtitle lead">IA 240: Technology Applications in a Networked World</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Intelligence analysis is fundamentally about finding meaningful patterns in complex, noisy environments. Social Network Analysis (SNA) provides the conceptual and computational vocabulary for identifying non-obvious relational structure in intelligence data — mapping covert networks, identifying key actors, and understanding how information and influence flow through connected systems.</p>
+<section id="part-i-foundations-of-social-network-analysis" class="level1">
+<h1>Part I: Foundations of Social Network Analysis</h1>
+<section id="what-is-social-network-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-social-network-analysis">What is Social Network Analysis?</h2>
+<p><strong>Social network analysis (SNA)</strong> is the application of network science to analyze social phenomena—in particular, patterns of relations, connections, and configurations among people, groups, institutions, and other entities.</p>
+<p>SNA is fundamentally a <em>structural</em> approach: it focuses on the architecture of relationships rather than the attributes of individual actors. Two people with identical demographic profiles will behave very differently if one occupies a central bridging position in a network and the other sits at the periphery.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Value for Intelligence Analysis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>SNA is increasingly used in intelligence to identify and map terrorist networks, criminal organizations, proliferation networks, and other covert structures. Its advantages over traditional hierarchical analysis include:</p>
+<ul>
+<li>Captures <strong>informal and covert linkages</strong> that formal organizational charts miss</li>
+<li><strong>Quantifies qualitative relationships</strong>, supporting data-driven decision-making</li>
+<li>Reveals how networks operate, how information flows, and—critically—<strong>how they can be disrupted or dismantled</strong></li>
+<li>Identifies <strong>key leaders, financiers, brokers, and operatives</strong> based on structural position rather than title</li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-ii-core-concepts-and-terminology" class="level1">
+<h1>Part II: Core Concepts and Terminology</h1>
+<div class="key-terms">
+<div class="{dl}">
+<dl>
+<dt>Node (vertex, actor, entity)</dt>
+<dd>
+The fundamental unit of a network—the entities whose relationships we are mapping. Nodes can be individuals, organizations, countries, websites, financial accounts, or any entity that can be connected to others.
+</dd>
+<dt>Edge (tie, link, connection)</dt>
+<dd>
+A relationship or connection between two nodes. Edges can be directed or undirected, weighted or unweighted.
+</dd>
+<dt>Graph (network, system)</dt>
+<dd>
+The complete representation: a set of nodes and the edges connecting them.
+</dd>
+<dt>Directionality</dt>
+<dd>
+<strong>Undirected</strong> edges have no directionality (A–B is the same as B–A): friendship, co-membership. <strong>Directed</strong> edges have a source and a target (A→B is distinct from B→A): communication flows, financial transfers, orders of command. <strong>Mixed</strong> networks contain both.
+</dd>
+<dt>Tie Strength</dt>
+<dd>
+<strong>Weighted</strong> edges carry a value representing relationship intensity (e.g., number of communications, transaction volume). <strong>Unweighted</strong> edges simply record presence or absence of a connection.
+</dd>
+<dt>Neighborhood and Degree</dt>
+<dd>
+A node’s <strong>neighborhood</strong> is the set of nodes directly connected to it. <strong>Degree</strong> is the count of those direct connections. In directed networks, <strong>in-degree</strong> (connections received) and <strong>out-degree</strong> (connections sent) are separately meaningful.
+</dd>
+<dt>Attributes</dt>
+<dd>
+Node or edge characteristics beyond connectivity—nationality, role, date of formation, transaction amount. Integrating attributes with structure enriches interpretation.
+</dd>
+<dt>Modes</dt>
+<dd>
+<strong>One-mode networks</strong> have a single type of node (all actors). <strong>Two-mode (bipartite) networks</strong> have two distinct node types linked only across types (e.g., persons and organizations they belong to).
+</dd>
+<dt>Static vs.&nbsp;Dynamic</dt>
+<dd>
+<strong>Static</strong> networks represent relationships at a single point in time. <strong>Dynamic</strong> (temporal) networks track how connections change, form, and dissolve over time—critical for understanding evolving covert structures.
+</dd>
+</dl>
+</div>
+</div>
+<hr>
+</section>
+<section id="part-iii-network-measures" class="level1">
+<h1>Part III: Network Measures</h1>
+<section id="core-centrality-measures" class="level2">
+<h2 class="anchored" data-anchor-id="core-centrality-measures">Core Centrality Measures</h2>
+<p>Centrality measures quantify how important or influential a node is, but each definition of “important” captures something different:</p>
+<div class="col-pair">
+<div class="col-left">
+<p><strong>Degree Centrality</strong></p>
+<p>The simplest measure: the number of direct connections a node has. High degree nodes are potential <strong>hubs or communicators</strong>—they interact with many others and are often the most visible actors in the network.</p>
+<p><em>Intelligence application:</em> identifies highly connected operatives or facilitators within a cell or network.</p>
+<hr>
+<p><strong>Closeness Centrality</strong></p>
+<p>The inverse of a node’s average distance to all other nodes. High closeness means the node can reach all others quickly.</p>
+<p><em>Intelligence application:</em> identifies actors who can rapidly disseminate information or coordinate across the network—even if they are not the most connected.</p>
+</div>
+<div class="col-right">
+<p><strong>Betweenness Centrality</strong></p>
+<p>The frequency with which a node lies on the <em>shortest path</em> between pairs of other nodes. High betweenness nodes are <strong>brokers or gatekeepers</strong>—information, resources, or personnel flowing between different parts of the network must pass through them.</p>
+<p><em>Intelligence application:</em> brokers are the highest-value targets for network disruption. Removing a high-betweenness actor can sever the network into disconnected components more effectively than removing the most-connected actor.</p>
+<hr>
+<p><strong>Eigenvector Centrality</strong></p>
+<p>A node’s influence is proportional to the influence of its neighbors. Connections to high-influence nodes contribute more than connections to low-influence nodes. Google’s PageRank is a variant of this measure.</p>
+<p><em>Intelligence application:</em> identifies actors who are influential because they are connected to other influential actors, even if their own degree is moderate.</p>
+</div>
+</div>
+</section>
+<section id="network-level-measures" class="level2">
+<h2 class="anchored" data-anchor-id="network-level-measures">Network-Level Measures</h2>
+<div class="key-terms">
+<div class="{dl}">
+<dl>
+<dt>Density</dt>
+<dd>
+The proportion of all possible edges that actually exist. A dense network (density near 1) has high redundancy—removing any single link or node has limited effect. A sparse network (density near 0) is more vulnerable to targeted disruption. <em>Formula:</em> <span class="math inline">\(\frac{2L}{n(n-1)}\)</span> for undirected networks, where <span class="math inline">\(L\)</span> = number of edges and <span class="math inline">\(n\)</span> = number of nodes.
+</dd>
+<dt>Clustering Coefficient</dt>
+<dd>
+The degree to which a node’s neighbors are also connected to each other. High clustering indicates tightly-knit local groups or cliques. The network-level clustering coefficient averages across all nodes. <em>Intelligence application:</em> high local clustering suggests cell-based structures where each cell operates semi-independently.
+</dd>
+<dt>Shortest Path (Geodesic Distance)</dt>
+<dd>
+The minimum number of edges that must be traversed to get from one node to another. Shorter paths indicate faster information flow.
+</dd>
+<dt>Diameter</dt>
+<dd>
+The longest shortest path in the network—the maximum number of steps required to connect any two nodes. A smaller diameter indicates a more tightly integrated network.
+</dd>
+<dt>Average Distance</dt>
+<dd>
+The mean shortest path length across all node pairs. A low average distance (as in “six degrees of separation”) characterizes small-world networks.
+</dd>
+</dl>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-iv-interesting-network-dynamics" class="level1">
+<h1>Part IV: Interesting Network Dynamics</h1>
+<section id="the-strength-of-weak-ties" class="level2">
+<h2 class="anchored" data-anchor-id="the-strength-of-weak-ties">The Strength of Weak Ties</h2>
+<p>Mark Granovetter’s classic finding: <strong>weak ties</strong> (acquaintances, distant connections) are often more valuable for information diffusion than strong ties (close friends, family).<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Why? Strong ties connect you to people who already share your information. Weak ties bridge to <em>different</em> social circles, providing access to novel information and resources.</p>
+<p><em>Intelligence implication:</em> in covert networks, communication often travels through weak ties precisely because they are harder to detect and because strong-tie clusters tend to be operationally separated for security reasons.</p>
+</section>
+<section id="the-small-world-phenomenon" class="level2">
+<h2 class="anchored" data-anchor-id="the-small-world-phenomenon">The Small World Phenomenon</h2>
+<p>Many real-world networks—social, terrorist, biological, technological—exhibit “small world” properties: high local clustering combined with short average path lengths. Despite containing thousands or millions of nodes, most pairs of nodes can be connected through a surprisingly small number of steps.</p>
+<p><em>Intelligence implication:</em> small-world structure means that even large, seemingly complex networks may have critical structural bottlenecks (high-betweenness nodes) through which targeting can produce disproportionate disruption.</p>
+<hr>
+</section>
+</section>
+<section id="part-v-applying-sna-in-intelligence-workflows" class="level1">
+<h1>Part V: Applying SNA in Intelligence Workflows</h1>
+<section id="the-intelligence-sna-pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="the-intelligence-sna-pipeline">The Intelligence SNA Pipeline</h2>
+<div class="timeline">
+<div class="{dl}">
+<dl>
+<dt>Data Collection</dt>
+<dd>
+Gather relational data from HUMINT (informant reports, interrogation), SIGINT (call records, metadata), OSINT (social media, public records), SOCMINT (social media intelligence), cyber logs, and financial transaction records. The richness of SNA is only as good as the data fed into it.
+</dd>
+<dt>Data Cleaning and Structuring</dt>
+<dd>
+Convert unstructured text or metadata into nodes and edges. Resolve entity names (is “Abu Ahmad” the same person across three databases?). Standardize relationship types. Build the edge list and node attribute table.
+</dd>
+<dt>Network Construction</dt>
+<dd>
+Map relationships using analytical tools: i2 Analyst’s Notebook, Gephi, Palantir Gotham, or Python’s NetworkX. Decisions about directionality, weighting, and time-slicing are made at this stage.
+</dd>
+<dt>Analysis</dt>
+<dd>
+Apply SNA metrics. Compute centrality measures. Identify community structures (subgroups). Detect structural holes (where a broker would gain advantage). Compare the network to baseline or prior-period networks.
+</dd>
+<dt>Interpretation</dt>
+<dd>
+Link quantitative findings to contextual intelligence. A high-betweenness node is statistically significant—but is it operationally significant? Validate with HUMINT. Consider alternative structural interpretations.
+</dd>
+</dl>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-vi-tools" class="level1">
+<h1>Part VI: Tools</h1>
+<div class="col-pair">
+<div class="col-left">
+<p><strong>Commercial / Government Tools</strong></p>
+<ul>
+<li><strong>i2 Analyst’s Notebook</strong> — entity/link chart mapping used across law enforcement and intelligence agencies; integrates with large datasets</li>
+<li><strong>Palantir Gotham</strong> — enterprise-scale data integration and network visualization platform used across the IC</li>
+<li><strong>Maltego</strong> — OSINT-focused link analysis and entity mapping tool</li>
+</ul>
+</div>
+<div class="col-right">
+<p><strong>Open-Source / Academic Tools</strong></p>
+<ul>
+<li><strong>Gephi</strong> — powerful, flexible visualization and modular network analysis (community detection, spatial layouts, filtering)</li>
+<li><strong>Python: NetworkX, igraph</strong> — scripting and automation for large networks; integrates with machine learning libraries</li>
+<li><strong>R: statnet, sna, igraph</strong> — statistical network modeling, including temporal network methods and exponential random graph models (ERGMs)</li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+<section id="part-vii-analytical-pitfalls-and-limitations" class="level1">
+<h1>Part VII: Analytical Pitfalls and Limitations</h1>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Critical Cautions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Data incompleteness:</strong> Missing nodes or edges (due to gaps in collection or classification) can fundamentally distort centrality estimates and structural conclusions. A node looks peripheral if half its connections are missing from the dataset.</li>
+<li><strong>Static snapshots can mislead:</strong> Covert networks evolve rapidly. A static network map reflects one moment; the operational network at time of action may look quite different.</li>
+<li><strong>Correlation ≠ causation / structure ≠ role:</strong> A high-betweenness actor is structurally significant but may not be a decision-maker. The most <em>connected</em> node may be a logistics facilitator, not a leader. Structural analysis must be interpreted with domain knowledge.</li>
+<li><strong>Attribution problems:</strong> In cyber and disinformation networks, a visible account or node may be a false flag or a cutout. Structure can be deliberately manipulated to mislead analysis.</li>
+<li><strong>Ethical and privacy considerations:</strong> Social media SNA operates on data involving real individuals who may not be intelligence targets. Collection and analysis of open-source relational data requires careful attention to legal constraints and proportionality.</li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+<section id="part-viii-network-visualization" class="level1">
+<h1>Part VIII: Network Visualization</h1>
+<section id="visualization-principles" class="level2">
+<h2 class="anchored" data-anchor-id="visualization-principles">Visualization Principles</h2>
+<p>The way a network is drawn affects what patterns are visible—and what conclusions the viewer draws. Key decisions:</p>
+<ul>
+<li><strong>Layout algorithm:</strong> Force-directed layouts (Fruchterman-Reingold, ForceAtlas2) tend to reveal community structure. Hierarchical layouts emphasize chains of command. Circular layouts enable comparison of node-level statistics.</li>
+<li><strong>Node size and color:</strong> Encode centrality, group membership, or attribute values. Make the encoding explicit in a legend.</li>
+<li><strong>Edge width and color:</strong> Encode tie strength or relationship type (communication vs.&nbsp;financial vs.&nbsp;co-membership).</li>
+<li><strong>Filtering:</strong> Temporal filters (before/after a key event) or attribute filters (restrict to nodes above a centrality threshold) can reveal patterns hidden in a fully rendered network.</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Visualization Bias
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Network visualizations are highly persuasive and intuitive—but they can also be highly misleading. A central-looking node may appear central because of layout choices, not because of its true structural position. Always supplement visual interpretation with computed metrics.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-ix-real-world-cases-in-network-intelligence" class="level1">
+<h1>Part IX: Real-World Cases in Network Intelligence</h1>
+<section id="case-1-mapping-the-911-network" class="level2">
+<h2 class="anchored" data-anchor-id="case-1-mapping-the-911-network">Case 1: Mapping the 9/11 Network</h2>
+<p>In 2002, Valdis Krebs published a network analysis of the 9/11 hijacker cell using information available in the public record after the attack. The analysis reconstructed the network structure of the 19 hijackers and their connections to key Al-Qaeda facilitators.</p>
+<p><strong>Key findings:</strong></p>
+<ul>
+<li>Mohamed Atta had the highest betweenness centrality — consistent with his role as operational coordinator</li>
+<li>The network had a characteristic small-world structure: tight local clusters (operational cells in Hamburg and flight training locations in the U.S.) connected through a small number of bridge nodes</li>
+<li>The bridge nodes were the most valuable targets for pre-attack disruption — but they were also the least visible to conventional surveillance methods focused on known suspects</li>
+</ul>
+<p><strong>The analytical challenge Krebs identified:</strong> The U.S. intelligence community had information on some of the nodes in this network before 9/11. The structural analysis that would have revealed their significance — their bridging position connecting different parts of the network — was not performed. Individual-level investigation without network-level analysis missed the architectural significance of key actors.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>The “Start with Yourself” Problem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Krebs’s 2002 analysis used only public information — newspaper accounts, trial records, and government reports. The network could have been partially mapped before the attack from open sources alone. The constraint was not data availability but analytical approach: tracking individuals rather than mapping structures.</p>
+</div>
+</div>
+</section>
+<section id="case-2-russian-internet-research-agency-social-media-network-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="case-2-russian-internet-research-agency-social-media-network-analysis">Case 2: Russian Internet Research Agency — Social Media Network Analysis</h2>
+<p>Following the 2016 U.S. presidential election, researchers obtained a dataset of approximately 3 million tweets posted by accounts linked to the Russian Internet Research Agency (IRA). Network analysis of this dataset revealed how the IRA’s influence operation was structured.</p>
+<p><strong>Structural characteristics:</strong></p>
+<div class="col-pair">
+<div class="col-left">
+<p><strong>Seeder accounts</strong></p>
+<ul>
+<li>Created authentic-seeming personas with long posting histories</li>
+<li>Established credibility by sharing non-controversial content before activating on political topics</li>
+<li>Had high follower counts built over months or years before the operation’s active phase</li>
+<li>High eigenvector centrality — connected to other high-influence accounts</li>
+</ul>
+</div>
+<div class="col-right">
+<p><strong>Amplifier accounts</strong></p>
+<ul>
+<li>Lower profile, larger in number</li>
+<li>Primary function: boost seeder content into algorithmic visibility thresholds</li>
+<li>Had lower degree centrality but were essential for triggering platform amplification systems</li>
+<li>Acted as the “weak tie” network: connecting seeder content to broader audiences across distinct social communities</li>
+</ul>
+</div>
+</div>
+<p><strong>What made the network effective:</strong> The IRA network exploited the fact that both Twitter’s algorithm and human psychological perception privilege content that appears to have many interactions. The amplifier layer created the appearance of organic virality — a structural feature invisible to users but apparent to network analysis.</p>
+</section>
+<section id="case-3-disrupting-a-drug-trafficking-network-the-deas-el-paso-intelligence-center" class="level2">
+<h2 class="anchored" data-anchor-id="case-3-disrupting-a-drug-trafficking-network-the-deas-el-paso-intelligence-center">Case 3: Disrupting a Drug Trafficking Network — The DEA’s El Paso Intelligence Center</h2>
+<p>Law enforcement applications of network analysis have increasingly focused on distinguishing between nodes by <em>replaceability</em> rather than centrality. A high-degree hub in a criminal network is easy to identify — but if the network has resilient redundancy, removing the hub produces only temporary disruption.</p>
+<p>Research on the Sinaloa cartel network structure found:</p>
+<ul>
+<li>The network exhibited scale-free properties: a small number of very high-degree nodes (cartel leaders) and many low-degree nodes (street-level distributors)</li>
+<li>Removing top leadership nodes (the most common enforcement strategy) was less disruptive than predicted because the organizational knowledge required to reconstitute the network was distributed</li>
+<li>Removing <em>financial</em> brokers — often lower-degree but high-betweenness nodes connecting money flows between operational cells and leadership — produced more lasting disruption</li>
+<li>The key insight: <strong>structural role matters more than hierarchy label</strong>. The most valuable targets were often mid-level financial intermediaries who appeared unimportant by traditional organizational analysis</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="part-x-community-detection-and-network-partitioning" class="level1">
+<h1>Part X: Community Detection and Network Partitioning</h1>
+<section id="finding-subgroups-within-networks" class="level2">
+<h2 class="anchored" data-anchor-id="finding-subgroups-within-networks">Finding Subgroups Within Networks</h2>
+<p>Real-world covert and criminal networks are not uniform — they are composed of semi-autonomous subgroups that share dense internal connections and maintain sparser connections across groups. Identifying these communities is both analytically important (what are the functional units?) and operationally important (where are the structural seams that divide the network?).</p>
+<p><strong>Common community detection algorithms:</strong></p>
+<div class="key-terms">
+<div class="{dl}">
+<dl>
+<dt>Modularity Optimization (Louvain, Leiden)</dt>
+<dd>
+Assigns nodes to communities by maximizing “modularity” — a measure of whether the internal density of a community exceeds what would be expected by chance. The Louvain and Leiden algorithms efficiently approximate optimal modularity partitions for large networks. Implemented in Gephi, Python’s <code>community</code> library, and NetworkX.
+</dd>
+<dt>Girvan-Newman Algorithm</dt>
+<dd>
+Iteratively removes the highest-betweenness edges from the network. As the highest-betweenness edges (the bridges between communities) are removed, the network breaks into progressively smaller components, revealing its community structure. Computationally expensive for large networks but conceptually transparent.
+</dd>
+<dt>k-Clique Percolation</dt>
+<dd>
+Identifies communities as maximal unions of k-cliques (complete subgraphs of k nodes) that share at least k-1 nodes. Allows overlapping community membership — a node can belong to multiple communities simultaneously. Particularly useful for networks where actors belong to multiple organizations or operational cells.
+</dd>
+<dt>Hierarchical Clustering</dt>
+<dd>
+Builds a dendrogram showing the nested community structure at different levels of resolution. Allows analysts to see both fine-grained cell-level structure and coarser group-level structure within the same network.
+</dd>
+</dl>
+</div>
+</div>
+</section>
+<section id="structural-holes-and-brokerage" class="level2">
+<h2 class="anchored" data-anchor-id="structural-holes-and-brokerage">Structural Holes and Brokerage</h2>
+<p>Ronald Burt’s concept of <strong>structural holes</strong> extends betweenness centrality analytically: a structural hole exists where there is <em>no connection</em> between two otherwise-separate parts of a network. The node that bridges a structural hole — the broker — gains power from this position: they control the information and resource flow between otherwise-unconnected groups.</p>
+<p>In covert network analysis: - Brokers are the highest-value disruption targets — removing them severs communities - Brokers are also the highest-value penetration targets — turning a broker provides access to multiple communities simultaneously - Adversaries often deliberately minimize structural holes in critical communications to reduce this vulnerability, creating redundant paths between cells</p>
+<hr>
+</section>
+</section>
+<section id="part-xi-temporal-networks-and-dynamic-analysis" class="level1">
+<h1>Part XI: Temporal Networks and Dynamic Analysis</h1>
+<section id="networks-change-temporal-analysis-captures-how" class="level2">
+<h2 class="anchored" data-anchor-id="networks-change-temporal-analysis-captures-how">Networks Change — Temporal Analysis Captures How</h2>
+<p>A static network map is a photograph of relationships at one moment. Covert networks are constantly evolving: members are recruited and killed, cells are activated and dormant, communication patterns shift in response to operational security concerns. <strong>Temporal network analysis</strong> tracks how network structure changes over time.</p>
+<p><strong>Key questions in temporal network analysis:</strong></p>
+<ul>
+<li>When were new connections formed? (Who introduced whom, and when?)</li>
+<li>Which connections are stable over time, and which are transient?</li>
+<li>Does the network’s structural vulnerability (betweenness distribution, diameter) change after a disruption event?</li>
+<li>Are there patterns in communication timing that reveal operational planning cycles?</li>
+</ul>
+<p><strong>Practical application:</strong> Following the arrest or killing of a key node, analysts can compare the network’s pre- and post-disruption structure: - Did betweenness redistribute? (Did new brokers emerge?) - Did communities disconnect? (Did the disruption sever a critical bridge?) - Did edge weight patterns change? (Did remaining nodes increase communication — a potential indicator of reconstitution activity?)</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Temporal SNA in Practice
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In Python, the <code>networkx</code> library supports temporal networks through multigraph representations with timestamped edges. The <code>teneto</code> package provides dedicated temporal network analysis tools. Gephi supports temporal filtering through its dynamic network capabilities. In classified environments, Palantir Gotham’s timeline features perform similar functions at scale.</p>
+</div>
+</div>
+<hr>
+<hr>
+</section>
+</section>
+<section id="suggested-readings" class="level1">
+<h1>Suggested Readings</h1>
+<p><em>All readings are journal or news articles.</em></p>
+<p>Watts, D. J., &amp; Strogatz, S. H. (1998). Collective dynamics of ‘small-world’ networks. <em>Nature</em>, <em>393</em>(6684), 440–442. <a href="https://doi.org/10.1038/30918" class="uri">https://doi.org/10.1038/30918</a></p>
+<blockquote class="blockquote">
+<p>The small-world network paper. Foundational for understanding why even large covert networks can be highly connected through a small number of structural bottlenecks.</p>
+</blockquote>
+<p>Krebs, V. E. (2002). Mapping networks of terrorist cells. <em>Connections</em>, <em>24</em>(3), 43–52.</p>
+<blockquote class="blockquote">
+<p>The classic application of SNA to the 9/11 network. Demonstrates the intelligence value of structural analysis over individual-level investigation.</p>
+</blockquote>
+<p>Bakker, R. M., Raab, J., &amp; Milward, H. B. (2012). A preliminary theory of dark network resilience. <em>Journal of Policy Analysis and Management</em>, <em>31</em>(1), 33–62. <a href="https://doi.org/10.1002/pam.20619" class="uri">https://doi.org/10.1002/pam.20619</a></p>
+<blockquote class="blockquote">
+<p>Theory of why some covert networks survive disruption — directly relevant to targeting strategy and network design.</p>
+</blockquote>
+<p>Starbird, K., Arif, A., &amp; Wilson, T. (2019). Disinformation as collaborative work: Surfacing the participatory nature of strategic information operations. <em>Proceedings of the ACM on Human-Computer Interaction</em>, <em>3</em>(CSCW), 127. <a href="https://doi.org/10.1145/3359229" class="uri">https://doi.org/10.1145/3359229</a></p>
+<blockquote class="blockquote">
+<p>Network analysis of IRA disinformation operations on social media. Directly relevant to the IRA case study and network pattern recognition content.</p>
+</blockquote>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Mark Granovetter, “The Strength of Weak Ties,” <em>American Journal of Sociology</em> 78(6), 1973.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

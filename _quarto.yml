@@ -1,0 +1,59 @@
+
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "IA 240: Technology Applications in a Networked World"
+  navbar:
+    background: "#450084"
+    foreground: "#ffffff"
+    left:
+      - href: index.qmd
+        text: Home
+      - text: Weekly Materials
+        menu:
+          - text: "Week 1: Technology and the Intelligence Cycle"
+            href: Week1/index.qmd
+          - text: "Week 2: Data Types, Sources, and Collection Methods"
+            href: Week2/index.qmd
+          - text: "Week 3: Introduction to Data Science and the Analytical Workflow"
+            href: Week3/index.qmd
+          - text: "Week 4: Research Design and Finding Data"
+            href: Week4/index.qmd
+          - text: "Week 5: Probability and Uncertainty in Analysis"
+            href: Week5/index.qmd
+          - text: "Week 6: Data Structures, Databases, and Computational Tools"
+            href: Week6/index.qmd
+          - text: "Week 7: Descriptive Statistics, EDA, and Hypothesis Testing (and Fall Break!)"
+            href: Week7/index.qmd
+          - text: "Week 8: Data Modeling: Regression and Model Evaluation"
+            href: Week8/index.qmd
+          - text: "Week 9: Machine Learning and Natural Language Processing"
+            href: Week9/index.qmd
+          - text: "Week 10: Systems Thinking and Agent-Based Modeling"
+            href: Week10/index.qmd
+          - text: "Week 11: Social Network Analysis"
+            href: Week11/index.qmd
+          - text: "Week 12: Geospatial and GEOINT Analysis"
+            href: Week12/index.qmd
+          - text: "Week 13: Principles of Data Visualization"
+            href: Week13/index.qmd
+          - text: "Week 15: Communicating Analysis"
+            href: Week15/index.qmd
+
+format:
+  html:
+    theme: [cosmo, jmu-lecture.css]
+    toc: true
+    toc-depth: 3
+    toc-location: right
+    toc-title: "Contents"
+    smooth-scroll: true
+    html-math-method: mathjax
+    number-sections: false
+    anchor-sections: true
+    footnotes-hover: true
+    citations-hover: true
+    link-external-newwindow: true
+    fig-align: center

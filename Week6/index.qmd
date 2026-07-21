@@ -1,0 +1,390 @@
+---
+title: "Week 6: Data Structures, Databases, and Computational Tools"
+subtitle: "IA 240: Technology Applications in a Networked World"
+---
+
+Analytical work requires two foundational capabilities: understanding how data is structured and stored, and knowing how to retrieve and manipulate it computationally. This lecture covers scales of measurement, database structure, proxy variables, and data quality — the structural foundations — then introduces the computational tools that operationalize those concepts: SQL for querying relational databases and APIs for programmatic data collection.
+
+# Part I: Scales of Measurement
+
+## The Five Scales
+
+::: {.key-terms}
+::: {dl}
+
+1. Nominal Scale
+:   An unordered set of categories identified only by name or label. Numbers, if used, have no mathematical meaning. You can only determine *sameness* or *difference*. **Examples:** country names, ethnic group, religious affiliation, vehicle type. **Valid operations:** counting, mode, frequency tables, chi-square tests.
+
+2. Ordinal Scale
+:   An ordered set of categories. You know the direction of difference (A > B) but *not* the magnitude — the intervals between ranks are not assumed equal. **Examples:** military rank (Private < Corporal < Sergeant), education level, Likert survey responses (Strongly Disagree → Strongly Agree), threat level (Low / Medium / High). **Valid operations:** median, percentiles, rank-order correlations (Spearman's rho).
+
+3. Interval Scale
+:   An ordered scale with equal intervals between values, but no true zero point. Zero is arbitrary — it does not mean "absence" of the attribute. **Examples:** temperature in Celsius or Fahrenheit (0°C does not mean "no temperature"), IQ scores, calendar years. **Valid operations:** mean, standard deviation, Pearson correlation. Ratios are *not* valid (40°C is not "twice as hot" as 20°C).
+
+4. Ratio Scale
+:   An interval scale with a true, meaningful zero — zero indicates complete absence of the attribute. All arithmetic operations including ratios are valid. **Examples:** weight, income, distance, duration, number of casualties, GDP in dollars.
+
+5. Binary Scale
+:   A special case of nominal data with exactly two values, often coded 0/1. **Examples:** treaty membership (Yes/No), conflict onset (1 = conflict this year, 0 = no conflict), gender in binary operationalizations. Also called *dummy variables* in regression analysis.
+
+:::
+:::
+
+::: {.callout-tip}
+## A Quick Memory Aid: NOIR
+Nominal → Ordinal → Interval → Ratio. Each level *includes* the properties of the one before it. Ratio data gives you the most information; nominal gives you the least.
+:::
+
+---
+
+# Part II: Database Concepts
+
+## What is a Database?
+
+A **database** is an organized, structured collection of data that enables efficient storage, retrieval, updating, and management. Every IC data platform — from classified warehouses to commercial analytics tools like Palantir — is built on relational database principles.
+
+## Tables, Fields, and Records
+
+Every relational database is built from tables:
+
+| Concept | Definition | Analogy |
+|---|---|---|
+| **Table** | A collection of related data organized in rows and columns | A spreadsheet tab |
+| **Field (Column)** | A single data attribute; the variable being recorded | A column header |
+| **Record (Row)** | A single observation or entry | One row of data |
+
+::: {.callout-note}
+## The "Tall Rectangle" Rule
+Well-structured databases are **tall** (many rows, fewer columns), not **wide** (few rows, many columns). Each row is one observation; each column is one variable. Violating this — putting "Year 2020 GDP," "Year 2021 GDP," "Year 2022 GDP" as three separate columns — makes joining, querying, and analysis far more difficult. This is the **tidy data** principle.
+:::
+
+## Database Keys
+
+::: {.col-pair}
+::: {.col-left}
+**Primary Key**
+
+A field (or combination of fields) that *uniquely identifies* each record in a table. Requirements:
+- Must be unique — no two rows can share the same value
+- Cannot be NULL (empty)
+- Should be stable — should not change over time
+
+Examples: Student ID, UN country code, a system-generated UUID.
+:::
+::: {.col-right}
+**Foreign Key**
+
+A field in one table that references the primary key in another table. Foreign keys enforce referential integrity — you cannot create a record referencing an entity that does not exist in the parent table.
+
+**Purpose:** links tables together, enabling relational queries. A "Conflict Events" table with a `country_id` foreign key links to a "Countries" table, enabling country-level aggregation.
+:::
+:::
+
+## Structuring Data for Analysis
+
+Best practices when building or receiving a dataset:
+
+- Use unique identifiers in the first column
+- Normalize data: break related information into logical separate tables rather than repeating values
+- Use consistent naming conventions — never mix `USA`, `U.S.`, and `United States` in the same column
+- Use appropriate data types — store numbers as numbers, dates as dates, not as text
+- Document every field in a **data dictionary** (see Part X)
+
+---
+
+# Part III: Proxy Variables
+
+## What is a Proxy Variable?
+
+A **proxy variable** is a variable used in place of one that cannot be directly measured. Many of the most important concepts in intelligence — state intentions, regime stability, radicalization, military readiness — cannot be directly observed. Analysts must substitute measurable indicators.
+
+::: {.callout-note}
+## Examples of Proxy Variables in IA
+
+| Concept (Unobservable) | Proxy Variable (Observable) |
+|---|---|
+| Nuclear weapons capability | Number of centrifuges; plutonium production reactor capacity |
+| State instability | GDP per capita growth, infant mortality rate, Fragile States Index score |
+| Regime intent to proliferate | Imports of dual-use materials; missile test frequency |
+| Social media radicalization | Proportion of followers linked to designated extremist accounts |
+| Military readiness | Training exercise frequency; logistics vehicle activity in satellite imagery |
+
+:::
+
+## Cautions in Using Proxies
+
+When using proxy variables, always:
+
+1. **Justify the connection** — explain theoretically *why* your proxy measures the underlying concept
+2. **Acknowledge the gap** — the proxy is not the concept; be explicit about what it misses
+3. **Check for alternative explanations** — could your proxy be driven by something other than the concept you care about?
+4. **Use multiple proxies** — triangulation across several imperfect indicators is stronger than reliance on one
+
+---
+
+# Part IV: Converting Qualitative Data to Quantitative
+
+Many analytical questions require quantitative treatment of inherently qualitative information:
+
+| Method | Description | Example |
+|---|---|---|
+| **Content Coding** | Systematic categorization of text or imagery into predefined categories | Coding diplomatic cables as "cooperative," "neutral," or "hostile" |
+| **Likert Scales** | Ordered response categories that assign numerical scores to attitudes | "Rate your confidence: 1 (Very Low) to 5 (Very High)" |
+| **Frequency Counts** | Counting occurrences of a category across a corpus | Number of times "sanctions" appears in DPRK state media per month |
+| **Scale Development** | Multi-item instruments aggregated into composite scores | Democracy indices (Polity, Freedom House, V-Dem) |
+| **Statistical Text Analysis (NLP)** | Computational extraction of sentiment, topics, or named entities | Running sentiment analysis on social media to measure public opinion |
+
+::: {.callout-warning}
+## The Coding Decision is an Analytical Judgment
+However you convert qualitative data to quantitative, the coding scheme embeds assumptions. Reasonable analysts can code the same document differently. Codebook development, inter-rater reliability testing, and transparent documentation of coding rules are essential for credible analysis.
+:::
+
+---
+
+# Part V: Data Quality Problems
+
+## Why Is Data "Dirty"?
+
+Real-world data is almost never clean. It arrives from multiple sources, collected at different times, by different people, using different standards. The preprocessing and cleaning step — often 60–80% of total project time — is where analytical quality is won or lost. Errors introduced here compound through every subsequent step.
+
+::: {.key-terms}
+::: {dl}
+
+Missing Values
+:   Fields with no recorded value. Can occur because the data was never collected, was collected but lost, is being withheld, or represents a genuine non-occurrence. How missing values are handled is one of the most consequential methodological choices in any analysis.
+
+Duplicate Records
+:   The same entity or event appearing more than once in the dataset, usually as a result of merging data from multiple sources. Duplicates inflate counts and distort averages.
+
+Inconsistent Coding
+:   The same concept encoded differently across records: "USA," "U.S.A.," "United States," "us." Even minor inconsistencies break joins and aggregations.
+
+Measurement Error
+:   Recorded values that differ from true values due to instrument error, rounding, transcription mistakes, or deliberate falsification. State-reported economic data and casualty counts are common examples.
+
+Structural Zeros
+:   A value of zero that is not missing but represents a genuine absence. A dataset of conflict events may show zero events in a country not because data is unavailable, but because no events occurred.
+
+Outliers
+:   Extreme values that may represent genuine anomalies, data entry errors, or natural variation. Require investigation before any decision about handling.
+
+:::
+:::
+
+::: {.callout-warning}
+## The Intelligence-Specific Data Quality Problem
+In intelligence contexts, data quality problems are often not random — they are the result of **deliberate deception** (adversaries reporting false numbers), **selection bias** (data only exists where collection infrastructure exists), or **classification** (the most critical information may be unavailable). These systematic biases cannot be corrected through statistical imputation. They must be reasoned about explicitly.
+:::
+
+---
+
+# Part VI: Missing Data — Typology and Implications
+
+## Not All Missing Data Is the Same
+
+The statistical literature identifies three distinct mechanisms for missing data, each with different implications for how it should be handled:
+
+::: {.key-terms}
+::: {dl}
+
+Missing Completely at Random (MCAR)
+:   The probability that a value is missing is unrelated to any variable in the dataset — not to the missing value itself, nor to other observed values. Example: a random sample of survey responses lost in a server crash. MCAR is the most benign assumption; listwise deletion (removing incomplete cases) does not introduce bias, though it reduces sample size.
+
+Missing at Random (MAR)
+:   The probability of being missing is related to observed variables, but not to the missing value itself, after conditioning on those variables. Example: older survey respondents are less likely to answer questions about internet use, but among respondents of the same age, missingness is random. Multiple imputation or maximum likelihood estimation can handle MAR data without serious bias.
+
+Missing Not at Random (MNAR)
+:   The probability of being missing depends on the missing value itself. Example: states with the highest human rights violations are the least likely to allow independent human rights monitoring — so the countries with the worst records are precisely the ones missing from the dataset. This is the most serious case; no statistical procedure can fully correct for MNAR without modeling the missing data mechanism explicitly.
+
+:::
+:::
+
+## The Intelligence Application
+
+::: {.callout-warning}
+## MNAR is the Default Assumption for Intelligence Data
+In intelligence analysis, the assumption that data is MCAR or even MAR is almost always wrong. The most sensitive facilities are the least surveilled. The most dangerous individuals take the most precautions to avoid detection. The most repressive governments produce the least reliable official statistics. Data that is systematically missing because of the very phenomenon you are studying is the rule, not the exception. Analysts who impute missing values as if they were MCAR introduce exactly the kind of bias that makes analysis misleading precisely in the highest-stakes cases.
+:::
+
+## Common Handling Approaches (and their limits)
+
+| Approach | Assumption Required | When Appropriate | Risks |
+|---|---|---|---|
+| **Listwise deletion** | MCAR | When missing data is truly random and sample is large | Biased if MAR or MNAR; reduces power |
+| **Mean/median imputation** | MCAR | Exploratory work only | Artificially reduces variance; distorts distributions |
+| **Multiple imputation** | MAR | When missingness can be predicted from observed variables | Cannot correct MNAR |
+| **Model the missingness** | MNAR explicitly modeled | When you have a theory of *why* values are missing | Complex; requires strong assumptions |
+| **Sensitivity analysis** | Any | When you are uncertain about the mechanism | Tests whether conclusions are robust to alternative assumptions |
+
+---
+
+# Part VII: Data Integration
+
+## The Most Value-Adding Step in Analytical Work
+
+Data integration — combining information from multiple sources into a unified analytical dataset — is where the greatest analytical value is created and where the greatest analytical errors are introduced. No single source answers complex intelligence questions. The ability to merge, align, and reconcile disparate datasets is a core analytical skill.
+
+## Integration in the Intelligence Community
+
+The IC operates from a collection philosophy of all-source analysis: HUMINT, SIGINT, IMINT, GEOINT, OSINT, and MASINT all provide partial pictures that only make sense when fused. The transition from single-source reporting to all-source assessment is the integration problem in its most consequential form.
+
+At the data level, integration requires:
+
+- A **common key** to link records across datasets (country code, person identifier, geographic coordinate, date)
+- **Consistent units and scales** (all monetary figures in the same currency and year; all dates in the same format)
+- **Temporal alignment** (data collected at different frequencies or with different lags requires aggregation or interpolation)
+- **Level-of-analysis compatibility** (country-level data cannot be merged with individual-level data without aggregation decisions that embed analytical judgment)
+
+## Why Integration Is Difficult
+
+::: {.key-terms}
+::: {dl}
+
+No Common Key
+:   Datasets from different organizations often lack a shared unique identifier. Matching "Abu Ahmad al-Iraqi" across three databases that each use a different transliteration scheme and ID system is a non-trivial entity resolution problem.
+
+Definitional Divergence
+:   Two datasets measuring "conflict events" may define them differently — one includes protests, the other does not. Merging them requires reconciling the definitional gap, which is an analytical judgment, not a technical procedure.
+
+Temporal Misalignment
+:   ACLED releases data weekly; UCDP annually; World Bank GDP estimates may lag by 18 months. Integrating these requires decisions about what time period each variable represents.
+
+Level-of-Analysis Mismatch
+:   Merging individual-level survey data with country-level economic statistics requires aggregating one or disaggregating the other — each approach discards information and risks the ecological fallacy.
+
+Entity Resolution at Scale
+:   When integrating large datasets, the same real-world entity may appear under dozens of name variants, typos, or aliases. Automated fuzzy matching (edit distance, phonetic matching) helps but always introduces false positives and false negatives.
+
+Provenance Loss
+:   Once data from multiple sources is merged, the trail back to original sources becomes harder to maintain. A merged dataset with no provenance documentation cannot be audited, replicated, or corrected.
+
+Changing Coverage
+:   A dataset that covered 50 countries in 2005 and 80 in 2020 will show apparent change that reflects coverage expansion, not real-world change. Integration across time requires attention to whether coverage is constant.
+
+:::
+:::
+
+::: {.callout-warning}
+## The Invisible Error Problem
+The most dangerous errors in data integration are the ones that produce no obvious error messages. A join that silently drops unmatched records, a merge that produces many-to-many duplications, a temporal alignment that misassigns observations to the wrong period — all of these can produce analytically plausible results that are systematically wrong. Spot-checking merged data against known cases and original sources is essential validation.
+:::
+
+---
+
+# Part VIII: Applied Exercise
+
+## Problem: Understanding Future Energy Markets
+
+Working with those near you: identify **10 variables** you would include in a model of future energy markets. For each variable, specify:
+
+1. The variable name
+2. Its type (quantitative/qualitative) and scale of measurement (nominal/ordinal/interval/ratio/binary)
+3. The data source you would use to operationalize it
+4. Whether it is a direct measure or a proxy, and if a proxy, what concept it is proxying
+
+---
+
+# Part IX: Real-World Measurement Cases
+
+## Case 1: Measuring Democracy — A Measurement War
+
+"Democracy" is one of the most consequential variables in international relations research — and one of the most contested to operationalize. Three major indices operationalize the same concept in fundamentally different ways and regularly produce conflicting results.
+
+| Index | Producer | Approach | Scale | Known Issues |
+|---|---|---|---|---|
+| **Polity V** | Center for Systemic Peace | Codes executive recruitment, constraints on executive, and political competition | −10 (autocracy) to +10 (democracy) | Coders sometimes disagree significantly; transitions poorly captured |
+| **Freedom House** | Freedom House (U.S. NGO) | Rates political rights and civil liberties separately; explicitly normative framing | 1–7 on each dimension; aggregate Free/Partly Free/Not Free | Critics argue ratings are influenced by U.S. foreign policy interests |
+| **V-Dem** | V-Dem Institute, University of Gothenburg | Multi-dimensional: measures electoral, liberal, participatory, deliberative, and egalitarian democracy separately | 0–1 on each component index | Less tested for very recent events |
+
+::: {.callout-warning}
+## Munck and Verkuilen's Critique
+In a widely-cited 2002 article, Munck and Verkuilen evaluated twelve democracy indices on conceptualization, measurement, and aggregation. They found that no existing index performed well on all three dimensions — each had significant methodological vulnerabilities. Any analyst using a democracy index should read this critique before treating scores as ground truth.
+:::
+
+## Case 2: Conflict Counting — ACLED vs. UCDP
+
+::: {.col-pair}
+::: {.col-left}
+**ACLED**
+
+- Unit: individual events (battles, violence, protests, riots)
+- Threshold: *any* organized political violence — no minimum fatality threshold
+- Strength: captures low-intensity conflict; near real-time
+- Limitation: over-represents media-accessible areas
+:::
+::: {.col-right}
+**UCDP**
+
+- Unit: conflict dyads (organized actor vs. organized actor)
+- Threshold: 25 battle-related deaths per year minimum
+- Strength: rigorous definitional consistency; long historical coverage (1946–present)
+- Limitation: misses sub-threshold violence; annual release cycle
+:::
+:::
+
+Studies using UCDP will show fewer conflicts than studies using ACLED for the same country-year. Neither is "wrong" — they measure different things. An analyst must select based on whether their question is about *organized armed conflict above a fatality threshold* or *any politically motivated violence*.
+
+---
+
+# Part X: Building a Data Dictionary
+
+## What Is a Data Dictionary?
+
+A **data dictionary** documents every field in a dataset: its name, data type, allowed values, definition, and source. Without it, a dataset is almost impossible to use correctly — especially when received from another organization.
+
+## Example: A Conflict Events Data Dictionary
+
+| Field Name | Data Type | Scale | Allowed Values | Definition |
+|---|---|---|---|---|
+| `event_id` | Integer | — | Unique integer | System-generated primary key |
+| `country_code` | String (3) | Nominal | ISO alpha-3 | ISO 3166-1 alpha-3 country code |
+| `event_date` | Date | Interval | YYYY-MM-DD | Date the event occurred (UTC) |
+| `event_type` | String | Nominal | Battle / VAC / Protest / Riot / Explosion | Type of political violence |
+| `fatalities` | Integer | Ratio | 0–99999; −9 = unknown | Reported deaths; −9 if unknown |
+| `latitude` | Float | Ratio | −90.0 to 90.0 | WGS84 latitude of event location |
+| `longitude` | Float | Ratio | −180.0 to 180.0 | WGS84 longitude of event location |
+
+::: {.callout-note}
+## The Data Dictionary as an Analytical Contract
+When you receive data from a partner agency or academic database, the data dictionary defines what you are actually getting. Missing or ambiguous dictionaries are among the most common sources of analytical error.
+:::
+
+---
+
+# Part XI: Computational Tools
+
+
+
+---
+
+
+
+---
+
+
+
+---
+
+# Suggested Readings
+
+*All readings are journal or news articles.*
+
+Munck, G. L., & Verkuilen, J. (2002). Conceptualizing and measuring democracy: Evaluating alternative indices. *Comparative Political Studies*, *35*(1), 5–34. <https://doi.org/10.1177/001041400203500101>
+
+> The definitive methodological critique of democracy indices. Evaluates twelve indices on conceptualization, measurement, and aggregation criteria. Essential reading before using any composite political index.
+
+Raleigh, C., Linke, A., Hegre, H., & Karlsen, J. (2010). Introducing ACLED: An armed conflict location and event dataset. *Journal of Peace Research*, *47*(5), 651–660. <https://doi.org/10.1177/0022343310378914>
+
+> The original ACLED paper — describes the dataset's design, coding rules, and intended use cases.
+
+Wickham, H. (2014). Tidy data. *Journal of Statistical Software*, *59*(10), 1–23. <https://doi.org/10.18637/jss.v059.i10>
+
+> Defines tidy data structure principles — one observation per row, one variable per column. Directly applicable to the database structure and SQL content in this lecture.
+
+Lazer, D., & Radford, J. (2017). Data ex machina: Introduction to big data. *Annual Review of Sociology*, *43*, 19–39. <https://doi.org/10.1146/annurev-soc-060116-053457>
+
+> Covers web scraping, APIs, administrative records, and digital trace data — and the systematic biases that large-scale digital data introduces.
+
+Leetaru, K., & Schrodt, P. A. (2013). GDELT: Global data on events, location, and tone, 1979–2012. *International Studies Association Annual Convention*. <https://doi.org/10.5281/zenodo.54305>
+
+> Documents the GDELT event database — a large-scale event dataset constructed from media sources using automated extraction, illustrating practical data collection at scale.

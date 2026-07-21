@@ -1,0 +1,340 @@
+---
+title: "Week 13: Principles of Data Visualization"
+subtitle: "IA 240: Technology Applications in a Networked World"
+---
+
+Visualization is not an optional finishing step — it is a core analytical tool. Some patterns in data are not accessible through statistical summaries alone; they only become visible when rendered graphically. This lecture covers the cognitive science of visual perception, principles of effective visualization design, chart type selection, common pitfalls including deceptive visualization, and the specific demands of visualizing data for intelligence consumers.
+
+# Part I: Why Visualize?
+
+## Visualization is Not Optional
+
+Data visualization is not a stylistic preference for visual learners—it is a **cognitive necessity**. Some patterns in data are not accessible through numerical summaries alone; they only become visible when rendered graphically.
+
+**Three reasons visualization is essential:**
+
+1. **Discovery:** Patterns, clusters, outliers, and relationships emerge from visualization that no descriptive statistic would reveal. Anscombe's Quartet is the canonical example: four datasets with nearly identical summary statistics (means, variances, correlations) look completely different when plotted.
+
+2. **Communication:** Numbers without visualization are cognitively expensive. The **picture superiority effect** is well-established: images and graphics are retained at dramatically higher rates than text or numerical information.
+
+3. **Hypothesis generation:** Before you know what to test, visualization tells you what is interesting. One of the first steps in any analysis should be to look at your data visually.
+
+## What is Data Visualization?
+
+Data visualization is the art, science, and technology of presenting data and information in a form that affords the viewer the greatest understanding of its content. Practically: it translates numerical data into visual pictures that help the human perceptual system identify patterns that are obscure in tabular form.
+
+---
+
+# Part II: Human Perception and Visual Bias
+
+## We Cannot Trust Our Eyes Uncritically
+
+Before designing visualizations, analysts must understand that human perception is *not* an objective recording device. The visual system actively interprets, and it does so under systematic biases:
+
+::: {.key-terms}
+::: {dl}
+
+Vertical-Horizontal Illusion
+:   Observers consistently overestimate the length of vertical lines relative to horizontal lines of equal length. Implication: the height of a bar chart may be perceived as more extreme than its actual value, particularly when vertical scales are truncated.
+
+Ponzo Illusion
+:   Two identical objects are perceived as different sizes based on their visual context. Implication: the same data value may appear larger or smaller depending on the surrounding chart elements—background patterns, surrounding bars, or reference lines.
+
+Perceptual Priming
+:   We tend to perceive what we expect to perceive. Mindsets form quickly and resist change. New information is assimilated to existing mental images. Initial exposure to ambiguous or misleading visualizations biases subsequent perception even after better information is available.
+
+:::
+:::
+
+::: {.callout-warning}
+## Intelligence Implications of Visual Bias
+Confirmation bias, anchoring, and representativeness heuristics (discussed in Meeting 10) have visual counterparts. A misleadingly truncated y-axis, a selectively colored map, or a chart that emphasizes one time period can prime an analyst or consumer to reach a particular conclusion. Visualization ethics requires both accurate design *and* accurate interpretation skills.
+:::
+
+---
+
+# Part III: Principles of Good Visualization
+
+## What Makes a Good Visualization?
+
+Edward Tufte's foundational criteria: a good visualization presents *complex ideas communicated with clarity, precision, and efficiency.* Specifically, it:
+
+- Gives the viewer the greatest number of ideas in the shortest time with the least ink in the smallest space
+- Is nearly always **multivariate** — shows the relationship among variables, not just individual distributions
+- Tells the **truth** — neither distorts scale nor omits context that would change interpretation
+- Is **elegant in simplicity** — graphical complexity should come from the data, not from decorative additions
+- Has a **point of view** — every chart should communicate a specific finding or pattern
+
+**Additional principles:**
+
+- Know the **strengths and limitations** of your data before designing the visualization
+- Design for your **audience** — a chart for a policymaker and a chart for a technical peer can convey the same finding very differently
+- Account for **perception issues** — use colorblind-accessible palettes; avoid relying on color alone to encode information
+
+---
+
+# Part IV: Choosing the Right Chart Type
+
+## Visualization Type Reference
+
+| Chart Type | Best For | Example |
+|---|---|---|
+| **Bar Chart** | Comparing values across discrete categories | Sales volume by product category; conflict events by country |
+| **Line Chart** | Showing trends over continuous time | GDP growth over 20 years; event rates over months |
+| **Scatter Plot** | Relationship/correlation between two continuous variables | Military spending vs. conflict incidence; GDP vs. regime stability |
+| **Histogram** | Distribution of a single continuous variable | Distribution of country GDPs; response time distributions |
+| **Box Plot** | Comparing distributions across groups; showing outliers | Salary distributions by department; performance by unit |
+| **Heatmap** | Patterns and correlations across many variables | Correlation matrix; activity intensity on a calendar grid |
+| **Choropleth Map** | Geographic patterns; data by area | Population density; conflict event rates by province |
+| **Area Chart** | Change in magnitude over time (with emphasis on total) | Cumulative refugee displacement over time |
+| **Bubble Chart** | Three-variable relationships (x, y, size) | GDP per capita vs. life expectancy, scaled by population |
+| **Funnel Chart** | Sequential narrowing through a process | Conversion rate through analytical stages |
+
+::: {.callout-warning}
+## Avoid Pie Charts for Complex Data
+Pie charts are appropriate only when you have a small number of categories (≤4) and the relative proportions are the primary message. Human perception of arc lengths and areas is poor compared to linear lengths, making precise comparison across pie slices difficult. For most use cases, a bar chart is superior.
+:::
+
+## Matching the Visualization to the Analytical Question
+
+::: {.col-pair}
+::: {.col-left}
+**For an intelligence audience:**
+
+Rather than displaying raw regression output (coefficients, standard errors), consider a **summary table** that shows only which variables reached statistical significance and in what direction—with confidence intervals visualized as error bars.
+
+This respects the consumer's limited statistical background while still conveying the analytical findings accurately.
+:::
+::: {.col-right}
+**Example: From regression table to findings summary**
+
+Instead of presenting a 15-variable regression table with p-values, produce a forest plot showing the point estimate and 95% confidence interval for each key variable—colored to indicate significance. The consumer immediately sees which factors matter, without needing to read coefficient tables.
+:::
+:::
+
+---
+
+# Part V: Do's and Don'ts
+
+## Effective Practices (Do's)
+
+- **Choose the right chart type** — match the visual encoding to the data structure and the analytical question
+- **Keep it simple and focused** — one key message per chart; minimize clutter (excessive gridlines, unnecessary 3D effects)
+- **Highlight key data points** — use color, bold labels, or callout annotations to emphasize critical findings
+- **Use consistent and intuitive colors** — one color for categories; a contrasting color for highlights; avoid neon or clashing colors
+- **Include descriptive titles** — make the title describe the *finding*, not just the variable (e.g., "Military Spending Rose 40% in Eastern Europe Since 2022," not "Military Spending by Year")
+- **Label axes** with units and clear names ("Revenue ($ billions)," not "Rev")
+- **Use legible font sizes** — 12pt or larger for labels; integrate labels directly into the chart when possible to avoid cluttered legends
+- **Provide context** — show baseline data, historical averages, or comparators; annotate key events or thresholds
+- **Ensure accessibility** — use colorblind-safe palettes; supplement color with pattern or shape for differentiation
+
+## Common Pitfalls (Don'ts)
+
+- **Don't overload the chart** — limit to 5–7 data series or categories for clarity; additional series create visual noise
+- **Don't use misleading scales** — start axes at zero unless there is a justified reason not to; use consistent intervals; never truncate a y-axis in a bar chart
+- **Don't add unnecessary decorations** — avoid "chartjunk" (excessive gridlines, shadow effects, decorative imagery, unnecessary 3D rendering)
+- **Don't use ambiguous labels** — replace "Category A" and "Dataset 1" with meaningful, specific labels
+- **Don't omit a legend** when the chart includes multiple variables that cannot be labeled directly
+- **Don't skip context** — never present raw numbers without explaining their significance; a chart without a caption or annotation assumes knowledge the viewer may not have
+- **Don't use pie charts for complex data** (see above)
+- **Don't ignore accessibility** — red-green color combinations are invisible to a significant fraction of the population
+
+---
+
+# Part VI: Visualization in Intelligence Products
+
+## Tailoring Visualizations to the Consumer
+
+Intelligence consumers range from heads of state who have thirty seconds for a briefing to technical analysts who will scrutinize methodology. The same underlying finding requires different visualization treatment for each.
+
+::: {.col-pair}
+::: {.col-left}
+**Decision-maker audience**
+
+- Minimal statistical jargon
+- One key finding per visual
+- Bold annotations on the most important data point
+- Clear, action-oriented title
+- Table showing significance rather than regression coefficients
+:::
+::: {.col-right}
+**Technical / peer analyst audience**
+
+- Full statistical output appropriate
+- Multiple panels showing robustness across model specifications
+- Residual plots and diagnostic charts
+- Confidence bands and uncertainty ranges
+- Complete source and methodology annotation
+:::
+:::
+
+## A Framework for Evaluation
+
+When reviewing a visualization—your own or another analyst's—ask:
+
+1. **What is the central claim of this chart?** Can you state it in one sentence?
+2. **Does the chart support that claim accurately?** Are scales appropriate? Is context provided?
+3. **What does the chart omit?** What data or context would change the interpretation if included?
+4. **Could the chart mislead?** Is there a misperception risk—scale distortion, cherry-picked time period, missing baseline?
+5. **Is it the right chart type?** Would a different visualization make the same pattern more legible?
+
+---
+
+# Part VII: Lab Assignment
+
+## Week 13 Lab — Visualization Critique and Production
+
+**Task 1 — Critique:** Select one visualization from a published source (news, government report, academic paper, or the examples discussed in class). Evaluate it against the principles above. What does it do well? What would you change and why?
+
+**Task 2 — Production:** Using data from your project dataset, produce two visualizations that address your research question or hypothesis. For each, write a one-paragraph caption that explains: (a) what the chart shows, (b) what the key finding is, and (c) what the consumer should take away.
+
+Be prepared to present and defend your visualization choices in class.
+
+---
+
+# Part VIII: Canonical Cases in Data Visualization
+
+## Anscombe's Quartet — The Argument for Always Plotting Your Data
+
+In 1973, statistician Francis Anscombe constructed four datasets that are nearly identical in their summary statistics but reveal completely different patterns when plotted. The quartet is the canonical argument for always visualizing data before — and alongside — statistical analysis.
+
+**Summary statistics (nearly identical across all four datasets):**
+
+| Statistic | Dataset I | Dataset II | Dataset III | Dataset IV |
+|---|---|---|---|---|
+| Mean of x | 9.0 | 9.0 | 9.0 | 9.0 |
+| Mean of y | 7.5 | 7.5 | 7.5 | 7.5 |
+| Variance of x | 11.0 | 11.0 | 11.0 | 11.0 |
+| Variance of y | 4.12 | 4.13 | 4.12 | 4.12 |
+| Correlation | 0.816 | 0.816 | 0.816 | 0.817 |
+| Regression line | y = 3 + 0.5x | y = 3 + 0.5x | y = 3 + 0.5x | y = 3 + 0.5x |
+
+**What the scatter plots reveal:**
+
+- **Dataset I:** A genuine linear relationship with normally distributed residuals — the case where linear regression is fully appropriate
+- **Dataset II:** A curved (polynomial) relationship — linear regression fits a straight line through a nonlinear pattern, producing misleading results
+- **Dataset III:** A near-perfect linear relationship *except* for one extreme outlier that shifts the regression line and inflates residual variance
+- **Dataset IV:** All x-values are identical except for one — the regression line is entirely determined by that single outlier point
+
+**The analytical lesson:** Summary statistics and regression output are consistent across all four datasets. A purely numerical analysis of Datasets II, III, and IV would produce systematically wrong conclusions. Visualization catches what statistics miss.
+
+::: {.callout-tip}
+## The Datasaurus Dozen
+The Datasaurus Dozen (2017) is a modern extension of Anscombe's Quartet: twelve datasets with identical summary statistics that include a scatter plot in the shape of a dinosaur. The same point, dramatically illustrated. The dataset is freely available and worth examining.
+:::
+
+## John Snow's Cholera Map — The First Great Intelligence Visualization
+
+In 1854, London experienced a severe cholera outbreak centered in the Soho neighborhood. The prevailing theory attributed cholera to "miasma" — bad air from rotting organic matter. Dr. John Snow, skeptical of the miasma theory, mapped every death in Soho by location and overlaid the map with the locations of the neighborhood's water pumps.
+
+The resulting dot map revealed an unmistakable spatial cluster of deaths centered on the Broad Street pump. Snow added one additional layer of evidence visible in the map: the nearby Lion Brewery, whose workers drank beer rather than water from the pump, had no cholera deaths despite being in the center of the affected area.
+
+**Why this case matters for analysts:**
+
+1. **The visualization itself was the argument.** Snow did not need a regression; the spatial pattern was evidence.
+
+2. **The choice of what to map determined what could be seen.** Mapping by date of death (a different choice) would have shown temporal spread but not spatial source; only the geographic map revealed the pump.
+
+3. **The absence pattern was as informative as the presence pattern.** The brewery's survival was not visible in tables — it required the map.
+
+4. **The visualization challenged the dominant theory.** The miasma theory could not explain why people in the same neighborhood, breathing the same air, had dramatically different death rates based on which water pump they used. The map created cognitive dissonance that forced reconsideration.
+
+Snow persuaded the local authorities to remove the handle from the Broad Street pump. The epidemic subsided — though contemporaneous accounts suggest it was already winding down for other reasons, a reminder that even the most compelling visualizations must be interpreted with caution about causal attribution.
+
+---
+
+# Part IX: Deceptive Visualization
+
+## How Charts Lie — Deliberate and Inadvertent Distortion
+
+Data visualization can mislead with technically accurate numbers. The following are the most common distortion techniques, with intelligence-relevant examples.
+
+::: {.key-terms}
+::: {dl}
+
+Truncated Y-Axis
+:   Starting a bar chart's y-axis above zero exaggerates the visual magnitude of differences between bars. A change from 98% to 99% approval looks like a doubling if the y-axis runs from 97% to 100%. *Intelligence application:* Defense budget comparisons that start the y-axis above zero can make small percentage differences appear to represent dramatic capability gaps.
+
+Cherry-Picked Time Period
+:   Selecting a start and end date for a time series to show a trend that would not be visible — or would reverse — over the full historical record. *Intelligence application:* A chart showing terrorism incidents from 2000–2010 shows a rise; showing 2000–2015 might show a decline. Both are technically accurate, neither is complete.
+
+Inconsistent Scales
+:   Using different y-axis scales for different panels, or dual y-axes that are scaled to make series appear to track together when they don't. *Intelligence application:* Plotting two country's military spending on axes scaled to make them appear equal when one is ten times the other.
+
+Area vs. Linear Encoding
+:   When representing quantities with circles or bubbles, the visual area grows as the square of the radius. If the radius is scaled to the data value, areas are not proportional to values — the larger value looks much larger than the actual ratio. *Correct practice:* scale bubble area, not radius, to the data value.
+
+The Misleading Map
+:   Geographic area maps (choropleth) encode data by color in spatial areas. States or countries with large geographic area dominate the visual impression regardless of their population or economic weight. The same election data that appears "mostly red" on a geographic area map can look "mostly blue" on a cartogram scaled by population. *Intelligence application:* Mapping conflict deaths by country area misrepresents per-capita risk.
+
+Omitted Uncertainty
+:   Presenting point estimates without confidence intervals or error bars implies more precision than the data supports. A forecast line without uncertainty bounds suggests a precision that no forecasting method achieves. *Intelligence application:* Presenting a single-number assessment of adversary capability without expressing the uncertainty range can mislead consumers into false confidence.
+
+:::
+:::
+
+::: {.callout-warning}
+## Deliberate Deception in Information Operations
+Adversaries deliberately use deceptive visualization as an information operations tool. Russian state media (RT, Sputnik) and Chinese official media (CGTN, Global Times) have published charts with truncated axes, cherry-picked comparators, and misleading scales to advance specific narratives. Analysts must apply the same critical visualization evaluation skills to adversary-produced graphics that they apply to their own work.
+:::
+
+---
+
+# Part X: Color, Accessibility, and Visual Encoding
+
+## Color Theory for Data Visualization
+
+Color is one of the most powerful visual encoding channels — and one of the most frequently misused. Guidelines:
+
+::: {.col-pair}
+::: {.col-left}
+**Sequential palettes**
+
+Use for ordered data where values range from low to high. Light-to-dark variations of a single hue. Examples: population density, threat level, temperature.
+
+*Do:* Perceptually uniform palettes (viridis, cividis, plasma) — designed so equal steps in data produce visually equal steps in color
+
+*Don't:* Rainbow palettes (jet, spectrum) — perceptually non-uniform; the yellow region appears brighter than blue/red, creating false visual "peaks"
+
+**Diverging palettes**
+
+Use when data has a meaningful midpoint (zero, neutral, average) with deviations in both directions. Two contrasting hues meeting at a neutral center. Examples: positive/negative sentiment, above/below average, gain/loss.
+:::
+::: {.col-right}
+**Categorical palettes**
+
+Use for nominal categories with no inherent order. Distinct, easily distinguishable hues. Limit to 7–10 colors maximum; beyond that, labels are more effective than color.
+
+**Colorblind accessibility**
+
+Approximately 8% of men and 0.5% of women have some form of color vision deficiency. Red-green color combinations (the most common form of deficiency) are invisible to a significant fraction of any audience.
+
+*Test:* Check visualizations with a colorblind simulator (Coblis, Sim Daltonism)
+
+*Remedy:* Use colorblind-safe palettes (ColorBrewer); supplement color with shape, pattern, or direct labeling; never rely on color alone to encode critical distinctions
+:::
+:::
+
+---
+
+
+# Suggested Readings
+
+*All readings are journal or news articles.*
+
+Franconeri, S. L., Padilla, L. M., Shah, P., Zacks, J. M., & Hullman, J. (2021). The science of visual data communication: What works. *Psychological Science in the Public Interest*, *22*(3), 110–161. <https://doi.org/10.1177/15291006211051956>
+
+> The most comprehensive empirical review of what works in data visualization. Synthesizes decades of cognitive science research on visual encodings, uncertainty communication, and narrative structure.
+
+Healy, K., & Moody, J. (2014). Data visualization in sociology. *Annual Review of Sociology*, *40*, 105–128. <https://doi.org/10.1146/annurev-soc-071312-145551>
+
+> Reviews visualization principles and practices from a social science perspective. Directly relevant to the political and social data types intelligence analysts most commonly visualize.
+
+Pandey, A. V., Rall, K., Satterthwaite, M. L., Nov, O., & Bertini, E. (2015). How deceptive are deceptive visualizations? *Proceedings of the ACM CHI Conference on Human Factors in Computing Systems*. <https://doi.org/10.1145/2702123.2702608>
+
+> Empirically tests whether common distortion techniques actually mislead viewers — the evidence base for the deceptive visualization section of this lecture.
+
+Borkin, M. A., Vo, A. A., Bylinskii, Z., Isola, P., Sunkavalli, S., Oliva, A., & Pfister, H. (2013). What makes a visualization memorable? *IEEE Transactions on Visualization and Computer Graphics*, *19*(12), 2306–2315. <https://doi.org/10.1109/TVCG.2013.234>
+
+> Experimental study of which visualization features drive memorability — relevant to the presentation design content in Lecture 13.
+                  

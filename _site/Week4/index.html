@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Week 4: Research Design and Systems Thinking – IA 240: Technology Applications in a Networked World</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-d6fbb5bfb24a4f1906c428146fc3bdde.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-372172bdf95b76f2693523edf8cf275f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">IA 240: Technology Applications in a Networked World</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-weekly-materials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Weekly Materials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-weekly-materials">    
+        <li>
+    <a class="dropdown-item" href="../Week1/index.html">
+ <span class="dropdown-text">Week 1: Technology and the Intelligence Cycle</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week2/index.html">
+ <span class="dropdown-text">Week 2: Data Types, Sources, and Collection Methods</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week3/index.html">
+ <span class="dropdown-text">Week 3: Introduction to Data Science and the Analytical Workflow</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week4/index.html">
+ <span class="dropdown-text">Week 4: Research Design and Finding Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week5/index.html">
+ <span class="dropdown-text">Week 5: Probability and Uncertainty in Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week6/index.html">
+ <span class="dropdown-text">Week 6: Data Structures, Databases, and Computational Tools</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week7/index.html">
+ <span class="dropdown-text">Week 7: Descriptive Statistics, EDA, and Hypothesis Testing (and Fall Break!)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week8/index.html">
+ <span class="dropdown-text">Week 8: Data Modeling: Regression and Model Evaluation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week9/index.html">
+ <span class="dropdown-text">Week 9: Machine Learning and Natural Language Processing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week10/index.html">
+ <span class="dropdown-text">Week 10: Systems Thinking and Agent-Based Modeling</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week11/index.html">
+ <span class="dropdown-text">Week 11: Social Network Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week12/index.html">
+ <span class="dropdown-text">Week 12: Geospatial and GEOINT Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week13/index.html">
+ <span class="dropdown-text">Week 13: Principles of Data Visualization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week15/index.html">
+ <span class="dropdown-text">Week 15: Communicating Analysis</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#part-i-the-role-of-the-hypothesis" id="toc-part-i-the-role-of-the-hypothesis" class="nav-link active" data-scroll-target="#part-i-the-role-of-the-hypothesis">Part I: The Role of the Hypothesis</a>
+  <ul class="collapse">
+  <li><a href="#defining-hypothesis" id="toc-defining-hypothesis" class="nav-link" data-scroll-target="#defining-hypothesis">Defining Hypothesis</a></li>
+  <li><a href="#what-makes-a-hypothesis-testable" id="toc-what-makes-a-hypothesis-testable" class="nav-link" data-scroll-target="#what-makes-a-hypothesis-testable">What Makes a Hypothesis Testable?</a></li>
+  </ul></li>
+  <li><a href="#part-ii-reading-data-to-develop-hypotheses" id="toc-part-ii-reading-data-to-develop-hypotheses" class="nav-link" data-scroll-target="#part-ii-reading-data-to-develop-hypotheses">Part II: Reading Data to Develop Hypotheses</a>
+  <ul class="collapse">
+  <li><a href="#practice-exercise-nfl-receiver-data" id="toc-practice-exercise-nfl-receiver-data" class="nav-link" data-scroll-target="#practice-exercise-nfl-receiver-data">Practice Exercise — NFL Receiver Data</a></li>
+  </ul></li>
+  <li><a href="#part-iii-structured-analytic-techniques" id="toc-part-iii-structured-analytic-techniques" class="nav-link" data-scroll-target="#part-iii-structured-analytic-techniques">Part III: Structured Analytic Techniques</a></li>
+  <li><a href="#part-iv-research-methodologies" id="toc-part-iv-research-methodologies" class="nav-link" data-scroll-target="#part-iv-research-methodologies">Part IV: Research Methodologies</a>
+  <ul class="collapse">
+  <li><a href="#quantitative-research" id="toc-quantitative-research" class="nav-link" data-scroll-target="#quantitative-research">Quantitative Research</a></li>
+  <li><a href="#qualitative-research" id="toc-qualitative-research" class="nav-link" data-scroll-target="#qualitative-research">Qualitative Research</a></li>
+  <li><a href="#mixed-methods-research" id="toc-mixed-methods-research" class="nav-link" data-scroll-target="#mixed-methods-research">Mixed-Methods Research</a></li>
+  </ul></li>
+  <li><a href="#part-v-how-search-engines-work" id="toc-part-v-how-search-engines-work" class="nav-link" data-scroll-target="#part-v-how-search-engines-work">Part V: How Search Engines Work</a>
+  <ul class="collapse">
+  <li><a href="#crawling-indexing-and-ranking" id="toc-crawling-indexing-and-ranking" class="nav-link" data-scroll-target="#crawling-indexing-and-ranking">Crawling, Indexing, and Ranking</a></li>
+  <li><a href="#thought-exercise-applied-search" id="toc-thought-exercise-applied-search" class="nav-link" data-scroll-target="#thought-exercise-applied-search">Thought Exercise: Applied Search</a></li>
+  </ul></li>
+  <li><a href="#part-vi-research-design-fundamentals" id="toc-part-vi-research-design-fundamentals" class="nav-link" data-scroll-target="#part-vi-research-design-fundamentals">Part VI: Research Design Fundamentals</a>
+  <ul class="collapse">
+  <li><a href="#operationalization" id="toc-operationalization" class="nav-link" data-scroll-target="#operationalization">Operationalization</a></li>
+  <li><a href="#unit-of-analysis" id="toc-unit-of-analysis" class="nav-link" data-scroll-target="#unit-of-analysis">Unit of Analysis</a></li>
+  <li><a href="#levels-of-analysis" id="toc-levels-of-analysis" class="nav-link" data-scroll-target="#levels-of-analysis">Levels of Analysis</a></li>
+  <li><a href="#variable-types" id="toc-variable-types" class="nav-link" data-scroll-target="#variable-types">Variable Types</a></li>
+  </ul></li>
+  <li><a href="#part-vii-systems-thinking" id="toc-part-vii-systems-thinking" class="nav-link" data-scroll-target="#part-vii-systems-thinking">Part VII: Systems Thinking</a>
+  <ul class="collapse">
+  <li><a href="#what-is-systems-thinking" id="toc-what-is-systems-thinking" class="nav-link" data-scroll-target="#what-is-systems-thinking">What is Systems Thinking?</a></li>
+  <li><a href="#key-principles-of-systems-thinking" id="toc-key-principles-of-systems-thinking" class="nav-link" data-scroll-target="#key-principles-of-systems-thinking">Key Principles of Systems Thinking</a></li>
+  </ul></li>
+  <li><a href="#part-viii-causal-loop-diagrams" id="toc-part-viii-causal-loop-diagrams" class="nav-link" data-scroll-target="#part-viii-causal-loop-diagrams">Part VIII: Causal Loop Diagrams</a>
+  <ul class="collapse">
+  <li><a href="#building-a-causal-loop-diagram-cld" id="toc-building-a-causal-loop-diagram-cld" class="nav-link" data-scroll-target="#building-a-causal-loop-diagram-cld">Building a Causal Loop Diagram (CLD)</a></li>
+  <li><a href="#benefits-of-systems-thinking-for-analysis" id="toc-benefits-of-systems-thinking-for-analysis" class="nav-link" data-scroll-target="#benefits-of-systems-thinking-for-analysis">Benefits of Systems Thinking for Analysis</a></li>
+  </ul></li>
+  <li><a href="#part-ix-real-world-systems-thinking-cases" id="toc-part-ix-real-world-systems-thinking-cases" class="nav-link" data-scroll-target="#part-ix-real-world-systems-thinking-cases">Part IX: Real-World Systems Thinking Cases</a>
+  <ul class="collapse">
+  <li><a href="#case-1-sanctions-against-north-korea-a-feedback-loop-analysis" id="toc-case-1-sanctions-against-north-korea-a-feedback-loop-analysis" class="nav-link" data-scroll-target="#case-1-sanctions-against-north-korea-a-feedback-loop-analysis">Case 1: Sanctions Against North Korea — A Feedback Loop Analysis</a></li>
+  <li><a href="#case-2-the-2003-iraq-occupation-institutional-collapse-as-a-system-failure" id="toc-case-2-the-2003-iraq-occupation-institutional-collapse-as-a-system-failure" class="nav-link" data-scroll-target="#case-2-the-2003-iraq-occupation-institutional-collapse-as-a-system-failure">Case 2: The 2003 Iraq Occupation — Institutional Collapse as a System Failure</a></li>
+  </ul></li>
+  <li><a href="#part-x-tipping-points-and-threshold-dynamics" id="toc-part-x-tipping-points-and-threshold-dynamics" class="nav-link" data-scroll-target="#part-x-tipping-points-and-threshold-dynamics">Part X: Tipping Points and Threshold Dynamics</a>
+  <ul class="collapse">
+  <li><a href="#when-systems-shift-suddenly" id="toc-when-systems-shift-suddenly" class="nav-link" data-scroll-target="#when-systems-shift-suddenly">When Systems Shift Suddenly</a></li>
+  </ul></li>
+  <li><a href="#suggested-readings" id="toc-suggested-readings" class="nav-link" data-scroll-target="#suggested-readings">Suggested Readings</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Week 4: Research Design and Systems Thinking</h1>
+<p class="subtitle lead">IA 240: Technology Applications in a Networked World</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Good analysis begins with good questions and a clear understanding of the phenomenon being studied. This lecture covers research design for intelligence problems — hypothesis formulation, methodology selection, variable operationalization — and then introduces systems thinking: the analytical framework for understanding how causal loops, feedback dynamics, and threshold effects produce outcomes that linear analysis misses.</p>
+<section id="part-i-the-role-of-the-hypothesis" class="level1">
+<h1>Part I: The Role of the Hypothesis</h1>
+<section id="defining-hypothesis" class="level2">
+<h2 class="anchored" data-anchor-id="defining-hypothesis">Defining Hypothesis</h2>
+<p>A <strong>hypothesis</strong> is a testable proposition about a relationship or difference between variables. It represents an analyst’s informed expectation about how the world works — a claim that can be confirmed, disconfirmed, or refined through evidence.</p>
+<p>A good hypothesis:</p>
+<ul>
+<li>Is stated in precise, unambiguous terminology</li>
+<li>States an <em>expected relationship or difference</em> between two or more variables</li>
+<li>Is <strong>testable</strong> — there must exist data that could, in principle, prove it wrong</li>
+<li>Is <strong>grounded</strong> in prior knowledge, theory, or literature</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hypotheses in Intelligence vs.&nbsp;Academic Research
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Academic hypotheses typically take the form: “Higher X is associated with greater Y.” Intelligence hypotheses often take a probabilistic form: “We assess that there is a greater than 60% probability that State A will conduct a ballistic missile test within the next 90 days.” Both require the same underlying logic: a specific claim, derived from prior knowledge, that is falsifiable by evidence.</p>
+</div>
+</div>
+</section>
+<section id="what-makes-a-hypothesis-testable" class="level2">
+<h2 class="anchored" data-anchor-id="what-makes-a-hypothesis-testable">What Makes a Hypothesis Testable?</h2>
+<p>For a hypothesis to be testable:</p>
+<ol type="1">
+<li>All key concepts must be <strong>operationalized</strong> — defined in terms of measurable variables</li>
+<li>There must exist <strong>data</strong> capable of producing evidence for or against it</li>
+<li>A plausible mechanism must connect the independent variable(s) to the dependent variable</li>
+<li>Alternative explanations must be articulable and distinguishable from the primary hypothesis</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="part-ii-reading-data-to-develop-hypotheses" class="level1">
+<h1>Part II: Reading Data to Develop Hypotheses</h1>
+<section id="practice-exercise-nfl-receiver-data" class="level2">
+<h2 class="anchored" data-anchor-id="practice-exercise-nfl-receiver-data">Practice Exercise — NFL Receiver Data</h2>
+<p>Consider the following dataset of NFL skill position players:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Age</th>
+<th>Position</th>
+<th>Injury</th>
+<th>Starter</th>
+<th>Yards</th>
+<th>TDs</th>
+<th>Yrs Pro</th>
+<th>Winning Team</th>
+<th>Playoffs</th>
+<th>Pro Bowl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>25</td>
+<td>RB</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>800</td>
+<td>4</td>
+<td>3</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>29</td>
+<td>RB</td>
+<td>No</td>
+<td>Yes</td>
+<td>1300</td>
+<td>18</td>
+<td>7</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>32</td>
+<td>RB</td>
+<td>No</td>
+<td>Yes</td>
+<td>1200</td>
+<td>7</td>
+<td>9</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>22</td>
+<td>RB</td>
+<td>No</td>
+<td>No</td>
+<td>850</td>
+<td>7</td>
+<td>1</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>29</td>
+<td>RB</td>
+<td>No</td>
+<td>Yes</td>
+<td>700</td>
+<td>15</td>
+<td>8</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>28</td>
+<td>WR</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>600</td>
+<td>7</td>
+<td>5</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>27</td>
+<td>WR</td>
+<td>No</td>
+<td>Yes</td>
+<td>1350</td>
+<td>7</td>
+<td>5</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>26</td>
+<td>TE</td>
+<td>No</td>
+<td>Yes</td>
+<td>1200</td>
+<td>10</td>
+<td>4</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>25</td>
+<td>TE</td>
+<td>Yes</td>
+<td>No</td>
+<td>800</td>
+<td>6</td>
+<td>3</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>26</td>
+<td>WR</td>
+<td>No</td>
+<td>Yes</td>
+<td>1500</td>
+<td>5</td>
+<td>4</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Discussion: What Hypotheses Does This Data Suggest?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Looking at these variables, what relationships might be worth testing? Consider: - What is the relationship between yards/TDs and Pro Bowl selection? - Does being on a winning team predict playoff appearances independent of individual performance? - How does age interact with injury and performance metrics? - What is the role of years of professional experience in predicting output?</p>
+<p>For each hypothesis: identify the independent variable, dependent variable, and expected direction of the relationship.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-iii-structured-analytic-techniques" class="level1">
+<h1>Part III: Structured Analytic Techniques</h1>
+<p>Systems thinking (covered in Parts VII–X) produces causal maps. But maps are hypotheses about the world, not descriptions of it. Structured analytic techniques (SATs) complement systems thinking by disciplining how analysts develop and challenge those hypotheses.</p>
+<div class="key-terms">
+<div class="{dl}">
+<dl>
+<dt>Key Assumptions Check (KAC)</dt>
+<dd>
+A systematic review of the assumptions embedded in a causal loop diagram or analytical assessment. For each causal arrow, there is at least one implicit assumption. A KAC asks: what must be true for this arrow to hold? How confident are we? What would happen if the assumption proved false?
+</dd>
+<dt>Analysis of Competing Hypotheses (ACH)</dt>
+<dd>
+A structured technique for evaluating which of several competing hypotheses best fits the available evidence. ACH specifically seeks evidence that is <em>inconsistent</em> with each hypothesis, resisting the natural tendency to seek confirming evidence.
+</dd>
+<dt>Red Team Analysis</dt>
+<dd>
+Deliberately adopts an adversary’s perspective to identify vulnerabilities in your own causal model. A red team examining a causal loop diagram asks: which loops could the adversary deliberately influence? Which assumptions in your model does the adversary know about and could exploit?
+</dd>
+<dt>Indicator Development</dt>
+<dd>
+Translating a causal loop diagram into a monitoring framework. Each feedback loop predicts observable indicators. Defining those indicators in advance allows analysts to detect whether a loop is activating, accelerating, or being disrupted.
+</dd>
+</dl>
+</div>
+</div>
+<hr>
+</section>
+<section id="part-iv-research-methodologies" class="level1">
+<h1>Part IV: Research Methodologies</h1>
+<section id="quantitative-research" class="level2">
+<h2 class="anchored" data-anchor-id="quantitative-research">Quantitative Research</h2>
+<p>Quantitative research is centered on numerical data and statistical analysis. It seeks to identify patterns, relationships, and trends that can be generalized across populations.</p>
+<p><strong>Characteristics:</strong> structured, objective, replicable, uses statistical inference.</p>
+<p><strong>Common methods:</strong> surveys and questionnaires, experiments, secondary data analysis.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Secondary Data Analysis in Intelligence
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Much intelligence analysis is secondary data analysis by definition — analysts rarely collect their own data from scratch. Understanding <em>how</em> existing data was collected, cleaned, and coded is therefore essential before drawing conclusions from it.</p>
+</div>
+</div>
+</section>
+<section id="qualitative-research" class="level2">
+<h2 class="anchored" data-anchor-id="qualitative-research">Qualitative Research</h2>
+<p>Qualitative research seeks to understand meanings, experiences, and social processes through non-numerical data. It is often exploratory and context-sensitive.</p>
+<p><strong>Characteristics:</strong> flexible, inductive, produces depth over breadth.</p>
+<p><strong>Common methods:</strong> interviews, focus groups, case studies — in-depth examination of a single unit to understand broader dynamics.</p>
+</section>
+<section id="mixed-methods-research" class="level2">
+<h2 class="anchored" data-anchor-id="mixed-methods-research">Mixed-Methods Research</h2>
+<div class="col-pair">
+<div class="col-left">
+<p><strong>Sequential Designs</strong></p>
+<p>One method informs the next. For example: qualitative interviews identify themes → quantitative survey tests those themes at scale.</p>
+</div>
+<div class="col-right">
+<p><strong>Concurrent Designs</strong></p>
+<p>Both methods run simultaneously and findings are integrated during analysis, producing a holistic picture that neither alone could achieve.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-v-how-search-engines-work" class="level1">
+<h1>Part V: How Search Engines Work</h1>
+<section id="crawling-indexing-and-ranking" class="level2">
+<h2 class="anchored" data-anchor-id="crawling-indexing-and-ranking">Crawling, Indexing, and Ranking</h2>
+<p>Search engines operate through three core processes:</p>
+<ol type="1">
+<li><strong>Crawling</strong> — automated bots traverse the web following hyperlinks, discovering pages</li>
+<li><strong>Indexing</strong> — discovered content is analyzed, parsed, and stored in the search engine’s database</li>
+<li><strong>Ranking</strong> — when a query is submitted, the engine scores indexed pages against relevance algorithms</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Advanced Search Operators — Practice
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Try these in your browser:</p>
+<ul>
+<li><code>filetype:xlsx Russia economic indicators</code> — find Excel files on Russian economics</li>
+<li><code>site:gov "intelligence analysis"</code> — limit results to .gov domains</li>
+<li><code>"climate change" after:2023</code> — restrict to recent publications</li>
+<li><code>intitle:"annual report" OPEC</code> — find pages with “annual report” in the title</li>
+</ul>
+<p>These techniques apply directly to OSINT collection tasks.</p>
+</div>
+</div>
+</section>
+<section id="thought-exercise-applied-search" class="level2">
+<h2 class="anchored" data-anchor-id="thought-exercise-applied-search">Thought Exercise: Applied Search</h2>
+<p>Working in groups, devise a search strategy for each of the following:</p>
+<ol type="1">
+<li>A database (Excel format) on Russian economic indicators for the last 30 years</li>
+<li>A PDF version of a recent article by a JMU intelligence analysis faculty member</li>
+<li>Recent news articles related to JMU football published in the last 24 hours</li>
+<li>Regional disparities in American concern about climate change</li>
+<li>Research articles published in Portugal on artificial intelligence</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="part-vi-research-design-fundamentals" class="level1">
+<h1>Part VI: Research Design Fundamentals</h1>
+<section id="operationalization" class="level2">
+<h2 class="anchored" data-anchor-id="operationalization">Operationalization</h2>
+<p><strong>Operationalization</strong> is the process of defining how an abstract concept will be measured in concrete, observable terms.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Abstract Concept</th>
+<th>Possible Operationalization</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>State instability</td>
+<td>Anti-government demonstrations per year</td>
+<td>Misses rural unrest; biased toward media-covered events</td>
+</tr>
+<tr class="even">
+<td>Military capability</td>
+<td>Defense spending as % of GDP</td>
+<td>Ignores efficiency, technology quality, training</td>
+</tr>
+<tr class="odd">
+<td>Popular support</td>
+<td>Survey approval ratings</td>
+<td>Survey conditions may not reflect genuine opinion</td>
+</tr>
+<tr class="even">
+<td>Radicalization</td>
+<td>Attendance at extremist events</td>
+<td>Underestimates online radicalization</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>The Operationalization Problem in Intelligence
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Many of the concepts most important to intelligence — resolve, intent, morale, legitimacy — resist clean operationalization. Analysts often use proxy indicators: observable behaviors that correlate with the unmeasurable concept. The key discipline is being explicit about what your proxy does and does not capture.</p>
+</div>
+</div>
+</section>
+<section id="unit-of-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="unit-of-analysis">Unit of Analysis</h2>
+<p>The <strong>unit of analysis</strong> is the entity about which you are making claims. Common units in intelligence analysis:</p>
+<ul>
+<li><strong>Individual</strong> — persons of interest, leaders, operatives</li>
+<li><strong>Organization</strong> — armed groups, companies, government agencies</li>
+<li><strong>Event</strong> — attacks, protests, elections, financial transactions</li>
+<li><strong>State/country</strong> — the most common unit in quantitative IR</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>The Ecological Fallacy
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Drawing conclusions about individuals from aggregate data is the ecological fallacy. If a country has high per capita income and high support for a political movement, it does not follow that wealthy individuals drive that support. Always match the level of your data to the level of your claim.</p>
+</div>
+</div>
+</section>
+<section id="levels-of-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="levels-of-analysis">Levels of Analysis</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Level</th>
+<th>Focus</th>
+<th>Example Question</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Individual</strong></td>
+<td>Leaders, key decision-makers</td>
+<td>Does Putin’s risk tolerance differ from his advisors’?</td>
+</tr>
+<tr class="even">
+<td><strong>Organizational</strong></td>
+<td>Bureaucratic/institutional factors</td>
+<td>How does IRGC organizational culture affect operational decisions?</td>
+</tr>
+<tr class="odd">
+<td><strong>State</strong></td>
+<td>Domestic political, economic, military factors</td>
+<td>Does regime type predict likelihood of WMD pursuit?</td>
+</tr>
+<tr class="even">
+<td><strong>Systemic</strong></td>
+<td>Structure of the international system</td>
+<td>Does unipolarity reduce great-power conflict?</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="variable-types" class="level2">
+<h2 class="anchored" data-anchor-id="variable-types">Variable Types</h2>
+<div class="key-terms">
+<div class="{dl}">
+<dl>
+<dt>Dependent Variable (DV)</dt>
+<dd>
+The outcome you are trying to explain or predict.
+</dd>
+<dt>Independent Variable (IV)</dt>
+<dd>
+The factor you believe causes or predicts variation in the DV.
+</dd>
+<dt>Control Variable</dt>
+<dd>
+A factor held constant to isolate the IV–DV relationship.
+</dd>
+<dt>Confounding Variable</dt>
+<dd>
+A third variable that affects both IV and DV, creating a spurious appearance of causation.
+</dd>
+<dt>Mediating Variable</dt>
+<dd>
+A variable through which the IV affects the DV.
+</dd>
+</dl>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Discussion: Operationalizing Threat
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In small groups, choose one of the following questions. Identify: (a) the DV and how to measure it, (b) the primary IV and how to operationalize it, (c) at least one likely confounder, and (d) the most significant limitation of your operationalization.</p>
+<ol type="1">
+<li>Do states facing existential threats pursue nuclear weapons more frequently?</li>
+<li>Does social media use increase the likelihood of mass protests?</li>
+<li>Does foreign economic aid reduce armed conflict in recipient countries?</li>
+</ol>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-vii-systems-thinking" class="level1">
+<h1>Part VII: Systems Thinking</h1>
+<section id="what-is-systems-thinking" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-systems-thinking">What is Systems Thinking?</h2>
+<p>Systems thinking is an analytical approach that views complex phenomena as <em>systems</em>—sets of interconnected, interdependent components whose interactions produce emergent behavior that cannot be understood by examining parts in isolation.</p>
+<p>Rather than asking “What causes X?”, systems thinking asks “How do the relationships <em>among</em> multiple variables produce the pattern we observe in X?”</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Relevance to Hypothesis Development
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When you identify variables for a model, you are making implicit claims about what matters and what does not. Systems thinking forces you to be explicit about those claims—and to consider feedback loops and unintended consequences that purely linear thinking misses.</p>
+</div>
+</div>
+</section>
+<section id="key-principles-of-systems-thinking" class="level2">
+<h2 class="anchored" data-anchor-id="key-principles-of-systems-thinking">Key Principles of Systems Thinking</h2>
+<div class="key-terms">
+<div class="{dl}">
+<dl>
+<dt>Interconnectedness</dt>
+<dd>
+Every element of a system is connected to other elements through relationships. Changes in one variable propagate through the system. Analyzing any single variable in isolation produces an incomplete picture.
+</dd>
+<dt>Feedback Loops</dt>
+<dd>
+Closed causal chains where an effect loops back to influence its own cause. There are two types (see below).
+</dd>
+<dt>Reinforcing (Positive) Feedback Loops</dt>
+<dd>
+Change in one direction amplifies further change in the same direction. Not inherently positive in valence—can represent escalation, arms races, or cascading instability. Example: military spending increases → perceived threat increases → adversary military spending increases → perceived threat increases further.
+</dd>
+<dt>Balancing (Negative) Feedback Loops</dt>
+<dd>
+System-level resistance to change; the loop pushes back against deviation from a target state. Example: high inflation → interest rate increases → borrowing decreases → economic activity slows → inflation decreases.
+</dd>
+<dt>Non-linearity</dt>
+<dd>
+Relationships in complex systems are often non-linear—a small change in an input may have a large effect on an output (tipping points), or a large change may have negligible effect (thresholds). Linear models cannot capture these dynamics.
+</dd>
+<dt>Emergence</dt>
+<dd>
+System-level properties that are not present in any individual component. The whole behaves differently than the sum of its parts. Terrorist network resilience is an emergent property—no single node produces it.
+</dd>
+<dt>Delayed Effects</dt>
+<dd>
+Effects may manifest long after their cause. Sanctions imposed today may not produce intended economic effects for months or years. Models that ignore time lags will misattribute causation.
+</dd>
+<dt>Holistic View</dt>
+<dd>
+Analysis must encompass the whole system, not just the most visible or accessible parts. Focusing only on measurable variables creates blind spots.
+</dd>
+</dl>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-viii-causal-loop-diagrams" class="level1">
+<h1>Part VIII: Causal Loop Diagrams</h1>
+<section id="building-a-causal-loop-diagram-cld" class="level2">
+<h2 class="anchored" data-anchor-id="building-a-causal-loop-diagram-cld">Building a Causal Loop Diagram (CLD)</h2>
+<p>A causal loop diagram is a visual representation of the causal relationships and feedback loops within a system. It does not quantify relationships—it maps their direction and structure.</p>
+<p><strong>Step-by-step process:</strong></p>
+<div class="timeline">
+<div class="{dl}">
+<dl>
+<dt>Step 1: Define the System</dt>
+<dd>
+State the key problem or question you are exploring. What are the boundaries of the system? What outcomes are you trying to explain?
+</dd>
+<dt>Step 2: Identify Key Variables</dt>
+<dd>
+List and categorize the variables relevant to your system. Are they independent, dependent, or intermediate? What scale and type are they?
+</dd>
+<dt>Step 3: Establish Causal Links</dt>
+<dd>
+For each pair of related variables, draw an arrow from cause to effect. Label each arrow: <strong>(+)</strong> if an increase in the cause produces an increase in the effect; <strong>(-)</strong> if an increase in the cause produces a decrease in the effect.
+</dd>
+<dt>Step 4: Identify Feedback Loops</dt>
+<dd>
+Trace closed loops in your diagram. Count the number of negative links: an <strong>even number</strong> (including zero) indicates a reinforcing loop; an <strong>odd number</strong> indicates a balancing loop.
+</dd>
+<dt>Step 5: Draw the Diagram</dt>
+<dd>
+List all variables, then add arrows and signs. Clarity and legibility matter—a cluttered CLD is as useless as a cluttered chart.
+</dd>
+<dt>Step 6: Review and Adjust</dt>
+<dd>
+Are there gaps? Are feedback loops internally consistent? Have you included all major drivers and consequences? Have independent reviewers examine the diagram.
+</dd>
+</dl>
+</div>
+</div>
+</section>
+<section id="benefits-of-systems-thinking-for-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="benefits-of-systems-thinking-for-analysis">Benefits of Systems Thinking for Analysis</h2>
+<div class="col-pair">
+<div class="col-left">
+<p><strong>Better Variable Identification</strong></p>
+<p>Systems thinking forces analysts to think beyond obvious first-order causes. A system diagram of “nuclear proliferation” might reveal that domestic politics, alliance commitments, and regime security concerns interact with the technical capability variables that tend to dominate quantitative models.</p>
+<p><strong>Enhanced Predictive Power</strong></p>
+<p>By mapping how variables interact—including delayed effects and feedback loops—analysts can anticipate how a change in one variable will ripple through the system. Interventions that appear effective in isolation may be counterproductive at the system level.</p>
+</div>
+<div class="col-right">
+<p><strong>Better Decision-Making</strong></p>
+<p>Systems thinking highlights potential unintended consequences <em>before</em> they occur. Sanctions designed to reduce a regime’s capability may strengthen its internal cohesion through a rally-around-the-flag effect—a balancing loop that counteracts the intended effect.</p>
+<p><strong>More Robust Hypotheses</strong></p>
+<p>Hypotheses derived from systems thinking are more likely to specify the <em>mechanism</em> connecting variables, not just the correlation. Mechanistic specificity is a hallmark of analytically rigorous hypothesis development.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-ix-real-world-systems-thinking-cases" class="level1">
+<h1>Part IX: Real-World Systems Thinking Cases</h1>
+<section id="case-1-sanctions-against-north-korea-a-feedback-loop-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="case-1-sanctions-against-north-korea-a-feedback-loop-analysis">Case 1: Sanctions Against North Korea — A Feedback Loop Analysis</h2>
+<p>Sanctions imposed on North Korea to compel denuclearization have operated for decades with limited observable effect on North Korea’s weapons programs. Systems thinking explains why. The causal structure contains multiple feedback loops that counteract the intended effect of economic coercion.</p>
+<p><strong>Intended mechanism (the linear assumption):</strong> &gt; Sanctions → Economic pain → Regime capitulation → Denuclearization</p>
+<p><strong>What systems analysis reveals:</strong></p>
+<div class="col-pair">
+<div class="col-left">
+<p><strong>Reinforcing loop — Rally-around-the-flag</strong></p>
+<p>Sanctions-induced economic hardship → Regime frames hardship as foreign aggression → Domestic nationalism increases → Regime legitimacy strengthens → Hardline position becomes domestically necessary to sustain</p>
+<p>This reinforcing loop amplifies regime cohesion in direct response to the pressure intended to weaken it. Empirical studies on North Korea have found that periods of intensified sanctions correspond with increased domestic propaganda output, not capitulation signals.</p>
+</div>
+<div class="col-right">
+<p><strong>Balancing loop — Elite defection risk</strong></p>
+<p>Sanctions → Economic contraction → Elite material wellbeing threatened → Elite defection or coup risk → Regime redistributes resources to core loyalists → Economic contraction among population deepens, but regime stability is maintained</p>
+<p>This balancing loop absorbs the potential political threat from sanctions by concentrating resources within the elite network—precisely the opposite of the intended distributional effect.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Analytical Takeaway
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A linear model of sanctions predicts capitulation. A systems model predicts adaptation and consolidation—which is what the empirical record shows. Before recommending or evaluating a coercive policy instrument, mapping the full causal structure (including second- and third-order loops) is essential analytical due diligence.</p>
+</div>
+</div>
+</section>
+<section id="case-2-the-2003-iraq-occupation-institutional-collapse-as-a-system-failure" class="level2">
+<h2 class="anchored" data-anchor-id="case-2-the-2003-iraq-occupation-institutional-collapse-as-a-system-failure">Case 2: The 2003 Iraq Occupation — Institutional Collapse as a System Failure</h2>
+<p>The postwar period in Iraq demonstrated how policy interventions can trigger cascading system failures through mechanisms that linear planning does not anticipate.</p>
+<p><strong>The critical decision:</strong> Coalition Provisional Authority Order No.&nbsp;2 (May 2003) disbanded the Iraqi Army, removing approximately 400,000 armed men from institutional employment overnight.</p>
+<p><strong>System consequences:</strong></p>
+<div class="timeline">
+<div class="{dl}">
+<dl>
+<dt>Phase 1: Initial shock</dt>
+<dd>
+Army dissolution → immediate loss of income and status for 400,000 individuals with weapons training → security vacuum as the primary order-providing institution disappears
+</dd>
+<dt>Phase 2: Grievance amplification (reinforcing loop)</dt>
+<dd>
+Unemployed soldiers → economic desperation + institutional grievance → insurgent recruitment becomes easy and cheap → insurgency capability increases
+</dd>
+<dt>Phase 3: Sectarian activation</dt>
+<dd>
+Security vacuum → Shia militias and Kurdish peshmerga expand to fill void → Sunni population perceives ethnic threat → Sunni fighters join insurgency as both economic actors and sectarian defenders (two independent recruitment pathways reinforcing each other)
+</dd>
+<dt>Phase 4: External involvement</dt>
+<dd>
+Instability → Al-Qaeda in Iraq enters → foreign fighters provide financing and ideological framing → insurgency becomes internationalized → coalition military response intensifies → civilian casualties → insurgent recruitment further increases (another reinforcing loop)
+</dd>
+</dl>
+</div>
+</div>
+<p>The system dynamics perspective reveals that the insurgency was not primarily caused by the presence of foreign fighters or by “bad actors” who could have been identified in advance — it was produced by the institutional architecture of the intervention itself. A systems analysis conducted before Order No.&nbsp;2 could have identified these cascading pathways.</p>
+<hr>
+</section>
+</section>
+<section id="part-x-tipping-points-and-threshold-dynamics" class="level1">
+<h1>Part X: Tipping Points and Threshold Dynamics</h1>
+<section id="when-systems-shift-suddenly" class="level2">
+<h2 class="anchored" data-anchor-id="when-systems-shift-suddenly">When Systems Shift Suddenly</h2>
+<p>Some of the most important outcomes in international security are characterized by sudden, discontinuous change — the collapse of a regime that appeared stable, the rapid escalation of a conflict that seemed contained, the sudden spread of a protest movement. Systems thinking offers a framework for understanding why these transitions happen.</p>
+<p><strong>Key concept: tipping points and bifurcations</strong></p>
+<p>In a system with strong balancing loops, a variable (say, regime stability) may remain near its equilibrium despite perturbations — the system “absorbs” small shocks. But once a critical threshold is crossed, the system reorganizes abruptly. The balancing loops that maintained the old equilibrium weaken or reverse; reinforcing loops that were previously dominated begin to dominate. The system bifurcates to a new state.</p>
+<p><strong>Illustrative cases:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Phenomenon</th>
+<th>Pre-tip Dynamics</th>
+<th>Tipping Mechanism</th>
+<th>Post-tip Dynamics</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Arab Spring 2010–11</td>
+<td>Authoritarian stability through repression (balancing loop)</td>
+<td>Mohamed Bouazizi self-immolation → social media amplification of grievance → cost of protest fell below cost of silence</td>
+<td>Reinforcing loop: protests → government crackdowns → more protests; cascade across regional states</td>
+</tr>
+<tr class="even">
+<td>Soviet collapse 1989–91</td>
+<td>Ideological legitimacy + military deterrence maintained stability</td>
+<td>Gorbachev’s signals that force would not be used → cost of defection fell for Eastern European elites</td>
+<td>Cascade: each defection reduced the expected cost of the next; the system reorganized faster than anyone predicted</td>
+</tr>
+<tr class="odd">
+<td>Financial contagion 2008</td>
+<td>Mortgage-backed securities held by globally interconnected financial institutions</td>
+<td>Lehman Brothers failure → counterparty uncertainty → credit markets freeze</td>
+<td>Reinforcing loop: credit freeze → institutional failures → more uncertainty → deeper freeze</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>The Prediction Problem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Tipping points are extraordinarily difficult to predict precisely because the systems that generate them appear stable until they are not. Leading indicators exist — accelerating protest frequency before regime collapse, rising volatility before financial crisis — but threshold identification requires continuous system monitoring, not periodic snapshot analysis. Intelligence that reports on what a system <em>is</em> without modeling where it is relative to its thresholds will miss the discontinuity.</p>
+</div>
+</div>
+<hr>
+<hr>
+</section>
+</section>
+<section id="suggested-readings" class="level1">
+<h1>Suggested Readings</h1>
+<p><em>All readings are journal or news articles.</em></p>
+<p>Adcock, R., &amp; Collier, D. (2001). Measurement validity: A shared standard for qualitative and quantitative research. <em>American Political Science Review</em>, <em>95</em>(3), 529–546. <a href="https://doi.org/10.1017/S0003055401003100" class="uri">https://doi.org/10.1017/S0003055401003100</a></p>
+<blockquote class="blockquote">
+<p>The definitive treatment of measurement validity in social science research. Directly applicable to operationalization and variable selection for intelligence research designs.</p>
+</blockquote>
+<p>Marrin, S. (2007). Intelligence analysis theory: Explaining and predicting analytic responsibilities. <em>Intelligence and National Security</em>, <em>22</em>(6), 821–846. <a href="https://doi.org/10.1080/02684520701770202" class="uri">https://doi.org/10.1080/02684520701770202</a></p>
+<blockquote class="blockquote">
+<p>Examines whether intelligence analysis can be codified into systematic methodological practice. Relevant to the hypothesis development and structured analytic technique content in this lecture.</p>
+</blockquote>
+<p>Tetlock, P. E. (1999). Theory-driven reasoning about plausible pasts and probable futures in world politics. <em>American Journal of Political Science</em>, <em>43</em>(2), 335–366. <a href="https://doi.org/10.2307/2991799" class="uri">https://doi.org/10.2307/2991799</a></p>
+<blockquote class="blockquote">
+<p>Examines how analysts’ theoretical frameworks shape what hypotheses they consider and what evidence they weight.</p>
+</blockquote>
+<p>Haggard, S., &amp; Noland, M. (2010). Sanctioning North Korea: The political economy of denuclearization and proliferation. <em>Asian Survey</em>, <em>50</em>(3), 539–568. <a href="https://doi.org/10.1525/as.2010.50.3.539" class="uri">https://doi.org/10.1525/as.2010.50.3.539</a></p>
+<blockquote class="blockquote">
+<p>Empirical examination of feedback dynamics in the North Korea sanctions case — directly relevant to the systems thinking case studies in this lecture.</p>
+</blockquote>
+<p>Cederman, L. E. (2003). Modeling the size of wars: From billiard balls to sandpiles. <em>American Political Science Review</em>, <em>97</em>(1), 135–150. <a href="https://doi.org/10.1017/S0003055403000571" class="uri">https://doi.org/10.1017/S0003055403000571</a></p>
+<blockquote class="blockquote">
+<p>Applies complex systems and self-organized criticality to war size distributions. Formal demonstration that conflict systems exhibit tipping point dynamics inconsistent with standard linear models.</p>
+</blockquote>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

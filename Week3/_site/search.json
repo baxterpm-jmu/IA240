@@ -1,0 +1,79 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Week 3: Introduction to Data Science and the Analytical Workflow",
+    "section": "",
+    "text": "Data science is the methodological foundation for systematic, rigorous analysis. Before learning specific statistical techniques, analysts need to understand the workflow those techniques serve: how analytical problems are framed, how the data science process is structured, and how different data types shape what analysis is possible. This lecture establishes that foundation.\nBefore testing hypotheses, analysts must understand what their data looks like. Descriptive statistics and exploratory data analysis (EDA) are the systematic tools for that understanding — revealing distributions, central tendencies, variability, outliers, and relationships that formal models can miss or distort if applied without first examining the data."
+  },
+  {
+    "objectID": "index.html#defining-the-field",
+    "href": "index.html#defining-the-field",
+    "title": "Week 3: Introduction to Data Science and the Analytical Workflow",
+    "section": "Defining the Field",
+    "text": "Defining the Field\nData science is the multidisciplinary field concerned with extracting knowledge and insight from data—structured or unstructured, large or small. It draws on mathematics, statistics, computer science, and domain expertise to turn raw information into actionable understanding.\n\n\n\n\n\n\nNoteThe Core Insight\n\n\n\nData science is what enables us to move from large, incomprehensible datasets to actionable knowledge. The goal is not the technique—it is the insight the technique produces.\n\n\nData science principles apply across scales: the methods used to analyze a 10-row spreadsheet and a billion-row database share underlying logic, even if the computational tools differ."
+  },
+  {
+    "objectID": "index.html#core-functions",
+    "href": "index.html#core-functions",
+    "title": "Week 3: Introduction to Data Science and the Analytical Workflow",
+    "section": "Core Functions",
+    "text": "Core Functions\nA practicing data scientist (or a data-literate analyst) draws on competencies across several domains:\n\n\n\n\n\n\n\n\nFunction\nDescription\nRelevance to IA\n\n\n\n\nMathematics & Applied Mathematics\nFoundations of algorithms, optimization, and statistical theory\nUnderstanding what analytical tools actually compute\n\n\nComputer Programming (R, Python, Julia, SQL)\nImplementing analysis, automating tasks, querying databases\nScale: computers process millions of records in seconds\n\n\nData Mining\nDiscovering patterns in large datasets without predefined hypotheses\nIdentifying anomalies, clusters, or trends in raw intelligence data\n\n\nDatabase Management\nStoring, organizing, and querying structured data\nWorking with IC data warehouses and relational databases\n\n\nMachine Learning\nBuilding systems that improve from data\nAutomated classification, prediction, and anomaly detection\n\n\nData Visualization\nCommunicating findings through charts, maps, and dashboards\nPresenting analysis to policymakers and consumers\n\n\nApplied Statistics\nFormal inference, hypothesis testing, uncertainty quantification\nCalibrating confidence in analytic judgments"
+  },
+  {
+    "objectID": "index.html#data-science-in-intelligence-analysis",
+    "href": "index.html#data-science-in-intelligence-analysis",
+    "title": "Week 3: Introduction to Data Science and the Analytical Workflow",
+    "section": "Data Science in Intelligence Analysis",
+    "text": "Data Science in Intelligence Analysis\n\n\n\n\n\n\nWarningCourse Framing — Not Training Data Scientists\n\n\n\nThe goal of this course is not to make you a data scientist. The goal is to make you a data-literate analyst who understands how to connect data—of all kinds—to analytical problems. That means knowing when to use a tool, what it assumes, and how to interpret its output, even if you are not the one writing the code.\n\n\nApplications of data science methods in intelligence analysis include:\n\nData Integration and Fusion — combining HUMINT, SIGINT, OSINT, and GEOINT into unified pictures\nText Analysis and NLP — extracting meaning from foreign-language documents, social media, and intercepted communications\nSocial Network Analysis — mapping relationships between individuals, organizations, and entities\nGeospatial Analysis — identifying spatial patterns in conflict, migration, or economic activity\nMachine Learning for Pattern Recognition — flagging anomalies in financial flows, communications metadata, or imagery\nPredictive Analytics — forecasting conflict onset, proliferation timelines, or election outcomes\nCybersecurity — detecting intrusions, attributing attacks, and modeling adversary behavior\nVisualization — producing products that communicate complex findings clearly to consumers\nRisk Assessment — quantifying uncertainty and supporting structured decision-making\nEarly Warning Systems — automated monitoring of indicators that precede significant events"
+  },
+  {
+    "objectID": "index.html#a-standard-workflow",
+    "href": "index.html#a-standard-workflow",
+    "title": "Week 3: Introduction to Data Science and the Analytical Workflow",
+    "section": "A Standard Workflow",
+    "text": "A Standard Workflow\nData science projects follow a recognizable lifecycle. Understanding this cycle is as important as any individual technique, because most analytical failures occur at the transitions between stages—not within them.\nThe following stages describe the approach used in this program:\n\n\n\n\nProblem Statement\n\nBefore collecting a single data point, define what you are trying to answer. A problem statement is an explanation of the gap between what is known and what needs to be known, and why that gap matters. In intelligence, this is often framed as: What is the probability that X will occur? or What factors are driving Y? A weak problem statement produces a weak analysis regardless of data quality.\n\n\n\nIdentification & Procurement\n\nIdentify what data exists that is relevant to the problem. Determine how to obtain it—open sources, databases, collection operations, surveys. Document provenance, collection methodology, and known limitations before analysis begins.\n\n\n\nSelection\n\nNot all available data is relevant. Select the variables, time ranges, geographic units, and sources that address the problem statement. This decision embeds analytical judgment—what you exclude matters as much as what you include.\n\n\n\nPreprocessing & Transformation\n\nClean the data (address missing values, inconsistencies, and errors), standardize formats, and transform variables for analysis (e.g., converting categorical to numerical, creating ratio variables, normalizing scales). This is typically 60–80% of total project time.\n\n\n\nEDA and Modeling\n\nExplore the data visually and statistically to understand its structure before applying formal models. Then apply appropriate analytical or statistical methods to test hypotheses or discover patterns.\n\n\n\nInterpretation\n\nTranslate statistical outputs into intelligence judgments. What do the results mean for the problem statement? What is the confidence level? What alternative explanations have been considered?\n\n\n\nKnowledge / Dissemination\n\nCommunicate findings in a form appropriate to the consumer—written product, briefing, dashboard, or visualization. The best analysis is worthless if it cannot be understood and acted upon."
+  },
+  {
+    "objectID": "index.html#what-makes-a-good-problem-statement",
+    "href": "index.html#what-makes-a-good-problem-statement",
+    "title": "Week 3: Introduction to Data Science and the Analytical Workflow",
+    "section": "What Makes a Good Problem Statement?",
+    "text": "What Makes a Good Problem Statement?\nA problem statement is the analytical foundation of every data-driven project. It must be:\n\nSpecific — describes a precise gap in knowledge, not a broad topic\nSignificant — explains why the gap matters to a decision-maker or stakeholder\nResearchable — can be addressed with available (or acquirable) data\nBounded — scoped so that it can be answered within available time and resources\n\n\n\nWeak Problem Statement\n“I want to study terrorism.”\nThis is a topic, not a problem statement. It does not specify what question is being asked, what data could answer it, or why the answer matters.\n\n\nStronger Problem Statement\n“It is unclear whether economic grievances or ideological affiliation is the stronger predictor of individual radicalization in Western Europe between 2010 and 2023. Identifying the dominant pathway has direct implications for counter-terrorism resource allocation.”\nThis specifies the gap, the scope, the data needed, and the policy relevance.\n\n\n\n\n\n\n\n\nNoteThe “Identifying the Unexpected” Approach\n\n\n\nIn intelligence analysis, problem statements sometimes emerge not from pre-specified questions but from anomalies in data—things that should not be there, or patterns that deviate from baseline. A rigorous EDA phase (see Meeting 20) often surfaces these unexpected signals, which then become the basis of a new problem statement and deeper analytical effort."
+  },
+  {
+    "objectID": "index.html#the-three-categories",
+    "href": "index.html#the-three-categories",
+    "title": "Week 3: Introduction to Data Science and the Analytical Workflow",
+    "section": "The Three Categories",
+    "text": "The Three Categories\n\n\nQualitative\n\nInterview transcripts\nIntelligence reports\nSocial media posts\nDiplomatic cables\nImages and videos (unprocessed)\n\nStrengths: depth, context, nuance, access to meaning and intention\nLimitations: time-consuming to collect and analyze; harder to standardize; analyst interpretation bias; selective coding\n\n\nQuantitative\n\nPopulation sizes\nCrime statistics\nEconomic indicators\nSensor readings\nSatellite imagery pixel values (processed)\n\nStrengths: objective, replicable, aggregable, comparable across time and place\nLimitations: can oversimplify complex phenomena; vulnerable to missing variables; sampling bias; measurement errors\nUnstructured\n\nRaw satellite imagery\nSocial media video\nIntercepted audio\nWeb scraped text\n\nStrengths: captures real-world signals in near-real-time; essential for modern OSINT and GEOINT\nLimitations: requires expensive tools and specialized processing; data-source bias; limited accessibility without technical infrastructure"
+  },
+  {
+    "objectID": "index.html#key-considerations-for-analysts",
+    "href": "index.html#key-considerations-for-analysts",
+    "title": "Week 3: Introduction to Data Science and the Analytical Workflow",
+    "section": "Key Considerations for Analysts",
+    "text": "Key Considerations for Analysts\n\n\n\nReliability\n\nAre the data collected and measured consistently? If you use the same instrument at different times or by different collectors, do you get the same result? Inconsistent collection procedures undermine comparability.\n\nValidity\n\nDoes the data actually measure what you claim it measures? A dataset of diplomatic cable volume may be reliable (consistently counted) but invalid as a measure of diplomatic engagement if cables are not the primary communication channel.\n\nTriangulation\n\nCombining multiple data types and sources to strengthen findings and reduce blind spots. When qualitative HUMINT, quantitative economic indicators, and IMINT all point in the same direction, confidence increases. When they diverge, that divergence is itself analytically significant.\n\nEthical Issues\n\nUnstructured and OSINT data often involves private individuals who did not consent to intelligence collection. Privacy, misrepresentation, and manipulation risks must be weighed, especially when data informs operations or policy that affects those individuals."
+  },
+  {
+    "objectID": "index.html#why-a-disciplined-workflow-matters",
+    "href": "index.html#why-a-disciplined-workflow-matters",
+    "title": "Week 3: Introduction to Data Science and the Analytical Workflow",
+    "section": "Why a Disciplined Workflow Matters",
+    "text": "Why a Disciplined Workflow Matters\nIntelligence analysis deals with noisy, incomplete, and uncertain data collected under adversarial conditions. Without a disciplined analytical process:\n\nConclusions may be driven by assumptions rather than evidence\nErrors introduced in early stages compound through the analysis\nResults cannot be reviewed, replicated, or challenged by colleagues or consumers\n\nA documented workflow makes analysis traceable, reproducible, and auditable."
+  },
+  {
+    "objectID": "index.html#core-workflow-stages",
+    "href": "index.html#core-workflow-stages",
+    "title": "Week 3: Introduction to Data Science and the Analytical Workflow",
+    "section": "Core Workflow Stages",
+    "text": "Core Workflow Stages\n\n\n\n\nData Collection\n\nGather raw data from classified, commercial, or open sources. Includes structured (databases), unstructured (text, images), and semi-structured (JSON, logs) data. Document every source, access date, and known limitations.\n\n\n\nData Cleaning and Preprocessing\n\nRemove errors, fill gaps, and standardize values to make data usable. Common issues: missing values (impute, interpolate, or flag), duplicates (identify by unique ID and remove), inconsistent formats (standardize date/time and coordinate formats), outliers (assess whether they are real signals or data errors), noise (filter irrelevant text, bot activity, or spam).\n\n\n\nData Transformation and Integration\n\nConvert raw data into analytical formats. Align units, time intervals, and coordinate systems. Aggregate or disaggregate to the appropriate level of analysis (e.g., event-level → country-year). Combine multiple datasets through join operations; validate joins by manually spot-checking records.\n\n\n\nAnalysis and Modeling\n\nApply statistical or computational techniques to discover meaning. Combine descriptive summaries with inferential or predictive models.\n\n\n\nValidation and Quality Assurance\n\nCheck results for plausibility. Run sensitivity analyses—do conclusions hold under different assumptions or subsets of data? Seek independent review.\n\n\n\nVisualization and Communication\n\nTranslate findings into products appropriate to the consumer. Tailor complexity to audience expertise (Meeting 26).\n\n\n\nFeedback and Iteration\n\nReview the impact and accuracy of analysis. Adjust collection priorities or methods for future cycles. The analytical process is iterative, not linear."
+  },
+  {
+    "objectID": "index.html#the-intelligence-data-lifecycle",
+    "href": "index.html#the-intelligence-data-lifecycle",
+    "title": "Week 3: Introduction to Data Science and the Analytical Workflow",
+    "section": "The Intelligence Data Lifecycle",
+    "text": "The Intelligence Data Lifecycle\n\n\nCollection → Processing → Analysis\nRaw data from any source requires processing before analysis. Processing involves: tagging metadata, parsing documents, extracting named entities, and removing noise. Only then is the data ready for statistical or computational treatment.\n\n\nInterpretation → Dissemination → Feedback\nAnalytical results must be interpreted—linked to the original intelligence question and decision need. Dissemination must be tailored to the consumer’s expertise. Feedback from consumers informs future collection priorities, closing the intelligence cycle."
+  }
+]
