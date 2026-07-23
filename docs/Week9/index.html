@@ -281,6 +281,51 @@ window.Quarto = {
 
 
 <p>Machine learning has moved from research demonstrations to operational deployment across the intelligence community and military. This lecture covers the theoretical foundations of ML, core algorithms and methods, natural language processing, and the real-world intelligence applications — and failures — that define the current state of AI in the IC.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Required Reading Before Tuesday Class
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>1. “U.S. Intelligence Agencies’ Embrace of Generative AI Is at Once Wary and Urgent,” <a href="https://www.pbs.org/newshour/world/u-s-intelligence-agencies-embrace-of-generative-ai-is-at-once-wary-and-urgent">PBS NewsHour</a> (May 24, 2024).</strong></p>
+<p>How the intelligence community is deploying generative AI — including a CIA-built tool, Osiris, that summarizes open-source data for thousands of analysts — while wrestling with hallucination. The CIA’s CTO calls the models a “crazy, drunk friend.”</p>
+<p><em>As you read, consider:</em></p>
+<ul>
+<li>If an LLM is a brilliant but unreliable “drunk friend,” where in the analytic workflow is it safe to use, and where is it dangerous?</li>
+<li>These tools run on open-source data to write summaries analysts rely on. What new provenance and verification problems does that introduce?</li>
+</ul>
+<p><strong>2. “Weapons of Math Destruction: Cathy O’Neil on How Unfair Algorithms Perpetuate Inequality,” <a href="https://www.fordfoundation.org/news-and-stories/stories/weapons-of-math-destruction-data-scientist-cathy-oneil-on-how-unfair-algorithms-perpetuate-inequality/">Ford Foundation</a>.</strong></p>
+<p>A former quant on how models that are opaque, unaccountable, and optimized for the wrong target cause real harm at scale.</p>
+<p><em>As you read, consider:</em></p>
+<ul>
+<li>O’Neil says a model encodes the goals and values of its builder. For a conflict- or threat-prediction model, whose goals get encoded, and how would you audit for that?</li>
+<li>What makes a model a “weapon” in her terms — and which of those features could be fixed by better evaluation rather than better data?</li>
+</ul>
+</div>
+</div>
+<div class="learning-objectives">
+<div class="learning-objectives-header">
+<span class="learning-objectives-icon">✓</span>
+<p class="learning-objectives-title">
+Learning Objectives
+</p>
+</div>
+<p class="learning-objectives-intro">
+By the end of this lecture, you should be able to:
+</p>
+<ul>
+<li>Understand the principles of machine learning and its application in various domains.</li>
+<li>Explore the basics of Natural Language Processing (NLP) and its role in analyzing and processing human language data.</li>
+<li>Explain the role of data science within the intelligence cycle and its applications across different intelligence disciplines.</li>
+<li>Identify common data science methods and tools used in intelligence analysis, including data mining, machine learning, and natural language processing.</li>
+<li>Evaluate how data science can enhance situational awareness, predictive analysis, and decision-making in intelligence contexts.</li>
+<li>Assess the challenges and limitations of applying data science to intelligence problems, including data quality, bias, and ethical concerns</li>
+</ul>
+</div>
 <section id="part-i-what-is-machine-learning" class="level1">
 <h1>Part I: What is Machine Learning?</h1>
 <section id="defining-machine-learning" class="level2">
@@ -783,27 +828,23 @@ Transformer-based models (GPT, Claude, Gemini, and classified equivalents) train
 <section id="suggested-readings" class="level1">
 <h1>Suggested Readings</h1>
 <p><em>All readings are journal or news articles.</em></p>
-<p>Rudin, C. (2019). Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead. <em>Nature Machine Intelligence</em>, <em>1</em>(5), 206–215. <a href="https://doi.org/10.1038/s42256-019-0048-x" class="uri">https://doi.org/10.1038/s42256-019-0048-x</a></p>
+<p>Rudin, C. (2019). Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead. <em>Nature Machine Intelligence</em>, <em>1</em>(5), 206–215. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_crossref_primary_10_1038_s42256_019_0048_x">Access via the JMU Library</a></p>
 <blockquote class="blockquote">
 <p>Argues for inherently interpretable models in high-stakes contexts. Critical for intelligence and targeting applications where “human-on-the-loop” review requires models that can explain their outputs.</p>
 </blockquote>
-<p>Barocas, S., &amp; Selbst, A. D. (2016). Big data’s disparate impact. <em>California Law Review</em>, <em>104</em>(3), 671–732. <a href="https://doi.org/10.15779/Z38BG31" class="uri">https://doi.org/10.15779/Z38BG31</a></p>
+<p>Barocas, S., &amp; Selbst, A. D. (2016). Big data’s disparate impact. <em>California Law Review</em>, <em>104</em>(3), 671–732. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_proquest_journals_1919108351">Access via the JMU Library</a></p>
 <blockquote class="blockquote">
 <p>Legal and technical analysis of how seemingly neutral algorithmic decision-making can produce discriminatory outcomes. Relevant to the model evaluation and fairness discussion in this lecture.</p>
 </blockquote>
-<p>Chesney, R., &amp; Citron, D. K. (2019). Deep fakes: A looming challenge for privacy, democracy, and national security. <em>California Law Review</em>, <em>107</em>(6), 1753–1820. <a href="https://doi.org/10.15779/Z38RV0D13" class="uri">https://doi.org/10.15779/Z38RV0D13</a></p>
+<p>Chesney, R., &amp; Citron, D. K. (2019). Deep fakes: A looming challenge for privacy, democracy, and national security. <em>California Law Review</em>, <em>107</em>(6), 1753–1820. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_proquest_journals_2347653009">Access via the JMU Library</a></p>
 <blockquote class="blockquote">
 <p>Comprehensive analysis of deepfake technology’s implications for intelligence, information operations, and democratic governance — including the “liar’s dividend” concept.</p>
 </blockquote>
-<p>Horowitz, M. C. (2018). Artificial intelligence, international competition, and the balance of power. <em>Texas National Security Review</em>, <em>1</em>(3), 36–57. <a href="https://doi.org/10.26153/tsw/865" class="uri">https://doi.org/10.26153/tsw/865</a></p>
+<p>Horowitz, M. C. (2018). Artificial intelligence, international competition, and the balance of power. <em>Texas National Security Review</em>, <em>1</em>(3), 36–57. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_projectmuse_journals_964758_S2576115318300024">Access via the JMU Library</a></p>
 <blockquote class="blockquote">
 <p>Strategic analysis of AI adoption in military and intelligence contexts — competitive dynamics, automation risks, and governance challenges.</p>
 </blockquote>
-<p>Bender, E. M., Gebru, T., McMillan-Major, A., &amp; Shmitchell, S. (2021). On the dangers of stochastic parrots: Can language models be too big? <em>Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency</em>. <a href="https://doi.org/10.1145/3442188.3445922" class="uri">https://doi.org/10.1145/3442188.3445922</a></p>
-<blockquote class="blockquote">
-<p>Critical analysis of large language models: environmental costs, training data biases, and the risk of treating statistical fluency as genuine understanding. Directly relevant to the LLM content in this lecture.</p>
-</blockquote>
-<p>Crawford, K., &amp; Calo, R. (2016). There is a blind spot in AI research. <em>Nature</em>, <em>538</em>(7625), 311–313. <a href="https://doi.org/10.1038/538311a" class="uri">https://doi.org/10.1038/538311a</a></p>
+<p>Crawford, K., &amp; Calo, R. (2016). There is a blind spot in AI research. <em>Nature</em>, <em>538</em>(7625), 311–313. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_pubmed_primary_27762391">Access via the JMU Library</a></p>
 <blockquote class="blockquote">
 <p>Argues that AI research focuses on technical performance while neglecting social and political deployment consequences. The failure mode described is directly illustrated by the NSA SKYNET and COMPAS cases.</p>
 </blockquote>

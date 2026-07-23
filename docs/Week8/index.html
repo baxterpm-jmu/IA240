@@ -268,6 +268,49 @@ window.Quarto = {
 
 
 <p>Models are deliberate simplifications that make data interpretable. This lecture covers the principal modeling frameworks available to intelligence analysts: from regression and classification to model evaluation metrics. The emphasis is on matching the right model to the analytical question, evaluating model performance rigorously, and understanding the assumptions and failure modes of each approach. The lecture concludes with a conceptual bridge to machine learning, covered in depth in Lecture 10.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Required Reading Before Tuesday Class
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>1. Felix Salmon, <a href="https://www.wired.com/2009/02/wp-quant/">“Recipe for Disaster: The Formula That Killed Wall Street,”</a> <em>Wired</em> (February 23, 2009).</strong></p>
+<p>The Gaussian copula let banks model correlated mortgage-default risk with one elegant formula — until the assumption baked into it (that the recent past predicted the future) broke, and the model that was supposed to measure risk instead hid it.</p>
+<p><em>As you read, consider:</em></p>
+<ul>
+<li>Every model encodes assumptions. What was the load-bearing assumption here, and how could an analyst have surfaced it <em>before</em> the model failed?</li>
+<li>The formula was useful for years before it was catastrophic. How do you evaluate a model that works right up until it doesn’t?</li>
+</ul>
+<p><strong>2. “Google Flu Trends Failure Shows the Problems of Big Data,” <a href="https://time.com/23782/google-flu-trends-big-data-problems/"><em>Time</em></a>.</strong></p>
+<p>Google’s flu-prediction model beat the CDC at first, then over-predicted flu in 100 of 108 weeks by latching onto seasonal search terms that correlated with the flu only by chance — a clean lesson in overfitting and model drift.</p>
+<p><em>As you read, consider:</em></p>
+<ul>
+<li>With 50 million candidate search terms, some correlate with flu purely by chance. How does that produce overfitting, and how would you test for it?</li>
+<li>The model degraded as the world changed around it. What does this say about validating a model once versus monitoring it over time?</li>
+</ul>
+</div>
+</div>
+<div class="learning-objectives">
+<div class="learning-objectives-header">
+<span class="learning-objectives-icon">✓</span>
+<p class="learning-objectives-title">
+Learning Objectives
+</p>
+</div>
+<p class="learning-objectives-intro">
+By the end of this lecture, you should be able to:
+</p>
+<ul>
+<li>Understand the fundamentals of data modeling and its importance in extracting insights and making predictions from data.</li>
+<li>Explore different types of modeling techniques, including regression, classification, clustering, and time series analysis.</li>
+<li>Learn how to choose appropriate modeling techniques based on the nature of the data and research objectives.</li>
+<li>Develop skills in data preprocessing and cleaning to ensure data quality and suitability for modeling tasks.</li>
+</ul>
+</div>
 <section id="part-i-analytical-approaches-and-their-intelligence-applications" class="level1">
 <h1>Part I: Analytical Approaches and Their Intelligence Applications</h1>
 <table class="caption-top table">
@@ -710,11 +753,11 @@ The relationship between the DV and each IV is linear when all other IVs are hel
 <section id="suggested-readings" class="level1">
 <h1>Suggested Readings</h1>
 <p><em>All readings are journal or news articles.</em></p>
-<p>Rudin, C. (2019). Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead. <em>Nature Machine Intelligence</em>, <em>1</em>(5), 206–215. <a href="https://doi.org/10.1038/s42256-019-0048-x" class="uri">https://doi.org/10.1038/s42256-019-0048-x</a></p>
+<p>Rudin, C. (2019). Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead. <em>Nature Machine Intelligence</em>, <em>1</em>(5), 206–215. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_crossref_primary_10_1038_s42256_019_0048_x">Access via the JMU Library</a></p>
 <blockquote class="blockquote">
 <p>Argues that in high-stakes applications, interpretable models should be prioritized. Directly relevant to the model selection framework — and the bridge to machine learning methods in Lecture 10.</p>
 </blockquote>
-<p>Obermeyer, Z., Powers, B., Vogeli, C., &amp; Mullainathan, S. (2019). Dissecting racial bias in an algorithm used to manage the health of populations. <em>Science</em>, <em>366</em>(6464), 447–453. <a href="https://doi.org/10.1126/science.aax2342" class="uri">https://doi.org/10.1126/science.aax2342</a></p>
+<p>Obermeyer, Z., Powers, B., Vogeli, C., &amp; Mullainathan, S. (2019). Dissecting racial bias in an algorithm used to manage the health of populations. <em>Science</em>, <em>366</em>(6464), 447–453. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_crossref_primary_10_1126_science_aax2342">Access via the JMU Library</a></p>
 <blockquote class="blockquote">
 <p>Documents how a deployed risk algorithm encoded systematic bias through proxy variable selection. A methodological template for auditing models for discriminatory outcomes.</p>
 </blockquote>

@@ -1,7 +1,7 @@
 
 project:
   type: website
-  output-dir: _site
+  output-dir: docs
 
 website:
   title: "IA 240: Technology Applications in a Networked World"

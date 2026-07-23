@@ -197,6 +197,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#why-a-disciplined-workflow-matters" id="toc-why-a-disciplined-workflow-matters" class="nav-link" data-scroll-target="#why-a-disciplined-workflow-matters">Why a Disciplined Workflow Matters</a></li>
   <li><a href="#core-workflow-stages" id="toc-core-workflow-stages" class="nav-link" data-scroll-target="#core-workflow-stages">Core Workflow Stages</a></li>
   <li><a href="#the-intelligence-data-lifecycle" id="toc-the-intelligence-data-lifecycle" class="nav-link" data-scroll-target="#the-intelligence-data-lifecycle">The Intelligence Data Lifecycle</a></li>
+  <li><a href="#add-something-on-ai-and-this-process" id="toc-add-something-on-ai-and-this-process" class="nav-link" data-scroll-target="#add-something-on-ai-and-this-process">’’’ Add something on AI and this process’’’</a></li>
   </ul></li>
   <li><a href="#suggested-readings" id="toc-suggested-readings" class="nav-link" data-scroll-target="#suggested-readings">Suggested Readings</a></li>
   </ul>
@@ -227,6 +228,53 @@ ul.task-list li input[type="checkbox"] {
 
 <p>Data science is the methodological foundation for systematic, rigorous analysis. Before learning specific statistical techniques, analysts need to understand the workflow those techniques serve: how analytical problems are framed, how the data science process is structured, and how different data types shape what analysis is possible. This lecture establishes that foundation.</p>
 <p>Before testing hypotheses, analysts must understand what their data looks like. Descriptive statistics and exploratory data analysis (EDA) are the systematic tools for that understanding — revealing distributions, central tendencies, variability, outliers, and relationships that formal models can miss or distort if applied without first examining the data.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Required Reading Before Tuesday Class
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>1. Steve Lohr, <a href="https://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html">“For Big-Data Scientists, ‘Janitor Work’ Is Key Hurdle to Insights,”</a> <em>The New York Times</em> (August 18, 2014).</strong></p>
+<p><em>As you read, consider:</em></p>
+<ul>
+<li>If the least glamorous stage of the workflow consumes most of a project’s time, what does that imply about where analytical errors are most likely to be introduced — and least likely to be caught?</li>
+<li>The article frames data cleaning as a bottleneck to be automated away. What analytical judgment might be lost if preprocessing is fully handed to software?</li>
+</ul>
+<p><strong>2. Tim Harford, <a href="https://timharford.com/2014/04/big-data-are-we-making-a-big-mistake/">“Big Data: Are We Making a Big Mistake?”</a> <em>Financial Times</em> (March 28, 2014).</strong></p>
+<p><em>As you read, consider:</em></p>
+<ul>
+<li>Harford argues that “N = all” is usually an illusion. How would you check whether a large intelligence dataset actually represents the population you care about?</li>
+<li>If a model predicts accurately but no one understands <em>why</em>, is that good enough for an intelligence judgment? When would you demand causation over correlation?</li>
+</ul>
+<p><strong>3. Noah B. Cooper, <a href="https://warontherocks.com/2024/10/ai-and-intelligence-analysis-panacea-or-peril/">“AI and Intelligence Analysis: Panacea or Peril?”</a> <em>War on the Rocks</em> (October 10, 2024).</strong></p>
+<p><em>As you read, consider:</em></p>
+<ul>
+<li>Cooper warns that AI trained on biased intelligence data can “amplify” those biases. Where in the data science workflow would that bias enter, and how would you catch it?</li>
+<li>If AI handles collection, fusion, and drafting, what part of the analyst’s job is genuinely irreducible — and why?</li>
+</ul>
+</div>
+</div>
+<div class="learning-objectives">
+<div class="learning-objectives-header">
+<span class="learning-objectives-icon">✓</span>
+<p class="learning-objectives-title">
+Learning Objectives
+</p>
+</div>
+<p class="learning-objectives-intro">
+By the end of this lecture, you should be able to:
+</p>
+<ul>
+<li>Describe the data science process from data collection to model deployment. Identify the key steps involved, including data exploration, data preprocessing, modeling, and evaluation.</li>
+<li>Explain the characteristics of qualitative, quantitative, and unstructured data, and accurately classify real-world examples into the appropriate categories.</li>
+<li>Analyze the advantages, challenges, and potential biases of each data type, considering their reliability, validity, and applicability in intelligence and analytical contexts.</li>
+<li>Demonstrate how the classification of data influences collection strategies, analytical methods, and the integration of multiple data types to generate stronger insights.</li>
+</ul>
+</div>
 <section id="part-i-what-is-data-science" class="level1">
 <h1>Part I: What is Data Science?</h1>
 <section id="defining-the-field" class="level2">
@@ -571,23 +619,24 @@ Review the impact and accuracy of analysis. Adjust collection priorities or meth
 <p>Analytical results must be <em>interpreted</em>—linked to the original intelligence question and decision need. Dissemination must be tailored to the consumer’s expertise. Feedback from consumers informs future collection priorities, closing the intelligence cycle.</p>
 </div>
 </div>
-<hr>
+</section>
+<section id="add-something-on-ai-and-this-process" class="level2">
+<h2 class="anchored" data-anchor-id="add-something-on-ai-and-this-process">’’’ Add something on AI and this process’’’</h2>
 </section>
 </section>
 <section id="suggested-readings" class="level1">
 <h1>Suggested Readings</h1>
-<p><em>All readings are journal or news articles.</em></p>
-<p>Donoho, D. (2017). 50 years of data science. <em>Journal of Computational and Graphical Statistics</em>, <em>26</em>(4), 745–766. <a href="https://doi.org/10.1080/10618600.2017.1384734" class="uri">https://doi.org/10.1080/10618600.2017.1384734</a></p>
+<p>Donoho, D. (2017). 50 years of data science. <em>Journal of Computational and Graphical Statistics</em>, <em>26</em>(4), 745–766. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_informaworld_taylorfrancis_310_1080_10618600_2017_1384734">Access via the JMU Library</a></p>
 <blockquote class="blockquote">
 <p>A historical and conceptual overview of data science as a discipline. Places EDA in its intellectual genealogy — from Tukey’s foundational work through modern computational methods. Relevant background for understanding where descriptive and exploratory analysis fit in the broader analytical enterprise.</p>
 </blockquote>
-<p>Provost, F., &amp; Fawcett, T. (2013). Data science and its relationship to big data and data-driven decision making. <em>Big Data</em>, <em>1</em>(1), 51–59. <a href="https://doi.org/10.1089/big.2013.1508" class="uri">https://doi.org/10.1089/big.2013.1508</a></p>
+<p>Provost, F., &amp; Fawcett, T. (2013). Data science and its relationship to big data and data-driven decision making. <em>Big Data</em>, <em>1</em>(1), 51–59. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_sage_journals_10_1089_big_2013_1508">Access via the JMU Library</a></p>
 <blockquote class="blockquote">
 <p>Examines the conceptual foundations of data-driven decision making and what distinguishes genuine data science from data mining. Directly relevant to the data science process and intelligence application content.</p>
 </blockquote>
-<p>Davenport, T. H., &amp; Patil, D. J. (2012). Data scientist: The sexiest job of the 21st century. <em>Harvard Business Review</em>, <em>90</em>(10), 70–76.</p>
+<p>Davenport, T. H., &amp; Patil, D. J. (2012). Data scientist: The sexiest job of the 21st century. <em>Harvard Business Review</em>, <em>90</em>(10), 70–76.<a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_proquest_miscellaneous_1113983339">Access via the JMU Library</a></p>
 <blockquote class="blockquote">
-<p>Widely-read piece establishing the role of the data scientist in analytical organizations. Relevant to understanding the workflow and professional context in which the descriptive analysis skills of this lecture are deployed. </p>
+<p>Widely-read piece establishing the role of the data scientist in analytical organizations. Relevant to understanding the workflow and professional context in which the descriptive analysis skills of this lecture are deployed.</p>
 </blockquote>
 
 

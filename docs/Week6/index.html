@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -220,7 +255,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#what-is-a-data-dictionary" id="toc-what-is-a-data-dictionary" class="nav-link" data-scroll-target="#what-is-a-data-dictionary">What Is a Data Dictionary?</a></li>
   <li><a href="#example-a-conflict-events-data-dictionary" id="toc-example-a-conflict-events-data-dictionary" class="nav-link" data-scroll-target="#example-a-conflict-events-data-dictionary">Example: A Conflict Events Data Dictionary</a></li>
   </ul></li>
-  <li><a href="#part-xi-computational-tools" id="toc-part-xi-computational-tools" class="nav-link" data-scroll-target="#part-xi-computational-tools">Part XI: Computational Tools</a></li>
+  <li><a href="#part-xi-computational-tools" id="toc-part-xi-computational-tools" class="nav-link" data-scroll-target="#part-xi-computational-tools">Part XI: Computational Tools</a>
+  <ul class="collapse">
+  <li><a href="#spreadsheets" id="toc-spreadsheets" class="nav-link" data-scroll-target="#spreadsheets">Spreadsheets</a></li>
+  <li><a href="#relational-databases-and-sql" id="toc-relational-databases-and-sql" class="nav-link" data-scroll-target="#relational-databases-and-sql">Relational Databases and SQL</a></li>
+  <li><a href="#programming-languages" id="toc-programming-languages" class="nav-link" data-scroll-target="#programming-languages">Programming Languages</a></li>
+  <li><a href="#application-programming-interfaces-apis" id="toc-application-programming-interfaces-apis" class="nav-link" data-scroll-target="#application-programming-interfaces-apis">Application Programming Interfaces (APIs)</a></li>
+  <li><a href="#software-discussed-in-this-course" id="toc-software-discussed-in-this-course" class="nav-link" data-scroll-target="#software-discussed-in-this-course">Software Discussed in This Course</a></li>
+  </ul></li>
   <li><a href="#suggested-readings" id="toc-suggested-readings" class="nav-link" data-scroll-target="#suggested-readings">Suggested Readings</a></li>
   </ul>
 </nav>
@@ -249,6 +291,43 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Analytical work requires two foundational capabilities: understanding how data is structured and stored, and knowing how to retrieve and manipulate it computationally. This lecture covers scales of measurement, database structure, proxy variables, and data quality — the structural foundations — then introduces the computational tools that operationalize those concepts: SQL for querying relational databases and APIs for programmatic data collection.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Required Reading Before Tuesday Class
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>“Ever Heard of the ‘McNamara Fallacy’? Be Careful What You Measure,” <a href="https://www.welcometothejungle.com/en/articles/mcnamara-fallacy"><em>Welcome to the Jungle</em></a>.</strong></p>
+<p>Because the Pentagon could not measure enemy morale or political will in Vietnam, it measured what it could count — enemy dead — and let that proxy drive strategy. The “body count” metric was easy to track, easy to game, and disconnected from the outcome that actually mattered.</p>
+<p><em>As you read, consider:</em></p>
+<ul>
+<li>A proxy variable stands in for something you can’t measure directly. What made “body count” a bad proxy, and how would you test whether a proxy actually tracks the thing you care about?</li>
+<li>Once a metric becomes a target, people optimize the number rather than the goal. Where might that happen with an intelligence indicator, and how would you guard against it?</li>
+</ul>
+</div>
+</div>
+<div class="learning-objectives">
+<div class="learning-objectives-header">
+<span class="learning-objectives-icon">✓</span>
+<p class="learning-objectives-title">
+Learning Objectives
+</p>
+</div>
+<p class="learning-objectives-intro">
+By the end of this lecture, you should be able to:
+</p>
+<ul>
+<li>Explain the basic concepts of probability, including sample spaces, events, and probability measures. Demonstrate the ability to calculate probabilities for simple events and their complements.</li>
+<li>Apply the rules of probability, such as the addition rule and multiplication rule, to solve probability problems involving combined events and conditional probabilities.</li>
+<li>Develop the skill to identify real-world scenarios where probabilistic thinking is applicable. Apply probability concepts to analyze uncertain situations, make informed decisions, and assess risks.</li>
+<li>Introduce Bayesian reasoning and its application in probabilistic modeling. Understand the process of Bayesian updating and its significance in data-driven decision-making.</li>
+<li>Describe the data science process from data collection to model deployment. Identify the key steps involved, including data exploration, data preprocessing, modeling, and evaluation.</li>
+</ul>
+</div>
 <section id="part-i-scales-of-measurement" class="level1">
 <h1>Part I: Scales of Measurement</h1>
 <section id="the-five-scales" class="level2">
@@ -918,30 +997,190 @@ A dataset that covered 50 countries in 2005 and 80 in 2020 will show apparent ch
 </section>
 <section id="part-xi-computational-tools" class="level1">
 <h1>Part XI: Computational Tools</h1>
+<p>Understanding how data is structured (Parts I–X) is only half the picture. Analysts also need tools to <em>retrieve, transform, and interrogate</em> that data at a scale no human can manage by hand. Computational tools sit on a spectrum — from point-and-click spreadsheets, to query languages that pull records from massive databases, to full programming languages that automate an entire analytical workflow, to APIs that collect data programmatically from remote systems.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Match the Tool to the Problem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There is no single “best” tool. A ten-row dataset belongs in a spreadsheet; a ten-million-row warehouse belongs in a database queried with SQL; a repeatable, auditable analysis belongs in R or Python. The skill is not mastering every tool but knowing which one fits the task — and understanding what each assumes about the data it consumes.</p>
+</div>
+</div>
+<section id="spreadsheets" class="level2">
+<h2 class="anchored" data-anchor-id="spreadsheets">Spreadsheets</h2>
+<p>Spreadsheets (Microsoft Excel, Google Sheets) are the most accessible computational tool: a visual grid for entering, cleaning, computing, and charting small tabular datasets, with formulas and pivot tables for quick summaries. Their strength is immediacy; their weakness is scale and reproducibility. As the Reinhart–Rogoff error (this week’s required reading) demonstrates, an unseen formula mistake in a spreadsheet can propagate silently into a consequential conclusion. Spreadsheets do not scale to millions of rows and leave no clear audit trail of what was done.</p>
+</section>
+<section id="relational-databases-and-sql" class="level2">
+<h2 class="anchored" data-anchor-id="relational-databases-and-sql">Relational Databases and SQL</h2>
+<p>A <strong>relational database</strong> stores structured data across linked tables (Part II). <strong>SQL</strong> (Structured Query Language) is the standard language for retrieving and combining that data. Rather than scrolling through a table, the analyst <em>describes</em> the records they want and the database returns them.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> country, <span class="dt">year</span>, battle_deaths</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   conflict_events</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>  region <span class="op">=</span> <span class="st">'Sahel'</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span>  <span class="dt">year</span> <span class="op">&gt;=</span> <span class="dv">2015</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> battle_deaths <span class="kw">DESC</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This query asks for three fields, filtered to one region and time window, sorted by severity. A <strong>JOIN</strong> combines tables on a shared key — for example, attaching economic indicators to each conflict record:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> e.country, e.battle_deaths, c.gdp_per_capita</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   conflict_events <span class="kw">AS</span> e</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span>   country_indicators <span class="kw">AS</span> c</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ON</span>   e.country <span class="op">=</span> c.country <span class="kw">AND</span> e.<span class="dt">year</span> <span class="op">=</span> c.<span class="dt">year</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>  e.<span class="dt">year</span> <span class="op">=</span> <span class="dv">2020</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>SQL is how analysts work with IC data warehouses and large relational datasets — it turns a structural relationship between tables (Part II’s keys) into an analytical result.</p>
+</section>
+<section id="programming-languages" class="level2">
+<h2 class="anchored" data-anchor-id="programming-languages">Programming Languages</h2>
+<p>For anything beyond a single query — statistical modeling, automation, reproducible workflows, machine learning — analysts turn to general-purpose languages. <strong>R</strong> (with the tidyverse and ggplot2) is built for statistics, exploratory data analysis, and visualization. <strong>Python</strong> (with pandas, NumPy, and scikit-learn) is a general-purpose language strong in automation, machine learning, text processing, and API access. <strong>Julia</strong> targets high-performance numerical computing. Their shared advantage over spreadsheets is <strong>reproducibility</strong>: the analysis is written as code that can be reviewed, rerun, and audited — the computational embodiment of the data dictionary’s “analytical contract” (Part X).</p>
+</section>
+<section id="application-programming-interfaces-apis" class="level2">
+<h2 class="anchored" data-anchor-id="application-programming-interfaces-apis">Application Programming Interfaces (APIs)</h2>
+<p>An <strong>API</strong> is a defined interface that lets one program request data or services from another. Instead of manually downloading files, an analyst sends a structured request to a remote system and receives structured data — usually JSON — in return.</p>
+<pre class="text"><code>GET https://api.worldbank.org/v2/country/IR/indicator/NY.GDP.MKTP.CD?format=json</code></pre>
+<p>This request retrieves Iran’s GDP series from the World Bank’s public API. APIs are the backbone of programmatic OSINT collection (Week 2): social-media platforms, financial data providers, flight- and vessel-tracking services, and government open-data portals all expose APIs that let analysts pull current data automatically and repeatably rather than by hand.</p>
+</section>
+<section id="software-discussed-in-this-course" class="level2">
+<h2 class="anchored" data-anchor-id="software-discussed-in-this-course">Software Discussed in This Course</h2>
+<p>The table below inventories the major tools introduced across IA 240 — what each does, the kind of data it operates on, and where it appears in the course.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Software / Tool</th>
+<th>What It Does</th>
+<th>Type of Data It Uses</th>
+<th>Example in This Course</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Microsoft Excel</strong></td>
+<td>Enter, clean, compute, and chart small datasets; pivot tables</td>
+<td>Small structured/tabular data</td>
+<td>Reasoning about the NFL receiver dataset (Week 4); drafting a data dictionary</td>
+</tr>
+<tr class="even">
+<td><strong>SQL</strong> (SQLite, PostgreSQL)</td>
+<td>Query and join records in relational databases</td>
+<td>Structured relational tables with keys</td>
+<td>Filtering and joining conflict-event tables (this week)</td>
+</tr>
+<tr class="odd">
+<td><strong>R</strong> (tidyverse, ggplot2)</td>
+<td>Statistical computing, EDA, modeling, visualization</td>
+<td>Structured/tabular data; text</td>
+<td>Descriptive statistics and hypothesis testing (Week 7); regression (Week 8)</td>
+</tr>
+<tr class="even">
+<td><strong>Python</strong> (pandas, scikit-learn)</td>
+<td>General-purpose analysis, automation, ML, API calls</td>
+<td>Structured, text, and image data</td>
+<td>Machine-learning classification and NLP (Week 9)</td>
+</tr>
+<tr class="odd">
+<td><strong>Julia</strong></td>
+<td>High-performance numerical and scientific computing</td>
+<td>Numeric/structured data</td>
+<td>Listed among core languages for computation at scale (Week 3)</td>
+</tr>
+<tr class="even">
+<td><strong>NetLogo</strong></td>
+<td>Agent-based modeling environment</td>
+<td>Agent rules + synthetic environment</td>
+<td>Schelling segregation and insurgency ABMs (Week 10)</td>
+</tr>
+<tr class="odd">
+<td><strong>Mesa / Repast</strong></td>
+<td>Code frameworks for larger agent-based models</td>
+<td>Agent rules / synthetic data</td>
+<td>Building an ABM in Python or Java (Week 10)</td>
+</tr>
+<tr class="even">
+<td><strong>Gephi</strong></td>
+<td>Network visualization and metrics (centrality, communities)</td>
+<td>Network/graph data (nodes &amp; edges)</td>
+<td>Visualizing a covert network (Week 11)</td>
+</tr>
+<tr class="odd">
+<td><strong>NetworkX / igraph / statnet</strong></td>
+<td>Programmatic social network analysis</td>
+<td>Network/graph data</td>
+<td>Computing centrality on the 9/11 network (Week 11)</td>
+</tr>
+<tr class="even">
+<td><strong>Maltego</strong></td>
+<td>OSINT link analysis and entity mapping</td>
+<td>Entities and relationships (OSINT)</td>
+<td>Mapping relationships from open sources (Week 11)</td>
+</tr>
+<tr class="odd">
+<td><strong>Palantir Gotham</strong></td>
+<td>Enterprise data integration; network and timeline analysis</td>
+<td>Fused multi-source (structured + unstructured)</td>
+<td>IC-scale integration and link analysis (Weeks 9, 11)</td>
+</tr>
+<tr class="even">
+<td><strong>i2 Analyst’s Notebook</strong></td>
+<td>Link and timeline charting for investigations</td>
+<td>Entities, relationships, events</td>
+<td>Charting relationships and time-slicing a network (Week 11)</td>
+</tr>
+<tr class="odd">
+<td><strong>GIS</strong> (ArcGIS, QGIS)</td>
+<td>Store, analyze, and map spatial data; overlay and spatial statistics</td>
+<td>Geospatial vector and raster data</td>
+<td>Hot-spot analysis of conflict events (Week 12)</td>
+</tr>
+<tr class="even">
+<td><strong>Google Earth</strong></td>
+<td>Explore imagery and geospatial data; geolocation</td>
+<td>Satellite/aerial imagery + geospatial data</td>
+<td>Open-source geolocation of a photo (Weeks 2, 12)</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>A Pattern Worth Noticing
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Read down the “Type of Data” column and the course’s logic reappears: the <em>scale of measurement</em> and <em>structure</em> of your data (Parts I–II) largely dictate which tool is appropriate. Tabular data goes to spreadsheets, databases, R, or Python; relational data to SQL; network data to Gephi or NetworkX; spatial data to GIS. Choosing a tool is, in part, a statement about what kind of data you believe you have.</p>
+</div>
+</div>
 <hr>
-<hr>
-<hr>
+</section>
 </section>
 <section id="suggested-readings" class="level1">
 <h1>Suggested Readings</h1>
-<p><em>All readings are journal or news articles.</em></p>
-<p>Munck, G. L., &amp; Verkuilen, J. (2002). Conceptualizing and measuring democracy: Evaluating alternative indices. <em>Comparative Political Studies</em>, <em>35</em>(1), 5–34. <a href="https://doi.org/10.1177/001041400203500101" class="uri">https://doi.org/10.1177/001041400203500101</a></p>
+<p>Munck, G. L., &amp; Verkuilen, J. (2002). Conceptualizing and measuring democracy: Evaluating alternative indices. <em>Comparative Political Studies</em>, <em>35</em>(1), 5–34. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_proquest_journals_206668294">Access via JMU Library</a></p>
 <blockquote class="blockquote">
 <p>The definitive methodological critique of democracy indices. Evaluates twelve indices on conceptualization, measurement, and aggregation criteria. Essential reading before using any composite political index.</p>
 </blockquote>
-<p>Raleigh, C., Linke, A., Hegre, H., &amp; Karlsen, J. (2010). Introducing ACLED: An armed conflict location and event dataset. <em>Journal of Peace Research</em>, <em>47</em>(5), 651–660. <a href="https://doi.org/10.1177/0022343310378914" class="uri">https://doi.org/10.1177/0022343310378914</a></p>
+<p>Raleigh, C., Linke, A., Hegre, H., &amp; Karlsen, J. (2010). Introducing ACLED: An armed conflict location and event dataset. <em>Journal of Peace Research</em>, <em>47</em>(5), 651–660. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_sage_journals_10_1177_0022343310378914">Access via JMU Library</a></p>
 <blockquote class="blockquote">
 <p>The original ACLED paper — describes the dataset’s design, coding rules, and intended use cases.</p>
 </blockquote>
-<p>Wickham, H. (2014). Tidy data. <em>Journal of Statistical Software</em>, <em>59</em>(10), 1–23. <a href="https://doi.org/10.18637/jss.v059.i10" class="uri">https://doi.org/10.18637/jss.v059.i10</a></p>
+<p>Wickham, H. (2014). Tidy data. <em>Journal of Statistical Software</em>, <em>59</em>(10), 1–23. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_crossref_primary_10_18637_jss_v059_i10">Access via JMU Library</a></p>
 <blockquote class="blockquote">
 <p>Defines tidy data structure principles — one observation per row, one variable per column. Directly applicable to the database structure and SQL content in this lecture.</p>
 </blockquote>
-<p>Lazer, D., &amp; Radford, J. (2017). Data ex machina: Introduction to big data. <em>Annual Review of Sociology</em>, <em>43</em>, 19–39. <a href="https://doi.org/10.1146/annurev-soc-060116-053457" class="uri">https://doi.org/10.1146/annurev-soc-060116-053457</a></p>
+<p>Lazer, D., &amp; Radford, J. (2017). Data ex machina: Introduction to big data. <em>Annual Review of Sociology</em>, <em>43</em>, 19–39. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_annualreviews_primary_10_1146_annurev_soc_060116_053457">Access via JMU Library</a></p>
 <blockquote class="blockquote">
 <p>Covers web scraping, APIs, administrative records, and digital trace data — and the systematic biases that large-scale digital data introduces.</p>
 </blockquote>
-<p>Leetaru, K., &amp; Schrodt, P. A. (2013). GDELT: Global data on events, location, and tone, 1979–2012. <em>International Studies Association Annual Convention</em>. <a href="https://doi.org/10.5281/zenodo.54305" class="uri">https://doi.org/10.5281/zenodo.54305</a></p>
+<p>Leetaru, K., &amp; Schrodt, P. A. (2013). GDELT: Global data on events, location, and tone, 1979–2012. <em>International Studies Association Annual Convention</em>. <a href="http://data.gdeltproject.org/documentation/ISA.2013.GDELT.pdf">Access online</a></p>
 <blockquote class="blockquote">
 <p>Documents the GDELT event database — a large-scale event dataset constructed from media sources using automated extraction, illustrating practical data collection at scale.</p>
 </blockquote>

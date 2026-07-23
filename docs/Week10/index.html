@@ -192,6 +192,13 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#when-systems-shift-suddenly" id="toc-when-systems-shift-suddenly" class="nav-link" data-scroll-target="#when-systems-shift-suddenly">When Systems Shift Suddenly</a></li>
   </ul></li>
+  <li><a href="#part-xi-what-is-agent-based-modeling" id="toc-part-xi-what-is-agent-based-modeling" class="nav-link" data-scroll-target="#part-xi-what-is-agent-based-modeling">Part XI: What Is Agent-Based Modeling?</a></li>
+  <li><a href="#part-xii-anatomy-of-an-agent-based-model" id="toc-part-xii-anatomy-of-an-agent-based-model" class="nav-link" data-scroll-target="#part-xii-anatomy-of-an-agent-based-model">Part XII: Anatomy of an Agent-Based Model</a></li>
+  <li><a href="#part-xiii-from-micro-rules-to-macro-patterns" id="toc-part-xiii-from-micro-rules-to-macro-patterns" class="nav-link" data-scroll-target="#part-xiii-from-micro-rules-to-macro-patterns">Part XIII: From Micro-Rules to Macro-Patterns</a></li>
+  <li><a href="#part-xiv-canonical-models-every-analyst-should-recognize" id="toc-part-xiv-canonical-models-every-analyst-should-recognize" class="nav-link" data-scroll-target="#part-xiv-canonical-models-every-analyst-should-recognize">Part XIV: Canonical Models Every Analyst Should Recognize</a></li>
+  <li><a href="#part-xv-agent-based-modeling-in-intelligence-analysis" id="toc-part-xv-agent-based-modeling-in-intelligence-analysis" class="nav-link" data-scroll-target="#part-xv-agent-based-modeling-in-intelligence-analysis">Part XV: Agent-Based Modeling in Intelligence Analysis</a></li>
+  <li><a href="#part-xvi-building-and-validating-an-agent-based-model" id="toc-part-xvi-building-and-validating-an-agent-based-model" class="nav-link" data-scroll-target="#part-xvi-building-and-validating-an-agent-based-model">Part XVI: Building and Validating an Agent-Based Model</a></li>
+  <li><a href="#part-xvii-strengths-limitations-and-pitfalls" id="toc-part-xvii-strengths-limitations-and-pitfalls" class="nav-link" data-scroll-target="#part-xvii-strengths-limitations-and-pitfalls">Part XVII: Strengths, Limitations, and Pitfalls</a></li>
   <li><a href="#suggested-readings" id="toc-suggested-readings" class="nav-link" data-scroll-target="#suggested-readings">Suggested Readings</a></li>
   </ul>
 </nav>
@@ -219,6 +226,46 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Required Reading Before Tuesday Class
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>1. Vi Hart &amp; Nicky Case, <a href="https://ncase.me/polygons/">“Parable of the Polygons.”</a></strong></p>
+<p>An interactive, playable model of Thomas Schelling’s segregation dynamics: mildly biased individual “shapes” produce sharply segregated neighborhoods. A hands-on demonstration of how simple agent rules generate emergent, system-level patterns no individual intended.</p>
+<p><em>As you read (and play), consider:</em></p>
+<ul>
+<li>Segregation emerges even though no single polygon “wants” it. How does that challenge the way analysts reason from individual intent to collective outcome?</li>
+<li>If small biases compound into large patterns, where might an analyst mistake an emergent, system-level effect for deliberate coordination?</li>
+</ul>
+<p><strong>2. Donella Meadows, <a href="https://donellameadows.org/archives/leverage-points-places-to-intervene-in-a-system/">“Leverage Points: Places to Intervene in a System,”</a> The Donella Meadows Project (1999).</strong></p>
+<p>The canonical short read on systems thinking — stocks, flows, feedback loops, and where a small change produces large effects.</p>
+<p><em>As you read, consider:</em></p>
+<ul>
+<li>Meadows ranks paradigms and goals as higher-leverage than parameters. For a problem like insurgency or proliferation, where are analysts most tempted to intervene, and is that high- or low-leverage?</li>
+<li>She warns that pushing the “obvious” lever often backfires. Can you think of an intelligence or policy fix that made the system worse?</li>
+</ul>
+</div>
+</div>
+<div class="learning-objectives">
+<div class="learning-objectives-header">
+<span class="learning-objectives-icon">✓</span>
+<p class="learning-objectives-title">
+Learning Objectives
+</p>
+</div>
+<p class="learning-objectives-intro">
+By the end of this lecture, you should be able to:
+</p>
+<ul>
+<li></li>
+</ul>
+</div>
 <section id="systems-thinking" class="level1">
 <h1>Systems Thinking</h1>
 <section id="what-is-systems-thinking" class="level2">
@@ -462,15 +509,311 @@ Instability → Al-Qaeda in Iraq enters → foreign fighters provide financing a
 <hr>
 </section>
 </section>
+<section id="part-xi-what-is-agent-based-modeling" class="level1">
+<h1>Part XI: What Is Agent-Based Modeling?</h1>
+<p>Systems thinking and causal loop diagrams (Part VIII) describe a system’s structure qualitatively — they map how variables push on one another. But they stop short of <em>generating</em> the system’s behavior. <strong>Agent-based modeling (ABM)</strong> closes that gap. It is a computational method that builds a system from the bottom up: rather than writing equations for aggregate quantities, the analyst specifies the individual actors, gives each a small set of behavioral rules, lets them interact in an environment, and observes what population-level patterns emerge.</p>
+<p>An agent-based model is a simulation composed of many autonomous <em>agents</em> — people, households, military units, states, firms, vehicles — each following simple rules and interacting over time. The model is run forward, and the analyst studies the macro-level patterns that arise from the accumulated micro-level interactions.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>The Core Move — Bottom-Up Explanation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Most statistical models are <em>top-down</em>: they fit an aggregate relationship (e.g., “unemployment predicts unrest”) without specifying the mechanism that produces it. ABM is <em>bottom-up</em>: it asks what individual behavior, repeated across thousands of agents, would <em>generate</em> that aggregate relationship. If simple, plausible individual rules reproduce the observed macro-pattern, the model offers a candidate explanation — what Joshua Epstein calls <em>generative</em> social science: “If you didn’t grow it, you didn’t explain it.”</p>
+</div>
+</div>
+<p>Two broad modeling philosophies sit in contrast:</p>
+<div class="col-pair">
+<div class="col-left">
+<p><strong>Equation-Based / Aggregate Models</strong></p>
+<p>Track population-level variables directly (stocks, rates, averages). Assume homogeneity or represent the “average” actor. Computationally efficient and analytically tractable, but they hide heterogeneity, local interaction, and the possibility that individuals differ in ways that matter.</p>
+</div>
+<div class="col-right">
+<p><strong>Agent-Based Models</strong></p>
+<p>Track heterogeneous individuals and their interactions explicitly. Emergence, thresholds, and spatial or network structure arise naturally from the simulation. The cost: models are heavier to build, harder to calibrate, and must be run many times to characterize their behavior.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="part-xii-anatomy-of-an-agent-based-model" class="level1">
+<h1>Part XII: Anatomy of an Agent-Based Model</h1>
+<p>Every ABM, however elaborate, is assembled from the same handful of components.</p>
+<div class="key-terms">
+<div class="{dl}">
+<dl>
+<dt>Agents</dt>
+<dd>
+The autonomous entities. Each has <em>attributes</em> (state variables: location, resources, beliefs, health, allegiance) and <em>behaviors</em> (rules mapping its situation to an action). Agents are typically <em>heterogeneous</em> — they differ in attributes and sometimes in the rules they follow.
+</dd>
+<dt>Environment</dt>
+<dd>
+The space in which agents live and interact: a grid, a geographic map, a social network, or an abstract landscape. The environment may hold its own state (terrain, resources, infrastructure) and change over time.
+</dd>
+<dt>Behavioral Rules</dt>
+<dd>
+Condition–action statements that govern each agent (“if fewer than one-third of my neighbors are like me, relocate”). Rules are usually <em>simple</em> and <em>local</em> — agents act on nearby, partial information, not a global view of the system.
+</dd>
+<dt>Interactions</dt>
+<dd>
+How agents affect one another and the environment: they compete, imitate, transmit, attack, trade, or communicate. The <em>interaction structure</em> — who can influence whom — is set by the environment or an underlying network.
+</dd>
+<dt>Scheduling / Time</dt>
+<dd>
+The model advances in discrete steps (“ticks”). At each step, agents are activated — synchronously, or one at a time in random order — and update their states. Activation order can itself affect outcomes.
+</dd>
+<dt>Stochasticity</dt>
+<dd>
+Randomness in initial conditions and in rules. Because outcomes vary from run to run, an ABM is executed many times and analyzed as a <em>distribution</em> of outcomes, never a single trajectory.
+</dd>
+</dl>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Reading the Required Reading Through This Lens
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>“Parable of the Polygons” is a complete agent-based model. The <em>agents</em> are the shapes; the <em>environment</em> is the grid; the <em>rule</em> is “move if too few of my neighbors are like me”; the <em>interaction</em> is neighborhood adjacency; and the <em>emergent pattern</em> is segregation. When you drag the bias slider and re-run, you are doing sensitivity analysis by hand.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="part-xiii-from-micro-rules-to-macro-patterns" class="level1">
+<h1>Part XIII: From Micro-Rules to Macro-Patterns</h1>
+<p>The payoff of ABM is <strong>emergence</strong> — system-level patterns that no single agent intends or contains. The canonical demonstration is Thomas Schelling’s segregation model (1971).</p>
+<p>Place two groups of agents on a grid. Each agent is <em>content</em> as long as some modest fraction of its immediate neighbors shares its type; if not, it relocates to a nearby empty cell. Crucially, no agent seeks segregation — an agent can be perfectly happy as a local minority (content, say, when only 30 percent of its neighbors match). Yet run the model forward and the grid reliably self-organizes into starkly segregated clusters. The macro-outcome is far more extreme than any micro-preference.</p>
+<blockquote class="blockquote">
+<p>The analytic lesson is blunt: <strong>you cannot read collective outcomes off individual intentions.</strong> A segregated city is not proof its residents are extremists; a stable regime is not proof of deep loyalty; a viral rumor is not proof of coordinated deception. The pattern lives in the <em>interactions</em>, not in any one agent’s mind.</p>
+</blockquote>
+<p>This is the same warning Part X raised about tipping points — now equipped with an explicit mechanism. Where a causal loop diagram <em>asserts</em> that feedback exists, an ABM <em>produces</em> the feedback and lets the analyst watch it tip.</p>
+<div class="col-pair">
+<div class="col-left">
+<p><strong>Causal Loop Diagram (Part VIII)</strong></p>
+<p>A qualitative map of feedback structure. Excellent for framing a problem, surfacing assumptions, and communicating with consumers. It does not, by itself, generate quantitative, temporal, or spatial dynamics.</p>
+</div>
+<div class="col-right">
+<p><strong>Agent-Based Model</strong></p>
+<p>An executable model that <em>generates</em> behavior. It can reproduce thresholds, cascades, and spatial patterns — but it demands that every rule be specified precisely, and its output must be validated against something in the real world.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="part-xiv-canonical-models-every-analyst-should-recognize" class="level1">
+<h1>Part XIV: Canonical Models Every Analyst Should Recognize</h1>
+<p>A small set of classic models recurs across disciplines. Recognizing them gives an analyst a vocabulary for spotting the same dynamics in intelligence problems.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Agents &amp; Core Rule</th>
+<th>What It Demonstrates</th>
+<th>Intelligence Analogy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Schelling segregation</strong></td>
+<td>Shapes on a grid; relocate if too few like-neighbors</td>
+<td>Mild individual preference → extreme collective sorting</td>
+<td>Ethnic enclaving; online self-segregation and echo chambers</td>
+</tr>
+<tr class="even">
+<td><strong>Boids</strong> (Reynolds)</td>
+<td>“Birds” obey separation, alignment, cohesion</td>
+<td>Lifelike flocking from three local rules</td>
+<td>Crowd and convoy movement; drone swarms</td>
+</tr>
+<tr class="odd">
+<td><strong>Axelrod’s tournament</strong></td>
+<td>Strategies play repeated Prisoner’s Dilemma</td>
+<td>Reciprocity (tit-for-tat) can emerge and stabilize cooperation</td>
+<td>Alliance durability; deterrence; informant–insurgent dynamics</td>
+</tr>
+<tr class="even">
+<td><strong>Sugarscape</strong> (Epstein &amp; Axtell)</td>
+<td>Agents harvest a renewable resource on a landscape</td>
+<td>Inequality, migration, and trade emerge from simple foraging</td>
+<td>Resource competition; migration and displacement</td>
+</tr>
+<tr class="odd">
+<td><strong>Epidemic (SIR-type)</strong></td>
+<td>Agents infect neighbors probabilistically</td>
+<td>Thresholds, super-spreaders, network effects</td>
+<td>Contagion of disease, rumor, panic, or radicalization</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="part-xv-agent-based-modeling-in-intelligence-analysis" class="level1">
+<h1>Part XV: Agent-Based Modeling in Intelligence Analysis</h1>
+<p>ABM is attractive to the intelligence analyst precisely because so many national-security problems are <em>emergent</em>: the outcome that matters (an insurgency, a bank run, a protest wave) is produced by many interacting decisions rather than dictated from the top.</p>
+<p>Representative applications include:</p>
+<ul>
+<li><strong>Conflict and insurgency dynamics</strong> — recruitment, defection, and violence as products of local grievance and peer behavior</li>
+<li><strong>Protest and mobilization cascades</strong> — when the cost of joining falls below the cost of staying home for enough people at once</li>
+<li><strong>Radicalization and opinion diffusion</strong> — how beliefs, rumors, and disinformation spread across a social network</li>
+<li><strong>Epidemic and CBRN spread</strong> — contagion and contamination through contact and movement networks</li>
+<li><strong>Logistics and supply chains</strong> — cascading disruption from a single failed node</li>
+<li><strong>Wargaming and red-teaming</strong> — simulating adversary decision-making under alternative assumptions</li>
+<li><strong>Crowd behavior and evacuation</strong> — movement, congestion, and panic in confined spaces</li>
+<li><strong>Illicit and adaptive networks</strong> — how trafficking or proliferation networks reconstitute after nodes are removed</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Worked Example — Modeling the Iraq Recruitment Loop
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Part IX described the post-2003 insurgency as an emergent product of institutional collapse. ABM lets us make that argument <em>executable</em>. Represent each former soldier as an agent with a “join the insurgency” threshold that falls as (a) local grievance rises and (b) more neighbors have already joined. Seed the model with the shock of Order No.&nbsp;2 — 400,000 newly unemployed, armed agents — and the reinforcing recruitment loop reproduces a rapid tipping into widespread insurgency. The value is not the exact numbers but the <em>counterfactual experiment</em>: re-run the model <strong>without</strong> disbanding the army, or with a phased demobilization, and compare the trajectories. ABM turns “what if we had sequenced this differently?” into a question the analyst can actually explore on a synthetic society.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="part-xvi-building-and-validating-an-agent-based-model" class="level1">
+<h1>Part XVI: Building and Validating an Agent-Based Model</h1>
+<div class="timeline">
+<div class="{dl}">
+<dl>
+<dt>Step 1: Define the Question and Scope</dt>
+<dd>
+State precisely what pattern or decision the model must illuminate. The right level of detail is the <em>minimum</em> needed to address the question — not the most realistic model imaginable.
+</dd>
+<dt>Step 2: Specify Agents, Attributes, and Rules</dt>
+<dd>
+Decide who the agents are, what state they carry, and what simple, local rules drive their behavior. Document every rule explicitly.
+</dd>
+<dt>Step 3: Define the Environment and Interactions</dt>
+<dd>
+Choose the space (grid, map, network) and the interaction structure — who can affect whom, and how.
+</dd>
+<dt>Step 4: Set Initial Conditions and Parameters</dt>
+<dd>
+Establish the starting population, its distribution, and the parameter values. Where possible, ground these in real data.
+</dd>
+<dt>Step 5: Run and Explore</dt>
+<dd>
+Execute the model many times with different random seeds. Because outcomes are stochastic, study the <em>distribution</em> of results, not a single run.
+</dd>
+<dt>Step 6: Verify, Then Validate</dt>
+<dd>
+<em>Verification</em> asks “did I build the model right?” — does the code do what I intended? <em>Validation</em> asks “did I build the right model?” — does its output match real-world data or well-established stylized facts?
+</dd>
+<dt>Step 7: Sensitivity Analysis</dt>
+<dd>
+Vary parameters and rules to learn which ones drive the outcome and where the tipping thresholds lie. This is often the most analytically valuable step — it reveals the leverage points (Part on Key Principles) of the modeled system.
+</dd>
+</dl>
+</div>
+</div>
+<p>Common platforms include <strong>NetLogo</strong> (the standard teaching and prototyping tool), <strong>Mesa</strong> (a Python framework), <strong>Repast</strong>, <strong>GAMA</strong>, and <strong>AnyLogic</strong>. The tool matters far less than the discipline of the workflow above.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Equifinality — The Trap of the Convincing Match
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Many <em>different</em> rule-sets can produce the <em>same</em> macro-pattern. Reproducing segregation, or an insurgency curve, does <strong>not</strong> prove your assumed mechanism is the real one — only that it is <em>sufficient</em> to generate the pattern. Validation against a single output is weak evidence; matching multiple independent features of the real system (“pattern-oriented modeling”) is stronger. An ABM builds confidence in a <em>mechanism</em>; it does not confirm it.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="part-xvii-strengths-limitations-and-pitfalls" class="level1">
+<h1>Part XVII: Strengths, Limitations, and Pitfalls</h1>
+<div class="col-pair">
+<div class="col-left">
+<p><strong>Strengths</strong></p>
+<ul>
+<li>Captures <strong>heterogeneity</strong> and <strong>local interaction</strong> that aggregate models average away</li>
+<li>Naturally produces <strong>emergence</strong>, <strong>thresholds</strong>, and <strong>cascades</strong></li>
+<li>Enables <strong>controlled experiments</strong> and <strong>counterfactuals</strong> impossible in the real world</li>
+<li>Integrates <strong>spatial</strong> and <strong>network</strong> structure directly</li>
+<li>Forces <strong>mechanistic transparency</strong> — every assumption is written as a rule</li>
+</ul>
+</div>
+<div class="col-right">
+<p><strong>Limitations &amp; Pitfalls</strong></p>
+<ul>
+<li><strong>Hard to calibrate and validate</strong> against real data</li>
+<li><strong>Sensitive</strong> to rule and parameter choices; small changes can flip outcomes</li>
+<li><strong>Equifinality</strong> — the right pattern can arise from the wrong mechanism</li>
+<li><strong>Computationally expensive</strong> at realistic scale</li>
+<li><strong>False precision</strong> — polished animations imply more certainty than warranted</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>The False-Precision Trap
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A colorful, animated simulation projecting a specific outcome can imply far more certainty than the model earns. Communicate ABM output as a <em>distribution of possibilities</em> and an <em>exploration of mechanisms</em> — never a point forecast. This is the same discipline demanded by the tipping-point and probability material earlier in the course: model the uncertainty, and say so plainly to the consumer.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Keep It Simple
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The goal of an agent-based model is the <em>simplest</em> set of rules that generates the pattern of interest — not the most detailed replica of reality. A model complex enough to reproduce everything explains nothing, because the analyst can no longer see which assumptions are doing the work.</p>
+</div>
+</div>
+<hr>
+</section>
 <section id="suggested-readings" class="level1">
 <h1>Suggested Readings</h1>
-<p>Haggard, S., &amp; Noland, M. (2010). Sanctioning North Korea: The political economy of denuclearization and proliferation. <em>Asian Survey</em>, <em>50</em>(3), 539–568. <a href="https://doi.org/10.1525/as.2010.50.3.539" class="uri">https://doi.org/10.1525/as.2010.50.3.539</a></p>
+<p>Haggard, S., &amp; Noland, M. (2010). Sanctioning North Korea: The political economy of denuclearization and proliferation. <em>Asian Survey</em>, <em>50</em>(3), 539–568. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_proquest_miscellaneous_754067446">Access via the JMU Library</a></p>
 <blockquote class="blockquote">
 <p>Empirical examination of feedback dynamics in the North Korea sanctions case — directly relevant to the systems thinking case studies in this lecture.</p>
 </blockquote>
-<p>Cederman, L. E. (2003). Modeling the size of wars: From billiard balls to sandpiles. <em>American Political Science Review</em>, <em>97</em>(1), 135–150. <a href="https://doi.org/10.1017/S0003055403000571" class="uri">https://doi.org/10.1017/S0003055403000571</a></p>
+<p>Cederman, L. E. (2003). Modeling the size of wars: From billiard balls to sandpiles. <em>American Political Science Review</em>, <em>97</em>(1), 135–150. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_proquest_miscellaneous_60644309">Access via the JMU Library</a></p>
 <blockquote class="blockquote">
 <p>Applies complex systems and self-organized criticality to war size distributions. Formal demonstration that conflict systems exhibit tipping point dynamics inconsistent with standard linear models.</p>
+</blockquote>
+<p>Schelling, T. C. (1971). Dynamic models of segregation. <em>Journal of Mathematical Sociology</em>, <em>1</em>(2), 143–186. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_econis_primary_486241769">Access via the JMU Library</a></p>
+<blockquote class="blockquote">
+<p>The founding agent-based segregation model. Shows formally how mild individual preferences generate extreme collective sorting — the emergence result behind this week’s required reading.</p>
+</blockquote>
+<p>Bonabeau, E. (2002). Agent-based modeling: Methods and techniques for simulating human systems. <em>Proceedings of the National Academy of Sciences</em>, <em>99</em>(suppl. 3), 7280–7287. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_proquest_journals_201386832">Access via the JMU Library</a></p>
+<blockquote class="blockquote">
+<p>Accessible overview of when and why to use ABM for human systems, including its advantages over aggregate models and its practical limitations.</p>
+</blockquote>
+<p>Epstein, J. M. (1999). Agent-based computational models and generative social science. <em>Complexity</em>, <em>4</em>(5), 41–60. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_crossref_primary_10_1002__SICI_1099_0526_199905_06_4_5_41__AID_CPLX9_3_0_CO_2_F">Access via the JMU Library</a></p>
+<blockquote class="blockquote">
+<p>The statement of the “generative” approach — “if you didn’t grow it, you didn’t explain it” — that frames Part XI’s bottom-up view of explanation.</p>
 </blockquote>
 
 
