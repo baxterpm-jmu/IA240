@@ -1,0 +1,142 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Week 8: Data Modeling: Regression and Model Evaluation",
+    "section": "",
+    "text": "Models are deliberate simplifications that make data interpretable. This lecture covers the principal modeling frameworks available to intelligence analysts: from regression and classification to model evaluation metrics. The emphasis is on matching the right model to the analytical question, evaluating model performance rigorously, and understanding the assumptions and failure modes of each approach. The lecture concludes with a conceptual bridge to machine learning, covered in depth in Lecture 10."
+  },
+  {
+    "objectID": "index.html#why-model",
+    "href": "index.html#why-model",
+    "title": "Week 8: Data Modeling: Regression and Model Evaluation",
+    "section": "Why Model?",
+    "text": "Why Model?\n\n“All models are wrong, but some are useful.” — George Box\n\nData is never the world itself—it is a trace of the world, filtered through collection processes that introduce their own noise and distortions. Models are deliberate simplifications that make data interpretable.\nThere are two fundamental sources of uncertainty in any dataset:\n\nProcess randomness: the underlying phenomenon itself contains randomness (e.g., when exactly a volcano will erupt)\nMeasurement uncertainty: our instruments, sensors, and collection methods introduce noise and error\n\nA statistical model is a mathematical function that separates signal from noise—it represents the systematic patterns in the data while acknowledging that residual variation exists and is unmodeled."
+  },
+  {
+    "objectID": "index.html#match-the-model-to-the-problem",
+    "href": "index.html#match-the-model-to-the-problem",
+    "title": "Week 8: Data Modeling: Regression and Model Evaluation",
+    "section": "Match the Model to the Problem",
+    "text": "Match the Model to the Problem\nDifferent problems require different modeling approaches. The nature of your outcome variable (dependent variable) and the goal of the analysis are the primary determinants:\n\n\n\n\n\n\n\n\n\nApproach\nGoal\nDV Type\nExamples\n\n\n\n\nRegression\nPredict a continuous outcome\nContinuous/Ratio\nEstimating GDP, forecasting temperature, predicting casualties\n\n\nClassification\nPredict a category\nNominal/Binary\nSpam vs. not spam; conflict onset vs. no conflict; weapon type identification\n\n\nClustering\nDiscover groups\nNone (unsupervised)\nSegmenting states by behavior, detecting anomalous financial accounts\n\n\nTime Series Analysis\nAnalyze ordered temporal data\nContinuous over time\nStock prices, conflict event rates, satellite signal patterns"
+  },
+  {
+    "objectID": "index.html#variable-type-and-model-selection",
+    "href": "index.html#variable-type-and-model-selection",
+    "title": "Week 8: Data Modeling: Regression and Model Evaluation",
+    "section": "Variable Type and Model Selection",
+    "text": "Variable Type and Model Selection\n\n\n\n\n\n\n\nDV Variable Type\nAppropriate Statistical Models\n\n\n\n\nNominal\nChi-square tests, Logistic Regression (Multinomial), Log-linear models\n\n\nOrdinal\nOrdinal Logistic Regression, Non-parametric tests (Kruskal-Wallis, Mann-Whitney U), Cumulative link models\n\n\nInterval / Ratio\nLinear Regression, ANOVA, Multiple Regression, Factor Analysis, ANCOVA\n\n\nContinuous\nLinear Regression, GLM, Pearson’s Correlation, T-tests"
+  },
+  {
+    "objectID": "index.html#what-is-multiple-regression",
+    "href": "index.html#what-is-multiple-regression",
+    "title": "Week 8: Data Modeling: Regression and Model Evaluation",
+    "section": "What is Multiple Regression?",
+    "text": "What is Multiple Regression?\nMultiple regression models the relationship between one dependent variable (DV) and two or more independent variables (IVs). The goal is to build a statistical model that:\n\nPredicts values of the DV based on observed IVs\nEstimates the contribution of each IV while controlling for the others\nMeasures effects in a way that isolates each variable’s unique contribution\n\nThe general linear model:\n\\[Y = \\alpha + \\beta_1 X_1 + \\beta_2 X_2 + \\cdots + \\beta_k X_k + \\varepsilon\\]\nwhere \\(\\alpha\\) is the intercept, each \\(\\beta_i\\) is the slope (partial regression coefficient) for variable \\(X_i\\), and \\(\\varepsilon\\) is the residual error.\n\n\n\n\n\n\nNoteInterpreting Partial Regression Coefficients\n\n\n\n\\(\\beta_i\\) represents the expected unit change in Y for a one-unit increase in \\(X_i\\), holding all other variables constant. This “net regression coefficient” is the fundamental advantage of multiple regression over simple regression: it controls for the influence of other variables."
+  },
+  {
+    "objectID": "index.html#regression-modeling-steps",
+    "href": "index.html#regression-modeling-steps",
+    "title": "Week 8: Data Modeling: Regression and Model Evaluation",
+    "section": "Regression Modeling Steps",
+    "text": "Regression Modeling Steps\n\nDefine the problem or question\nSpecify the model (select IVs based on theory and prior research)\nCollect and clean data\nConduct descriptive data analysis (EDA)\nEstimate model parameters (using OLS, MLE, or another estimator)\nEvaluate model fit and assumptions\nUse model for prediction or inference"
+  },
+  {
+    "objectID": "index.html#design-requirements",
+    "href": "index.html#design-requirements",
+    "title": "Week 8: Data Modeling: Regression and Model Evaluation",
+    "section": "Design Requirements",
+    "text": "Design Requirements\n\nOne dependent variable (criterion)\nTwo or more independent variables (predictors)\nSample size: at minimum 50 observations, with at least 10 cases per independent variable (so 10 IVs → need 100+ observations)"
+  },
+  {
+    "objectID": "index.html#assumptions",
+    "href": "index.html#assumptions",
+    "title": "Week 8: Data Modeling: Regression and Model Evaluation",
+    "section": "Assumptions",
+    "text": "Assumptions\n\n\n\nIndependence\n\nObservations are independent of each other. Violated by time series data, clustered data (students within schools), or repeated measures without correction.\n\nNormality\n\nIn the population, the dependent variable is approximately normally distributed for each combination of IV values. Less critical with large samples due to the Central Limit Theorem.\n\nHomoscedasticity\n\nThe variance of residuals is constant across all levels of the IVs. Violated when errors are larger for some values of X than others (e.g., variance in income increases at higher income levels).\n\nLinearity\n\nThe relationship between the DV and each IV is linear when all other IVs are held constant. Non-linear relationships require polynomial terms or non-linear models."
+  },
+  {
+    "objectID": "index.html#evaluating-model-fit",
+    "href": "index.html#evaluating-model-fit",
+    "title": "Week 8: Data Modeling: Regression and Model Evaluation",
+    "section": "Evaluating Model Fit",
+    "text": "Evaluating Model Fit\n\nR²: The proportion of variance in Y explained by the model. R² = 0.60 means the model accounts for 60% of variation in the outcome.\nAdjusted R²: Penalizes for adding variables that do not improve fit. Always use adjusted R² when comparing models with different numbers of predictors.\nF-test (ANOVA table): Tests whether the overall model explains significantly more variance than a null model with no predictors.\nt-tests for individual coefficients: Tests whether each \\(\\beta_i\\) differs significantly from zero.\nResidual analysis: Plot residuals vs. fitted values (checking homoscedasticity), Q-Q plot (checking normality), residuals vs. each IV (detecting nonlinearity)."
+  },
+  {
+    "objectID": "index.html#multicollinearity",
+    "href": "index.html#multicollinearity",
+    "title": "Week 8: Data Modeling: Regression and Model Evaluation",
+    "section": "Multicollinearity",
+    "text": "Multicollinearity\nMulticollinearity occurs when IVs are highly correlated with each other. Consequences:\n\nCoefficient estimates become unstable and sensitive to which variables are included\nStandard errors inflate, reducing statistical power\nInterpretation becomes difficult—coefficients reflect the combined effect of correlated predictors\n\nDetection: Examine the correlation matrix between IVs. Variance Inflation Factor (VIF) &gt; 10 indicates problematic multicollinearity.\nSolutions: remove one of the correlated variables; combine them into a composite index; collect new data with greater variation in predictors."
+  },
+  {
+    "objectID": "index.html#why-not-linear-regression-for-binary-outcomes",
+    "href": "index.html#why-not-linear-regression-for-binary-outcomes",
+    "title": "Week 8: Data Modeling: Regression and Model Evaluation",
+    "section": "Why Not Linear Regression for Binary Outcomes?",
+    "text": "Why Not Linear Regression for Binary Outcomes?\nWhen the dependent variable is binary (0/1, Yes/No), linear regression produces predictions outside the [0,1] probability range and violates normality and homoscedasticity assumptions. The solution is logistic regression."
+  },
+  {
+    "objectID": "index.html#the-logistic-sigmoid-function",
+    "href": "index.html#the-logistic-sigmoid-function",
+    "title": "Week 8: Data Modeling: Regression and Model Evaluation",
+    "section": "The Logistic (Sigmoid) Function",
+    "text": "The Logistic (Sigmoid) Function\nLogistic regression models the log-odds of the outcome as a linear function of the IVs:\n\\[\\ln\\left(\\frac{P(Y=1)}{1-P(Y=1)}\\right) = \\alpha + \\beta_1 X_1 + \\cdots + \\beta_k X_k\\]\nThe predicted log-odds are then transformed back to a probability through the logistic function:\n\\[P(Y=1) = \\frac{e^{\\alpha + \\beta_1 X_1 + \\cdots}}{1 + e^{\\alpha + \\beta_1 X_1 + \\cdots}}\\]\nThis constrains predictions to (0, 1) regardless of IV values—solving the out-of-range problem."
+  },
+  {
+    "objectID": "index.html#interpreting-coefficients",
+    "href": "index.html#interpreting-coefficients",
+    "title": "Week 8: Data Modeling: Regression and Model Evaluation",
+    "section": "Interpreting Coefficients",
+    "text": "Interpreting Coefficients\nLogistic regression coefficients are in log-odds units. A coefficient of \\(\\beta_i = 1.48\\) for a binary variable means: - The log-odds of \\(Y=1\\) increase by 1.48 for a one-unit increase in \\(X_i\\) - Equivalently: the odds of \\(Y=1\\) are multiplied by \\(e^{1.48} \\approx 4.39\\) for a one-unit increase in \\(X_i\\)"
+  },
+  {
+    "objectID": "index.html#model-comparison",
+    "href": "index.html#model-comparison",
+    "title": "Week 8: Data Modeling: Regression and Model Evaluation",
+    "section": "Model Comparison",
+    "text": "Model Comparison\nFor logistic regression, model comparison uses the likelihood-ratio test rather than changes in R²: - Compute the log-likelihood for two nested models - The difference in log-likelihoods follows a chi-square distribution - A statistically significant improvement in log-likelihood justifies including the added variable"
+  },
+  {
+    "objectID": "index.html#multinomial-logistic-regression",
+    "href": "index.html#multinomial-logistic-regression",
+    "title": "Week 8: Data Modeling: Regression and Model Evaluation",
+    "section": "Multinomial Logistic Regression",
+    "text": "Multinomial Logistic Regression\nWhen the outcome has more than two categories (e.g., preferred mode of transport: car, bus, train, bicycle), multinomial logistic regression extends the binary case by estimating the log-odds of each category relative to a chosen baseline."
+  },
+  {
+    "objectID": "index.html#ml-vs.-statistical-models",
+    "href": "index.html#ml-vs.-statistical-models",
+    "title": "Week 8: Data Modeling: Regression and Model Evaluation",
+    "section": "ML vs. Statistical Models",
+    "text": "ML vs. Statistical Models\n\n\nStatistical Models\n\nGoal: understand the underlying generative process\n“White box” — coefficients have interpretable meaning\nConcerned with uncertainty quantification (standard errors, confidence intervals)\nBetter for causal inference and hypothesis testing\nOutput includes inference about parameters and their significance\n\n\n\nMachine Learning Algorithms\n\nGoal: maximize predictive accuracy\nOften “black box” — internal workings are opaque\nLess concerned with understanding the generative process\nSuited for high-dimensional data and large samples\nOutput is a prediction or classification, not a parameter estimate\n\n\n\nThe choice between statistical and ML approaches is not “which is better” — it depends on whether the analytical goal is understanding (statistical modeling) or prediction (ML). Intelligence analysts often need both: ML to flag anomalies at scale, statistical modeling to explain and justify findings to consumers.\n\n\n\n\n\n\nTipWhen to Use Each\n\n\n\nUse statistical regression when: the outcome has clear theoretical predictors, sample sizes are moderate, and the consumer needs to understand why the model predicts what it predicts.\nUse machine learning when: prediction accuracy is the primary goal, the feature space is large and complex, labeled training data is available, and interpretability can be traded for performance."
+  },
+  {
+    "objectID": "index.html#beyond-accuracy-how-to-evaluate-a-classifier",
+    "href": "index.html#beyond-accuracy-how-to-evaluate-a-classifier",
+    "title": "Week 8: Data Modeling: Regression and Model Evaluation",
+    "section": "Beyond Accuracy: How to Evaluate a Classifier",
+    "text": "Beyond Accuracy: How to Evaluate a Classifier\nWhen a model predicts a binary outcome (conflict/no-conflict; threat/no-threat; spam/not-spam), accuracy — the percentage of correct predictions — is often a misleading metric. A model that predicts “no attack” for every observation in a terrorism dataset would be highly accurate (since attacks are rare) but analytically worthless."
+  },
+  {
+    "objectID": "index.html#the-confusion-matrix",
+    "href": "index.html#the-confusion-matrix",
+    "title": "Week 8: Data Modeling: Regression and Model Evaluation",
+    "section": "The Confusion Matrix",
+    "text": "The Confusion Matrix\nThe confusion matrix maps predicted vs. actual outcomes:\n\n\n\n\n\n\n\n\n\nPredicted Positive\nPredicted Negative\n\n\n\n\nActual Positive\nTrue Positive (TP)\nFalse Negative (FN) — Type II Error\n\n\nActual Negative\nFalse Positive (FP) — Type I Error\nTrue Negative (TN)\n\n\n\nFrom these four cells, the key metrics:\n\n\n\n\n\n\n\n\nMetric\nFormula\nIntelligence Meaning\n\n\n\n\nAccuracy\n(TP + TN) / Total\nOverall correct predictions\n\n\nPrecision\nTP / (TP + FP)\nWhen model says “attack,” how often is it right?\n\n\nRecall (Sensitivity)\nTP / (TP + FN)\nOf all actual attacks, how many did the model catch?\n\n\nF1 Score\n2 × (Precision × Recall) / (Precision + Recall)\nHarmonic mean of precision and recall\n\n\nSpecificity\nTN / (TN + FP)\nOf actual negatives, how many did the model correctly classify?\n\n\n\nThe precision-recall tradeoff:\nLowering the classification threshold (flagging more cases as positive) increases recall but decreases precision — more true threats caught, more false alarms generated. Raising the threshold does the reverse. The optimal balance depends entirely on the cost ratio between false positives and false negatives — a decision that must be made by the analyst and consumer, not the algorithm.\n\n\n\n\n\n\nWarningIntelligence-Specific Threshold Setting\n\n\n\nIn an intelligence context, the cost of a false negative (missing an actual attack) vastly exceeds the cost of a false positive (investigating an innocent party) for most applications. This asymmetry should drive threshold setting toward high recall / lower precision. But there are contexts where false positives carry very high costs — air strike targeting, no-fly list additions, lethal autonomous weapons systems. Threshold setting is an ethical and policy decision, not a technical one."
+  },
+  {
+    "objectID": "index.html#the-roc-curve-and-auc",
+    "href": "index.html#the-roc-curve-and-auc",
+    "title": "Week 8: Data Modeling: Regression and Model Evaluation",
+    "section": "The ROC Curve and AUC",
+    "text": "The ROC Curve and AUC\nThe Receiver Operating Characteristic (ROC) curve plots True Positive Rate (recall) against False Positive Rate (1 − specificity) at every possible threshold. The Area Under the Curve (AUC) summarizes model performance across all thresholds:\n\nAUC = 1.0: perfect classifier\nAUC = 0.5: no better than random\nAUC &lt; 0.5: worse than random (predictions are inverted)\n\nAUC is threshold-independent, making it useful for comparing models before deciding where to set the operational threshold."
+  },
+  {
+    "objectID": "index.html#train-test-split-and-cross-validation",
+    "href": "index.html#train-test-split-and-cross-validation",
+    "title": "Week 8: Data Modeling: Regression and Model Evaluation",
+    "section": "Train-Test Split and Cross-Validation",
+    "text": "Train-Test Split and Cross-Validation\nA model that performs well on the data it was trained on may perform poorly on new data — the overfitting problem. Rigorous model evaluation requires evaluation on data the model has not seen.\nStandard practices:\n\n\nTrain-test split\nDivide data into training set (typically 70–80%) and held-out test set (20–30%). Train the model on the training set; evaluate performance only on the test set. Never use the test set for model development decisions — only for final evaluation.\nValidation set\nIf hyperparameter tuning is needed, add a third partition (validation set) between training and final testing. Training set: fit; validation set: tune; test set: evaluate.\n\n\nk-Fold Cross-Validation\nDivide data into k equal folds. Train on k−1 folds, evaluate on the held-out fold. Repeat k times (each fold serves as the test set once). Average performance across folds. More robust than a single split, particularly with small datasets.\nTemporal holdout for time-series data\nIn conflict or financial forecasting, always hold out the most recent observations for testing — never random observations. Future data cannot be used to predict past events; temporal ordering must be preserved."
+  }
+]

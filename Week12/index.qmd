@@ -5,6 +5,36 @@ subtitle: "IA 240: Technology Applications in a Networked World"
 
 Geospatial intelligence (GEOINT) integrates imagery analysis, geographic information systems (GIS), and spatial statistics to produce intelligence from the physical world. The commercialization of satellite imagery has simultaneously democratized GEOINT and raised new questions about open-source collection, verification, and the limits of overhead analysis. This lecture covers imagery interpretation methodology, GIS tools, spatial statistical methods, and the major contemporary applications and case studies.
 
+::: {.callout-important}
+## Required Reading Before Tuesday Class
+
+**Alison Killing, Megha Rajagopalan & Christo Buschek, ["Blanked-Out Spots on China's Maps Helped Us Uncover Xinjiang's Camps,"](https://www.buzzfeednews.com/article/alison_killing/satellite-images-investigation-xinjiang-detention-camps) *BuzzFeed News* (August 27, 2020).**
+
+A Pulitzer-winning investigation that located more than 260 detention sites in Xinjiang using public satellite imagery — starting from the "blank" tiles China had censored on its own mapping platforms, then corroborating with former detainees.
+
+*As you read, consider:*
+
+- The team turned an absence of data (censored map tiles) into a lead. How does "what's deliberately missing" itself become intelligence?
+- The findings relied on satellite imagery cross-checked against interviews. Why is corroboration across independent sources essential before trusting overhead imagery alone?
+:::
+
+::: {.learning-objectives}
+
+<div class="learning-objectives-header">
+  <span class="learning-objectives-icon">✓</span>
+  <p class="learning-objectives-title">Learning Objectives</p>
+</div>
+
+<p class="learning-objectives-intro">
+By the end of this lecture, you should be able to:
+</p>
+
+- Be able to define Geospatial Intelligence (GEOINT) and explain its importance in the context of national security, disaster response, and other applications.
+- Demonstrate a clear understanding of GEOINT's role and the types of information it provides.
+- Develop the skills to analyze and interpret various types of imagery (satellite, aerial, etc.) to extract meaningful information.
+- Students will successfully complete exercises involving the identification and interpretation of key features and patterns in imagery.
+:::
+
 # Part I: What is GEOINT?
 
 ## Defining Geospatial Intelligence
@@ -397,23 +427,19 @@ No single denial and deception technique is effective against multi-source colle
 
 *All readings are journal or news articles.*
 
-Patton, T. (2012). Combining satellite imagery and 3D drawing tools for nonproliferation analysis: A case study of Pakistan's Khushab plutonium production reactors. *Science & Global Security*, *20*(2–3), 117–140. <https://doi.org/10.1080/08929882.2012.719383>
+Patton, T. (2012). Combining satellite imagery and 3D drawing tools for nonproliferation analysis: A case study of Pakistan's Khushab plutonium production reactors. *Science & Global Security*, *20*(2–3), 117–140. [Access the article](https://scienceandglobalsecurity.org/archive/2012/10/combining_satellite_imagery_an.html)
 
 > The Khushab case study discussed in this lecture. A model for rigorous open-source facility analysis using imagery, physical modeling, and nuclear physics — demonstrates what commercial imagery and public technical knowledge can achieve.
 
-Witze, A. (2021). How AI is helping to reshape the geography of intelligence. *Nature*, *600*, 574–577. <https://doi.org/10.1038/d41586-021-03619-8>
-
-> Surveys how commercial satellite imagery combined with machine learning is transforming open-source intelligence — counting vehicles, tracking ships, monitoring power infrastructure.
-
-Witmer, F. D., Linke, A. M., O'Loughlin, J., Gettelman, A., & Laing, A. (2017). Subnational violent conflict forecasts for sub-Saharan Africa, 2015–65, using climate-sensitive models. *Journal of Peace Research*, *54*(2), 175–193. <https://doi.org/10.1177/0022343316684262>
+Witmer, F. D., Linke, A. M., O'Loughlin, J., Gettelman, A., & Laing, A. (2017). Subnational violent conflict forecasts for sub-Saharan Africa, 2015–65, using climate-sensitive models. *Journal of Peace Research*, *54*(2), 175–193. [Access via the JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_jstor_primary_44511205)
 
 > Integrates satellite-derived climate data with conflict event data to forecast subnational conflict. A methodological model for integrating GEOINT-derived environmental data with social science analysis.
 
-Leibold, J. (2020). Surveillance in China's Xinjiang region: Ethnic sorting, coercion, and the Hutong app. *Journal of Contemporary China*, *29*(121), 46–60. <https://doi.org/10.1080/10670564.2019.1700008>
+Leibold, J. (2020). Surveillance in China's Xinjiang region: Ethnic sorting, coercion, and the Hutong app. *Journal of Contemporary China*, *29*(121), 46–60. [Access via the JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_proquest_journals_2332355857)
 
 > Academic analysis of the Xinjiang surveillance infrastructure, complementing the satellite-based investigation case study. Provides policy and human rights context for interpreting what imagery evidence shows.
 
-O'Brien, S. P. (2010). Crisis early warning and decision support: Contemporary approaches and thoughts on future research. *International Studies Review*, *12*(1), 87–104. <https://doi.org/10.1111/j.1468-2486.2009.00914.x>
+O'Brien, S. P. (2010). Crisis early warning and decision support: Contemporary approaches and thoughts on future research. *International Studies Review*, *12*(1), 87–104. [Access via the JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_proquest_miscellaneous_743018617)
 
 > Reviews conflict early warning systems, including those that rely on geospatial data. Identifies the gap between analytical capability and decision-relevant product delivery that GEOINT applications continue to face.
                   

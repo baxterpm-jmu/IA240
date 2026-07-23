@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Week 5:Probability and Uncertainty in Analysis – IA 240: Technology Applications in a Networked World</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-d6fbb5bfb24a4f1906c428146fc3bdde.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-372172bdf95b76f2693523edf8cf275f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">IA 240: Technology Applications in a Networked World</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-weekly-materials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Weekly Materials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-weekly-materials">    
+        <li>
+    <a class="dropdown-item" href="../Week1/index.html">
+ <span class="dropdown-text">Week 1: Technology and the Intelligence Cycle</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week2/index.html">
+ <span class="dropdown-text">Week 2: Data Types, Sources, and Collection Methods</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week3/index.html">
+ <span class="dropdown-text">Week 3: Introduction to Data Science and the Analytical Workflow</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week4/index.html">
+ <span class="dropdown-text">Week 4: Research Design and Finding Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week5/index.html">
+ <span class="dropdown-text">Week 5: Probability and Uncertainty in Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week6/index.html">
+ <span class="dropdown-text">Week 6: Data Structures, Databases, and Computational Tools</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week7/index.html">
+ <span class="dropdown-text">Week 7: Descriptive Statistics, EDA, and Hypothesis Testing (and Fall Break!)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week8/index.html">
+ <span class="dropdown-text">Week 8: Data Modeling: Regression and Model Evaluation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week9/index.html">
+ <span class="dropdown-text">Week 9: Machine Learning and Natural Language Processing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week10/index.html">
+ <span class="dropdown-text">Week 10: Systems Thinking and Agent-Based Modeling</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week11/index.html">
+ <span class="dropdown-text">Week 11: Social Network Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week12/index.html">
+ <span class="dropdown-text">Week 12: Geospatial and GEOINT Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week13/index.html">
+ <span class="dropdown-text">Week 13: Principles of Data Visualization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week15/index.html">
+ <span class="dropdown-text">Week 15: Communicating Analysis</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#part-i-what-is-probability" id="toc-part-i-what-is-probability" class="nav-link active" data-scroll-target="#part-i-what-is-probability">Part I: What is Probability?</a>
+  <ul class="collapse">
+  <li><a href="#defining-probability" id="toc-defining-probability" class="nav-link" data-scroll-target="#defining-probability">Defining Probability</a></li>
+  <li><a href="#sample-space" id="toc-sample-space" class="nav-link" data-scroll-target="#sample-space">Sample Space</a></li>
+  <li><a href="#outcomes-simple-and-compound" id="toc-outcomes-simple-and-compound" class="nav-link" data-scroll-target="#outcomes-simple-and-compound">Outcomes: Simple and Compound</a></li>
+  </ul></li>
+  <li><a href="#part-ii-rules-of-probability" id="toc-part-ii-rules-of-probability" class="nav-link" data-scroll-target="#part-ii-rules-of-probability">Part II: Rules of Probability</a>
+  <ul class="collapse">
+  <li><a href="#the-addition-rule" id="toc-the-addition-rule" class="nav-link" data-scroll-target="#the-addition-rule">The Addition Rule</a></li>
+  <li><a href="#the-multiplication-rule" id="toc-the-multiplication-rule" class="nav-link" data-scroll-target="#the-multiplication-rule">The Multiplication Rule</a></li>
+  </ul></li>
+  <li><a href="#part-iii-bayesian-vs.-frequentist-thinking" id="toc-part-iii-bayesian-vs.-frequentist-thinking" class="nav-link" data-scroll-target="#part-iii-bayesian-vs.-frequentist-thinking">Part III: Bayesian vs.&nbsp;Frequentist Thinking</a>
+  <ul class="collapse">
+  <li><a href="#the-coin-flip-thought-experiment" id="toc-the-coin-flip-thought-experiment" class="nav-link" data-scroll-target="#the-coin-flip-thought-experiment">The Coin Flip Thought Experiment</a></li>
+  <li><a href="#comparing-the-two-frameworks" id="toc-comparing-the-two-frameworks" class="nav-link" data-scroll-target="#comparing-the-two-frameworks">Comparing the Two Frameworks</a></li>
+  <li><a href="#applied-example-finding-the-phone" id="toc-applied-example-finding-the-phone" class="nav-link" data-scroll-target="#applied-example-finding-the-phone">Applied Example: Finding the Phone</a></li>
+  </ul></li>
+  <li><a href="#part-iv-bayes-theorem" id="toc-part-iv-bayes-theorem" class="nav-link" data-scroll-target="#part-iv-bayes-theorem">Part IV: Bayes’ Theorem</a>
+  <ul class="collapse">
+  <li><a href="#the-formula" id="toc-the-formula" class="nav-link" data-scroll-target="#the-formula">The Formula</a></li>
+  <li><a href="#when-to-use-bayes-theorem" id="toc-when-to-use-bayes-theorem" class="nav-link" data-scroll-target="#when-to-use-bayes-theorem">When to Use Bayes’ Theorem</a></li>
+  <li><a href="#worked-example-1-librarian-or-farmer" id="toc-worked-example-1-librarian-or-farmer" class="nav-link" data-scroll-target="#worked-example-1-librarian-or-farmer">Worked Example 1: Librarian or Farmer?</a></li>
+  <li><a href="#worked-example-2-fire-and-smoke" id="toc-worked-example-2-fire-and-smoke" class="nav-link" data-scroll-target="#worked-example-2-fire-and-smoke">Worked Example 2: Fire and Smoke</a></li>
+  <li><a href="#the-core-principle" id="toc-the-core-principle" class="nav-link" data-scroll-target="#the-core-principle">The Core Principle</a></li>
+  </ul></li>
+  <li><a href="#part-v-application-to-intelligence-analysis" id="toc-part-v-application-to-intelligence-analysis" class="nav-link" data-scroll-target="#part-v-application-to-intelligence-analysis">Part V: Application to Intelligence Analysis</a>
+  <ul class="collapse">
+  <li><a href="#the-intelligence-context" id="toc-the-intelligence-context" class="nav-link" data-scroll-target="#the-intelligence-context">The Intelligence Context</a></li>
+  </ul></li>
+  <li><a href="#suggested-readings" id="toc-suggested-readings" class="nav-link" data-scroll-target="#suggested-readings">Suggested Readings</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Week 5:Probability and Uncertainty in Analysis</h1>
+<p class="subtitle lead">IA 240: Technology Applications in a Networked World</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Intelligence analysis is reasoning under uncertainty. This lecture formalizes that reasoning with probability theory — covering classical and Bayesian probability, the rules of probability, and how explicit probabilistic reasoning corrects systematic cognitive errors that distort analytical judgment. The probabilistic language standards used by the Intelligence Community are grounded in the formal framework introduced here.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Required Reading Before Tuesday Class
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Alix Spiegel, <a href="https://www.npr.org/sections/parallels/2014/04/02/297839429/-so-you-think-youre-smarter-than-a-cia-agent">“So You Think You’re Smarter Than A CIA Agent,”</a> <em>NPR</em> (April 2, 2014).</strong></p>
+<p><em>As you read, consider:</em></p>
+<ul>
+<li>The best forecasters updated their estimates in small increments as new information arrived. How does that habit reflect Bayesian reasoning, and why is it so hard to do in practice?</li>
+<li>If amateurs using only open sources can out-predict analysts with classified access, what does that suggest actually drives forecasting accuracy — information, or method?</li>
+</ul>
+</div>
+</div>
+<div class="learning-objectives">
+<div class="learning-objectives-header">
+<span class="learning-objectives-icon">✓</span>
+<p class="learning-objectives-title">
+Learning Objectives
+</p>
+</div>
+<p class="learning-objectives-intro">
+By the end of this lecture, you should be able to:
+</p>
+<ul>
+<li>Explain the basic concepts of probability, including sample spaces, events, and probability measures. Demonstrate the ability to calculate probabilities for simple events and their complements.</li>
+<li>Apply the rules of probability, such as the addition rule and multiplication rule, to solve probability problems involving combined events and conditional probabilities.</li>
+<li>Develop the skill to identify real-world scenarios where probabilistic thinking is applicable. Apply probability concepts to analyze uncertain situations, make informed decisions, and assess risks.</li>
+<li>Introduce Bayesian reasoning and its application in probabilistic modeling. Understand the process of Bayesian updating and its significance in data-driven decision-making.</li>
+<li>Describe the data science process from data collection to model deployment. Identify the key steps involved, including data exploration, data preprocessing, modeling, and evaluation.</li>
+</ul>
+</div>
+<section id="part-i-what-is-probability" class="level1">
+<h1>Part I: What is Probability?</h1>
+<section id="defining-probability" class="level2">
+<h2 class="anchored" data-anchor-id="defining-probability">Defining Probability</h2>
+<p>Probability is a mathematical framework for <strong>quantifying uncertainty</strong>. It gives analysts a rigorous, communicable language for expressing the likelihood of events—from coin flips to geopolitical crises.</p>
+<p>The classical definition:</p>
+<p><span class="math display">\[P(A) = \frac{\text{Number of Favorable Outcomes}}{\text{Total Number of Possible Outcomes}}\]</span></p>
+<p>where <span class="math inline">\(P(A)\)</span> is the probability that event <span class="math inline">\(A\)</span> occurs, constrained to the range <span class="math inline">\([0, 1]\)</span>:</p>
+<ul>
+<li><span class="math inline">\(P(A) = 0\)</span>: event is impossible</li>
+<li><span class="math inline">\(P(A) = 1\)</span>: event is certain</li>
+<li><span class="math inline">\(P(A) = 0.5\)</span>: equally likely to occur or not occur</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Why This Matters for Intelligence Analysis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Intelligence analysis is fundamentally about reasoning under uncertainty. Explicit probabilistic language—“we assess with high confidence (&gt;85%) that…”—is more precise and less manipulable than vague hedges like “likely” or “probably.” The Intelligence Community uses standardized probability ranges for exactly this reason.</p>
+</div>
+</div>
+</section>
+<section id="sample-space" class="level2">
+<h2 class="anchored" data-anchor-id="sample-space">Sample Space</h2>
+<p>The <strong>sample space</strong> (<span class="math inline">\(S\)</span> or <span class="math inline">\(\Omega\)</span>) is the set of <em>all possible</em> outcomes for a given experiment or scenario.</p>
+<p><strong>Properties:</strong> - Must be exhaustive—every possible outcome is represented - Outcomes must be mutually exclusive—no two can occur simultaneously</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Experiment</th>
+<th>Sample Space</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Roll a six-sided die</td>
+<td><span class="math inline">\(\{1, 2, 3, 4, 5, 6\}\)</span></td>
+</tr>
+<tr class="even">
+<td>Flip a coin</td>
+<td><span class="math inline">\(\{H, T\}\)</span></td>
+</tr>
+<tr class="odd">
+<td>A country holds an election: incumbent wins or loses</td>
+<td><span class="math inline">\(\{\text{Win}, \text{Loss}\}\)</span></td>
+</tr>
+<tr class="even">
+<td>A state either acquires nuclear weapons or does not within 5 years</td>
+<td><span class="math inline">\(\{\text{Acquire}, \neg\text{Acquire}\}\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="outcomes-simple-and-compound" class="level2">
+<h2 class="anchored" data-anchor-id="outcomes-simple-and-compound">Outcomes: Simple and Compound</h2>
+<div class="key-terms">
+<div class="{dl}">
+<dl>
+<dt>Simple Outcome</dt>
+<dd>
+A single point in the sample space. Example: rolling a “3” on a die.
+</dd>
+<dt>Compound Outcome</dt>
+<dd>
+A subset of the sample space containing more than one point. Example: rolling an <em>odd number</em> (1, 3, or 5). In intelligence terms: “a conflict occurs” might encompass multiple distinct pathways (border skirmish, cyber attack, proxy conflict).
+</dd>
+</dl>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-ii-rules-of-probability" class="level1">
+<h1>Part II: Rules of Probability</h1>
+<section id="the-addition-rule" class="level2">
+<h2 class="anchored" data-anchor-id="the-addition-rule">The Addition Rule</h2>
+<p>Used to find the probability that <strong>at least one</strong> of two events occurs (A <em>or</em> B, or both):</p>
+<p><span class="math display">\[P(A \cup B) = P(A) + P(B) - P(A \cap B)\]</span></p>
+<p>The subtraction term removes double-counting of cases where <em>both</em> events occur simultaneously.</p>
+<p><strong>Example:</strong> Drawing a card from a standard 52-card deck — probability it is a King <em>or</em> a Heart:</p>
+<p><span class="math display">\[P(\text{King} \cup \text{Heart}) = \frac{4}{52} + \frac{13}{52} - \frac{1}{52} = \frac{16}{52} = \frac{4}{13} \approx 0.308\]</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Special Case: Mutually Exclusive Events
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> cannot both occur (<span class="math inline">\(P(A \cap B) = 0\)</span>), the addition rule simplifies to <span class="math inline">\(P(A \cup B) = P(A) + P(B)\)</span>.</p>
+</div>
+</div>
+</section>
+<section id="the-multiplication-rule" class="level2">
+<h2 class="anchored" data-anchor-id="the-multiplication-rule">The Multiplication Rule</h2>
+<p>Used to find the probability that <strong>both</strong> event A <em>and</em> event B occur:</p>
+<p><span class="math display">\[P(A \cap B) = P(A) \cdot P(B \mid A)\]</span></p>
+<p>where <span class="math inline">\(P(B \mid A)\)</span> is the conditional probability of B <em>given that A has occurred</em>.</p>
+<p><strong>Example:</strong> Rolling a 6 then flipping heads:</p>
+<p><span class="math display">\[P(6 \text{ and } H) = P(6) \cdot P(H \mid 6) = \frac{1}{6} \cdot \frac{1}{2} = \frac{1}{12}\]</span></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Parlay Bets — The Multiplication Rule in Action
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sports parlays require multiple independent bets to all win. The probability compounds multiplicatively:</p>
+<ul>
+<li>New Jersey (September 2024): parlays generated <strong>72.5%</strong> of sportsbook gross revenue</li>
+<li>Hold percentage on parlays: <strong>24.2%</strong> vs.&nbsp;4.4% for straight bets</li>
+<li>Nevada (historical): <strong>31%</strong> hold on parlays vs.&nbsp;5% on standard football wagers</li>
+</ul>
+<p>This is not coincidence. Every additional leg of a parlay multiplies the probability of losing. The math is transparent—and profitable for the house.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-iii-bayesian-vs.-frequentist-thinking" class="level1">
+<h1>Part III: Bayesian vs.&nbsp;Frequentist Thinking</h1>
+<section id="the-coin-flip-thought-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="the-coin-flip-thought-experiment">The Coin Flip Thought Experiment</h2>
+<p>Consider a fair coin. <em>Before</em> the flip, <span class="math inline">\(P(\text{Heads}) = 0.5\)</span>. Now imagine I flip the coin, cover it with my hand, and ask: “What is the probability it is heads?”</p>
+<ul>
+<li>For a <strong>frequentist</strong>, the coin is already determined—the question has an unknown but fixed answer; probability, in the formal sense, does not apply to this realized event.</li>
+<li>For a <strong>Bayesian</strong>, your probability (0.5) represents your <em>epistemic state</em>—your uncertainty about the outcome. If someone else peeked under my hand, <em>their</em> probability would be 0 or 1. Probability describes knowledge, not just the world.</li>
+</ul>
+<p><strong>The key insight:</strong> probability describes our <em>knowledge</em> about the world, not solely objective features of the world itself.</p>
+</section>
+<section id="comparing-the-two-frameworks" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-the-two-frameworks">Comparing the Two Frameworks</h2>
+<div class="col-pair">
+<div class="col-left">
+<p><strong>Frequentist</strong></p>
+<ul>
+<li>Probability = long-run relative frequency of outcomes over repeated trials</li>
+<li>The parameter being estimated is <em>fixed</em> (not a random variable)</li>
+<li>Cannot assign probability to hypotheses directly</li>
+<li>Computes: <em>“If the null hypothesis were true, how likely is data this extreme?”</em> → the p-value</li>
+<li>Never directly tells you whether the hypothesis is true</li>
+</ul>
+</div>
+<div class="col-right">
+<p><strong>Bayesian</strong></p>
+<ul>
+<li>Probability = degree of rational belief, updated as evidence accumulates</li>
+<li>Parameters are <em>random variables</em> (can have probability distributions)</li>
+<li>Can compute <span class="math inline">\(P(\text{Hypothesis} \mid \text{Evidence})\)</span> directly</li>
+<li>Requires specifying a <strong>prior</strong> (belief before evidence)</li>
+<li>Updates priors to <strong>posteriors</strong> using observed data</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Which Approach Is “Right”?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Both frameworks have strong theoretical and practical justifications. Frequentist methods dominate classical statistics and much of published social science. Bayesian methods are increasingly prominent in intelligence analysis, medicine, and machine learning—wherever incorporating prior knowledge explicitly is desirable and updating beliefs as evidence accumulates is the primary goal.</p>
+</div>
+</div>
+</section>
+<section id="applied-example-finding-the-phone" class="level2">
+<h2 class="anchored" data-anchor-id="applied-example-finding-the-phone">Applied Example: Finding the Phone</h2>
+<p>You’ve misplaced your phone somewhere in your home. Pressing the base station locator causes the phone to beep—but the sound is faint and muffled.</p>
+<ul>
+<li><strong>Prior distribution:</strong> your initial beliefs about where the phone is, based on where you usually leave it (desk, bedroom, kitchen)</li>
+<li><strong>Evidence:</strong> the direction and volume of the beep narrows down the possibilities</li>
+<li><strong>Posterior:</strong> your updated beliefs about the phone’s location <em>given</em> the beep</li>
+</ul>
+<p>This is exactly how Bayesian reasoning works: you do not start from scratch with each piece of evidence—you update your existing beliefs.</p>
+<hr>
+</section>
+</section>
+<section id="part-iv-bayes-theorem" class="level1">
+<h1>Part IV: Bayes’ Theorem</h1>
+<section id="the-formula" class="level2">
+<h2 class="anchored" data-anchor-id="the-formula">The Formula</h2>
+<p>Bayes’ Theorem formalizes how to update probabilities given new evidence:</p>
+<p><span class="math display">\[P(A \mid B) = \frac{P(B \mid A) \cdot P(A)}{P(B)}\]</span></p>
+<p>In intelligence notation, using Hypothesis (H) and Evidence (E):</p>
+<p><span class="math display">\[P(H \mid E) = \frac{P(E \mid H) \cdot P(H)}{P(E)}\]</span></p>
+<div class="key-terms">
+<div class="{dl}">
+<dl>
+<dt><span class="math inline">\(P(H)\)</span> — Prior</dt>
+<dd>
+Your probability for the hypothesis <em>before</em> observing the evidence. Represents existing knowledge, base rates, or initial belief.
+</dd>
+<dt><span class="math inline">\(P(H \mid E)\)</span> — Posterior</dt>
+<dd>
+Your updated probability for the hypothesis <em>after</em> observing the evidence. This is what you want.
+</dd>
+<dt><span class="math inline">\(P(E \mid H)\)</span> — Likelihood</dt>
+<dd>
+The probability of observing this evidence <em>if</em> the hypothesis were true. How consistent is this evidence with the hypothesis?
+</dd>
+<dt><span class="math inline">\(P(E)\)</span> — Marginal Probability of Evidence</dt>
+<dd>
+The total probability of observing this evidence across <em>all</em> hypotheses. Acts as a normalizing constant.
+</dd>
+</dl>
+</div>
+</div>
+</section>
+<section id="when-to-use-bayes-theorem" class="level2">
+<h2 class="anchored" data-anchor-id="when-to-use-bayes-theorem">When to Use Bayes’ Theorem</h2>
+<p>Apply Bayesian reasoning when you have:</p>
+<ol type="1">
+<li>A <strong>hypothesis</strong> (an uncertain claim about the world)</li>
+<li><strong>Evidence</strong> (new observations)</li>
+<li>A desire to estimate <span class="math inline">\(P(\text{Hypothesis} \mid \text{Evidence})\)</span></li>
+</ol>
+</section>
+<section id="worked-example-1-librarian-or-farmer" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-1-librarian-or-farmer">Worked Example 1: Librarian or Farmer?</h2>
+<p>Steve is shy, withdrawn, tidy, and has a passion for detail. Is he more likely a librarian or a farmer?<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Most people intuitively say “librarian”—but the base rate matters. In the United States, there are roughly 200 farmers for every librarian. Even if the description fits librarians far better than farmers on average, the overwhelming numerical advantage of farmers dominates.</p>
+<p>Using Bayes:</p>
+<ul>
+<li>Prior <span class="math inline">\(P(\text{Librarian}) = \frac{1}{201} \approx 0.005\)</span>; <span class="math inline">\(P(\text{Farmer}) = \frac{200}{201} \approx 0.995\)</span></li>
+<li>After applying a likelihood ratio that the description fits librarians ~40× better than farmers:
+<ul>
+<li><span class="math inline">\(P(\text{Librarian} \mid \text{Description}) \approx 17\%\)</span></li>
+<li><span class="math inline">\(P(\text{Farmer} \mid \text{Description}) \approx 83\%\)</span></li>
+</ul></li>
+</ul>
+<p><strong>The lesson:</strong> base rates are evidence. Ignoring them (base rate neglect) is a well-documented cognitive bias that Bayesian reasoning directly corrects.</p>
+</section>
+<section id="worked-example-2-fire-and-smoke" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-2-fire-and-smoke">Worked Example 2: Fire and Smoke</h2>
+<div class="col-pair">
+<div class="col-left">
+<p><strong>Given:</strong> - Dangerous fires are rare: <span class="math inline">\(P(\text{Fire}) = 0.01\)</span> - Smoke is fairly common: <span class="math inline">\(P(\text{Smoke}) = 0.10\)</span> (due to barbecues, etc.) - Fires almost always produce smoke: <span class="math inline">\(P(\text{Smoke} \mid \text{Fire}) = 0.90\)</span></p>
+<p><strong>Question:</strong> <span class="math inline">\(P(\text{Fire} \mid \text{Smoke}) = ?\)</span></p>
+</div>
+<div class="col-right">
+<p><strong>Solution:</strong> <span class="math display">\[P(\text{Fire} \mid \text{Smoke}) = \frac{P(\text{Smoke} \mid \text{Fire}) \cdot P(\text{Fire})}{P(\text{Smoke})}\]</span> <span class="math display">\[= \frac{0.90 \times 0.01}{0.10} = \frac{0.009}{0.10} = 0.09\]</span></p>
+<p>Even with smoke present, there is only a <strong>9% probability</strong> of a dangerous fire. This reflects the power of low base rates.</p>
+</div>
+</div>
+</section>
+<section id="the-core-principle" class="level2">
+<h2 class="anchored" data-anchor-id="the-core-principle">The Core Principle</h2>
+<blockquote class="blockquote">
+<p>Evidence should not <em>determine</em> beliefs—it should <em>update</em> them.</p>
+</blockquote>
+<p>Look at all cases where the evidence is true. What proportion of those cases also feature the hypothesis? That proportion is your posterior.</p>
+<hr>
+</section>
+</section>
+<section id="part-v-application-to-intelligence-analysis" class="level1">
+<h1>Part V: Application to Intelligence Analysis</h1>
+<section id="the-intelligence-context" class="level2">
+<h2 class="anchored" data-anchor-id="the-intelligence-context">The Intelligence Context</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>A Recent Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Scenario:</strong> Concern has risen following Russian drone incursions into Polish airspace.</p>
+<p><strong>Frequentist framing:</strong> If Russia had no intent to escalate against Poland, what is the probability we would observe drone incursions at this frequency? (Tests consistency of evidence with a null hypothesis.)</p>
+<p><strong>Bayesian framing:</strong> Given our prior belief about the probability of Russian hostile action against Poland, how should our belief change after observing the drone incursions? (Updates beliefs in light of evidence.)</p>
+<p>Both framings are useful. The Bayesian framing more naturally incorporates what we already knew; the frequentist framing is useful for hypothesis rejection under formal uncertainty.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Common Analytical Failures Addressed by Bayesian Thinking
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Ignoring base rates</strong> — overweighting vivid evidence and underweighting background frequencies</li>
+<li><strong>Confirmation bias</strong> — only updating in response to confirming evidence; discounting disconfirming evidence</li>
+<li><strong>Anchoring</strong> — being insufficiently responsive to new evidence because the prior is too strong</li>
+<li><strong>Representativeness heuristic</strong> — judging likelihood by how “typical” something looks, rather than by actual probabilities (the Steve/librarian problem)</li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="suggested-readings" class="level1">
+<h1>Suggested Readings</h1>
+<p>Jervis, R. (2006). Reports, politics, and intelligence failures: The case of Iraq. <em>Journal of Strategic Studies</em>, <em>29</em>(1), 3–52. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_proquest_miscellaneous_59712003">Access via JMU Library</a></p>
+<blockquote class="blockquote">
+<p>Post-mortem analysis of the 2002 Iraq WMD assessment. The cognitive biases the Bayesian framework is designed to correct — base rate neglect, confirmation bias, anchoring — appear throughout this case.</p>
+</blockquote>
+<p>Bar-Joseph, U., &amp; Kruglanski, A. W. (2003). Intelligence failure and need for cognitive closure. <em>Political Psychology</em>, <em>24</em>(1), 75–99. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_crossref_citationtrail_10_1111_0162_895X_00317">Access via JMU Library</a></p>
+<blockquote class="blockquote">
+<p>Examines how analysts’ psychological need for certainty leads to premature closure on hypotheses and resistance to disconfirming evidence — exactly what Bayesian reasoning disciplines. Applied to the Yom Kippur War intelligence failure.</p>
+</blockquote>
+<p>Tetlock, P. E. (1999). Theory-driven reasoning about plausible pasts and probable futures in world politics. <em>American Journal of Political Science</em>, <em>43</em>(2), 335–366. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_jstor_primary_10_2307_2991798">Access via JMU Library</a></p>
+<blockquote class="blockquote">
+<p>Provides empirical evidence that analysts with more probabilistic, self-correcting reasoning styles outperform those with committed theoretical frameworks on forecasting tasks.</p>
+</blockquote>
+<p>Tetlock, P. E., &amp; Gardner, D. (2015). Superforecasting: How to upgrade your company’s judgment. <em>Harvard Business Review</em>, <em>93</em>(5), 72–78. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_proquest_miscellaneous_1789075979">Access via JMU Library</a></p>
+<blockquote class="blockquote">
+<p>Draws on the Good Judgment Project’s findings about calibrated probabilistic forecasting. Relevant to confidence language and the critique of vague uncertainty expressions.</p>
+</blockquote>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Example adapted from Daniel Kahneman, <em>Thinking, Fast and Slow</em> (Farrar, Straus and Giroux, 2011).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

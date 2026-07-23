@@ -7,6 +7,49 @@ Data science is the methodological foundation for systematic, rigorous analysis.
 
 Before testing hypotheses, analysts must understand what their data looks like. Descriptive statistics and exploratory data analysis (EDA) are the systematic tools for that understanding — revealing distributions, central tendencies, variability, outliers, and relationships that formal models can miss or distort if applied without first examining the data.
 
+::: {.callout-important}
+## Required Reading Before Tuesday Class
+
+**1. Steve Lohr, ["For Big-Data Scientists, 'Janitor Work' Is Key Hurdle to Insights,"](https://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html) *The New York Times* (August 18, 2014).**
+
+*As you read, consider:*
+
+- If the least glamorous stage of the workflow consumes most of a project's time, what does that imply about where analytical errors are most likely to be introduced — and least likely to be caught?
+- The article frames data cleaning as a bottleneck to be automated away. What analytical judgment might be lost if preprocessing is fully handed to software?
+
+**2. Tim Harford, ["Big Data: Are We Making a Big Mistake?"](https://timharford.com/2014/04/big-data-are-we-making-a-big-mistake/) *Financial Times* (March 28, 2014).**
+
+*As you read, consider:*
+
+- Harford argues that "N = all" is usually an illusion. How would you check whether a large intelligence dataset actually represents the population you care about?
+- If a model predicts accurately but no one understands *why*, is that good enough for an intelligence judgment? When would you demand causation over correlation?
+
+**3. Noah B. Cooper, ["AI and Intelligence Analysis: Panacea or Peril?"](https://warontherocks.com/2024/10/ai-and-intelligence-analysis-panacea-or-peril/) *War on the Rocks* (October 10, 2024).**
+
+*As you read, consider:*
+
+- Cooper warns that AI trained on biased intelligence data can "amplify" those biases. Where in the data science workflow would that bias enter, and how would you catch it?
+- If AI handles collection, fusion, and drafting, what part of the analyst's job is genuinely irreducible — and why?
+:::
+
+::: {.learning-objectives}
+
+<div class="learning-objectives-header">
+  <span class="learning-objectives-icon">✓</span>
+  <p class="learning-objectives-title">Learning Objectives</p>
+</div>
+
+<p class="learning-objectives-intro">
+By the end of this lecture, you should be able to:
+</p>
+
+- Describe the data science process from data collection to model deployment. Identify the key steps involved, including data exploration, data preprocessing, modeling, and evaluation.
+- Explain the characteristics of qualitative, quantitative, and unstructured data, and accurately classify real-world examples into the appropriate categories.
+- Analyze the advantages, challenges, and potential biases of each data type, considering their reliability, validity, and applicability in intelligence and analytical contexts.
+- Demonstrate how the classification of data influences collection strategies, analytical methods, and the integration of multiple data types to generate stronger insights.
+ 
+:::
+
 # Part I: What is Data Science?
 
 ## Defining the Field
@@ -252,21 +295,20 @@ Analytical results must be *interpreted*—linked to the original intelligence q
 :::
 :::
 
+
+''' Add something on AI and this process'''
 ---
 
 # Suggested Readings
 
-*All readings are journal or news articles.*
-
-Donoho, D. (2017). 50 years of data science. *Journal of Computational and Graphical Statistics*, *26*(4), 745–766. <https://doi.org/10.1080/10618600.2017.1384734>
+Donoho, D. (2017). 50 years of data science. *Journal of Computational and Graphical Statistics*, *26*(4), 745–766. [Access via the JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_informaworld_taylorfrancis_310_1080_10618600_2017_1384734)
 
 > A historical and conceptual overview of data science as a discipline. Places EDA in its intellectual genealogy — from Tukey's foundational work through modern computational methods. Relevant background for understanding where descriptive and exploratory analysis fit in the broader analytical enterprise.
 
-Provost, F., & Fawcett, T. (2013). Data science and its relationship to big data and data-driven decision making. *Big Data*, *1*(1), 51–59. <https://doi.org/10.1089/big.2013.1508>
+Provost, F., & Fawcett, T. (2013). Data science and its relationship to big data and data-driven decision making. *Big Data*, *1*(1), 51–59. [Access via the JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_sage_journals_10_1089_big_2013_1508)
 
 > Examines the conceptual foundations of data-driven decision making and what distinguishes genuine data science from data mining. Directly relevant to the data science process and intelligence application content.
 
-Davenport, T. H., & Patil, D. J. (2012). Data scientist: The sexiest job of the 21st century. *Harvard Business Review*, *90*(10), 70–76.
+Davenport, T. H., & Patil, D. J. (2012). Data scientist: The sexiest job of the 21st century. *Harvard Business Review*, *90*(10), 70–76.[Access via the JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_proquest_miscellaneous_1113983339)
 
 > Widely-read piece establishing the role of the data scientist in analytical organizations. Relevant to understanding the workflow and professional context in which the descriptive analysis skills of this lecture are deployed.
-                  

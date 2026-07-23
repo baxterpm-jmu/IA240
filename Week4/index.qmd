@@ -5,6 +5,31 @@ subtitle: "IA 240: Technology Applications in a Networked World"
 
 Good analysis begins with good questions and a clear understanding of the phenomenon being studied. This lecture covers research design for intelligence problems — hypothesis formulation, methodology selection, variable operationalization — and then introduces systems thinking: the analytical framework for understanding how causal loops, feedback dynamics, and threshold effects produce outcomes that linear analysis misses.
 
+::: {.callout-important}
+## Required Reading Before Tuesday Class
+
+**Jonathan Haslam, ["How to Explain the KGB's Amazing Success Identifying CIA Agents in the Field?"](https://www.salon.com/2015/09/26/how_to_explain_the_kgbs_amazing_success_identifying_cia_agents_in_the_field/) *Salon* (September 26, 2015).**
+
+*As you read, consider:*
+
+- Totrov turned a vague question ("who is CIA?") into a set of measurable, observable indicators. How is that process the same as operationalizing variables in a research design — and where could it go wrong (false positives)?
+- The CIA reached for the dramatic hypothesis (a mole) over the simpler structural one (predictable bureaucratic patterns). What does this teach you about generating and testing competing hypotheses before settling on an explanation?
+:::
+
+::: {.learning-objectives}
+
+<div class="learning-objectives-header">
+  <span class="learning-objectives-icon">✓</span>
+  <p class="learning-objectives-title">Learning Objectives</p>
+</div>
+
+<p class="learning-objectives-intro">
+By the end of this lecture, you should be able to:
+</p>
+
+- 
+:::
+
 # Part I: The Role of the Hypothesis
 
 ## Defining Hypothesis

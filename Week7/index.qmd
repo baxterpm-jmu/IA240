@@ -7,6 +7,49 @@ subtitle: "IA 240: Technology Applications in a Networked World"
 
 Before testing hypotheses, analysts must understand what their data looks like. Descriptive statistics and exploratory data analysis (EDA) are the systematic tools for that understanding — revealing distributions, central tendencies, variability, outliers, and relationships that formal models can miss or distort if applied without first examining the data.
 
+::: {.callout-important}
+## Required Reading Before Tuesday Class
+
+**1. "What This Graph of a Dinosaur Can Teach Us About Doing Better Science," [*Scientific American*](https://www.scientificamerican.com/article/what-this-graph-of-a-dinosaur-can-teach-us-about-doing-better-science/).**
+
+The "Datasaurus" and Anscombe's quartet: datasets with identical means, standard deviations, and correlations that look completely different when plotted — one is literally a dinosaur. The case for always visualizing data before trusting summary statistics.
+
+*As you read, consider:*
+
+- If summary statistics can be identical while the data are wildly different, what should always precede formal analysis — and why is that step so often skipped?
+- What kinds of real patterns (outliers, clusters, nonlinearity) would you miss by reading only the mean and correlation?
+
+**2. Brian Resnick, ["What a Nerdy Debate About P-Values Shows About Science — and How to Fix It,"](https://www.vox.com/science-and-health/2017/7/31/16021654/p-values-statistical-significance-redefine-0005) *Vox* (July 31, 2017).**
+
+What "statistically significant" (p < 0.05) really means, why the threshold is arbitrary, and how p-hacking manufactures significant-looking findings. Explains why the number doesn't tell you a result is true or important.
+
+*As you read, consider:*
+
+- A p-value doesn't tell you the probability your hypothesis is true. What does it actually measure, and how is it routinely misread?
+- If lowering the significance threshold doesn't fix the problem, what does that suggest the real fix is — and how would it apply to intelligence assessments?
+:::
+
+::: {.learning-objectives}
+
+<div class="learning-objectives-header">
+  <span class="learning-objectives-icon">✓</span>
+  <p class="learning-objectives-title">Learning Objectives</p>
+</div>
+
+<p class="learning-objectives-intro">
+By the end of this lecture, you should be able to:
+</p>
+
+- Understand the concept of a hypothesis and its role in the scientific research process.
+- Learn how to formulate clear and testable research hypotheses based on research questions and prior knowledge.
+- Explore different hypothesis testing methods, including z-tests, t-tests, chi-square tests, and ANOVA.
+- Understand the assumptions underlying each test and the appropriate scenarios for their application.
+- Explore methods to generate hypotheses through exploratory data analysis, literature reviews, and domain expertise.
+- Understand the iterative nature of hypothesis generation and testing in the research process.
+
+:::
+
+
 # Part I: Common Analytical Frameworks
 
 ::: {.key-terms}
@@ -314,30 +357,30 @@ Researchers have developed methods to approximate causal inference from observat
 
 # Suggested Readings
 
-Nuzzo, R. (2014). Scientific method: Statistical errors. *Nature*, *506*(7487), 150–152. <https://doi.org/10.1038/506150a>
+Nuzzo, R. (2014). Scientific method: Statistical errors. *Nature*, *506*(7487), 150–152. [Access via JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_gale_onefilemisc_PPGS_A659842331)
 
 > A highly readable explanation of p-value misconceptions for a scientific generalist audience. Covers the false discovery rate problem, researcher degrees of freedom, and the distinction between statistical and practical significance.
 
-Ioannidis, J. P. A. (2005). Why most published research findings are false. *PLOS Medicine*, *2*(8), e124. <https://doi.org/10.1371/journal.pmed.0020124>
+Ioannidis, J. P. A. (2005). Why most published research findings are false. *PLOS Medicine*, *2*(8), e124. [Access via JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_jstor_primary_24134831)
 
 > Demonstrates mathematically that under typical research conditions, a majority of statistically significant findings are false positives. A foundational paper for any analyst who uses published research as intelligence evidence.
 
-Simmons, J. P., Nelson, L. D., & Simonsohn, U. (2011). False-positive psychology: Undisclosed flexibility in data collection and analysis allows presenting anything as significant. *Psychological Science*, *22*(11), 1359–1366. <https://doi.org/10.1177/0956797611417632>
+Simmons, J. P., Nelson, L. D., & Simonsohn, U. (2011). False-positive psychology: Undisclosed flexibility in data collection and analysis allows presenting anything as significant. *Psychological Science*, *22*(11), 1359–1366. [Access via JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_proquest_journals_1910814101)
 
 > Demonstrates that common, undisclosed analytical decisions dramatically inflate false-positive rates. Directly applicable to self-assessment of quantitative analytical choices.
 
-Jervis, R. (2006). Reports, politics, and intelligence failures: The case of Iraq. *Journal of Strategic Studies*, *29*(1), 3–52. <https://doi.org/10.1080/01402390600566282>
+Jervis, R. (2006). Reports, politics, and intelligence failures: The case of Iraq. *Journal of Strategic Studies*, *29*(1), 3–52. [Access via JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_proquest_miscellaneous_59712003)
 
 > The 2002 Iraq WMD assessment failure as a case study in Type I error, confirmation bias, and failure to weight base rates. Shows what happens when inferential logic breaks down in applied intelligence production.
 
-Donoho, D. (2017). 50 years of data science. *Journal of Computational and Graphical Statistics*, *26*(4), 745–766. <https://doi.org/10.1080/10618600.2017.1384734>
+Donoho, D. (2017). 50 years of data science. *Journal of Computational and Graphical Statistics*, *26*(4), 745–766. [Access via JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_informaworld_taylorfrancis_310_1080_10618600_2017_1384734)
 
 > A historical and conceptual overview of data science as a discipline. Places EDA in its intellectual genealogy — from Tukey's foundational work through modern computational methods. Relevant background for understanding where descriptive and exploratory analysis fit in the broader analytical enterprise.
 
-Provost, F., & Fawcett, T. (2013). Data science and its relationship to big data and data-driven decision making. *Big Data*, *1*(1), 51–59. <https://doi.org/10.1089/big.2013.1508>
+Provost, F., & Fawcett, T. (2013). Data science and its relationship to big data and data-driven decision making. *Big Data*, *1*(1), 51–59. [Access via JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_sage_journals_10_1089_big_2013_1508)
 
 > Examines the conceptual foundations of data-driven decision making and what distinguishes genuine data science from data mining. Directly relevant to the data science process and intelligence application content.
 
-Davenport, T. H., & Patil, D. J. (2012). Data scientist: The sexiest job of the 21st century. *Harvard Business Review*, *90*(10), 70–76.
+Davenport, T. H., & Patil, D. J. (2012). Data scientist: The sexiest job of the 21st century. *Harvard Business Review*, *90*(10), 70–76.[Access via JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_proquest_miscellaneous_1113983339)
 
 > Widely-read piece establishing the role of the data scientist in analytical organizations. Relevant to understanding the workflow and professional context in which the descriptive analysis skills of this lecture are deployed.

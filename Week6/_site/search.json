@@ -7,6 +7,13 @@
     "text": "Analytical work requires two foundational capabilities: understanding how data is structured and stored, and knowing how to retrieve and manipulate it computationally. This lecture covers scales of measurement, database structure, proxy variables, and data quality — the structural foundations — then introduces the computational tools that operationalize those concepts: SQL for querying relational databases and APIs for programmatic data collection."
   },
   {
+    "objectID": "index.html#learning-objectives",
+    "href": "index.html#learning-objectives",
+    "title": "Week 6: Data Structures, Databases, and Computational Tools",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\nExplain the basic concepts of probability, including sample spaces, events, and probability measures. Demonstrate the ability to calculate probabilities for simple events and their complements.\nApply the rules of probability, such as the addition rule and multiplication rule, to solve probability problems involving combined events and conditional probabilities.\nDevelop the skill to identify real-world scenarios where probabilistic thinking is applicable. Apply probability concepts to analyze uncertain situations, make informed decisions, and assess risks.\nIntroduce Bayesian reasoning and its application in probabilistic modeling. Understand the process of Bayesian updating and its significance in data-driven decision-making.\nDescribe the data science process from data collection to model deployment. Identify the key steps involved, including data exploration, data preprocessing, modeling, and evaluation."
+  },
+  {
     "objectID": "index.html#the-five-scales",
     "href": "index.html#the-five-scales",
     "title": "Week 6: Data Structures, Databases, and Computational Tools",
@@ -138,5 +145,40 @@
     "title": "Week 6: Data Structures, Databases, and Computational Tools",
     "section": "Example: A Conflict Events Data Dictionary",
     "text": "Example: A Conflict Events Data Dictionary\n\n\n\n\n\n\n\n\n\n\nField Name\nData Type\nScale\nAllowed Values\nDefinition\n\n\n\n\nevent_id\nInteger\n—\nUnique integer\nSystem-generated primary key\n\n\ncountry_code\nString (3)\nNominal\nISO alpha-3\nISO 3166-1 alpha-3 country code\n\n\nevent_date\nDate\nInterval\nYYYY-MM-DD\nDate the event occurred (UTC)\n\n\nevent_type\nString\nNominal\nBattle / VAC / Protest / Riot / Explosion\nType of political violence\n\n\nfatalities\nInteger\nRatio\n0–99999; −9 = unknown\nReported deaths; −9 if unknown\n\n\nlatitude\nFloat\nRatio\n−90.0 to 90.0\nWGS84 latitude of event location\n\n\nlongitude\nFloat\nRatio\n−180.0 to 180.0\nWGS84 longitude of event location\n\n\n\n\n\n\n\n\n\nNoteThe Data Dictionary as an Analytical Contract\n\n\n\nWhen you receive data from a partner agency or academic database, the data dictionary defines what you are actually getting. Missing or ambiguous dictionaries are among the most common sources of analytical error."
+  },
+  {
+    "objectID": "index.html#spreadsheets",
+    "href": "index.html#spreadsheets",
+    "title": "Week 6: Data Structures, Databases, and Computational Tools",
+    "section": "Spreadsheets",
+    "text": "Spreadsheets\nSpreadsheets (Microsoft Excel, Google Sheets) are the most accessible computational tool: a visual grid for entering, cleaning, computing, and charting small tabular datasets, with formulas and pivot tables for quick summaries. Their strength is immediacy; their weakness is scale and reproducibility. As the Reinhart–Rogoff error (this week’s required reading) demonstrates, an unseen formula mistake in a spreadsheet can propagate silently into a consequential conclusion. Spreadsheets do not scale to millions of rows and leave no clear audit trail of what was done."
+  },
+  {
+    "objectID": "index.html#relational-databases-and-sql",
+    "href": "index.html#relational-databases-and-sql",
+    "title": "Week 6: Data Structures, Databases, and Computational Tools",
+    "section": "Relational Databases and SQL",
+    "text": "Relational Databases and SQL\nA relational database stores structured data across linked tables (Part II). SQL (Structured Query Language) is the standard language for retrieving and combining that data. Rather than scrolling through a table, the analyst describes the records they want and the database returns them.\nSELECT country, year, battle_deaths\nFROM   conflict_events\nWHERE  region = 'Sahel'\n  AND  year &gt;= 2015\nORDER BY battle_deaths DESC;\nThis query asks for three fields, filtered to one region and time window, sorted by severity. A JOIN combines tables on a shared key — for example, attaching economic indicators to each conflict record:\nSELECT e.country, e.battle_deaths, c.gdp_per_capita\nFROM   conflict_events AS e\nJOIN   country_indicators AS c\n  ON   e.country = c.country AND e.year = c.year\nWHERE  e.year = 2020;\nSQL is how analysts work with IC data warehouses and large relational datasets — it turns a structural relationship between tables (Part II’s keys) into an analytical result."
+  },
+  {
+    "objectID": "index.html#programming-languages",
+    "href": "index.html#programming-languages",
+    "title": "Week 6: Data Structures, Databases, and Computational Tools",
+    "section": "Programming Languages",
+    "text": "Programming Languages\nFor anything beyond a single query — statistical modeling, automation, reproducible workflows, machine learning — analysts turn to general-purpose languages. R (with the tidyverse and ggplot2) is built for statistics, exploratory data analysis, and visualization. Python (with pandas, NumPy, and scikit-learn) is a general-purpose language strong in automation, machine learning, text processing, and API access. Julia targets high-performance numerical computing. Their shared advantage over spreadsheets is reproducibility: the analysis is written as code that can be reviewed, rerun, and audited — the computational embodiment of the data dictionary’s “analytical contract” (Part X)."
+  },
+  {
+    "objectID": "index.html#application-programming-interfaces-apis",
+    "href": "index.html#application-programming-interfaces-apis",
+    "title": "Week 6: Data Structures, Databases, and Computational Tools",
+    "section": "Application Programming Interfaces (APIs)",
+    "text": "Application Programming Interfaces (APIs)\nAn API is a defined interface that lets one program request data or services from another. Instead of manually downloading files, an analyst sends a structured request to a remote system and receives structured data — usually JSON — in return.\nGET https://api.worldbank.org/v2/country/IR/indicator/NY.GDP.MKTP.CD?format=json\nThis request retrieves Iran’s GDP series from the World Bank’s public API. APIs are the backbone of programmatic OSINT collection (Week 2): social-media platforms, financial data providers, flight- and vessel-tracking services, and government open-data portals all expose APIs that let analysts pull current data automatically and repeatably rather than by hand."
+  },
+  {
+    "objectID": "index.html#software-discussed-in-this-course",
+    "href": "index.html#software-discussed-in-this-course",
+    "title": "Week 6: Data Structures, Databases, and Computational Tools",
+    "section": "Software Discussed in This Course",
+    "text": "Software Discussed in This Course\nThe table below inventories the major tools introduced across IA 240 — what each does, the kind of data it operates on, and where it appears in the course.\n\n\n\n\n\n\n\n\n\nSoftware / Tool\nWhat It Does\nType of Data It Uses\nExample in This Course\n\n\n\n\nMicrosoft Excel\nEnter, clean, compute, and chart small datasets; pivot tables\nSmall structured/tabular data\nReasoning about the NFL receiver dataset (Week 4); drafting a data dictionary\n\n\nSQL (SQLite, PostgreSQL)\nQuery and join records in relational databases\nStructured relational tables with keys\nFiltering and joining conflict-event tables (this week)\n\n\nR (tidyverse, ggplot2)\nStatistical computing, EDA, modeling, visualization\nStructured/tabular data; text\nDescriptive statistics and hypothesis testing (Week 7); regression (Week 8)\n\n\nPython (pandas, scikit-learn)\nGeneral-purpose analysis, automation, ML, API calls\nStructured, text, and image data\nMachine-learning classification and NLP (Week 9)\n\n\nJulia\nHigh-performance numerical and scientific computing\nNumeric/structured data\nListed among core languages for computation at scale (Week 3)\n\n\nNetLogo\nAgent-based modeling environment\nAgent rules + synthetic environment\nSchelling segregation and insurgency ABMs (Week 10)\n\n\nMesa / Repast\nCode frameworks for larger agent-based models\nAgent rules / synthetic data\nBuilding an ABM in Python or Java (Week 10)\n\n\nGephi\nNetwork visualization and metrics (centrality, communities)\nNetwork/graph data (nodes & edges)\nVisualizing a covert network (Week 11)\n\n\nNetworkX / igraph / statnet\nProgrammatic social network analysis\nNetwork/graph data\nComputing centrality on the 9/11 network (Week 11)\n\n\nMaltego\nOSINT link analysis and entity mapping\nEntities and relationships (OSINT)\nMapping relationships from open sources (Week 11)\n\n\nPalantir Gotham\nEnterprise data integration; network and timeline analysis\nFused multi-source (structured + unstructured)\nIC-scale integration and link analysis (Weeks 9, 11)\n\n\ni2 Analyst’s Notebook\nLink and timeline charting for investigations\nEntities, relationships, events\nCharting relationships and time-slicing a network (Week 11)\n\n\nGIS (ArcGIS, QGIS)\nStore, analyze, and map spatial data; overlay and spatial statistics\nGeospatial vector and raster data\nHot-spot analysis of conflict events (Week 12)\n\n\nGoogle Earth\nExplore imagery and geospatial data; geolocation\nSatellite/aerial imagery + geospatial data\nOpen-source geolocation of a photo (Weeks 2, 12)\n\n\n\n\n\n\n\n\n\nTipA Pattern Worth Noticing\n\n\n\nRead down the “Type of Data” column and the course’s logic reappears: the scale of measurement and structure of your data (Parts I–II) largely dictate which tool is appropriate. Tabular data goes to spreadsheets, databases, R, or Python; relational data to SQL; network data to Gephi or NetworkX; spatial data to GIS. Choosing a tool is, in part, a statement about what kind of data you believe you have."
   }
 ]

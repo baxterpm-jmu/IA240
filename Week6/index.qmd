@@ -5,6 +5,38 @@ subtitle: "IA 240: Technology Applications in a Networked World"
 
 Analytical work requires two foundational capabilities: understanding how data is structured and stored, and knowing how to retrieve and manipulate it computationally. This lecture covers scales of measurement, database structure, proxy variables, and data quality — the structural foundations — then introduces the computational tools that operationalize those concepts: SQL for querying relational databases and APIs for programmatic data collection.
 
+::: {.callout-important}
+## Required Reading Before Tuesday Class
+
+**"Ever Heard of the 'McNamara Fallacy'? Be Careful What You Measure," [*Welcome to the Jungle*](https://www.welcometothejungle.com/en/articles/mcnamara-fallacy).**
+
+Because the Pentagon could not measure enemy morale or political will in Vietnam, it measured what it could count — enemy dead — and let that proxy drive strategy. The "body count" metric was easy to track, easy to game, and disconnected from the outcome that actually mattered.
+
+*As you read, consider:*
+
+- A proxy variable stands in for something you can't measure directly. What made "body count" a bad proxy, and how would you test whether a proxy actually tracks the thing you care about?
+- Once a metric becomes a target, people optimize the number rather than the goal. Where might that happen with an intelligence indicator, and how would you guard against it?
+:::
+
+::: {.learning-objectives}
+
+<div class="learning-objectives-header">
+  <span class="learning-objectives-icon">✓</span>
+  <p class="learning-objectives-title">Learning Objectives</p>
+</div>
+
+<p class="learning-objectives-intro">
+By the end of this lecture, you should be able to:
+</p>
+
+- Explain the basic concepts of probability, including sample spaces, events, and probability measures. Demonstrate the ability to calculate probabilities for simple events and their complements.
+- Apply the rules of probability, such as the addition rule and multiplication rule, to solve probability problems involving combined events and conditional probabilities.
+- Develop the skill to identify real-world scenarios where probabilistic thinking is applicable. Apply probability concepts to analyze uncertain situations, make informed decisions, and assess risks.
+- Introduce Bayesian reasoning and its application in probabilistic modeling. Understand the process of Bayesian updating and its significance in data-driven decision-making.
+- Describe the data science process from data collection to model deployment. Identify the key steps involved, including data exploration, data preprocessing, modeling, and evaluation.
+:::
+
+
 # Part I: Scales of Measurement
 
 ## The Five Scales
@@ -353,38 +385,101 @@ When you receive data from a partner agency or academic database, the data dicti
 
 # Part XI: Computational Tools
 
+Understanding how data is structured (Parts I–X) is only half the picture. Analysts also need tools to *retrieve, transform, and interrogate* that data at a scale no human can manage by hand. Computational tools sit on a spectrum — from point-and-click spreadsheets, to query languages that pull records from massive databases, to full programming languages that automate an entire analytical workflow, to APIs that collect data programmatically from remote systems.
 
+::: {.callout-note}
+## Match the Tool to the Problem
+There is no single "best" tool. A ten-row dataset belongs in a spreadsheet; a ten-million-row warehouse belongs in a database queried with SQL; a repeatable, auditable analysis belongs in R or Python. The skill is not mastering every tool but knowing which one fits the task — and understanding what each assumes about the data it consumes.
+:::
 
----
+## Spreadsheets
 
+Spreadsheets (Microsoft Excel, Google Sheets) are the most accessible computational tool: a visual grid for entering, cleaning, computing, and charting small tabular datasets, with formulas and pivot tables for quick summaries. Their strength is immediacy; their weakness is scale and reproducibility. As the Reinhart–Rogoff error (this week's required reading) demonstrates, an unseen formula mistake in a spreadsheet can propagate silently into a consequential conclusion. Spreadsheets do not scale to millions of rows and leave no clear audit trail of what was done.
 
+## Relational Databases and SQL
 
----
+A **relational database** stores structured data across linked tables (Part II). **SQL** (Structured Query Language) is the standard language for retrieving and combining that data. Rather than scrolling through a table, the analyst *describes* the records they want and the database returns them.
 
+```sql
+SELECT country, year, battle_deaths
+FROM   conflict_events
+WHERE  region = 'Sahel'
+  AND  year >= 2015
+ORDER BY battle_deaths DESC;
+```
 
+This query asks for three fields, filtered to one region and time window, sorted by severity. A **JOIN** combines tables on a shared key — for example, attaching economic indicators to each conflict record:
+
+```sql
+SELECT e.country, e.battle_deaths, c.gdp_per_capita
+FROM   conflict_events AS e
+JOIN   country_indicators AS c
+  ON   e.country = c.country AND e.year = c.year
+WHERE  e.year = 2020;
+```
+
+SQL is how analysts work with IC data warehouses and large relational datasets — it turns a structural relationship between tables (Part II's keys) into an analytical result.
+
+## Programming Languages
+
+For anything beyond a single query — statistical modeling, automation, reproducible workflows, machine learning — analysts turn to general-purpose languages. **R** (with the tidyverse and ggplot2) is built for statistics, exploratory data analysis, and visualization. **Python** (with pandas, NumPy, and scikit-learn) is a general-purpose language strong in automation, machine learning, text processing, and API access. **Julia** targets high-performance numerical computing. Their shared advantage over spreadsheets is **reproducibility**: the analysis is written as code that can be reviewed, rerun, and audited — the computational embodiment of the data dictionary's "analytical contract" (Part X).
+
+## Application Programming Interfaces (APIs)
+
+An **API** is a defined interface that lets one program request data or services from another. Instead of manually downloading files, an analyst sends a structured request to a remote system and receives structured data — usually JSON — in return.
+
+```text
+GET https://api.worldbank.org/v2/country/IR/indicator/NY.GDP.MKTP.CD?format=json
+```
+
+This request retrieves Iran's GDP series from the World Bank's public API. APIs are the backbone of programmatic OSINT collection (Week 2): social-media platforms, financial data providers, flight- and vessel-tracking services, and government open-data portals all expose APIs that let analysts pull current data automatically and repeatably rather than by hand.
+
+## Software Discussed in This Course
+
+The table below inventories the major tools introduced across IA 240 — what each does, the kind of data it operates on, and where it appears in the course.
+
+| Software / Tool | What It Does | Type of Data It Uses | Example in This Course |
+|---|---|---|---|
+| **Microsoft Excel** | Enter, clean, compute, and chart small datasets; pivot tables | Small structured/tabular data | Reasoning about the NFL receiver dataset (Week 4); drafting a data dictionary |
+| **SQL** (SQLite, PostgreSQL) | Query and join records in relational databases | Structured relational tables with keys | Filtering and joining conflict-event tables (this week) |
+| **R** (tidyverse, ggplot2) | Statistical computing, EDA, modeling, visualization | Structured/tabular data; text | Descriptive statistics and hypothesis testing (Week 7); regression (Week 8) |
+| **Python** (pandas, scikit-learn) | General-purpose analysis, automation, ML, API calls | Structured, text, and image data | Machine-learning classification and NLP (Week 9) |
+| **Julia** | High-performance numerical and scientific computing | Numeric/structured data | Listed among core languages for computation at scale (Week 3) |
+| **NetLogo** | Agent-based modeling environment | Agent rules + synthetic environment | Schelling segregation and insurgency ABMs (Week 10) |
+| **Mesa / Repast** | Code frameworks for larger agent-based models | Agent rules / synthetic data | Building an ABM in Python or Java (Week 10) |
+| **Gephi** | Network visualization and metrics (centrality, communities) | Network/graph data (nodes & edges) | Visualizing a covert network (Week 11) |
+| **NetworkX / igraph / statnet** | Programmatic social network analysis | Network/graph data | Computing centrality on the 9/11 network (Week 11) |
+| **Maltego** | OSINT link analysis and entity mapping | Entities and relationships (OSINT) | Mapping relationships from open sources (Week 11) |
+| **Palantir Gotham** | Enterprise data integration; network and timeline analysis | Fused multi-source (structured + unstructured) | IC-scale integration and link analysis (Weeks 9, 11) |
+| **i2 Analyst's Notebook** | Link and timeline charting for investigations | Entities, relationships, events | Charting relationships and time-slicing a network (Week 11) |
+| **GIS** (ArcGIS, QGIS) | Store, analyze, and map spatial data; overlay and spatial statistics | Geospatial vector and raster data | Hot-spot analysis of conflict events (Week 12) |
+| **Google Earth** | Explore imagery and geospatial data; geolocation | Satellite/aerial imagery + geospatial data | Open-source geolocation of a photo (Weeks 2, 12) |
+
+::: {.callout-tip}
+## A Pattern Worth Noticing
+Read down the "Type of Data" column and the course's logic reappears: the *scale of measurement* and *structure* of your data (Parts I–II) largely dictate which tool is appropriate. Tabular data goes to spreadsheets, databases, R, or Python; relational data to SQL; network data to Gephi or NetworkX; spatial data to GIS. Choosing a tool is, in part, a statement about what kind of data you believe you have.
+:::
 
 ---
 
 # Suggested Readings
 
-*All readings are journal or news articles.*
-
-Munck, G. L., & Verkuilen, J. (2002). Conceptualizing and measuring democracy: Evaluating alternative indices. *Comparative Political Studies*, *35*(1), 5–34. <https://doi.org/10.1177/001041400203500101>
+Munck, G. L., & Verkuilen, J. (2002). Conceptualizing and measuring democracy: Evaluating alternative indices. *Comparative Political Studies*, *35*(1), 5–34. [Access via JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_proquest_journals_206668294)
 
 > The definitive methodological critique of democracy indices. Evaluates twelve indices on conceptualization, measurement, and aggregation criteria. Essential reading before using any composite political index.
 
-Raleigh, C., Linke, A., Hegre, H., & Karlsen, J. (2010). Introducing ACLED: An armed conflict location and event dataset. *Journal of Peace Research*, *47*(5), 651–660. <https://doi.org/10.1177/0022343310378914>
+Raleigh, C., Linke, A., Hegre, H., & Karlsen, J. (2010). Introducing ACLED: An armed conflict location and event dataset. *Journal of Peace Research*, *47*(5), 651–660. [Access via JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_sage_journals_10_1177_0022343310378914)
 
 > The original ACLED paper — describes the dataset's design, coding rules, and intended use cases.
 
-Wickham, H. (2014). Tidy data. *Journal of Statistical Software*, *59*(10), 1–23. <https://doi.org/10.18637/jss.v059.i10>
+Wickham, H. (2014). Tidy data. *Journal of Statistical Software*, *59*(10), 1–23. [Access via JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_crossref_primary_10_18637_jss_v059_i10)
 
 > Defines tidy data structure principles — one observation per row, one variable per column. Directly applicable to the database structure and SQL content in this lecture.
 
-Lazer, D., & Radford, J. (2017). Data ex machina: Introduction to big data. *Annual Review of Sociology*, *43*, 19–39. <https://doi.org/10.1146/annurev-soc-060116-053457>
+Lazer, D., & Radford, J. (2017). Data ex machina: Introduction to big data. *Annual Review of Sociology*, *43*, 19–39. [Access via JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_annualreviews_primary_10_1146_annurev_soc_060116_053457)
 
 > Covers web scraping, APIs, administrative records, and digital trace data — and the systematic biases that large-scale digital data introduces.
 
-Leetaru, K., & Schrodt, P. A. (2013). GDELT: Global data on events, location, and tone, 1979–2012. *International Studies Association Annual Convention*. <https://doi.org/10.5281/zenodo.54305>
+Leetaru, K., & Schrodt, P. A. (2013). GDELT: Global data on events, location, and tone, 1979–2012. *International Studies Association Annual Convention*. [Access online](http://data.gdeltproject.org/documentation/ISA.2013.GDELT.pdf)
 
 > Documents the GDELT event database — a large-scale event dataset constructed from media sources using automated extraction, illustrating practical data collection at scale.

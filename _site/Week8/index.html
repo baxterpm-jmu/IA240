@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Week 8: Data Modeling: Regression and Model Evaluation – IA 240: Technology Applications in a Networked World</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-d6fbb5bfb24a4f1906c428146fc3bdde.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-372172bdf95b76f2693523edf8cf275f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">IA 240: Technology Applications in a Networked World</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-weekly-materials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Weekly Materials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-weekly-materials">    
+        <li>
+    <a class="dropdown-item" href="../Week1/index.html">
+ <span class="dropdown-text">Week 1: Technology and the Intelligence Cycle</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week2/index.html">
+ <span class="dropdown-text">Week 2: Data Types, Sources, and Collection Methods</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week3/index.html">
+ <span class="dropdown-text">Week 3: Introduction to Data Science and the Analytical Workflow</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week4/index.html">
+ <span class="dropdown-text">Week 4: Research Design and Finding Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week5/index.html">
+ <span class="dropdown-text">Week 5: Probability and Uncertainty in Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week6/index.html">
+ <span class="dropdown-text">Week 6: Data Structures, Databases, and Computational Tools</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week7/index.html">
+ <span class="dropdown-text">Week 7: Descriptive Statistics, EDA, and Hypothesis Testing (and Fall Break!)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week8/index.html">
+ <span class="dropdown-text">Week 8: Data Modeling: Regression and Model Evaluation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week9/index.html">
+ <span class="dropdown-text">Week 9: Machine Learning and Natural Language Processing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week10/index.html">
+ <span class="dropdown-text">Week 10: Systems Thinking and Agent-Based Modeling</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week11/index.html">
+ <span class="dropdown-text">Week 11: Social Network Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week12/index.html">
+ <span class="dropdown-text">Week 12: Geospatial and GEOINT Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week13/index.html">
+ <span class="dropdown-text">Week 13: Principles of Data Visualization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week15/index.html">
+ <span class="dropdown-text">Week 15: Communicating Analysis</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#part-i-analytical-approaches-and-their-intelligence-applications" id="toc-part-i-analytical-approaches-and-their-intelligence-applications" class="nav-link active" data-scroll-target="#part-i-analytical-approaches-and-their-intelligence-applications">Part I: Analytical Approaches and Their Intelligence Applications</a></li>
+  <li><a href="#part-ii-the-need-for-models" id="toc-part-ii-the-need-for-models" class="nav-link" data-scroll-target="#part-ii-the-need-for-models">Part II: The Need for Models</a>
+  <ul class="collapse">
+  <li><a href="#why-model" id="toc-why-model" class="nav-link" data-scroll-target="#why-model">Why Model?</a></li>
+  </ul></li>
+  <li><a href="#part-iii-choosing-a-modeling-approach" id="toc-part-iii-choosing-a-modeling-approach" class="nav-link" data-scroll-target="#part-iii-choosing-a-modeling-approach">Part III: Choosing a Modeling Approach</a>
+  <ul class="collapse">
+  <li><a href="#match-the-model-to-the-problem" id="toc-match-the-model-to-the-problem" class="nav-link" data-scroll-target="#match-the-model-to-the-problem">Match the Model to the Problem</a></li>
+  <li><a href="#variable-type-and-model-selection" id="toc-variable-type-and-model-selection" class="nav-link" data-scroll-target="#variable-type-and-model-selection">Variable Type and Model Selection</a></li>
+  </ul></li>
+  <li><a href="#part-iv-multiple-regression-analysis" id="toc-part-iv-multiple-regression-analysis" class="nav-link" data-scroll-target="#part-iv-multiple-regression-analysis">Part IV: Multiple Regression Analysis</a>
+  <ul class="collapse">
+  <li><a href="#what-is-multiple-regression" id="toc-what-is-multiple-regression" class="nav-link" data-scroll-target="#what-is-multiple-regression">What is Multiple Regression?</a></li>
+  <li><a href="#regression-modeling-steps" id="toc-regression-modeling-steps" class="nav-link" data-scroll-target="#regression-modeling-steps">Regression Modeling Steps</a></li>
+  <li><a href="#design-requirements" id="toc-design-requirements" class="nav-link" data-scroll-target="#design-requirements">Design Requirements</a></li>
+  <li><a href="#assumptions" id="toc-assumptions" class="nav-link" data-scroll-target="#assumptions">Assumptions</a></li>
+  <li><a href="#evaluating-model-fit" id="toc-evaluating-model-fit" class="nav-link" data-scroll-target="#evaluating-model-fit">Evaluating Model Fit</a></li>
+  <li><a href="#multicollinearity" id="toc-multicollinearity" class="nav-link" data-scroll-target="#multicollinearity">Multicollinearity</a></li>
+  </ul></li>
+  <li><a href="#part-v-logistic-regression" id="toc-part-v-logistic-regression" class="nav-link" data-scroll-target="#part-v-logistic-regression">Part V: Logistic Regression</a>
+  <ul class="collapse">
+  <li><a href="#why-not-linear-regression-for-binary-outcomes" id="toc-why-not-linear-regression-for-binary-outcomes" class="nav-link" data-scroll-target="#why-not-linear-regression-for-binary-outcomes">Why Not Linear Regression for Binary Outcomes?</a></li>
+  <li><a href="#the-logistic-sigmoid-function" id="toc-the-logistic-sigmoid-function" class="nav-link" data-scroll-target="#the-logistic-sigmoid-function">The Logistic (Sigmoid) Function</a></li>
+  <li><a href="#interpreting-coefficients" id="toc-interpreting-coefficients" class="nav-link" data-scroll-target="#interpreting-coefficients">Interpreting Coefficients</a></li>
+  <li><a href="#model-comparison" id="toc-model-comparison" class="nav-link" data-scroll-target="#model-comparison">Model Comparison</a></li>
+  <li><a href="#multinomial-logistic-regression" id="toc-multinomial-logistic-regression" class="nav-link" data-scroll-target="#multinomial-logistic-regression">Multinomial Logistic Regression</a></li>
+  </ul></li>
+  <li><a href="#part-vi-bridge-to-machine-learning" id="toc-part-vi-bridge-to-machine-learning" class="nav-link" data-scroll-target="#part-vi-bridge-to-machine-learning">Part VI: Bridge to Machine Learning</a>
+  <ul class="collapse">
+  <li><a href="#ml-vs.-statistical-models" id="toc-ml-vs.-statistical-models" class="nav-link" data-scroll-target="#ml-vs.-statistical-models">ML vs.&nbsp;Statistical Models</a></li>
+  </ul></li>
+  <li><a href="#part-vii-model-evaluation-metrics" id="toc-part-vii-model-evaluation-metrics" class="nav-link" data-scroll-target="#part-vii-model-evaluation-metrics">Part VII: Model Evaluation Metrics</a>
+  <ul class="collapse">
+  <li><a href="#beyond-accuracy-how-to-evaluate-a-classifier" id="toc-beyond-accuracy-how-to-evaluate-a-classifier" class="nav-link" data-scroll-target="#beyond-accuracy-how-to-evaluate-a-classifier">Beyond Accuracy: How to Evaluate a Classifier</a></li>
+  <li><a href="#the-confusion-matrix" id="toc-the-confusion-matrix" class="nav-link" data-scroll-target="#the-confusion-matrix">The Confusion Matrix</a></li>
+  <li><a href="#the-roc-curve-and-auc" id="toc-the-roc-curve-and-auc" class="nav-link" data-scroll-target="#the-roc-curve-and-auc">The ROC Curve and AUC</a></li>
+  <li><a href="#train-test-split-and-cross-validation" id="toc-train-test-split-and-cross-validation" class="nav-link" data-scroll-target="#train-test-split-and-cross-validation">Train-Test Split and Cross-Validation</a></li>
+  </ul></li>
+  <li><a href="#suggested-readings" id="toc-suggested-readings" class="nav-link" data-scroll-target="#suggested-readings">Suggested Readings</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Week 8: Data Modeling: Regression and Model Evaluation</h1>
+<p class="subtitle lead">IA 240: Technology Applications in a Networked World</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Models are deliberate simplifications that make data interpretable. This lecture covers the principal modeling frameworks available to intelligence analysts: from regression and classification to model evaluation metrics. The emphasis is on matching the right model to the analytical question, evaluating model performance rigorously, and understanding the assumptions and failure modes of each approach. The lecture concludes with a conceptual bridge to machine learning, covered in depth in Lecture 10.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Required Reading Before Tuesday Class
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>1. Felix Salmon, <a href="https://www.wired.com/2009/02/wp-quant/">“Recipe for Disaster: The Formula That Killed Wall Street,”</a> <em>Wired</em> (February 23, 2009).</strong></p>
+<p>The Gaussian copula let banks model correlated mortgage-default risk with one elegant formula — until the assumption baked into it (that the recent past predicted the future) broke, and the model that was supposed to measure risk instead hid it.</p>
+<p><em>As you read, consider:</em></p>
+<ul>
+<li>Every model encodes assumptions. What was the load-bearing assumption here, and how could an analyst have surfaced it <em>before</em> the model failed?</li>
+<li>The formula was useful for years before it was catastrophic. How do you evaluate a model that works right up until it doesn’t?</li>
+</ul>
+<p><strong>2. “Google Flu Trends Failure Shows the Problems of Big Data,” <a href="https://time.com/23782/google-flu-trends-big-data-problems/"><em>Time</em></a>.</strong></p>
+<p>Google’s flu-prediction model beat the CDC at first, then over-predicted flu in 100 of 108 weeks by latching onto seasonal search terms that correlated with the flu only by chance — a clean lesson in overfitting and model drift.</p>
+<p><em>As you read, consider:</em></p>
+<ul>
+<li>With 50 million candidate search terms, some correlate with flu purely by chance. How does that produce overfitting, and how would you test for it?</li>
+<li>The model degraded as the world changed around it. What does this say about validating a model once versus monitoring it over time?</li>
+</ul>
+</div>
+</div>
+<div class="learning-objectives">
+<div class="learning-objectives-header">
+<span class="learning-objectives-icon">✓</span>
+<p class="learning-objectives-title">
+Learning Objectives
+</p>
+</div>
+<p class="learning-objectives-intro">
+By the end of this lecture, you should be able to:
+</p>
+<ul>
+<li>Understand the fundamentals of data modeling and its importance in extracting insights and making predictions from data.</li>
+<li>Explore different types of modeling techniques, including regression, classification, clustering, and time series analysis.</li>
+<li>Learn how to choose appropriate modeling techniques based on the nature of the data and research objectives.</li>
+<li>Develop skills in data preprocessing and cleaning to ensure data quality and suitability for modeling tasks.</li>
+</ul>
+</div>
+<section id="part-i-analytical-approaches-and-their-intelligence-applications" class="level1">
+<h1>Part I: Analytical Approaches and Their Intelligence Applications</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Approach</th>
+<th>Core Function</th>
+<th>Intelligence Applications</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Statistical Analysis</strong></td>
+<td>Pattern detection in structured data</td>
+<td>Identifying correlations between conflict indicators and escalation; economic forecasting</td>
+</tr>
+<tr class="even">
+<td><strong>Geospatial Analysis</strong></td>
+<td>Spatial correlations, clustering, hotspot mapping</td>
+<td>Tracking facility construction, conflict event distribution, refugee movements</td>
+</tr>
+<tr class="odd">
+<td><strong>Network Analysis</strong></td>
+<td>Mapping key actors and relationships</td>
+<td>Terrorist network structure, financial flows, illicit procurement chains</td>
+</tr>
+<tr class="even">
+<td><strong>Text &amp; Sentiment Analysis</strong></td>
+<td>Extracting meaning from unstructured text</td>
+<td>Foreign media monitoring, social media sentiment, document exploitation</td>
+</tr>
+<tr class="odd">
+<td><strong>Machine Learning</strong></td>
+<td>Anomaly detection and predictive assessment</td>
+<td>Flagging suspicious transactions, classifying imagery, predicting conflict onset</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="part-ii-the-need-for-models" class="level1">
+<h1>Part II: The Need for Models</h1>
+<section id="why-model" class="level2">
+<h2 class="anchored" data-anchor-id="why-model">Why Model?</h2>
+<blockquote class="blockquote">
+<p>“All models are wrong, but some are useful.” — George Box</p>
+</blockquote>
+<p>Data is never the world itself—it is a trace of the world, filtered through collection processes that introduce their own noise and distortions. Models are deliberate simplifications that make data interpretable.</p>
+<p>There are two fundamental sources of uncertainty in any dataset:</p>
+<ol type="1">
+<li><strong>Process randomness:</strong> the underlying phenomenon itself contains randomness (e.g., when exactly a volcano will erupt)</li>
+<li><strong>Measurement uncertainty:</strong> our instruments, sensors, and collection methods introduce noise and error</li>
+</ol>
+<p>A statistical model is a mathematical function that separates signal from noise—it represents the systematic patterns in the data while acknowledging that residual variation exists and is unmodeled.</p>
+<hr>
+</section>
+</section>
+<section id="part-iii-choosing-a-modeling-approach" class="level1">
+<h1>Part III: Choosing a Modeling Approach</h1>
+<section id="match-the-model-to-the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="match-the-model-to-the-problem">Match the Model to the Problem</h2>
+<p>Different problems require different modeling approaches. The nature of your outcome variable (dependent variable) and the goal of the analysis are the primary determinants:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Approach</th>
+<th>Goal</th>
+<th>DV Type</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Regression</strong></td>
+<td>Predict a continuous outcome</td>
+<td>Continuous/Ratio</td>
+<td>Estimating GDP, forecasting temperature, predicting casualties</td>
+</tr>
+<tr class="even">
+<td><strong>Classification</strong></td>
+<td>Predict a category</td>
+<td>Nominal/Binary</td>
+<td>Spam vs.&nbsp;not spam; conflict onset vs.&nbsp;no conflict; weapon type identification</td>
+</tr>
+<tr class="odd">
+<td><strong>Clustering</strong></td>
+<td>Discover groups</td>
+<td>None (unsupervised)</td>
+<td>Segmenting states by behavior, detecting anomalous financial accounts</td>
+</tr>
+<tr class="even">
+<td><strong>Time Series Analysis</strong></td>
+<td>Analyze ordered temporal data</td>
+<td>Continuous over time</td>
+<td>Stock prices, conflict event rates, satellite signal patterns</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="variable-type-and-model-selection" class="level2">
+<h2 class="anchored" data-anchor-id="variable-type-and-model-selection">Variable Type and Model Selection</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>DV Variable Type</th>
+<th>Appropriate Statistical Models</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Nominal</strong></td>
+<td>Chi-square tests, Logistic Regression (Multinomial), Log-linear models</td>
+</tr>
+<tr class="even">
+<td><strong>Ordinal</strong></td>
+<td>Ordinal Logistic Regression, Non-parametric tests (Kruskal-Wallis, Mann-Whitney U), Cumulative link models</td>
+</tr>
+<tr class="odd">
+<td><strong>Interval / Ratio</strong></td>
+<td>Linear Regression, ANOVA, Multiple Regression, Factor Analysis, ANCOVA</td>
+</tr>
+<tr class="even">
+<td><strong>Continuous</strong></td>
+<td>Linear Regression, GLM, Pearson’s Correlation, T-tests</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="part-iv-multiple-regression-analysis" class="level1">
+<h1>Part IV: Multiple Regression Analysis</h1>
+<section id="what-is-multiple-regression" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-multiple-regression">What is Multiple Regression?</h2>
+<p>Multiple regression models the relationship between one <strong>dependent variable</strong> (DV) and two or more <strong>independent variables</strong> (IVs). The goal is to build a statistical model that:</p>
+<ul>
+<li><strong>Predicts</strong> values of the DV based on observed IVs</li>
+<li><strong>Estimates</strong> the contribution of each IV while controlling for the others</li>
+<li><strong>Measures effects</strong> in a way that isolates each variable’s unique contribution</li>
+</ul>
+<p>The general linear model:</p>
+<p><span class="math display">\[Y = \alpha + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_k X_k + \varepsilon\]</span></p>
+<p>where <span class="math inline">\(\alpha\)</span> is the intercept, each <span class="math inline">\(\beta_i\)</span> is the slope (partial regression coefficient) for variable <span class="math inline">\(X_i\)</span>, and <span class="math inline">\(\varepsilon\)</span> is the residual error.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Interpreting Partial Regression Coefficients
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\beta_i\)</span> represents the expected unit change in Y for a one-unit increase in <span class="math inline">\(X_i\)</span>, <em>holding all other variables constant</em>. This “net regression coefficient” is the fundamental advantage of multiple regression over simple regression: it controls for the influence of other variables.</p>
+</div>
+</div>
+</section>
+<section id="regression-modeling-steps" class="level2">
+<h2 class="anchored" data-anchor-id="regression-modeling-steps">Regression Modeling Steps</h2>
+<ol type="1">
+<li>Define the problem or question</li>
+<li>Specify the model (select IVs based on theory and prior research)</li>
+<li>Collect and clean data</li>
+<li>Conduct descriptive data analysis (EDA)</li>
+<li>Estimate model parameters (using OLS, MLE, or another estimator)</li>
+<li>Evaluate model fit and assumptions</li>
+<li>Use model for prediction or inference</li>
+</ol>
+</section>
+<section id="design-requirements" class="level2">
+<h2 class="anchored" data-anchor-id="design-requirements">Design Requirements</h2>
+<ul>
+<li><strong>One dependent variable</strong> (criterion)</li>
+<li><strong>Two or more independent variables</strong> (predictors)</li>
+<li><strong>Sample size:</strong> at minimum 50 observations, with at least 10 cases per independent variable (so 10 IVs → need 100+ observations)</li>
+</ul>
+</section>
+<section id="assumptions" class="level2">
+<h2 class="anchored" data-anchor-id="assumptions">Assumptions</h2>
+<div class="key-terms">
+<div class="{dl}">
+<dl>
+<dt>Independence</dt>
+<dd>
+Observations are independent of each other. Violated by time series data, clustered data (students within schools), or repeated measures without correction.
+</dd>
+<dt>Normality</dt>
+<dd>
+In the population, the dependent variable is approximately normally distributed for each combination of IV values. Less critical with large samples due to the Central Limit Theorem.
+</dd>
+<dt>Homoscedasticity</dt>
+<dd>
+The variance of residuals is constant across all levels of the IVs. Violated when errors are larger for some values of X than others (e.g., variance in income increases at higher income levels).
+</dd>
+<dt>Linearity</dt>
+<dd>
+The relationship between the DV and each IV is linear when all other IVs are held constant. Non-linear relationships require polynomial terms or non-linear models.
+</dd>
+</dl>
+</div>
+</div>
+</section>
+<section id="evaluating-model-fit" class="level2">
+<h2 class="anchored" data-anchor-id="evaluating-model-fit">Evaluating Model Fit</h2>
+<ul>
+<li><strong>R²:</strong> The proportion of variance in Y explained by the model. R² = 0.60 means the model accounts for 60% of variation in the outcome.</li>
+<li><strong>Adjusted R²:</strong> Penalizes for adding variables that do not improve fit. Always use adjusted R² when comparing models with different numbers of predictors.</li>
+<li><strong>F-test (ANOVA table):</strong> Tests whether the overall model explains significantly more variance than a null model with no predictors.</li>
+<li><strong>t-tests for individual coefficients:</strong> Tests whether each <span class="math inline">\(\beta_i\)</span> differs significantly from zero.</li>
+<li><strong>Residual analysis:</strong> Plot residuals vs.&nbsp;fitted values (checking homoscedasticity), Q-Q plot (checking normality), residuals vs.&nbsp;each IV (detecting nonlinearity).</li>
+</ul>
+</section>
+<section id="multicollinearity" class="level2">
+<h2 class="anchored" data-anchor-id="multicollinearity">Multicollinearity</h2>
+<p><strong>Multicollinearity</strong> occurs when IVs are highly correlated with each other. Consequences:</p>
+<ul>
+<li>Coefficient estimates become unstable and sensitive to which variables are included</li>
+<li>Standard errors inflate, reducing statistical power</li>
+<li>Interpretation becomes difficult—coefficients reflect the combined effect of correlated predictors</li>
+</ul>
+<p><strong>Detection:</strong> Examine the correlation matrix between IVs. Variance Inflation Factor (VIF) &gt; 10 indicates problematic multicollinearity.</p>
+<p><strong>Solutions:</strong> remove one of the correlated variables; combine them into a composite index; collect new data with greater variation in predictors.</p>
+<hr>
+</section>
+</section>
+<section id="part-v-logistic-regression" class="level1">
+<h1>Part V: Logistic Regression</h1>
+<section id="why-not-linear-regression-for-binary-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="why-not-linear-regression-for-binary-outcomes">Why Not Linear Regression for Binary Outcomes?</h2>
+<p>When the dependent variable is binary (0/1, Yes/No), linear regression produces predictions outside the [0,1] probability range and violates normality and homoscedasticity assumptions. The solution is <strong>logistic regression</strong>.</p>
+</section>
+<section id="the-logistic-sigmoid-function" class="level2">
+<h2 class="anchored" data-anchor-id="the-logistic-sigmoid-function">The Logistic (Sigmoid) Function</h2>
+<p>Logistic regression models the log-odds of the outcome as a linear function of the IVs:</p>
+<p><span class="math display">\[\ln\left(\frac{P(Y=1)}{1-P(Y=1)}\right) = \alpha + \beta_1 X_1 + \cdots + \beta_k X_k\]</span></p>
+<p>The predicted log-odds are then transformed back to a probability through the logistic function:</p>
+<p><span class="math display">\[P(Y=1) = \frac{e^{\alpha + \beta_1 X_1 + \cdots}}{1 + e^{\alpha + \beta_1 X_1 + \cdots}}\]</span></p>
+<p>This constrains predictions to (0, 1) regardless of IV values—solving the out-of-range problem.</p>
+</section>
+<section id="interpreting-coefficients" class="level2">
+<h2 class="anchored" data-anchor-id="interpreting-coefficients">Interpreting Coefficients</h2>
+<p>Logistic regression coefficients are in <strong>log-odds units</strong>. A coefficient of <span class="math inline">\(\beta_i = 1.48\)</span> for a binary variable means: - The log-odds of <span class="math inline">\(Y=1\)</span> increase by 1.48 for a one-unit increase in <span class="math inline">\(X_i\)</span> - Equivalently: the odds of <span class="math inline">\(Y=1\)</span> are multiplied by <span class="math inline">\(e^{1.48} \approx 4.39\)</span> for a one-unit increase in <span class="math inline">\(X_i\)</span></p>
+</section>
+<section id="model-comparison" class="level2">
+<h2 class="anchored" data-anchor-id="model-comparison">Model Comparison</h2>
+<p>For logistic regression, model comparison uses the <strong>likelihood-ratio test</strong> rather than changes in R²: - Compute the log-likelihood for two nested models - The difference in log-likelihoods follows a chi-square distribution - A statistically significant improvement in log-likelihood justifies including the added variable</p>
+</section>
+<section id="multinomial-logistic-regression" class="level2">
+<h2 class="anchored" data-anchor-id="multinomial-logistic-regression">Multinomial Logistic Regression</h2>
+<p>When the outcome has more than two categories (e.g., preferred mode of transport: car, bus, train, bicycle), <strong>multinomial logistic regression</strong> extends the binary case by estimating the log-odds of each category relative to a chosen baseline.</p>
+<hr>
+<hr>
+</section>
+</section>
+<section id="part-vi-bridge-to-machine-learning" class="level1">
+<h1>Part VI: Bridge to Machine Learning</h1>
+<p>The modeling frameworks in Parts I–V — regression, classification, model evaluation — provide the statistical foundation for understanding machine learning. ML methods extend these principles to high-dimensional data, complex non-linear relationships, and large-scale prediction tasks. The next lecture (Lecture 10) covers ML methods in depth; this section introduces the conceptual distinction.</p>
+<section id="ml-vs.-statistical-models" class="level2">
+<h2 class="anchored" data-anchor-id="ml-vs.-statistical-models">ML vs.&nbsp;Statistical Models</h2>
+<div class="col-pair">
+<div class="col-left">
+<p><strong>Statistical Models</strong></p>
+<ul>
+<li>Goal: understand the underlying generative process</li>
+<li>“White box” — coefficients have interpretable meaning</li>
+<li>Concerned with uncertainty quantification (standard errors, confidence intervals)</li>
+<li>Better for causal inference and hypothesis testing</li>
+<li>Output includes inference about parameters and their significance</li>
+</ul>
+</div>
+<div class="col-right">
+<p><strong>Machine Learning Algorithms</strong></p>
+<ul>
+<li>Goal: maximize predictive accuracy</li>
+<li>Often “black box” — internal workings are opaque</li>
+<li>Less concerned with understanding the generative process</li>
+<li>Suited for high-dimensional data and large samples</li>
+<li>Output is a prediction or classification, not a parameter estimate</li>
+</ul>
+</div>
+</div>
+<p>The choice between statistical and ML approaches is not “which is better” — it depends on whether the analytical goal is <em>understanding</em> (statistical modeling) or <em>prediction</em> (ML). Intelligence analysts often need both: ML to flag anomalies at scale, statistical modeling to explain and justify findings to consumers.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>When to Use Each
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use statistical regression when: the outcome has clear theoretical predictors, sample sizes are moderate, and the consumer needs to understand <em>why</em> the model predicts what it predicts.</p>
+<p>Use machine learning when: prediction accuracy is the primary goal, the feature space is large and complex, labeled training data is available, and interpretability can be traded for performance.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-vii-model-evaluation-metrics" class="level1">
+<h1>Part VII: Model Evaluation Metrics</h1>
+<section id="beyond-accuracy-how-to-evaluate-a-classifier" class="level2">
+<h2 class="anchored" data-anchor-id="beyond-accuracy-how-to-evaluate-a-classifier">Beyond Accuracy: How to Evaluate a Classifier</h2>
+<p>When a model predicts a binary outcome (conflict/no-conflict; threat/no-threat; spam/not-spam), <strong>accuracy</strong> — the percentage of correct predictions — is often a misleading metric. A model that predicts “no attack” for every observation in a terrorism dataset would be highly accurate (since attacks are rare) but analytically worthless.</p>
+</section>
+<section id="the-confusion-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="the-confusion-matrix">The Confusion Matrix</h2>
+<p>The confusion matrix maps predicted vs.&nbsp;actual outcomes:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Predicted Positive</strong></th>
+<th><strong>Predicted Negative</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actual Positive</strong></td>
+<td>True Positive (TP)</td>
+<td>False Negative (FN) — Type II Error</td>
+</tr>
+<tr class="even">
+<td><strong>Actual Negative</strong></td>
+<td>False Positive (FP) — Type I Error</td>
+<td>True Negative (TN)</td>
+</tr>
+</tbody>
+</table>
+<p>From these four cells, the key metrics:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Formula</th>
+<th>Intelligence Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Accuracy</strong></td>
+<td>(TP + TN) / Total</td>
+<td>Overall correct predictions</td>
+</tr>
+<tr class="even">
+<td><strong>Precision</strong></td>
+<td>TP / (TP + FP)</td>
+<td>When model says “attack,” how often is it right?</td>
+</tr>
+<tr class="odd">
+<td><strong>Recall (Sensitivity)</strong></td>
+<td>TP / (TP + FN)</td>
+<td>Of all actual attacks, how many did the model catch?</td>
+</tr>
+<tr class="even">
+<td><strong>F1 Score</strong></td>
+<td>2 × (Precision × Recall) / (Precision + Recall)</td>
+<td>Harmonic mean of precision and recall</td>
+</tr>
+<tr class="odd">
+<td><strong>Specificity</strong></td>
+<td>TN / (TN + FP)</td>
+<td>Of actual negatives, how many did the model correctly classify?</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The precision-recall tradeoff:</strong></p>
+<p>Lowering the classification threshold (flagging more cases as positive) increases recall but decreases precision — more true threats caught, more false alarms generated. Raising the threshold does the reverse. The optimal balance depends entirely on the cost ratio between false positives and false negatives — a decision that must be made by the analyst and consumer, not the algorithm.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Intelligence-Specific Threshold Setting
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In an intelligence context, the cost of a false negative (missing an actual attack) vastly exceeds the cost of a false positive (investigating an innocent party) for most applications. This asymmetry should drive threshold setting toward high recall / lower precision. But there are contexts where false positives carry very high costs — air strike targeting, no-fly list additions, lethal autonomous weapons systems. Threshold setting is an ethical and policy decision, not a technical one.</p>
+</div>
+</div>
+</section>
+<section id="the-roc-curve-and-auc" class="level2">
+<h2 class="anchored" data-anchor-id="the-roc-curve-and-auc">The ROC Curve and AUC</h2>
+<p>The <strong>Receiver Operating Characteristic (ROC)</strong> curve plots True Positive Rate (recall) against False Positive Rate (1 − specificity) at every possible threshold. The <strong>Area Under the Curve (AUC)</strong> summarizes model performance across all thresholds:</p>
+<ul>
+<li>AUC = 1.0: perfect classifier</li>
+<li>AUC = 0.5: no better than random</li>
+<li>AUC &lt; 0.5: worse than random (predictions are inverted)</li>
+</ul>
+<p>AUC is threshold-independent, making it useful for comparing models before deciding where to set the operational threshold.</p>
+</section>
+<section id="train-test-split-and-cross-validation" class="level2">
+<h2 class="anchored" data-anchor-id="train-test-split-and-cross-validation">Train-Test Split and Cross-Validation</h2>
+<p>A model that performs well on the data it was trained on may perform poorly on new data — the overfitting problem. Rigorous model evaluation requires evaluation on data the model has not seen.</p>
+<p><strong>Standard practices:</strong></p>
+<div class="col-pair">
+<div class="col-left">
+<p><strong>Train-test split</strong></p>
+<p>Divide data into training set (typically 70–80%) and held-out test set (20–30%). Train the model on the training set; evaluate performance <em>only</em> on the test set. Never use the test set for model development decisions — only for final evaluation.</p>
+<p><strong>Validation set</strong></p>
+<p>If hyperparameter tuning is needed, add a third partition (validation set) between training and final testing. Training set: fit; validation set: tune; test set: evaluate.</p>
+</div>
+<div class="col-right">
+<p><strong>k-Fold Cross-Validation</strong></p>
+<p>Divide data into k equal folds. Train on k−1 folds, evaluate on the held-out fold. Repeat k times (each fold serves as the test set once). Average performance across folds. More robust than a single split, particularly with small datasets.</p>
+<p><strong>Temporal holdout for time-series data</strong></p>
+<p>In conflict or financial forecasting, always hold out the most <em>recent</em> observations for testing — never random observations. Future data cannot be used to predict past events; temporal ordering must be preserved.</p>
+</div>
+</div>
+<hr>
+<hr>
+</section>
+</section>
+<section id="suggested-readings" class="level1">
+<h1>Suggested Readings</h1>
+<p><em>All readings are journal or news articles.</em></p>
+<p>Rudin, C. (2019). Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead. <em>Nature Machine Intelligence</em>, <em>1</em>(5), 206–215. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_crossref_primary_10_1038_s42256_019_0048_x">Access via the JMU Library</a></p>
+<blockquote class="blockquote">
+<p>Argues that in high-stakes applications, interpretable models should be prioritized. Directly relevant to the model selection framework — and the bridge to machine learning methods in Lecture 10.</p>
+</blockquote>
+<p>Obermeyer, Z., Powers, B., Vogeli, C., &amp; Mullainathan, S. (2019). Dissecting racial bias in an algorithm used to manage the health of populations. <em>Science</em>, <em>366</em>(6464), 447–453. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_crossref_primary_10_1126_science_aax2342">Access via the JMU Library</a></p>
+<blockquote class="blockquote">
+<p>Documents how a deployed risk algorithm encoded systematic bias through proxy variable selection. A methodological template for auditing models for discriminatory outcomes.</p>
+</blockquote>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

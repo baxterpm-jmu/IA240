@@ -5,6 +5,44 @@ subtitle: "IA 240: Technology Applications in a Networked World"
 
 Intelligence analysts do not collect data randomly — they collect it systematically according to recognized disciplines, apply criteria for evaluating source quality, and understand that all data has provenance that shapes its reliability. This lecture covers intelligence collection disciplines (HUMINT through GEOINT), open data sources, source credibility frameworks, and the structural challenges of data collection including what data systematically fails to capture.
 
+::: {.callout-important}
+## Required Reading Before Tuesday Class
+
+**1. Amy Zegart, ["Open Secrets: Ukraine and the Next Intelligence Revolution,"](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_gale_onefilemisc_PPPM_A750691749) *Foreign Affairs* (January/February 2023).**
+
+*As you read, consider:*
+
+- If open sources can now rival classified collection, what unique value, if any, do the secret disciplines (HUMINT, SIGINT) still provide that OSINT cannot replace?
+- Zegart calls for a dedicated open-source agency. What risks or blind spots might come from institutionalizing OSINT inside the same intelligence bureaucracy built around secrecy?
+
+**2. Alex Pasternack, ["Blind Spots,"](https://www.cjr.org/feature/blind-spots-satellite-osint-open-source-middle-east-iran-blackout-planet-labs-vantor-maxar.php) *Columbia Journalism Review* (May 11, 2026).**
+
+*As you read, consider:*
+
+- When a single commercial vendor can impose a regional imagery "blackout," who effectively controls the intelligence picture — the collector, the customer, or the government? What does that mean for a source's reliability?
+- Investigators worked around the blackout using foreign satellites, SAR data, and geolocated social media. What does this improvisation reveal about the strengths and vulnerabilities of relying on any single collection source?
+:::
+
+::: {.learning-objectives}
+
+<div class="learning-objectives-header">
+  <span class="learning-objectives-icon">✓</span>
+  <p class="learning-objectives-title">Learning Objectives</p>
+</div>
+
+<p class="learning-objectives-intro">
+By the end of this lecture, you should be able to:
+</p>
+
+- Understand the concept of a database and how data is organized within it.
+- Identify different types of variables (categorical, continuous, ordinal) and their appropriate storage formats.
+- Recognize primary keys, foreign keys, and relationships between tables in a relational database.
+- Apply best practices for structuring data to facilitate analysis and maintain data integrity.
+- Evaluate how database structure impacts data querying and analytical workflows.
+
+:::
+
+
 # Part I: Intelligence Collection Methods
 
 ## IC Collection Disciplines
@@ -195,6 +233,7 @@ Unless you are working on a classified project or interning with an IC agency, y
 No single collection discipline provides a complete picture. All-source analysis fuses reporting from multiple INT disciplines to produce assessments that are stronger than any single source alone.
 
 ::: {.col-pair}
+
 ::: {.col-left}
 **Why fusion matters**
 
@@ -203,7 +242,6 @@ Each discipline has blind spots that other disciplines can cover. IMINT can show
 The Khushab plutonium reactor case (Meeting 15) is a canonical example: imagery identified construction; technical analysis of the design identified it as a heavy-water reactor suited for weapons-grade plutonium production; OSINT confirmed Pakistan had not declared the facility to the IAEA.
 :::
 
-::: {.col-right}
 ::: {.col-right}
 **Challenges in fusion**
 
@@ -391,7 +429,7 @@ LLMs are trained on massive, heterogeneous text corpora assembled from web crawl
 
 Several features of these training corpora are directly relevant to source evaluation:
 
-::: {.key-terms}
+::: {.key-terms .narrow-term-column}
 ::: {dl}
 
 Training data is largely undisclosed
@@ -600,20 +638,18 @@ A dataset's geographic and temporal coverage tells you where and when data colle
 
 # Suggested Readings
 
-*All readings are journal or news articles.*
-
-Omand, D., Bartlett, J., & Miller, C. (2012). Introducing social media intelligence (SOCMINT). *Intelligence and National Security*, *27*(6), 801–823. <https://doi.org/10.1080/02684527.2012.716965>
+Omand, D., Bartlett, J., & Miller, C. (2012). Introducing social media intelligence (SOCMINT). *Intelligence and National Security*, *27*(6), 801–823. [Access via the JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_proquest_miscellaneous_1567042187)
 
 > Introduces social media as a collection discipline, addresses legal and ethical constraints, and proposes an analytical framework. Directly relevant to both the OSINT content and the source evaluation section of this lecture.
 
-Glassman, M., & Kang, M. J. (2012). Intelligence in the internet age: The emergence and evolution of open source intelligence (OSINT). *Computers in Human Behavior*, *28*(2), 673–682. <https://doi.org/10.1016/j.chb.2011.11.014>
+Glassman, M., & Kang, M. J. (2012). Intelligence in the internet age: The emergence and evolution of open source intelligence (OSINT). *Computers in Human Behavior*, *28*(2), 673–682. [Access via the JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_crossref_citationtrail_10_1016_j_chb_2011_11_014)
 
 > Examines how the internet has transformed OSINT collection — both the opportunities (vastly more accessible information) and the challenges (volume, verification, adversarial manipulation).
 
-Metzger, M. J. (2007). Making sense of credibility on the web: Models for evaluating online information and recommendations for future research. *Journal of the American Society for Information Science and Technology*, *58*(13), 2078–2091. <https://doi.org/10.1002/asi.20672>
+Metzger, M. J. (2007). Making sense of credibility on the web: Models for evaluating online information and recommendations for future research. *Journal of the American Society for Information Science and Technology*, *58*(13), 2078–2091. [Access via the JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_pascalfrancis_primary_19242084) 
 
 > Synthesizes research on how people evaluate the credibility of online information. Directly applicable to the source credibility and internet data evaluation content in this lecture.
 
-Loftin, C., Wiersema, B., McDowall, D., & Dobrin, A. (2003). Underreporting of justifiable homicides committed by police officers in the United States, 1976–1998. *American Journal of Public Health*, *93*(7), 1117–1121. <https://doi.org/10.2105/ajph.93.7.1117>
+Loftin, C., Wiersema, B., McDowall, D., & Dobrin, A. (2003). Underreporting of justifiable homicides committed by police officers in the United States, 1976–1998. *American Journal of Public Health*, *93*(7), 1117–1121. [Access via the JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_proquest_miscellaneous_57042943) 
 
 > Empirical documentation of the dark figure problem in an authoritative official data series. The methodology — comparing official records to alternative sources to estimate the gap — is transferable to conflict, security, and economic data.

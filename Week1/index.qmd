@@ -459,18 +459,10 @@ The intelligence cycle is a teaching model, not a description of how intelligenc
 
 # Suggested Readings
 
-*All readings are journal or news articles.*
-
-Hulnick, A. S. (2006). What's wrong with the intelligence cycle. *Intelligence and National Security*, *21*(6), 959–979. <https://doi.org/10.1080/02684520601046291>
+Hulnick, A. S. (2006). What's wrong with the intelligence cycle. *Intelligence and National Security*, *21*(6), 959–979. [Via the JMU Library](https://tinyurl.com/4vathmwm)
 
 > Critiques the Intelligence Cycle as a model — argues it misrepresents how intelligence actually works, particularly the relationship between collection and analysis. Reading this alongside the standard cycle model is essential for developing a critical perspective on the framework.
 
-Clark, D. D. (1988). The design philosophy of the DARPA internet protocols. *ACM SIGCOMM Computer Communication Review*, *18*(4), 106–114. <https://doi.org/10.1145/52324.52336>
-
-> The original paper articulating the design principles of TCP/IP — the architectural foundation for the internet that transformed intelligence collection and analysis.
-
-Rowley, J. (2007). The wisdom hierarchy: Representations of the DIKW hierarchy. *Journal of Information Science*, *33*(2), 163–180. <https://doi.org/10.1177/0165551506070706>
+Rowley, J. (2007). The wisdom hierarchy: Representations of the DIKW hierarchy. *Journal of Information Science*, *33*(2), 163–180. [Via the JMU Library](https://tinyurl.com/3mwbb4nr)
 
 > Critically examines representations of the DIKW hierarchy. Identifies the distinctions between data, information, knowledge, and wisdom that are foundational to understanding what intelligence analysis adds to raw collection.
-
-Betts, R. K. (1978). Analysis, war, and decision: Why intelligence failures are inevitable. *World Politics*, *31*(1), 61–89. <https://doi.org/10.2307/2009967>

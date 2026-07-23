@@ -5,6 +5,39 @@ subtitle: "IA 240: Technology Applications in a Networked World"
 
 Intelligence analysis is fundamentally about finding meaningful patterns in complex, noisy environments. Social Network Analysis (SNA) provides the conceptual and computational vocabulary for identifying non-obvious relational structure in intelligence data — mapping covert networks, identifying key actors, and understanding how information and influence flow through connected systems.
 
+::: {.callout-important}
+## Required Reading Before Tuesday Class
+
+**Valdis Krebs, ["Uncloaking Terrorist Networks,"](http://www.orgnet.com/hijackers.html) *First Monday* / orgnet.com.**
+
+The landmark social network analysis of the 9/11 hijacker network, reconstructed entirely from public sources. Krebs maps the ties among the 19 hijackers and their accomplices, showing how central actors and tight cliques become visible — and how sensitive the picture is to missing links.
+
+*As you read, consider:*
+
+- Krebs built the map only after the attacks. What would it have taken to detect the central nodes beforehand, and why is that so hard with deliberately covert networks?
+- Centrality measures shift when a single node or tie is missing. How should an analyst caveat conclusions drawn from an admittedly incomplete network?
+:::
+
+::: {.learning-objectives}
+
+<div class="learning-objectives-header">
+  <span class="learning-objectives-icon">✓</span>
+  <p class="learning-objectives-title">Learning Objectives</p>
+</div>
+
+<p class="learning-objectives-intro">
+By the end of this lecture, you should be able to:
+</p>
+
+- Define network and relational data analysis and explain its relevance to intelligence analysis.
+- Identify key concepts in network analysis, including nodes, edges, centrality measures, and network structures.
+- Apply basic network visualization techniques to understand relationships in complex datasets.
+- Interpret network metrics to assess influence, connectivity, and potential vulnerabilities within a network.
+- Evaluate the strengths and limitations of network and relational data analysis for different intelligence applications.
+:::
+
+
+
 # Part I: Foundations of Social Network Analysis
 
 ## What is Social Network Analysis?
@@ -349,9 +382,7 @@ In Python, the `networkx` library supports temporal networks through multigraph 
 
 # Suggested Readings
 
-*All readings are journal or news articles.*
-
-Watts, D. J., & Strogatz, S. H. (1998). Collective dynamics of 'small-world' networks. *Nature*, *393*(6684), 440–442. <https://doi.org/10.1038/30918>
+Watts, D. J., & Strogatz, S. H. (1998). Collective dynamics of 'small-world' networks. *Nature*, *393*(6684), 440–442. [Access via the JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_pubmed_primary_9623998)
 
 > The small-world network paper. Foundational for understanding why even large covert networks can be highly connected through a small number of structural bottlenecks.
 
@@ -359,10 +390,10 @@ Krebs, V. E. (2002). Mapping networks of terrorist cells. *Connections*, *24*(3)
 
 > The classic application of SNA to the 9/11 network. Demonstrates the intelligence value of structural analysis over individual-level investigation.
 
-Bakker, R. M., Raab, J., & Milward, H. B. (2012). A preliminary theory of dark network resilience. *Journal of Policy Analysis and Management*, *31*(1), 33–62. <https://doi.org/10.1002/pam.20619>
+Bakker, R. M., Raab, J., & Milward, H. B. (2012). A preliminary theory of dark network resilience. *Journal of Policy Analysis and Management*, *31*(1), 33–62. [Access via the JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_istex_primary_ark_67375_WNG_Z0H5QMSG_L)
 
 > Theory of why some covert networks survive disruption — directly relevant to targeting strategy and network design.
 
-Starbird, K., Arif, A., & Wilson, T. (2019). Disinformation as collaborative work: Surfacing the participatory nature of strategic information operations. *Proceedings of the ACM on Human-Computer Interaction*, *3*(CSCW), 127. <https://doi.org/10.1145/3359229>
+Starbird, K., Arif, A., & Wilson, T. (2019). Disinformation as collaborative work: Surfacing the participatory nature of strategic information operations. *Proceedings of the ACM on Human-Computer Interaction*, *3*(CSCW), 127. [Access via the JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_crossref_citationtrail_10_1145_3359229)
 
 > Network analysis of IRA disinformation operations on social media. Directly relevant to the IRA case study and network pattern recognition content.

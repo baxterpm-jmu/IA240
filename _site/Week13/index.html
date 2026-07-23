@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Week 13: Principles of Data Visualization – IA 240: Technology Applications in a Networked World</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-d6fbb5bfb24a4f1906c428146fc3bdde.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-372172bdf95b76f2693523edf8cf275f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">IA 240: Technology Applications in a Networked World</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-weekly-materials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Weekly Materials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-weekly-materials">    
+        <li>
+    <a class="dropdown-item" href="../Week1/index.html">
+ <span class="dropdown-text">Week 1: Technology and the Intelligence Cycle</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week2/index.html">
+ <span class="dropdown-text">Week 2: Data Types, Sources, and Collection Methods</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week3/index.html">
+ <span class="dropdown-text">Week 3: Introduction to Data Science and the Analytical Workflow</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week4/index.html">
+ <span class="dropdown-text">Week 4: Research Design and Finding Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week5/index.html">
+ <span class="dropdown-text">Week 5: Probability and Uncertainty in Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week6/index.html">
+ <span class="dropdown-text">Week 6: Data Structures, Databases, and Computational Tools</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week7/index.html">
+ <span class="dropdown-text">Week 7: Descriptive Statistics, EDA, and Hypothesis Testing (and Fall Break!)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week8/index.html">
+ <span class="dropdown-text">Week 8: Data Modeling: Regression and Model Evaluation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week9/index.html">
+ <span class="dropdown-text">Week 9: Machine Learning and Natural Language Processing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week10/index.html">
+ <span class="dropdown-text">Week 10: Systems Thinking and Agent-Based Modeling</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week11/index.html">
+ <span class="dropdown-text">Week 11: Social Network Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week12/index.html">
+ <span class="dropdown-text">Week 12: Geospatial and GEOINT Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week13/index.html">
+ <span class="dropdown-text">Week 13: Principles of Data Visualization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Week15/index.html">
+ <span class="dropdown-text">Week 15: Communicating Analysis</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#part-i-why-visualize" id="toc-part-i-why-visualize" class="nav-link active" data-scroll-target="#part-i-why-visualize">Part I: Why Visualize?</a>
+  <ul class="collapse">
+  <li><a href="#visualization-is-not-optional" id="toc-visualization-is-not-optional" class="nav-link" data-scroll-target="#visualization-is-not-optional">Visualization is Not Optional</a></li>
+  <li><a href="#what-is-data-visualization" id="toc-what-is-data-visualization" class="nav-link" data-scroll-target="#what-is-data-visualization">What is Data Visualization?</a></li>
+  </ul></li>
+  <li><a href="#part-ii-human-perception-and-visual-bias" id="toc-part-ii-human-perception-and-visual-bias" class="nav-link" data-scroll-target="#part-ii-human-perception-and-visual-bias">Part II: Human Perception and Visual Bias</a>
+  <ul class="collapse">
+  <li><a href="#we-cannot-trust-our-eyes-uncritically" id="toc-we-cannot-trust-our-eyes-uncritically" class="nav-link" data-scroll-target="#we-cannot-trust-our-eyes-uncritically">We Cannot Trust Our Eyes Uncritically</a></li>
+  </ul></li>
+  <li><a href="#part-iii-principles-of-good-visualization" id="toc-part-iii-principles-of-good-visualization" class="nav-link" data-scroll-target="#part-iii-principles-of-good-visualization">Part III: Principles of Good Visualization</a>
+  <ul class="collapse">
+  <li><a href="#what-makes-a-good-visualization" id="toc-what-makes-a-good-visualization" class="nav-link" data-scroll-target="#what-makes-a-good-visualization">What Makes a Good Visualization?</a></li>
+  </ul></li>
+  <li><a href="#part-iv-choosing-the-right-chart-type" id="toc-part-iv-choosing-the-right-chart-type" class="nav-link" data-scroll-target="#part-iv-choosing-the-right-chart-type">Part IV: Choosing the Right Chart Type</a>
+  <ul class="collapse">
+  <li><a href="#visualization-type-reference" id="toc-visualization-type-reference" class="nav-link" data-scroll-target="#visualization-type-reference">Visualization Type Reference</a></li>
+  <li><a href="#matching-the-visualization-to-the-analytical-question" id="toc-matching-the-visualization-to-the-analytical-question" class="nav-link" data-scroll-target="#matching-the-visualization-to-the-analytical-question">Matching the Visualization to the Analytical Question</a></li>
+  </ul></li>
+  <li><a href="#part-v-dos-and-donts" id="toc-part-v-dos-and-donts" class="nav-link" data-scroll-target="#part-v-dos-and-donts">Part V: Do’s and Don’ts</a>
+  <ul class="collapse">
+  <li><a href="#effective-practices-dos" id="toc-effective-practices-dos" class="nav-link" data-scroll-target="#effective-practices-dos">Effective Practices (Do’s)</a></li>
+  <li><a href="#common-pitfalls-donts" id="toc-common-pitfalls-donts" class="nav-link" data-scroll-target="#common-pitfalls-donts">Common Pitfalls (Don’ts)</a></li>
+  </ul></li>
+  <li><a href="#part-vi-visualization-in-intelligence-products" id="toc-part-vi-visualization-in-intelligence-products" class="nav-link" data-scroll-target="#part-vi-visualization-in-intelligence-products">Part VI: Visualization in Intelligence Products</a>
+  <ul class="collapse">
+  <li><a href="#tailoring-visualizations-to-the-consumer" id="toc-tailoring-visualizations-to-the-consumer" class="nav-link" data-scroll-target="#tailoring-visualizations-to-the-consumer">Tailoring Visualizations to the Consumer</a></li>
+  <li><a href="#a-framework-for-evaluation" id="toc-a-framework-for-evaluation" class="nav-link" data-scroll-target="#a-framework-for-evaluation">A Framework for Evaluation</a></li>
+  </ul></li>
+  <li><a href="#part-vii-lab-assignment" id="toc-part-vii-lab-assignment" class="nav-link" data-scroll-target="#part-vii-lab-assignment">Part VII: Lab Assignment</a>
+  <ul class="collapse">
+  <li><a href="#week-13-lab-visualization-critique-and-production" id="toc-week-13-lab-visualization-critique-and-production" class="nav-link" data-scroll-target="#week-13-lab-visualization-critique-and-production">Week 13 Lab — Visualization Critique and Production</a></li>
+  </ul></li>
+  <li><a href="#part-viii-canonical-cases-in-data-visualization" id="toc-part-viii-canonical-cases-in-data-visualization" class="nav-link" data-scroll-target="#part-viii-canonical-cases-in-data-visualization">Part VIII: Canonical Cases in Data Visualization</a>
+  <ul class="collapse">
+  <li><a href="#anscombes-quartet-the-argument-for-always-plotting-your-data" id="toc-anscombes-quartet-the-argument-for-always-plotting-your-data" class="nav-link" data-scroll-target="#anscombes-quartet-the-argument-for-always-plotting-your-data">Anscombe’s Quartet — The Argument for Always Plotting Your Data</a></li>
+  <li><a href="#john-snows-cholera-map-the-first-great-intelligence-visualization" id="toc-john-snows-cholera-map-the-first-great-intelligence-visualization" class="nav-link" data-scroll-target="#john-snows-cholera-map-the-first-great-intelligence-visualization">John Snow’s Cholera Map — The First Great Intelligence Visualization</a></li>
+  </ul></li>
+  <li><a href="#part-ix-deceptive-visualization" id="toc-part-ix-deceptive-visualization" class="nav-link" data-scroll-target="#part-ix-deceptive-visualization">Part IX: Deceptive Visualization</a>
+  <ul class="collapse">
+  <li><a href="#how-charts-lie-deliberate-and-inadvertent-distortion" id="toc-how-charts-lie-deliberate-and-inadvertent-distortion" class="nav-link" data-scroll-target="#how-charts-lie-deliberate-and-inadvertent-distortion">How Charts Lie — Deliberate and Inadvertent Distortion</a></li>
+  </ul></li>
+  <li><a href="#part-x-color-accessibility-and-visual-encoding" id="toc-part-x-color-accessibility-and-visual-encoding" class="nav-link" data-scroll-target="#part-x-color-accessibility-and-visual-encoding">Part X: Color, Accessibility, and Visual Encoding</a>
+  <ul class="collapse">
+  <li><a href="#color-theory-for-data-visualization" id="toc-color-theory-for-data-visualization" class="nav-link" data-scroll-target="#color-theory-for-data-visualization">Color Theory for Data Visualization</a></li>
+  </ul></li>
+  <li><a href="#suggested-readings" id="toc-suggested-readings" class="nav-link" data-scroll-target="#suggested-readings">Suggested Readings</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Week 13: Principles of Data Visualization</h1>
+<p class="subtitle lead">IA 240: Technology Applications in a Networked World</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Visualization is not an optional finishing step — it is a core analytical tool. Some patterns in data are not accessible through statistical summaries alone; they only become visible when rendered graphically. This lecture covers the cognitive science of visual perception, principles of effective visualization design, chart type selection, common pitfalls including deceptive visualization, and the specific demands of visualizing data for intelligence consumers.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Required Reading Before Tuesday Class
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>“Alberto Cairo Says Charts Can Lie in All Sorts of Ways. Here’s How You Can Tell,” <a href="https://www.washingtonpost.com/business/2019/10/14/youve-been-reading-charts-wrong-heres-how-pro-does-it/"><em>The Washington Post</em></a> (October 14, 2019).</strong></p>
+<p>A visualization expert walks through how charts mislead — truncated axes, cherry-picked ranges, suggestive but spurious patterns, and concealed uncertainty — and how to read them critically.</p>
+<p><em>As you read, consider:</em></p>
+<ul>
+<li>A chart with a truncated axis can be technically accurate yet misleading. Where is the line between legitimate emphasis and deception in a visualization?</li>
+<li>Cairo argues good charts show their uncertainty. How would you visualize the confidence level of an intelligence judgment without implying false precision?</li>
+</ul>
+</div>
+</div>
+<div class="learning-objectives">
+<div class="learning-objectives-header">
+<span class="learning-objectives-icon">✓</span>
+<p class="learning-objectives-title">
+Learning Objectives
+</p>
+</div>
+<p class="learning-objectives-intro">
+By the end of this lecture, you should be able to:
+</p>
+<ul>
+<li></li>
+</ul>
+</div>
+<section id="part-i-why-visualize" class="level1">
+<h1>Part I: Why Visualize?</h1>
+<section id="visualization-is-not-optional" class="level2">
+<h2 class="anchored" data-anchor-id="visualization-is-not-optional">Visualization is Not Optional</h2>
+<p>Data visualization is not a stylistic preference for visual learners—it is a <strong>cognitive necessity</strong>. Some patterns in data are not accessible through numerical summaries alone; they only become visible when rendered graphically.</p>
+<p><strong>Three reasons visualization is essential:</strong></p>
+<ol type="1">
+<li><p><strong>Discovery:</strong> Patterns, clusters, outliers, and relationships emerge from visualization that no descriptive statistic would reveal. Anscombe’s Quartet is the canonical example: four datasets with nearly identical summary statistics (means, variances, correlations) look completely different when plotted.</p></li>
+<li><p><strong>Communication:</strong> Numbers without visualization are cognitively expensive. The <strong>picture superiority effect</strong> is well-established: images and graphics are retained at dramatically higher rates than text or numerical information.</p></li>
+<li><p><strong>Hypothesis generation:</strong> Before you know what to test, visualization tells you what is interesting. One of the first steps in any analysis should be to look at your data visually.</p></li>
+</ol>
+</section>
+<section id="what-is-data-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-data-visualization">What is Data Visualization?</h2>
+<p>Data visualization is the art, science, and technology of presenting data and information in a form that affords the viewer the greatest understanding of its content. Practically: it translates numerical data into visual pictures that help the human perceptual system identify patterns that are obscure in tabular form.</p>
+<hr>
+</section>
+</section>
+<section id="part-ii-human-perception-and-visual-bias" class="level1">
+<h1>Part II: Human Perception and Visual Bias</h1>
+<section id="we-cannot-trust-our-eyes-uncritically" class="level2">
+<h2 class="anchored" data-anchor-id="we-cannot-trust-our-eyes-uncritically">We Cannot Trust Our Eyes Uncritically</h2>
+<p>Before designing visualizations, analysts must understand that human perception is <em>not</em> an objective recording device. The visual system actively interprets, and it does so under systematic biases:</p>
+<div class="key-terms">
+<div class="{dl}">
+<dl>
+<dt>Vertical-Horizontal Illusion</dt>
+<dd>
+Observers consistently overestimate the length of vertical lines relative to horizontal lines of equal length. Implication: the height of a bar chart may be perceived as more extreme than its actual value, particularly when vertical scales are truncated.
+</dd>
+<dt>Ponzo Illusion</dt>
+<dd>
+Two identical objects are perceived as different sizes based on their visual context. Implication: the same data value may appear larger or smaller depending on the surrounding chart elements—background patterns, surrounding bars, or reference lines.
+</dd>
+<dt>Perceptual Priming</dt>
+<dd>
+We tend to perceive what we expect to perceive. Mindsets form quickly and resist change. New information is assimilated to existing mental images. Initial exposure to ambiguous or misleading visualizations biases subsequent perception even after better information is available.
+</dd>
+</dl>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Intelligence Implications of Visual Bias
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Confirmation bias, anchoring, and representativeness heuristics (discussed in Meeting 10) have visual counterparts. A misleadingly truncated y-axis, a selectively colored map, or a chart that emphasizes one time period can prime an analyst or consumer to reach a particular conclusion. Visualization ethics requires both accurate design <em>and</em> accurate interpretation skills.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-iii-principles-of-good-visualization" class="level1">
+<h1>Part III: Principles of Good Visualization</h1>
+<section id="what-makes-a-good-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="what-makes-a-good-visualization">What Makes a Good Visualization?</h2>
+<p>Edward Tufte’s foundational criteria: a good visualization presents <em>complex ideas communicated with clarity, precision, and efficiency.</em> Specifically, it:</p>
+<ul>
+<li>Gives the viewer the greatest number of ideas in the shortest time with the least ink in the smallest space</li>
+<li>Is nearly always <strong>multivariate</strong> — shows the relationship among variables, not just individual distributions</li>
+<li>Tells the <strong>truth</strong> — neither distorts scale nor omits context that would change interpretation</li>
+<li>Is <strong>elegant in simplicity</strong> — graphical complexity should come from the data, not from decorative additions</li>
+<li>Has a <strong>point of view</strong> — every chart should communicate a specific finding or pattern</li>
+</ul>
+<p><strong>Additional principles:</strong></p>
+<ul>
+<li>Know the <strong>strengths and limitations</strong> of your data before designing the visualization</li>
+<li>Design for your <strong>audience</strong> — a chart for a policymaker and a chart for a technical peer can convey the same finding very differently</li>
+<li>Account for <strong>perception issues</strong> — use colorblind-accessible palettes; avoid relying on color alone to encode information</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="part-iv-choosing-the-right-chart-type" class="level1">
+<h1>Part IV: Choosing the Right Chart Type</h1>
+<section id="visualization-type-reference" class="level2">
+<h2 class="anchored" data-anchor-id="visualization-type-reference">Visualization Type Reference</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Chart Type</th>
+<th>Best For</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Bar Chart</strong></td>
+<td>Comparing values across discrete categories</td>
+<td>Sales volume by product category; conflict events by country</td>
+</tr>
+<tr class="even">
+<td><strong>Line Chart</strong></td>
+<td>Showing trends over continuous time</td>
+<td>GDP growth over 20 years; event rates over months</td>
+</tr>
+<tr class="odd">
+<td><strong>Scatter Plot</strong></td>
+<td>Relationship/correlation between two continuous variables</td>
+<td>Military spending vs.&nbsp;conflict incidence; GDP vs.&nbsp;regime stability</td>
+</tr>
+<tr class="even">
+<td><strong>Histogram</strong></td>
+<td>Distribution of a single continuous variable</td>
+<td>Distribution of country GDPs; response time distributions</td>
+</tr>
+<tr class="odd">
+<td><strong>Box Plot</strong></td>
+<td>Comparing distributions across groups; showing outliers</td>
+<td>Salary distributions by department; performance by unit</td>
+</tr>
+<tr class="even">
+<td><strong>Heatmap</strong></td>
+<td>Patterns and correlations across many variables</td>
+<td>Correlation matrix; activity intensity on a calendar grid</td>
+</tr>
+<tr class="odd">
+<td><strong>Choropleth Map</strong></td>
+<td>Geographic patterns; data by area</td>
+<td>Population density; conflict event rates by province</td>
+</tr>
+<tr class="even">
+<td><strong>Area Chart</strong></td>
+<td>Change in magnitude over time (with emphasis on total)</td>
+<td>Cumulative refugee displacement over time</td>
+</tr>
+<tr class="odd">
+<td><strong>Bubble Chart</strong></td>
+<td>Three-variable relationships (x, y, size)</td>
+<td>GDP per capita vs.&nbsp;life expectancy, scaled by population</td>
+</tr>
+<tr class="even">
+<td><strong>Funnel Chart</strong></td>
+<td>Sequential narrowing through a process</td>
+<td>Conversion rate through analytical stages</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Avoid Pie Charts for Complex Data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pie charts are appropriate only when you have a small number of categories (≤4) and the relative proportions are the primary message. Human perception of arc lengths and areas is poor compared to linear lengths, making precise comparison across pie slices difficult. For most use cases, a bar chart is superior.</p>
+</div>
+</div>
+</section>
+<section id="matching-the-visualization-to-the-analytical-question" class="level2">
+<h2 class="anchored" data-anchor-id="matching-the-visualization-to-the-analytical-question">Matching the Visualization to the Analytical Question</h2>
+<div class="col-pair">
+<div class="col-left">
+<p><strong>For an intelligence audience:</strong></p>
+<p>Rather than displaying raw regression output (coefficients, standard errors), consider a <strong>summary table</strong> that shows only which variables reached statistical significance and in what direction—with confidence intervals visualized as error bars.</p>
+<p>This respects the consumer’s limited statistical background while still conveying the analytical findings accurately.</p>
+</div>
+<div class="col-right">
+<p><strong>Example: From regression table to findings summary</strong></p>
+<p>Instead of presenting a 15-variable regression table with p-values, produce a forest plot showing the point estimate and 95% confidence interval for each key variable—colored to indicate significance. The consumer immediately sees which factors matter, without needing to read coefficient tables.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-v-dos-and-donts" class="level1">
+<h1>Part V: Do’s and Don’ts</h1>
+<section id="effective-practices-dos" class="level2">
+<h2 class="anchored" data-anchor-id="effective-practices-dos">Effective Practices (Do’s)</h2>
+<ul>
+<li><strong>Choose the right chart type</strong> — match the visual encoding to the data structure and the analytical question</li>
+<li><strong>Keep it simple and focused</strong> — one key message per chart; minimize clutter (excessive gridlines, unnecessary 3D effects)</li>
+<li><strong>Highlight key data points</strong> — use color, bold labels, or callout annotations to emphasize critical findings</li>
+<li><strong>Use consistent and intuitive colors</strong> — one color for categories; a contrasting color for highlights; avoid neon or clashing colors</li>
+<li><strong>Include descriptive titles</strong> — make the title describe the <em>finding</em>, not just the variable (e.g., “Military Spending Rose 40% in Eastern Europe Since 2022,” not “Military Spending by Year”)</li>
+<li><strong>Label axes</strong> with units and clear names (“Revenue ($ billions),” not “Rev”)</li>
+<li><strong>Use legible font sizes</strong> — 12pt or larger for labels; integrate labels directly into the chart when possible to avoid cluttered legends</li>
+<li><strong>Provide context</strong> — show baseline data, historical averages, or comparators; annotate key events or thresholds</li>
+<li><strong>Ensure accessibility</strong> — use colorblind-safe palettes; supplement color with pattern or shape for differentiation</li>
+</ul>
+</section>
+<section id="common-pitfalls-donts" class="level2">
+<h2 class="anchored" data-anchor-id="common-pitfalls-donts">Common Pitfalls (Don’ts)</h2>
+<ul>
+<li><strong>Don’t overload the chart</strong> — limit to 5–7 data series or categories for clarity; additional series create visual noise</li>
+<li><strong>Don’t use misleading scales</strong> — start axes at zero unless there is a justified reason not to; use consistent intervals; never truncate a y-axis in a bar chart</li>
+<li><strong>Don’t add unnecessary decorations</strong> — avoid “chartjunk” (excessive gridlines, shadow effects, decorative imagery, unnecessary 3D rendering)</li>
+<li><strong>Don’t use ambiguous labels</strong> — replace “Category A” and “Dataset 1” with meaningful, specific labels</li>
+<li><strong>Don’t omit a legend</strong> when the chart includes multiple variables that cannot be labeled directly</li>
+<li><strong>Don’t skip context</strong> — never present raw numbers without explaining their significance; a chart without a caption or annotation assumes knowledge the viewer may not have</li>
+<li><strong>Don’t use pie charts for complex data</strong> (see above)</li>
+<li><strong>Don’t ignore accessibility</strong> — red-green color combinations are invisible to a significant fraction of the population</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="part-vi-visualization-in-intelligence-products" class="level1">
+<h1>Part VI: Visualization in Intelligence Products</h1>
+<section id="tailoring-visualizations-to-the-consumer" class="level2">
+<h2 class="anchored" data-anchor-id="tailoring-visualizations-to-the-consumer">Tailoring Visualizations to the Consumer</h2>
+<p>Intelligence consumers range from heads of state who have thirty seconds for a briefing to technical analysts who will scrutinize methodology. The same underlying finding requires different visualization treatment for each.</p>
+<div class="col-pair">
+<div class="col-left">
+<p><strong>Decision-maker audience</strong></p>
+<ul>
+<li>Minimal statistical jargon</li>
+<li>One key finding per visual</li>
+<li>Bold annotations on the most important data point</li>
+<li>Clear, action-oriented title</li>
+<li>Table showing significance rather than regression coefficients</li>
+</ul>
+</div>
+<div class="col-right">
+<p><strong>Technical / peer analyst audience</strong></p>
+<ul>
+<li>Full statistical output appropriate</li>
+<li>Multiple panels showing robustness across model specifications</li>
+<li>Residual plots and diagnostic charts</li>
+<li>Confidence bands and uncertainty ranges</li>
+<li>Complete source and methodology annotation</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="a-framework-for-evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="a-framework-for-evaluation">A Framework for Evaluation</h2>
+<p>When reviewing a visualization—your own or another analyst’s—ask:</p>
+<ol type="1">
+<li><strong>What is the central claim of this chart?</strong> Can you state it in one sentence?</li>
+<li><strong>Does the chart support that claim accurately?</strong> Are scales appropriate? Is context provided?</li>
+<li><strong>What does the chart omit?</strong> What data or context would change the interpretation if included?</li>
+<li><strong>Could the chart mislead?</strong> Is there a misperception risk—scale distortion, cherry-picked time period, missing baseline?</li>
+<li><strong>Is it the right chart type?</strong> Would a different visualization make the same pattern more legible?</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="part-vii-lab-assignment" class="level1">
+<h1>Part VII: Lab Assignment</h1>
+<section id="week-13-lab-visualization-critique-and-production" class="level2">
+<h2 class="anchored" data-anchor-id="week-13-lab-visualization-critique-and-production">Week 13 Lab — Visualization Critique and Production</h2>
+<p><strong>Task 1 — Critique:</strong> Select one visualization from a published source (news, government report, academic paper, or the examples discussed in class). Evaluate it against the principles above. What does it do well? What would you change and why?</p>
+<p><strong>Task 2 — Production:</strong> Using data from your project dataset, produce two visualizations that address your research question or hypothesis. For each, write a one-paragraph caption that explains: (a) what the chart shows, (b) what the key finding is, and (c) what the consumer should take away.</p>
+<p>Be prepared to present and defend your visualization choices in class.</p>
+<hr>
+</section>
+</section>
+<section id="part-viii-canonical-cases-in-data-visualization" class="level1">
+<h1>Part VIII: Canonical Cases in Data Visualization</h1>
+<section id="anscombes-quartet-the-argument-for-always-plotting-your-data" class="level2">
+<h2 class="anchored" data-anchor-id="anscombes-quartet-the-argument-for-always-plotting-your-data">Anscombe’s Quartet — The Argument for Always Plotting Your Data</h2>
+<p>In 1973, statistician Francis Anscombe constructed four datasets that are nearly identical in their summary statistics but reveal completely different patterns when plotted. The quartet is the canonical argument for always visualizing data before — and alongside — statistical analysis.</p>
+<p><strong>Summary statistics (nearly identical across all four datasets):</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Statistic</th>
+<th>Dataset I</th>
+<th>Dataset II</th>
+<th>Dataset III</th>
+<th>Dataset IV</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mean of x</td>
+<td>9.0</td>
+<td>9.0</td>
+<td>9.0</td>
+<td>9.0</td>
+</tr>
+<tr class="even">
+<td>Mean of y</td>
+<td>7.5</td>
+<td>7.5</td>
+<td>7.5</td>
+<td>7.5</td>
+</tr>
+<tr class="odd">
+<td>Variance of x</td>
+<td>11.0</td>
+<td>11.0</td>
+<td>11.0</td>
+<td>11.0</td>
+</tr>
+<tr class="even">
+<td>Variance of y</td>
+<td>4.12</td>
+<td>4.13</td>
+<td>4.12</td>
+<td>4.12</td>
+</tr>
+<tr class="odd">
+<td>Correlation</td>
+<td>0.816</td>
+<td>0.816</td>
+<td>0.816</td>
+<td>0.817</td>
+</tr>
+<tr class="even">
+<td>Regression line</td>
+<td>y = 3 + 0.5x</td>
+<td>y = 3 + 0.5x</td>
+<td>y = 3 + 0.5x</td>
+<td>y = 3 + 0.5x</td>
+</tr>
+</tbody>
+</table>
+<p><strong>What the scatter plots reveal:</strong></p>
+<ul>
+<li><strong>Dataset I:</strong> A genuine linear relationship with normally distributed residuals — the case where linear regression is fully appropriate</li>
+<li><strong>Dataset II:</strong> A curved (polynomial) relationship — linear regression fits a straight line through a nonlinear pattern, producing misleading results</li>
+<li><strong>Dataset III:</strong> A near-perfect linear relationship <em>except</em> for one extreme outlier that shifts the regression line and inflates residual variance</li>
+<li><strong>Dataset IV:</strong> All x-values are identical except for one — the regression line is entirely determined by that single outlier point</li>
+</ul>
+<p><strong>The analytical lesson:</strong> Summary statistics and regression output are consistent across all four datasets. A purely numerical analysis of Datasets II, III, and IV would produce systematically wrong conclusions. Visualization catches what statistics miss.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>The Datasaurus Dozen
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Datasaurus Dozen (2017) is a modern extension of Anscombe’s Quartet: twelve datasets with identical summary statistics that include a scatter plot in the shape of a dinosaur. The same point, dramatically illustrated. The dataset is freely available and worth examining.</p>
+</div>
+</div>
+</section>
+<section id="john-snows-cholera-map-the-first-great-intelligence-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="john-snows-cholera-map-the-first-great-intelligence-visualization">John Snow’s Cholera Map — The First Great Intelligence Visualization</h2>
+<p>In 1854, London experienced a severe cholera outbreak centered in the Soho neighborhood. The prevailing theory attributed cholera to “miasma” — bad air from rotting organic matter. Dr.&nbsp;John Snow, skeptical of the miasma theory, mapped every death in Soho by location and overlaid the map with the locations of the neighborhood’s water pumps.</p>
+<p>The resulting dot map revealed an unmistakable spatial cluster of deaths centered on the Broad Street pump. Snow added one additional layer of evidence visible in the map: the nearby Lion Brewery, whose workers drank beer rather than water from the pump, had no cholera deaths despite being in the center of the affected area.</p>
+<p><strong>Why this case matters for analysts:</strong></p>
+<ol type="1">
+<li><p><strong>The visualization itself was the argument.</strong> Snow did not need a regression; the spatial pattern was evidence.</p></li>
+<li><p><strong>The choice of what to map determined what could be seen.</strong> Mapping by date of death (a different choice) would have shown temporal spread but not spatial source; only the geographic map revealed the pump.</p></li>
+<li><p><strong>The absence pattern was as informative as the presence pattern.</strong> The brewery’s survival was not visible in tables — it required the map.</p></li>
+<li><p><strong>The visualization challenged the dominant theory.</strong> The miasma theory could not explain why people in the same neighborhood, breathing the same air, had dramatically different death rates based on which water pump they used. The map created cognitive dissonance that forced reconsideration.</p></li>
+</ol>
+<p>Snow persuaded the local authorities to remove the handle from the Broad Street pump. The epidemic subsided — though contemporaneous accounts suggest it was already winding down for other reasons, a reminder that even the most compelling visualizations must be interpreted with caution about causal attribution.</p>
+<hr>
+</section>
+</section>
+<section id="part-ix-deceptive-visualization" class="level1">
+<h1>Part IX: Deceptive Visualization</h1>
+<section id="how-charts-lie-deliberate-and-inadvertent-distortion" class="level2">
+<h2 class="anchored" data-anchor-id="how-charts-lie-deliberate-and-inadvertent-distortion">How Charts Lie — Deliberate and Inadvertent Distortion</h2>
+<p>Data visualization can mislead with technically accurate numbers. The following are the most common distortion techniques, with intelligence-relevant examples.</p>
+<div class="key-terms">
+<div class="{dl}">
+<dl>
+<dt>Truncated Y-Axis</dt>
+<dd>
+Starting a bar chart’s y-axis above zero exaggerates the visual magnitude of differences between bars. A change from 98% to 99% approval looks like a doubling if the y-axis runs from 97% to 100%. <em>Intelligence application:</em> Defense budget comparisons that start the y-axis above zero can make small percentage differences appear to represent dramatic capability gaps.
+</dd>
+<dt>Cherry-Picked Time Period</dt>
+<dd>
+Selecting a start and end date for a time series to show a trend that would not be visible — or would reverse — over the full historical record. <em>Intelligence application:</em> A chart showing terrorism incidents from 2000–2010 shows a rise; showing 2000–2015 might show a decline. Both are technically accurate, neither is complete.
+</dd>
+<dt>Inconsistent Scales</dt>
+<dd>
+Using different y-axis scales for different panels, or dual y-axes that are scaled to make series appear to track together when they don’t. <em>Intelligence application:</em> Plotting two country’s military spending on axes scaled to make them appear equal when one is ten times the other.
+</dd>
+<dt>Area vs.&nbsp;Linear Encoding</dt>
+<dd>
+When representing quantities with circles or bubbles, the visual area grows as the square of the radius. If the radius is scaled to the data value, areas are not proportional to values — the larger value looks much larger than the actual ratio. <em>Correct practice:</em> scale bubble area, not radius, to the data value.
+</dd>
+<dt>The Misleading Map</dt>
+<dd>
+Geographic area maps (choropleth) encode data by color in spatial areas. States or countries with large geographic area dominate the visual impression regardless of their population or economic weight. The same election data that appears “mostly red” on a geographic area map can look “mostly blue” on a cartogram scaled by population. <em>Intelligence application:</em> Mapping conflict deaths by country area misrepresents per-capita risk.
+</dd>
+<dt>Omitted Uncertainty</dt>
+<dd>
+Presenting point estimates without confidence intervals or error bars implies more precision than the data supports. A forecast line without uncertainty bounds suggests a precision that no forecasting method achieves. <em>Intelligence application:</em> Presenting a single-number assessment of adversary capability without expressing the uncertainty range can mislead consumers into false confidence.
+</dd>
+</dl>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Deliberate Deception in Information Operations
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Adversaries deliberately use deceptive visualization as an information operations tool. Russian state media (RT, Sputnik) and Chinese official media (CGTN, Global Times) have published charts with truncated axes, cherry-picked comparators, and misleading scales to advance specific narratives. Analysts must apply the same critical visualization evaluation skills to adversary-produced graphics that they apply to their own work.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-x-color-accessibility-and-visual-encoding" class="level1">
+<h1>Part X: Color, Accessibility, and Visual Encoding</h1>
+<section id="color-theory-for-data-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="color-theory-for-data-visualization">Color Theory for Data Visualization</h2>
+<p>Color is one of the most powerful visual encoding channels — and one of the most frequently misused. Guidelines:</p>
+<div class="col-pair">
+<div class="col-left">
+<p><strong>Sequential palettes</strong></p>
+<p>Use for ordered data where values range from low to high. Light-to-dark variations of a single hue. Examples: population density, threat level, temperature.</p>
+<p><em>Do:</em> Perceptually uniform palettes (viridis, cividis, plasma) — designed so equal steps in data produce visually equal steps in color</p>
+<p><em>Don’t:</em> Rainbow palettes (jet, spectrum) — perceptually non-uniform; the yellow region appears brighter than blue/red, creating false visual “peaks”</p>
+<p><strong>Diverging palettes</strong></p>
+<p>Use when data has a meaningful midpoint (zero, neutral, average) with deviations in both directions. Two contrasting hues meeting at a neutral center. Examples: positive/negative sentiment, above/below average, gain/loss.</p>
+</div>
+<div class="col-right">
+<p><strong>Categorical palettes</strong></p>
+<p>Use for nominal categories with no inherent order. Distinct, easily distinguishable hues. Limit to 7–10 colors maximum; beyond that, labels are more effective than color.</p>
+<p><strong>Colorblind accessibility</strong></p>
+<p>Approximately 8% of men and 0.5% of women have some form of color vision deficiency. Red-green color combinations (the most common form of deficiency) are invisible to a significant fraction of any audience.</p>
+<p><em>Test:</em> Check visualizations with a colorblind simulator (Coblis, Sim Daltonism)</p>
+<p><em>Remedy:</em> Use colorblind-safe palettes (ColorBrewer); supplement color with shape, pattern, or direct labeling; never rely on color alone to encode critical distinctions</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="suggested-readings" class="level1">
+<h1>Suggested Readings</h1>
+<p><em>All readings are journal or news articles.</em></p>
+<p>Franconeri, S. L., Padilla, L. M., Shah, P., Zacks, J. M., &amp; Hullman, J. (2021). The science of visual data communication: What works. <em>Psychological Science in the Public Interest</em>, <em>22</em>(3), 110–161. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_proquest_miscellaneous_2610411583">Access via the JMU Library</a></p>
+<blockquote class="blockquote">
+<p>The most comprehensive empirical review of what works in data visualization. Synthesizes decades of cognitive science research on visual encodings, uncertainty communication, and narrative structure.</p>
+</blockquote>
+<p>Pandey, A. V., Rall, K., Satterthwaite, M. L., Nov, O., &amp; Bertini, E. (2015). How deceptive are deceptive visualizations? <em>Proceedings of the ACM CHI Conference on Human Factors in Computing Systems</em>. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_acm_books_10_1145_2702123_2702608">Access via the JMU Library</a></p>
+<blockquote class="blockquote">
+<p>Empirically tests whether common distortion techniques actually mislead viewers — the evidence base for the deceptive visualization section of this lecture.</p>
+</blockquote>
+<p>Borkin, M. A., Vo, A. A., Bylinskii, Z., Isola, P., Sunkavalli, S., Oliva, A., &amp; Pfister, H. (2013). What makes a visualization memorable? <em>IEEE Transactions on Visualization and Computer Graphics</em>, <em>19</em>(12), 2306–2315. <a href="https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_crossref_citationtrail_10_1109_TVCG_2013_234">Access via the JMU Library</a></p>
+<blockquote class="blockquote">
+<p>Experimental study of which visualization features drive memorability — relevant to the presentation design content in Lecture 13.</p>
+</blockquote>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

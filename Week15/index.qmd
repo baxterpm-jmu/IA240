@@ -5,6 +5,51 @@ subtitle: "IA 240: Technology Applications in a Networked World"
 
 This lecture combines two essential competencies for the practicing intelligence analyst: communicating quantitative findings clearly and accurately to policy consumers, and understanding the cybersecurity incidents that continue to shape the technology environment intelligence analysts work within. Communication is the terminal step in every analytical cycle — the point where the value of all prior analytical work is realized or lost.
 
+::: {.callout-important}
+## Required Reading Before Tuesday Class
+
+**1. Elisabeth Bumiller, ["We Have Met the Enemy and He Is PowerPoint,"](https://www.nytimes.com/2010/04/27/world/27powerpoint.html) *The New York Times* (April 26, 2010).**
+
+The military and intelligence community's PowerPoint culture — the infamous "spaghetti" Afghanistan slide, and Gen. McMaster's warning that slides can create "the illusion of understanding."
+
+*As you read, consider:*
+
+- How can a briefing format make an audience feel informed while actually obscuring the underlying analysis and its uncertainty?
+- If you had to convey a complex, contested assessment without a slide deck, what would you use instead — and what would you gain or lose?
+
+**2. Brent Dykes, ["Data Storytelling: The Essential Data Science Skill Everyone Needs,"](https://www.forbes.com/sites/brentdykes/2016/03/31/data-storytelling-the-essential-data-science-skill-everyone-needs/) *Forbes* (March 31, 2016).**
+
+Finding the insight is one skill; getting a decision-maker to act on it is another. The case for narrative, data, and visuals working together.
+
+*As you read, consider:*
+
+- Dykes argues an insight is worthless if it doesn't drive action. What turns a correct finding into one a decision-maker actually acts on?
+- Narrative can clarify but also oversimplify or mislead. Where is the line between "data storytelling" and spinning the data?
+
+**3. Josh Bernoff, ["Bad Writing Is Destroying Your Company's Productivity,"](https://hbr.org/2016/09/bad-writing-is-destroying-your-companys-productivity) *Harvard Business Review* (September 6, 2016).**
+
+What unclear, bloated writing costs busy readers — and concrete habits for writing that respects the reader's time.
+
+*As you read, consider:*
+
+- Bernoff finds readers spend far more time reading than writers spend writing. How should that asymmetry change how you draft an intelligence product?
+- Which specific habits — structure, length, front-loading the bottom line — would make your writing cost the reader less time without sacrificing rigor?
+:::
+
+::: {.learning-objectives}
+
+<div class="learning-objectives-header">
+  <span class="learning-objectives-icon">✓</span>
+  <p class="learning-objectives-title">Learning Objectives</p>
+</div>
+
+<p class="learning-objectives-intro">
+By the end of this lecture, you should be able to:
+</p>
+
+- Explain the principles of effective data-oriented writing.
+:::
+
 # Part I: Writing with Data
 
 ## How Data-Oriented Writing Differs
@@ -427,28 +472,16 @@ Ancker, C. J., & Burke, M. (2003). Doctrine for asymmetric warfare. *Military Re
 
 > Background on how adversaries exploit analytical blind spots — directly relevant to the analytical standards and intelligence failure discussion.
 
-Marrin, S., & Clemente, J. D. (2005). Improving intelligence analysis by looking to the medical profession. *International Journal of Intelligence and CounterIntelligence*, *18*(4), 707–729. <https://doi.org/10.1080/08850600500236217>
-
-> Argues that intelligence analysis can improve by adopting diagnostic standards from medicine — including differential diagnosis and explicit uncertainty quantification. Relevant to the statistical reporting and confidence language content.
-
 Pherson, K. H., & Pherson, R. H. (2020). Critical thinking for strategic intelligence. *International Journal of Intelligence and CounterIntelligence*, *34*(1), 1–12.
 
 > Examines how structured analytical techniques and writing standards support critical thinking in the intelligence community. Connects analytical process to communication products.
 
-Rid, T. (2012). Cyber war will not take place. *Journal of Strategic Studies*, *35*(1), 5–32. <https://doi.org/10.1080/01402390.2011.608939>
-
-> Argues that most "cyber attacks" fall below the threshold of war and are better understood as sabotage, espionage, or subversion. Provides conceptual clarity for analyzing the computing security cases in this lecture.
-
 ## Uncertainty Communication
 
-Friedman, J. A., & Zeckhauser, R. (2012). Assessing uncertainty in intelligence. *Intelligence and National Security*, *27*(6), 824–847. <https://doi.org/10.1080/02684527.2012.708275>
+Friedman, J. A., & Zeckhauser, R. (2012). Assessing uncertainty in intelligence. *Intelligence and National Security*, *27*(6), 824–847. [Access via the JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_proquest_miscellaneous_1282040231)
 
 > Examines how analysts communicate uncertainty and how consumers interpret probabilistic language. Directly relevant to confidence levels and ICD 203 content.
 
-Tetlock, P. E., & Gardner, D. (2015). Superforecasting: How to upgrade your company's judgment. *Harvard Business Review*, *93*(5), 72–78.
+Van der Bles, A. M., van der Linden, S., Freeman, A. L. J., Mitchell, J., Galvao, A. B., Zaval, L., & Spiegelhalter, D. J. (2019). Communicating uncertainty about facts, numbers and science. *Royal Society Open Science*, *6*(5), 181870. [Access via JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_crossref_citationtrail_10_1098_rsos_181870)
 
-> Draws on the Good Judgment Project's findings about calibrated probabilistic forecasting. Relevant to confidence language and the critique of vague uncertainty expressions.
-
-Heuer, R. J., & Pherson, R. H. (2014). Limits of structured analytic techniques. *International Journal of Intelligence and CounterIntelligence*, *27*(2), 310–330. <https://doi.org/10.1080/08850607.2014.850764>
-
-> Critically assesses when structured techniques help and when they don't. Relevant to the writing standards and analytical tradecraft content.
+> Empirically examines how different methods of communicating uncertainty (numerical ranges, verbal qualifiers, visual representations) affect consumer understanding. Directly relevant to the ICD 203 standardized probability language conventions.

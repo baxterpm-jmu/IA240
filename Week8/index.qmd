@@ -5,6 +5,45 @@ subtitle: "IA 240: Technology Applications in a Networked World"
 
 Models are deliberate simplifications that make data interpretable. This lecture covers the principal modeling frameworks available to intelligence analysts: from regression and classification to model evaluation metrics. The emphasis is on matching the right model to the analytical question, evaluating model performance rigorously, and understanding the assumptions and failure modes of each approach. The lecture concludes with a conceptual bridge to machine learning, covered in depth in Lecture 10.
 
+::: {.callout-important}
+## Required Reading Before Tuesday Class
+
+**1. Felix Salmon, ["Recipe for Disaster: The Formula That Killed Wall Street,"](https://www.wired.com/2009/02/wp-quant/) *Wired* (February 23, 2009).**
+
+The Gaussian copula let banks model correlated mortgage-default risk with one elegant formula — until the assumption baked into it (that the recent past predicted the future) broke, and the model that was supposed to measure risk instead hid it.
+
+*As you read, consider:*
+
+- Every model encodes assumptions. What was the load-bearing assumption here, and how could an analyst have surfaced it *before* the model failed?
+- The formula was useful for years before it was catastrophic. How do you evaluate a model that works right up until it doesn't?
+
+**2. "Google Flu Trends Failure Shows the Problems of Big Data," [*Time*](https://time.com/23782/google-flu-trends-big-data-problems/).**
+
+Google's flu-prediction model beat the CDC at first, then over-predicted flu in 100 of 108 weeks by latching onto seasonal search terms that correlated with the flu only by chance — a clean lesson in overfitting and model drift.
+
+*As you read, consider:*
+
+- With 50 million candidate search terms, some correlate with flu purely by chance. How does that produce overfitting, and how would you test for it?
+- The model degraded as the world changed around it. What does this say about validating a model once versus monitoring it over time?
+:::
+
+::: {.learning-objectives}
+
+<div class="learning-objectives-header">
+  <span class="learning-objectives-icon">✓</span>
+  <p class="learning-objectives-title">Learning Objectives</p>
+</div>
+
+<p class="learning-objectives-intro">
+By the end of this lecture, you should be able to:
+</p>
+
+- Understand the fundamentals of data modeling and its importance in extracting insights and making predictions from data.
+- Explore different types of modeling techniques, including regression, classification, clustering, and time series analysis.
+- Learn how to choose appropriate modeling techniques based on the nature of the data and research objectives.
+- Develop skills in data preprocessing and cleaning to ensure data quality and suitability for modeling tasks.
+:::
+
 # Part I: Analytical Approaches and Their Intelligence Applications
 
 | Approach | Core Function | Intelligence Applications |
@@ -293,10 +332,10 @@ In conflict or financial forecasting, always hold out the most *recent* observat
 
 *All readings are journal or news articles.*
 
-Rudin, C. (2019). Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead. *Nature Machine Intelligence*, *1*(5), 206–215. <https://doi.org/10.1038/s42256-019-0048-x>
+Rudin, C. (2019). Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead. *Nature Machine Intelligence*, *1*(5), 206–215. [Access via the JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_crossref_primary_10_1038_s42256_019_0048_x)
 
 > Argues that in high-stakes applications, interpretable models should be prioritized. Directly relevant to the model selection framework — and the bridge to machine learning methods in Lecture 10.
 
-Obermeyer, Z., Powers, B., Vogeli, C., & Mullainathan, S. (2019). Dissecting racial bias in an algorithm used to manage the health of populations. *Science*, *366*(6464), 447–453. <https://doi.org/10.1126/science.aax2342>
+Obermeyer, Z., Powers, B., Vogeli, C., & Mullainathan, S. (2019). Dissecting racial bias in an algorithm used to manage the health of populations. *Science*, *366*(6464), 447–453. [Access via the JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_crossref_primary_10_1126_science_aax2342)
 
 > Documents how a deployed risk algorithm encoded systematic bias through proxy variable selection. A methodological template for auditing models for discriminatory outcomes.

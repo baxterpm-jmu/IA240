@@ -75,5 +75,12 @@
     "title": "Week 3: Introduction to Data Science and the Analytical Workflow",
     "section": "The Intelligence Data Lifecycle",
     "text": "The Intelligence Data Lifecycle\n\n\nCollection → Processing → Analysis\nRaw data from any source requires processing before analysis. Processing involves: tagging metadata, parsing documents, extracting named entities, and removing noise. Only then is the data ready for statistical or computational treatment.\n\n\nInterpretation → Dissemination → Feedback\nAnalytical results must be interpreted—linked to the original intelligence question and decision need. Dissemination must be tailored to the consumer’s expertise. Feedback from consumers informs future collection priorities, closing the intelligence cycle."
+  },
+  {
+    "objectID": "index.html#add-something-on-ai-and-this-process",
+    "href": "index.html#add-something-on-ai-and-this-process",
+    "title": "Week 3: Introduction to Data Science and the Analytical Workflow",
+    "section": "’’’ Add something on AI and this process’’’",
+    "text": "’’’ Add something on AI and this process’’’"
   }
 ]

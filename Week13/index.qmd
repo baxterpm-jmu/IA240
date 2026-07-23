@@ -5,6 +5,33 @@ subtitle: "IA 240: Technology Applications in a Networked World"
 
 Visualization is not an optional finishing step — it is a core analytical tool. Some patterns in data are not accessible through statistical summaries alone; they only become visible when rendered graphically. This lecture covers the cognitive science of visual perception, principles of effective visualization design, chart type selection, common pitfalls including deceptive visualization, and the specific demands of visualizing data for intelligence consumers.
 
+::: {.callout-important}
+## Required Reading Before Tuesday Class
+
+**"Alberto Cairo Says Charts Can Lie in All Sorts of Ways. Here's How You Can Tell," [*The Washington Post*](https://www.washingtonpost.com/business/2019/10/14/youve-been-reading-charts-wrong-heres-how-pro-does-it/) (October 14, 2019).**
+
+A visualization expert walks through how charts mislead — truncated axes, cherry-picked ranges, suggestive but spurious patterns, and concealed uncertainty — and how to read them critically.
+
+*As you read, consider:*
+
+- A chart with a truncated axis can be technically accurate yet misleading. Where is the line between legitimate emphasis and deception in a visualization?
+- Cairo argues good charts show their uncertainty. How would you visualize the confidence level of an intelligence judgment without implying false precision?
+:::
+
+::: {.learning-objectives}
+
+<div class="learning-objectives-header">
+  <span class="learning-objectives-icon">✓</span>
+  <p class="learning-objectives-title">Learning Objectives</p>
+</div>
+
+<p class="learning-objectives-intro">
+By the end of this lecture, you should be able to:
+</p>
+
+- 
+:::
+
 # Part I: Why Visualize?
 
 ## Visualization is Not Optional
@@ -322,19 +349,14 @@ Approximately 8% of men and 0.5% of women have some form of color vision deficie
 
 *All readings are journal or news articles.*
 
-Franconeri, S. L., Padilla, L. M., Shah, P., Zacks, J. M., & Hullman, J. (2021). The science of visual data communication: What works. *Psychological Science in the Public Interest*, *22*(3), 110–161. <https://doi.org/10.1177/15291006211051956>
+Franconeri, S. L., Padilla, L. M., Shah, P., Zacks, J. M., & Hullman, J. (2021). The science of visual data communication: What works. *Psychological Science in the Public Interest*, *22*(3), 110–161. [Access via the JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_proquest_miscellaneous_2610411583)
 
 > The most comprehensive empirical review of what works in data visualization. Synthesizes decades of cognitive science research on visual encodings, uncertainty communication, and narrative structure.
 
-Healy, K., & Moody, J. (2014). Data visualization in sociology. *Annual Review of Sociology*, *40*, 105–128. <https://doi.org/10.1146/annurev-soc-071312-145551>
-
-> Reviews visualization principles and practices from a social science perspective. Directly relevant to the political and social data types intelligence analysts most commonly visualize.
-
-Pandey, A. V., Rall, K., Satterthwaite, M. L., Nov, O., & Bertini, E. (2015). How deceptive are deceptive visualizations? *Proceedings of the ACM CHI Conference on Human Factors in Computing Systems*. <https://doi.org/10.1145/2702123.2702608>
+Pandey, A. V., Rall, K., Satterthwaite, M. L., Nov, O., & Bertini, E. (2015). How deceptive are deceptive visualizations? *Proceedings of the ACM CHI Conference on Human Factors in Computing Systems*. [Access via the JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_acm_books_10_1145_2702123_2702608)
 
 > Empirically tests whether common distortion techniques actually mislead viewers — the evidence base for the deceptive visualization section of this lecture.
 
-Borkin, M. A., Vo, A. A., Bylinskii, Z., Isola, P., Sunkavalli, S., Oliva, A., & Pfister, H. (2013). What makes a visualization memorable? *IEEE Transactions on Visualization and Computer Graphics*, *19*(12), 2306–2315. <https://doi.org/10.1109/TVCG.2013.234>
+Borkin, M. A., Vo, A. A., Bylinskii, Z., Isola, P., Sunkavalli, S., Oliva, A., & Pfister, H. (2013). What makes a visualization memorable? *IEEE Transactions on Visualization and Computer Graphics*, *19*(12), 2306–2315. [Access via the JMU Library](https://search.lib.jmu.edu/permalink/01JMU_INST/14emilk/cdi_crossref_citationtrail_10_1109_TVCG_2013_234)
 
 > Experimental study of which visualization features drive memorability — relevant to the presentation design content in Lecture 13.
-                  
