@@ -670,3 +670,113 @@ section.footnotes ol li {
     margin-right: 0;
   }
 }
+
+
+/* ============================================================
+   Learning Objectives Panel
+   ============================================================ */
+
+.learning-objectives {
+  margin: 1.4rem 0 2.2rem;
+  border: 1px solid var(--jmu-light-gray);
+  border-top: 5px solid var(--jmu-gold);
+  border-radius: 4px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.09);
+  overflow: hidden;
+}
+
+.learning-objectives-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.65rem 1rem;
+  background-color: var(--jmu-purple);
+  color: #ffffff;
+}
+
+.learning-objectives-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 2rem;
+  border: 2px solid var(--jmu-gold);
+  border-radius: 50%;
+  color: var(--jmu-gold);
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.learning-objectives-title {
+  margin: 0;
+  color: #ffffff;
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.learning-objectives-intro {
+  margin: 0;
+  padding: 0.8rem 1.1rem 0.2rem;
+  color: var(--jmu-dark-gray);
+  font-size: 0.9rem;
+}
+
+.learning-objectives ol {
+  counter-reset: objective;
+  list-style: none;
+  margin: 0;
+  padding: 0.6rem 1.1rem 1rem;
+}
+
+.learning-objectives ol li {
+  counter-increment: objective;
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: 0.7rem;
+  align-items: start;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--jmu-light-gray);
+  line-height: 1.55;
+}
+
+.learning-objectives ol li:last-child {
+  border-bottom: none;
+}
+
+.learning-objectives ol li::before {
+  content: counter(objective);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.65rem;
+  height: 1.65rem;
+  margin-top: 0.05rem;
+  border-radius: 50%;
+  background-color: var(--jmu-light-gold);
+  border: 1px solid var(--jmu-gold);
+  color: var(--jmu-purple);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.learning-objectives strong {
+  color: var(--jmu-purple);
+}
+
+@media (max-width: 600px) {
+  .learning-objectives ol li {
+    grid-template-columns: 1.75rem minmax(0, 1fr);
+    gap: 0.55rem;
+  }
+
+  .learning-objectives {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
