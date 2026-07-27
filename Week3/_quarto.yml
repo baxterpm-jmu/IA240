@@ -5,6 +5,7 @@ project:
 
 format:
   html:
+    from: markdown+emoji
     theme: [cosmo, jmu-lecture.css]
     toc: true
     toc-depth: 3

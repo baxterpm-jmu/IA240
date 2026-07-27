@@ -3,9 +3,7 @@ title: "Week 3: Introduction to Data Science and the Analytical Workflow"
 subtitle: "IA 240: Technology Applications in a Networked World"
 ---
 
-Data science is the methodological foundation for systematic, rigorous analysis. Before learning specific statistical techniques, analysts need to understand the workflow those techniques serve: how analytical problems are framed, how the data science process is structured, and how different data types shape what analysis is possible. This lecture establishes that foundation.
-
-Before testing hypotheses, analysts must understand what their data looks like. Descriptive statistics and exploratory data analysis (EDA) are the systematic tools for that understanding — revealing distributions, central tendencies, variability, outliers, and relationships that formal models can miss or distort if applied without first examining the data.
+Data science is the methodological foundation for systematic, rigorous analysis. Before learning specific statistical techniques, analysts need to understand the workflow those techniques serve: how analytical problems are framed, how the data science process is structured, and how different data types shape what analysis is possible. This lecture introduces the data science process and the analytical workflow, with a focus on how to frame problems, identify data types, and understand the implications of those data types for your analytical approach. 
 
 ::: {.callout-important}
 ## Required Reading Before Tuesday Class
@@ -56,12 +54,12 @@ By the end of this lecture, you should be able to:
 
 Data science is the multidisciplinary field concerned with extracting knowledge and insight from data—structured or unstructured, large or small. It draws on mathematics, statistics, computer science, and domain expertise to turn raw information into actionable understanding.
 
+**You engage with this everyday, actually. Can you think of how data science is present in your daily life?**
+
 ::: {.callout-note}
 ## The Core Insight
-Data science is what enables us to move from large, incomprehensible datasets to actionable knowledge. The goal is not the technique—it is the insight the technique produces.
+Data science is what enables us to move from large, incomprehensible datasets to actionable knowledge. The goal is not the technique, as the techique may vary from problem set to problem; rather, it is the insight the technique produces.
 :::
-
-Data science principles apply across scales: the methods used to analyze a 10-row spreadsheet and a billion-row database share underlying logic, even if the computational tools differ.
 
 ## Core Functions
 
@@ -77,11 +75,15 @@ A practicing data scientist (or a data-literate analyst) draws on competencies a
 | **Data Visualization** | Communicating findings through charts, maps, and dashboards | Presenting analysis to policymakers and consumers |
 | **Applied Statistics** | Formal inference, hypothesis testing, uncertainty quantification | Calibrating confidence in analytic judgments |
 
+Obviously, every problem set is going to require different combinations of these skills. A project that has data already collected and cleaned may require only statistical modeling and visualization, while a project that needs unstructured data is going to require much more mining and programming expertise. 
+
+**That said, What is something missing from this list?** 
+
 ## Data Science in Intelligence Analysis
 
 ::: {.callout-warning}
 ## Course Framing — Not Training Data Scientists
-The goal of this course is **not** to make you a data scientist. The goal is to make you a data-literate analyst who understands how to connect data—of all kinds—to analytical problems. That means knowing when to use a tool, what it assumes, and how to interpret its output, even if you are not the one writing the code.
+The goal of this course is **not** to make you a data scientist. The goal is to make you a data-literate analyst who understands how to connect data of all kinds to analytical problems. That means knowing when to use a tool, what it assumes, and how to interpret its output, even if you are not the one writing the code.
 :::
 
 Applications of data science methods in intelligence analysis include:
@@ -93,9 +95,16 @@ Applications of data science methods in intelligence analysis include:
 - **Machine Learning for Pattern Recognition** — flagging anomalies in financial flows, communications metadata, or imagery
 - **Predictive Analytics** — forecasting conflict onset, proliferation timelines, or election outcomes
 - **Cybersecurity** — detecting intrusions, attributing attacks, and modeling adversary behavior
+- **Simulation and Scenario Analysis** — modeling complex systems to explore potential outcomes and inform decision-making
 - **Visualization** — producing products that communicate complex findings clearly to consumers
 - **Risk Assessment** — quantifying uncertainty and supporting structured decision-making
 - **Early Warning Systems** — automated monitoring of indicators that precede significant events
+
+::: {.callout-note}
+## Mindset vs. Technique 
+When we approach problems/questions, we want to think about the data that we would need to fully understand and assess the situtation. This is a mindset that is applicable to all types of data, not just quantitative data. The techniques we will learn in this course are tools to help us analyze the data we have, but they are not the end goal for this course. 
+:::
+
 
 ---
 
@@ -114,26 +123,31 @@ The following stages describe the approach used in this program:
 :   Before collecting a single data point, define what you are trying to answer. A problem statement is an explanation of the gap between what is known and what needs to be known, and why that gap matters. In intelligence, this is often framed as: *What is the probability that X will occur?* or *What factors are driving Y?* A weak problem statement produces a weak analysis regardless of data quality.
 
 2. Identification & Procurement
-:   Identify what data exists that is relevant to the problem. Determine how to obtain it—open sources, databases, collection operations, surveys. Document provenance, collection methodology, and known limitations before analysis begins.
+:   Identify what data exists that is relevant to the problem. Determine how to obtain it—open sources, databases, collection operations, surveys. Document provenance, collection methodology, and known limitations before analysis begins. Critical thinking and creativity are key elements here!
 
 3. Selection
-:   Not all available data is relevant. Select the variables, time ranges, geographic units, and sources that address the problem statement. This decision embeds analytical judgment—what you exclude matters as much as what you include.
+:   Not all available data is relevant. Select the variables, time ranges, geographic units, and sources that directly help you understand and address the problem statement. This decision embeds analytical judgment (i.e., what you exclude matters as much as what you include).
 
 4. Preprocessing & Transformation
-:   Clean the data (address missing values, inconsistencies, and errors), standardize formats, and transform variables for analysis (e.g., converting categorical to numerical, creating ratio variables, normalizing scales). This is typically 60–80% of total project time.
+:   Clean the data (address missing values, inconsistencies, and errors), standardize formats, and transform variables for analysis (e.g., converting categorical to numerical, creating ratio variables, normalizing scales). Unfortunately, this is typically 80% of total project time! :cry:
 
 5. EDA and Modeling
-:   Explore the data visually and statistically to understand its structure before applying formal models. Then apply appropriate analytical or statistical methods to test hypotheses or discover patterns.
+:   Explore the data visually and statistically to understand its structure and relationships before applying formal models. Then apply appropriate analytical or statistical methods to test hypotheses or discover patterns.
 
 6. Interpretation
 :   Translate statistical outputs into intelligence judgments. What do the results mean for the problem statement? What is the confidence level? What alternative explanations have been considered?
 
 7. Knowledge / Dissemination
-:   Communicate findings in a form appropriate to the consumer—written product, briefing, dashboard, or visualization. The best analysis is worthless if it cannot be understood and acted upon.
+:   Communicate findings in a form appropriate to the consumer—written product, briefing, dashboard, or visualization.
 
 :::
 :::
 
+::: {.callout-important}
+## Key Questions:
+- How does this workflow fit into the intelligence cycle we discussed previously?
+- Is this workflow linear or iterative? Why does that matter for intelligence analysis?
+:::
 ---
 
 # Part III: Problem Statements
@@ -143,7 +157,7 @@ The following stages describe the approach used in this program:
 A problem statement is the analytical foundation of every data-driven project. It must be:
 
 - **Specific** — describes a precise gap in knowledge, not a broad topic
-- **Significant** — explains why the gap matters to a decision-maker or stakeholder
+- **Significant** — explains why the gap matters to a decision-maker or stakeholder (or other relevant audience)
 - **Researchable** — can be addressed with available (or acquirable) data
 - **Bounded** — scoped so that it can be answered within available time and resources
 
@@ -166,14 +180,39 @@ This specifies the gap, the scope, the data needed, and the policy relevance.
 
 ::: {.callout-note}
 ## The "Identifying the Unexpected" Approach
-In intelligence analysis, problem statements sometimes emerge not from pre-specified questions but from anomalies in data—things that should not be there, or patterns that deviate from baseline. A rigorous EDA phase (see Meeting 20) often surfaces these unexpected signals, which then become the basis of a new problem statement and deeper analytical effort.
+Problem statements sometimes emerge not from pre-specified questions but from anomalies -- the "hey, that's weird" signal -- or patterns that deviate from baseline/expected. A rigorous EDA phase often surfaces these unexpected signals, which then become the basis of a new problem statement and deeper analytical effort. 
+
+This does not always have to originate in the data, though. Think about moments where you noticed something unexpected in your own life or when you were reading the news or a reading for a class. These can lead to the best research questions of all - the **why** questions. 
 :::
+
+::: {.callout-important}
+## Problem Statement vs. Research Questions vs. Intelligence Question
+
+In the IA program, you were hear a variety of terms used to describe the analytical problem you are trying to assess, including **research question**, **problem statement**, and **intelligence question**. While not interchangeable, these terms are related and often used together in the analytical workflow.
+
+**Problem Statement**
+It explains what is not sufficiently understood, why that gap matters, and why further investigation is needed.
+
+*Despite growing investment in AI-enabled intelligence tools, limited evidence exists about how analysts decide whether to trust algorithmic outputs. This gap may hinder the effective and responsible integration of AI into intelligence analysis.*
+
+**Research Question**
+Translates the broader problem into a specific, answerable question that guides systematic research. It is designed to produce generalizable knowledge or improve theoretical understanding.
+
+*What factors influence intelligence analysts’ willingness to trust AI-generated assessments?*
+
+**Intelligence Question**
+Asks for decision-relevant information about a specific actor, event, risk, or development. It is usually narrower, time-sensitive, and actionable.
+
+*How is China using AI-enabled tools to improve intelligence collection and analysis, and how will this impact their intelligence capabilities in the next 3-5 years?*
+
+:::
+
 
 ---
 
 # Part IV: Understanding Data Types in an Intelligence Context
 
-## The Three Categories
+## Some Categories
 
 ::: {.col-pair}
 ::: {.col-left}
@@ -201,7 +240,11 @@ In intelligence analysis, problem statements sometimes emerge not from pre-speci
 **Strengths:** objective, replicable, aggregable, comparable across time and place
 
 **Limitations:** can oversimplify complex phenomena; vulnerable to missing variables; sampling bias; measurement errors
+:::
+:::
 
+::: {.col-pair}
+::: {.col-left}
 **Unstructured**
 
 - Raw satellite imagery
@@ -212,6 +255,18 @@ In intelligence analysis, problem statements sometimes emerge not from pre-speci
 **Strengths:** captures real-world signals in near-real-time; essential for modern OSINT and GEOINT
 
 **Limitations:** requires expensive tools and specialized processing; data-source bias; limited accessibility without technical infrastructure
+:::
+::: {.col-right}
+
+**Structured**
+
+- Databases
+- Spreadsheets
+- Structured reports
+
+**Strengths:** easy to query, filter, and analyze; supports statistical modeling; can be integrated with other structured datasets
+
+**Limitations:** may omit context; can be rigid and slow to adapt to new information; may not capture unanticipated signals; may be formatted in a way that is not compatible with other datasets
 :::
 :::
 
@@ -230,7 +285,7 @@ Triangulation
 :   Combining multiple data types and sources to strengthen findings and reduce blind spots. When qualitative HUMINT, quantitative economic indicators, and IMINT all point in the same direction, confidence increases. When they diverge, that divergence is itself analytically significant.
 
 Ethical Issues
-:   Unstructured and OSINT data often involves private individuals who did not consent to intelligence collection. Privacy, misrepresentation, and manipulation risks must be weighed, especially when data informs operations or policy that affects those individuals.
+:   Unstructured and OSINT data can often involve private individuals who did not consent to intelligence collection. Privacy, misrepresentation, and manipulation risks must be weighed, especially when data informs operations or policy that affects those individuals.
 
 :::
 :::
@@ -243,13 +298,15 @@ Ethical Issues
 
 ## Why a Disciplined Workflow Matters
 
-Intelligence analysis deals with noisy, incomplete, and uncertain data collected under adversarial conditions. Without a disciplined analytical process:
+Analysis deals with noisy, incomplete, and uncertain data collected (sometimes under adversarial conditions). Without a disciplined analytical process:
 
 - Conclusions may be driven by assumptions rather than evidence
 - Errors introduced in early stages compound through the analysis
 - Results cannot be reviewed, replicated, or challenged by colleagues or consumers
+- Bias may go undetected, leading to flawed judgments and decisions
+- Effort put in may not be utilized effectively, leading to wasting time and resources on irrelevant data or methods
 
-A documented workflow makes analysis **traceable**, **reproducible**, and **auditable**.
+A **documented** workflow makes analysis *traceable*, *reproducible*, and *auditable*.
 
 ## Core Workflow Stages
 
@@ -257,7 +314,9 @@ A documented workflow makes analysis **traceable**, **reproducible**, and **audi
 ::: {dl}
 
 1. Data Collection
-:   Gather raw data from classified, commercial, or open sources. Includes structured (databases), unstructured (text, images), and semi-structured (JSON, logs) data. Document every source, access date, and known limitations.
+:   Gather raw data from classified, commercial, or open sources. Includes structured (databases), unstructured (text, images), and semi-structured (JSON, logs) data. Document every source you use (and those that you don't, as it may be relevant later on), the bibliographical information, why you think it will be useful, and what is a limitation of the data. I would also recommend **download** the data, as sometimes websites change or go down, and you want to be able to replicate your analysis later on.
+
+I realize this seems like a lot of documenting, but it will be critically important as you progress through the IA program and in your career. 
 
 2. Data Cleaning and Preprocessing
 :   Remove errors, fill gaps, and standardize values to make data usable. Common issues: missing values (impute, interpolate, or flag), duplicates (identify by unique ID and remove), inconsistent formats (standardize date/time and coordinate formats), outliers (assess whether they are real signals or data errors), noise (filter irrelevant text, bot activity, or spam).

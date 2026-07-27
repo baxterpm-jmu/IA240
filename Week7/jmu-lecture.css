@@ -670,3 +670,142 @@ section.footnotes ol li {
     margin-right: 0;
   }
 }
+
+/* ============================================================
+   AI Practice callout (Option A — purple header, gold "AI" badge)
+   Flags where AI / machine learning applies to a section.
+   Usage in .qmd (the ### heading becomes the styled header):
+
+     ::: {.ai-practice}
+     ### AI in Practice
+     Body text about how AI applies to this section...
+     :::
+   ============================================================ */
+.ai-practice {
+  background-color: var(--jmu-light-purple);
+  border-left: 5px solid var(--jmu-gold);
+  border-radius: 3px;
+  margin: 1.4rem 0;
+  padding: 0 1em 0.85em;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.10);
+}
+
+/* Header bar — bleeds to the panel edges, overriding global h3 styling */
+.ai-practice > h3:first-child {
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+  margin: 0 -1em 0.75em;
+  padding: 0.45em 0.9em;
+  background-color: var(--jmu-purple);
+  color: #ffffff;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* Monospace "AI" badge in gold */
+.ai-practice > h3:first-child::before {
+  content: "AI";
+  flex: 0 0 auto;
+  background-color: var(--jmu-gold);
+  color: var(--jmu-purple);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 2px 7px;
+  border-radius: 2px;
+}
+
+.ai-practice p {
+  margin-bottom: 0.5rem;
+  color: var(--jmu-slate);
+  font-size: 0.93rem;
+}
+
+.ai-practice > *:last-child {
+  margin-bottom: 0;
+}
+
+.ai-practice a {
+  color: var(--jmu-purple);
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .ai-practice {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* ============================================================
+   AI Angle callout (Option B — gold header, monospace uppercase label)
+   Purple-bordered panel with a gold header bar; the ### heading
+   becomes the styled header.
+   Usage in .qmd:
+
+     ::: {.ai-angle}
+     ### AI Angle
+     Body text about how AI applies to this section...
+     :::
+   ============================================================ */
+.ai-angle {
+  background-color: var(--jmu-light-gold);
+  border-left: 5px solid var(--jmu-purple);
+  border-radius: 3px;
+  margin: 1.4rem 0;
+  padding: 0 1em 0.85em;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.10);
+}
+
+/* Header bar — bleeds to the panel edges, overriding global h3 styling */
+.ai-angle > h3:first-child {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0 -1em 0.75em;
+  padding: 0.45em 0.9em;
+  background-color: var(--jmu-gold);
+  color: var(--jmu-purple);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Diamond marker before the label */
+.ai-angle > h3:first-child::before {
+  content: "\25C6";
+  flex: 0 0 auto;
+  color: var(--jmu-purple);
+  font-size: 0.7rem;
+}
+
+.ai-angle p {
+  margin-bottom: 0.5rem;
+  color: var(--jmu-slate);
+  font-size: 0.93rem;
+}
+
+.ai-angle > *:last-child {
+  margin-bottom: 0;
+}
+
+.ai-angle a {
+  color: var(--jmu-purple);
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .ai-angle {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
