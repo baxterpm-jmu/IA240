@@ -1,9 +1,9 @@
 ---
-title: "Week 4: Research Design and Systems Thinking"
+title: "Week 4: Research Design and Finding Data"
 subtitle: "IA 240: Technology Applications in a Networked World"
 ---
 
-Good analysis begins with good questions and a clear understanding of the phenomenon being studied. This lecture covers research design for intelligence problems — hypothesis formulation, methodology selection, variable operationalization — and then introduces systems thinking: the analytical framework for understanding how causal loops, feedback dynamics, and threshold effects produce outcomes that linear analysis misses.
+Good analysis begins with good questions and a clear understanding of the phenomenon being studied. This lecture covers research design for intelligence problems — hypothesis formulation, methodology selection, variable operationalization — and then introduces ways to find and evaluate data to test those hypotheses. 
 
 ::: {.callout-important}
 ## Required Reading Before Tuesday Class
@@ -155,40 +155,6 @@ Both methods run simultaneously and findings are integrated during analysis, pro
 
 ---
 
-# Part V: How Search Engines Work
-
-## Crawling, Indexing, and Ranking
-
-Search engines operate through three core processes:
-
-1. **Crawling** — automated bots traverse the web following hyperlinks, discovering pages
-2. **Indexing** — discovered content is analyzed, parsed, and stored in the search engine's database
-3. **Ranking** — when a query is submitted, the engine scores indexed pages against relevance algorithms
-
-::: {.callout-tip}
-## Advanced Search Operators — Practice
-Try these in your browser:
-
-- `filetype:xlsx Russia economic indicators` — find Excel files on Russian economics
-- `site:gov "intelligence analysis"` — limit results to .gov domains
-- `"climate change" after:2023` — restrict to recent publications
-- `intitle:"annual report" OPEC` — find pages with "annual report" in the title
-
-These techniques apply directly to OSINT collection tasks.
-:::
-
-## Thought Exercise: Applied Search
-
-Working in groups, devise a search strategy for each of the following:
-
-1. A database (Excel format) on Russian economic indicators for the last 30 years
-2. A PDF version of a recent article by a JMU intelligence analysis faculty member
-3. Recent news articles related to JMU football published in the last 24 hours
-4. Regional disparities in American concern about climate change
-5. Research articles published in Portugal on artificial intelligence
-
----
-
 # Part VI: Research Design Fundamentals
 
 ## Operationalization
@@ -215,6 +181,7 @@ The **unit of analysis** is the entity about which you are making claims. Common
 - **Organization** — armed groups, companies, government agencies
 - **Event** — attacks, protests, elections, financial transactions
 - **State/country** — the most common unit in quantitative IR
+- **Dyads** — pairs of states, organizations, or actors
 
 ::: {.callout-warning}
 ## The Ecological Fallacy
@@ -264,198 +231,1264 @@ In small groups, choose one of the following questions. Identify: (a) the DV and
 
 ---
 
+# Part V: Getting Started with Finding Data
 
-# Part VII: Systems Thinking
+Finding data is rarely as simple as entering a topic into Google and downloading the first spreadsheet that appears. Researchers must translate a broad information need into a systematic search strategy, identify the types of data that could answer the research question, locate trustworthy sources, evaluate whether the available data are fit for purpose, and document the entire process.
 
-## What is Systems Thinking?
+A good data search is therefore part of the research design. The sources you locate will shape:
 
-Systems thinking is an analytical approach that views complex phenomena as *systems*—sets of interconnected, interdependent components whose interactions produce emergent behavior that cannot be understood by examining parts in isolation.
+* which questions you can answer;
+* which cases, actors, places, or periods you can study;
+* how concepts can be measured;
+* which analytical methods are appropriate;
+* how confident you can be in the findings; and
+* whether someone else can reproduce the analysis.
 
-Rather than asking "What causes X?", systems thinking asks "How do the relationships *among* multiple variables produce the pattern we observe in X?"
+::: {.callout-important}
 
-::: {.callout-note}
-## Relevance to Hypothesis Development
-When you identify variables for a model, you are making implicit claims about what matters and what does not. Systems thinking forces you to be explicit about those claims—and to consider feedback loops and unintended consequences that purely linear thinking misses.
-:::
+## Data Availability Should Not Determine the Research Question
 
-## Key Principles of Systems Thinking
+Researchers sometimes begin with an interesting dataset and then invent a question that can be answered with it. This can be useful for exploratory analysis, but it is not the same as designing a study around a substantive problem.
 
-::: {.key-terms}
-::: {dl}
+For example, a researcher might have access to a dataset of social media posts and then ask: "What is the relationship between social media use and political polarization?" But if the research question is: "What factors drive political polarization?" then social media data would likely be insufficient to answer it. 
 
-Interconnectedness
-:   Every element of a system is connected to other elements through relationships. Changes in one variable propagate through the system. Analyzing any single variable in isolation produces an incomplete picture.
+A stronger sequence is:
 
-Feedback Loops
-:   Closed causal chains where an effect loops back to influence its own cause. There are two types (see below).
-
-Reinforcing (Positive) Feedback Loops
-:   Change in one direction amplifies further change in the same direction. Not inherently positive in valence—can represent escalation, arms races, or cascading instability. Example: military spending increases → perceived threat increases → adversary military spending increases → perceived threat increases further.
-
-Balancing (Negative) Feedback Loops
-:   System-level resistance to change; the loop pushes back against deviation from a target state. Example: high inflation → interest rate increases → borrowing decreases → economic activity slows → inflation decreases.
-
-Non-linearity
-:   Relationships in complex systems are often non-linear—a small change in an input may have a large effect on an output (tipping points), or a large change may have negligible effect (thresholds). Linear models cannot capture these dynamics.
-
-Emergence
-:   System-level properties that are not present in any individual component. The whole behaves differently than the sum of its parts. Terrorist network resilience is an emergent property—no single node produces it.
-
-Delayed Effects
-:   Effects may manifest long after their cause. Sanctions imposed today may not produce intended economic effects for months or years. Models that ignore time lags will misattribute causation.
-
-Holistic View
-:   Analysis must encompass the whole system, not just the most visible or accessible parts. Focusing only on measurable variables creates blind spots.
-
-:::
-:::
-
----
-
-# Part VIII: Causal Loop Diagrams
-
-## Building a Causal Loop Diagram (CLD)
-
-A causal loop diagram is a visual representation of the causal relationships and feedback loops within a system. It does not quantify relationships—it maps their direction and structure.
-
-**Step-by-step process:**
-
-::: {.timeline}
-::: {dl}
-
-Step 1: Define the System
-:   State the key problem or question you are exploring. What are the boundaries of the system? What outcomes are you trying to explain?
-
-Step 2: Identify Key Variables
-:   List and categorize the variables relevant to your system. Are they independent, dependent, or intermediate? What scale and type are they?
-
-Step 3: Establish Causal Links
-:   For each pair of related variables, draw an arrow from cause to effect. Label each arrow: **(+)** if an increase in the cause produces an increase in the effect; **(-)** if an increase in the cause produces a decrease in the effect.
-
-Step 4: Identify Feedback Loops
-:   Trace closed loops in your diagram. Count the number of negative links: an **even number** (including zero) indicates a reinforcing loop; an **odd number** indicates a balancing loop.
-
-Step 5: Draw the Diagram
-:   List all variables, then add arrows and signs. Clarity and legibility matter—a cluttered CLD is as useless as a cluttered chart.
-
-Step 6: Review and Adjust
-:   Are there gaps? Are feedback loops internally consistent? Have you included all major drivers and consequences? Have independent reviewers examine the diagram.
-
-:::
-:::
-
-## Benefits of Systems Thinking for Analysis
-
-::: {.col-pair}
-::: {.col-left}
-**Better Variable Identification**
-
-Systems thinking forces analysts to think beyond obvious first-order causes. A system diagram of "nuclear proliferation" might reveal that domestic politics, alliance commitments, and regime security concerns interact with the technical capability variables that tend to dominate quantitative models.
-
-**Enhanced Predictive Power**
-
-By mapping how variables interact—including delayed effects and feedback loops—analysts can anticipate how a change in one variable will ripple through the system. Interventions that appear effective in isolation may be counterproductive at the system level.
-:::
-::: {.col-right}
-**Better Decision-Making**
-
-Systems thinking highlights potential unintended consequences *before* they occur. Sanctions designed to reduce a regime's capability may strengthen its internal cohesion through a rally-around-the-flag effect—a balancing loop that counteracts the intended effect.
-
-**More Robust Hypotheses**
-
-Hypotheses derived from systems thinking are more likely to specify the *mechanism* connecting variables, not just the correlation. Mechanistic specificity is a hallmark of analytically rigorous hypothesis development.
-:::
-:::
-
----
-
-# Part IX: Real-World Systems Thinking Cases
-
-## Case 1: Sanctions Against North Korea — A Feedback Loop Analysis
-
-Sanctions imposed on North Korea to compel denuclearization have operated for decades with limited observable effect on North Korea's weapons programs. Systems thinking explains why. The causal structure contains multiple feedback loops that counteract the intended effect of economic coercion.
-
-**Intended mechanism (the linear assumption):**
-> Sanctions → Economic pain → Regime capitulation → Denuclearization
-
-**What systems analysis reveals:**
-
-::: {.col-pair}
-::: {.col-left}
-**Reinforcing loop — Rally-around-the-flag**
-
-Sanctions-induced economic hardship → Regime frames hardship as foreign aggression → Domestic nationalism increases → Regime legitimacy strengthens → Hardline position becomes domestically necessary to sustain
-
-This reinforcing loop amplifies regime cohesion in direct response to the pressure intended to weaken it. Empirical studies on North Korea have found that periods of intensified sanctions correspond with increased domestic propaganda output, not capitulation signals.
-:::
-::: {.col-right}
-**Balancing loop — Elite defection risk**
-
-Sanctions → Economic contraction → Elite material wellbeing threatened → Elite defection or coup risk → Regime redistributes resources to core loyalists → Economic contraction among population deepens, but regime stability is maintained
-
-This balancing loop absorbs the potential political threat from sanctions by concentrating resources within the elite network—precisely the opposite of the intended distributional effect.
-:::
+1. Define the problem.
+2. Develop the research or intelligence question.
+3. Identify the concepts that must be measured.
+4. Determine what evidence would answer the question.
+5. Search for data that approximate that evidence.
+6. Revise the design when necessary, while clearly documenting the compromises made.
 :::
 
 ::: {.callout-note}
-## Analytical Takeaway
-A linear model of sanctions predicts capitulation. A systems model predicts adaptation and consolidation—which is what the empirical record shows. Before recommending or evaluating a coercive policy instrument, mapping the full causal structure (including second- and third-order loops) is essential analytical due diligence.
+## More on "Identify the concepts that must be measured"
+
+This is where creativity and domain knowledge are essential. You will not always have access to the perfect dataset. But you can often identify observable proxies for the concepts you care about. For example, if you want to measure "state capacity," you might look at tax revenue as a percentage of GDP, the number of government employees per capita, or the frequency of public service delivery failures. Each proxy has limitations, but together they can provide a more complete picture of government capacity, without actually having a formal measure.
 :::
 
-## Case 2: The 2003 Iraq Occupation — Institutional Collapse as a System Failure
+## Start with the Research Question
 
-The postwar period in Iraq demonstrated how policy interventions can trigger cascading system failures through mechanisms that linear planning does not anticipate.
+Before searching for data, break the research question into its major components.
 
-**The critical decision:** Coalition Provisional Authority Order No. 2 (May 2003) disbanded the Iraqi Army, removing approximately 400,000 armed men from institutional employment overnight.
+Consider the question:
 
-**System consequences:**
+> How have Chinese infrastructure investments affected public attitudes toward China in African countries since 2010?
 
-::: {.timeline}
-::: {dl}
+This question contains several searchable components:
 
-Phase 1: Initial shock
-:   Army dissolution → immediate loss of income and status for 400,000 individuals with weapons training → security vacuum as the primary order-providing institution disappears
+| Component           | Examples of Search Concepts                                                                      |
+| ------------------- | ------------------------------------------------------------------------------------------------ |
+| Actor               | China, Chinese government, Chinese firms, Belt and Road Initiative                               |
+| Activity            | Infrastructure investment, development finance, foreign direct investment, construction projects |
+| Outcome             | Public opinion, attitudes, favorability, trust, sentiment                                        |
+| Location            | Africa, African countries, specific country names                                                |
+| Time period         | 2010–present                                                                                     |
+| Unit of analysis    | Individual survey respondent, country-year, infrastructure project, province, district           |
+| Possible comparison | Areas with and without Chinese projects; before and after investment                             |
 
-Phase 2: Grievance amplification (reinforcing loop)
-:   Unemployed soldiers → economic desperation + institutional grievance → insurgent recruitment becomes easy and cheap → insurgency capability increases
+Each component suggests different data needs. The investment activity may require project-level financial data, while the outcome may require public-opinion surveys. Geographic analysis may require project coordinates and subnational administrative boundaries.
 
-Phase 3: Sectarian activation
-:   Security vacuum → Shia militias and Kurdish peshmerga expand to fill void → Sunni population perceives ethnic threat → Sunni fighters join insurgency as both economic actors and sectarian defenders (two independent recruitment pathways reinforcing each other)
+::: {.callout-tip}
 
-Phase 4: External involvement
-:   Instability → Al-Qaeda in Iraq enters → foreign fighters provide financing and ideological framing → insurgency becomes internationalized → coalition military response intensifies → civilian casualties → insurgent recruitment further increases (another reinforcing loop)
+## Convert the Question into a Data Requirements Table
+
+Before opening a search engine, create a table like the following:
+
+| Information Needed                | Ideal Measure                               | Possible Data Source                            | Likely Limitation                    |
+| --------------------------------- | ------------------------------------------- | ----------------------------------------------- | ------------------------------------ |
+| Chinese infrastructure investment | Project value, location, start date, sector | AidData, government records, company reports    | Missing projects or uncertain values |
+| Public attitudes toward China     | Survey response measuring favorability      | Afrobarometer or national surveys               | Inconsistent questions across years  |
+| Local socioeconomic conditions    | Income, population, urbanization            | World Bank, national statistics, satellite data | Different geographic units           |
+| Political conditions              | Regime type, election timing, conflict      | V-Dem, ACLED, election databases                | Measurement uncertainty              |
+
+This step helps prevent unfocused searching and makes it easier to recognize when a dataset is useful.
 
 :::
-:::
 
-The system dynamics perspective reveals that the insurgency was not primarily caused by the presence of foreign fighters or by "bad actors" who could have been identified in advance — it was produced by the institutional architecture of the intervention itself. A systems analysis conducted before Order No. 2 could have identified these cascading pathways.
+## Concepts, Variables, and Search Terms
+
+Researchers search more effectively when they distinguish between a **concept** and the terms that may be used to describe it.
+
+A concept such as *political instability* may appear in data sources under terms such as:
+
+* protests;
+* riots;
+* civil unrest;
+* political violence;
+* demonstrations;
+* coups;
+* government turnover;
+* regime instability;
+* state fragility; or
+* conflict events.
+
+Different organizations may use different terminology for similar phenomena. A narrow search using only one phrase can therefore miss relevant sources.
+
+### Build a Search Vocabulary
+
+For each major concept, identify:
+
+1. **Synonyms** — words with similar meanings.
+2. **Broader terms** — categories that include the concept.
+3. **Narrower terms** — specific forms of the concept.
+4. **Related terms** — concepts that are not identical but commonly appear alongside it.
+5. **Institutional terminology** — language used by governments, international organizations, or industries.
+6. **Acronyms and abbreviations** — both formal and informal.
+7. **Alternative spellings** — including British and American spelling.
+8. **Historical terminology** — names or categories used in earlier periods.
+9. **Local-language terms** — especially when researching non-English-speaking countries.
+
+For example:
+
+| Concept                 | Possible Search Terms                                                                |
+| ----------------------- | ------------------------------------------------------------------------------------ |
+| Artificial intelligence | AI, machine learning, deep learning, automated decision systems, algorithmic systems |
+| Government spending     | public expenditure, government expenditure, budget outlays, fiscal spending          |
+| Cyberattack             | cyber attack, computer network attack, data breach, intrusion, ransomware incident   |
+| Migration               | immigration, emigration, displacement, refugee flows, population movement            |
+| Military power          | defense capabilities, armed forces, military capacity, force structure, combat power |
+
+::: {.callout-note}
+
+## Search Terms Are Not Measures
+
+Finding a source that uses the phrase “military power” does not mean the source measures military power in a way that fits your project.
+
+One dataset may measure military power using military expenditure. Another may use troop numbers, equipment inventories, technological capacity, logistics, or an index combining several indicators. Always inspect the source's operational definition and coding procedures.  This will tell you *exactly* how the concept is measured.
+:::
 
 ---
 
-# Part X: Tipping Points and Threshold Dynamics
+# Part VI: How Search Engines Work
 
-## When Systems Shift Suddenly
+## Crawling, Indexing, and Ranking
 
-Some of the most important outcomes in international security are characterized by sudden, discontinuous change — the collapse of a regime that appeared stable, the rapid escalation of a conflict that seemed contained, the sudden spread of a protest movement. Systems thinking offers a framework for understanding why these transitions happen.
+Search engines operate through three core processes:
 
-**Key concept: tipping points and bifurcations**
+1. **Crawling** — automated bots traverse the web by following hyperlinks and discovering pages.
+2. **Indexing** — discovered content is analyzed, parsed, categorized, and stored in the search engine's database.
+3. **Ranking** — when a query is submitted, the engine scores indexed pages according to relevance, authority, usability, freshness, location, and other signals.
 
-In a system with strong balancing loops, a variable (say, regime stability) may remain near its equilibrium despite perturbations — the system "absorbs" small shocks. But once a critical threshold is crossed, the system reorganizes abruptly. The balancing loops that maintained the old equilibrium weaken or reverse; reinforcing loops that were previously dominated begin to dominate. The system bifurcates to a new state.
+These processes have important implications for researchers, as being able to manipulate the search engine's behavior can improve the quality of results (saving time and improving your products!)
 
-**Illustrative cases:**
+A search engine does **not** search the entire internet in real time. It searches its own index of content that its crawlers have discovered and chosen to store. Some materials may be:
 
-| Phenomenon | Pre-tip Dynamics | Tipping Mechanism | Post-tip Dynamics |
-|---|---|---|---|
-| Arab Spring 2010–11 | Authoritarian stability through repression (balancing loop) | Mohamed Bouazizi self-immolation → social media amplification of grievance → cost of protest fell below cost of silence | Reinforcing loop: protests → government crackdowns → more protests; cascade across regional states |
-| Soviet collapse 1989–91 | Ideological legitimacy + military deterrence maintained stability | Gorbachev's signals that force would not be used → cost of defection fell for Eastern European elites | Cascade: each defection reduced the expected cost of the next; the system reorganized faster than anyone predicted |
-| Financial contagion 2008 | Mortgage-backed securities held by globally interconnected financial institutions | Lehman Brothers failure → counterparty uncertainty → credit markets freeze | Reinforcing loop: credit freeze → institutional failures → more uncertainty → deeper freeze |
+* too new to have been indexed;
+* blocked from crawlers;
+* hidden behind a login;
+* stored in a database that generates pages only after a query;
+* poorly linked from other websites;
+* available only through an application programming interface;
+* buried below sponsored advertisements or other content;
+* contained in scanned files;
+* located in an archive;
+* removed from the live web; or
+* intentionally excluded from search results.
+
+**This means that “I could not find it on Google” is not equivalent to “it does not exist.” If you can't find something, it means you need to change your search strategy.** 
+
+## The Surface Web and the Deep Web
+
+The **surface web** consists of pages that ordinary search engines can discover and index.
+
+The **deep web** includes online content that is not readily indexed, such as:
+
+* subscription databases;
+* password-protected portals;
+* dynamically generated database results;
+* internal government systems;
+* academic library collections;
+* cloud storage;
+* private company databases;
+* API-accessible data;
+* archived records; and
+* pages blocked through technical settings.
+
+The deep web is not inherently illegal or suspicious. Much of the world's most valuable research data is part of the deep web because it is stored in structured databases rather than ordinary webpages. It also accounts for an estimated 90% to 99% of the internet's content. 
+
+The **dark web** is a much smaller category involving networks designed to obscure the location or identity of users and services. It is not a synonym for the deep web.  
 
 ::: {.callout-warning}
-## The Prediction Problem
-Tipping points are extraordinarily difficult to predict precisely because the systems that generate them appear stable until they are not. Leading indicators exist — accelerating protest frequency before regime collapse, rising volatility before financial crisis — but threshold identification requires continuous system monitoring, not periodic snapshot analysis. Intelligence that reports on what a system *is* without modeling where it is relative to its thresholds will miss the discontinuity.
+
+## Search Results Are Curated, Not Neutral
+
+Search rankings are influenced by algorithms, commercial incentives, location, language, search history, popularity, search-engine optimization, and content availability.
+
+The first result is not necessarily:
+
+* the most accurate source;
+* the original source;
+* the most complete dataset;
+* the most recent version;
+* the most methodologically appropriate source; or
+* the least biased source.
+
+Search engines help locate evidence. They do not evaluate the evidence for you.
 :::
 
----
+# Part VII: Developing a Search Strategy
+
+## Search Broadly, Then Narrow
+
+A productive search often moves through several stages, from broad exploratory searching to targeted searching, source verification, gap searching, and citation chaining. This process is iterative: new sources may suggest new search terms, which may lead to new sources, and so on. Additionally, your search strategy will evolve as you learn more about the topic, the available data, and the limitations of those data.
+
+### Stage 1: Exploratory Searching
+
+Begin with broad queries to learn how organizations and scholars describe the topic. You can also start with reading broader literature to identify key terms, organizations, and datasets. This stage is about discovery, not precision.
+
+Example Search Parameters:
+
+```text
+Chinese infrastructure investment Africa data
+global cyber incident database
+public opinion China Africa survey
+military expenditure dataset country year
+```
+
+At this stage, the goal is not necessarily to find the final dataset. The goal is to discover:
+
+* common terminology;
+* major organizations;
+* dataset names;
+* prominent researchers;
+* relevant reports;
+* data portals;
+* variables used in prior studies; and
+* references to original sources.
+
+### Stage 2: Targeted Searching
+
+Once important terms and organizations are known, narrow the search.
+
+```text
+AidData Chinese development finance dataset methodology
+site:afrobarometer.org China survey data
+site:worldbank.org military expenditure csv
+"cyber incident database" methodology
+```
+
+### Stage 3: Source Verification
+
+After locating a possible dataset, search specifically for its documentation.
+
+```text
+"dataset name" codebook
+"dataset name" methodology
+"dataset name" data dictionary
+"dataset name" validation
+"dataset name" limitations
+"dataset name" replication
+"dataset name" version history
+```
+
+### Stage 4: Gap Searching
+
+Identify what is missing and search for complementary sources.
+
+For example:
+
+```text
+Chinese infrastructure project coordinates Africa
+Africa subnational population raster data
+African administrative boundaries shapefile
+Afrobarometer geocoded survey data access
+```
+
+### Stage 5: Citation Chaining
+
+Use a strong article, report, or dataset as a starting point.
+
+* **Backward citation searching** examines the sources cited by the item.
+* **Forward citation searching** identifies later publications that cited the item.
+* **Author searching** finds additional work by the same researchers.
+* **Dataset citation searching** identifies studies that used the same data.
+* **Institution searching** identifies related products from the organization.
+
+Citation chaining is often more productive than repeatedly changing keywords.
+
+::: {.callout-tip}
+
+## Keep a Search Log
+
+A search log will allow for you to document the process so that you can go back and identify gaps in your searches, to redo searches if there is something that you missed, and to better document your research. The below is just an example, please tailor it to your own needs.
+
+| Date       | Search Tool    | Query                                          | Useful Result            | Decision               |
+| ---------- | -------------- | ---------------------------------------------- | ------------------------ | ---------------------- |
+| 2026-08-20 | Google         | `"Chinese development finance" Africa dataset` | AidData portal           | Review methodology     |
+| 2026-08-20 | Google Scholar | China infrastructure African public opinion    | Several journal articles | Examine cited datasets |
+| 2026-08-21 | JMU Library    | Chinese investment Africa survey               | Afrobarometer studies    | Locate survey files    |
+
+A search log demonstrates that the search was systematic and helps you avoid repeating unsuccessful queries.
+
+:::
+
+# Part VIII: Advanced Search Operators
+
+Search operators allow researchers to control which pages appear in the results. Operator support varies by search engine, and some operators may not work consistently across all platforms.
+
+## Exact Phrase Searching
+
+Use quotation marks to search for an exact sequence of words. That said, you will want to avoid quotation marks when you want the search engine to include synonyms or alternate word orders.
+
+***Search Parameters***
+```text
+"artificial intelligence readiness index"
+"Chinese development finance"
+"global terrorism database"
+```
+
+Exact phrase searching is useful for:
+
+* dataset titles
+* report titles
+* distinctive quotations
+* policy names
+* organization names
+* etc. 
+
+## Excluding Terms
+
+Use a minus sign to remove unwanted results. Do not place a space between the minus sign and the excluded term, or it won't work. 
+
+***Search Parameters***
+```text
+python network analysis -snake
+jaguar population data -car
+Georgia election data -country
+```
+## Searching Within a Website or Domain
+
+Use `site:` to restrict results to a website or domain.
+
+***Search Parameters***
+```text
+site:worldbank.org governance indicators
+site:un.org refugee data
+site:gov "artificial intelligence"
+site:mil China strategy filetype:pdf
+site:edu conflict dataset
+```
+
+You can use `site:` with:
+
+* a complete domain: `site:worldbank.org`;
+* a subdomain: `site:data.worldbank.org`;
+* a broad domain type: `site:gov`;
+* a country-code domain: `site:gov.uk`; or
+* a specific organization.
+
+::: {.callout-note}
+
+## Be Careful with Domain Assumptions
+
+A `.org` domain is not automatically nonpartisan, a `.gov` source is not automatically complete, and a `.edu` page is not necessarily peer reviewed.
+
+Domain type provides context, not proof of quality.
+
+:::
+
+## Searching for File Types
+
+Use `filetype:` to find specific document formats.
+
+***Search Parameters***
+```text
+filetype:csv military expenditure
+filetype:xlsx election results
+filetype:pdf "annual threat assessment"
+filetype:json conflict events
+filetype:geojson administrative boundaries
+filetype:shp population boundaries
+filetype:zip satellite data
+```
+
+Common file types include:
+
+| Operator           | Typical Content                      |
+| ------------------ | ------------------------------------ |
+| `filetype:csv`     | Tabular data                         |
+| `filetype:xlsx`    | Excel workbooks                      |
+| `filetype:json`    | Structured web or API data           |
+| `filetype:xml`     | Structured records                   |
+| `filetype:pdf`     | Reports, documentation, codebooks    |
+| `filetype:pptx`    | Briefings and presentations          |
+| `filetype:docx`    | Reports and administrative documents |
+| `filetype:zip`     | Compressed datasets                  |
+| `filetype:geojson` | Geographic vector data               |
+| `filetype:kml`     | Geographic features                  |
+| `filetype:shp`     | References to shapefile components   |
+
+*A shapefile normally consists of several files packaged together, so searching for `filetype:zip` may be more effective than searching only for `.shp`.*
+
+## Searching Page Titles
+
+Use `intitle:` when an important term should appear in the page title.
+
+***Search Parameters***
+```text
+intitle:dataset cyber incidents
+intitle:"annual report" OPEC
+intitle:codebook migration
+intitle:methodology corruption index
+```
+
+Use `allintitle:` when all listed terms should appear in the title.
+
+```text
+allintitle: China Africa investment dataset
+```
+
+## Searching URLs
+
+Use `inurl:` to search for terms within a web address.
+
+***Search Parameters***
+```text
+inurl:data conflict events
+inurl:download population estimates
+inurl:api election results
+inurl:dataset China trade
+```
+
+This can help locate sections of large websites that are dedicated to data, downloads, or APIs.
+
+## Combining Search Operators
+
+Operators become more powerful when combined.
+
+***Search Parameters***
+```text
+site:gov filetype:xlsx "foreign assistance"
+site:un.org filetype:csv refugee population
+site:edu intitle:dataset "political violence"
+site:worldbank.org inurl:download filetype:zip boundaries
+"China" "public opinion" Africa filetype:pdf after:2020
+```
+
+Do not over-constrain the first search. If a query returns no useful results, remove one operator or substitute a broader term.
+
+## Boolean Logic
+
+Many academic databases support Boolean operators. 
+
+* `AND` requires **both** terms.
+* `OR` accepts **either** term.
+* `NOT` **excludes** a term.
+* Parentheses group related terms.
+
+Example:
+
+***Search Parameters***
+```text
+(China OR Chinese OR "Belt and Road") AND
+(investment OR infrastructure OR "development finance") AND
+(Africa OR Kenya OR Nigeria OR Ethiopia)
+```
+
+Search engines do not all interpret Boolean logic in exactly the same way. Google and Google Scholar both support Boolean operators, but to make them function correctly on these sites they must be typed in ALL CAPS. Library databases usually provide more consistent Boolean support than general web search engines.
+
+## Wildcards and Truncation
+
+Some academic databases allow a wildcard or truncation symbol.
+
+***Search Parameters***
+```text
+migrat*
+```
+
+This may return:
+
+* migration;
+* migrant;
+* migrants;
+* migratory; and
+* migrating.
+
+The supported symbol varies. Common symbols include `*`, `?`, and `$`. Consult the database's help page before relying on truncation.
+
+## Proximity Searching
+
+Some databases allow researchers to find words appearing near one another at intervals you are able to specify.
+
+***Search Parameters***
+```text
+China NEAR/5 infrastructure
+cyber W/3 attack
+artificial intelligence N5 military
+```
+
+The syntax varies by platform and may not work on all platforms. Proximity searches are useful when two terms are related but may not appear as an exact phrase.
+
+## Date Restrictions
+
+Some search engines support date operators or provide date filters through the interface.
+
+***Search Parameters***
+```text
+"climate change" after:2023
+"annual threat assessment" before:2025
+"artificial intelligence strategy" after:2024-01-01
+```
+
+Date restrictions should be used cautiously. A webpage's displayed or indexed date may represent:
+
+* original publication;
+* most recent update;
+* migration to a new website;
+* metadata creation; or
+* the date the search engine discovered the page.
+
+Always verify the date within the source itself.
+
+# Part X: Finding Data Through Documents
+
+Datasets are often referenced indirectly in reports and articles.
+
+A report may contain a sentence such as:
+
+> Data were collected from the Ministry of Finance's annual procurement database.
+
+That sentence provides a lead even when the report does not include the data itself.
+
+When reviewing a document, search within it for:
+
+```text
+data
+dataset
+methodology
+source
+appendix
+download
+repository
+codebook
+supplement
+replication
+API
+CSV
+Excel
+```
+
+Pay particular attention to:
+
+* footnotes;
+* appendices;
+* methods sections;
+* data availability statements;
+* acknowledgments;
+* references;
+* supplementary materials; and
+* captions beneath tables and figures.
+
+::: {.callout-tip}
+
+## Follow the Source Trail
+
+Do not stop at a chart reproduced in a report.
+
+Trace the evidence backward:
+
+1. Who created the chart?
+2. What dataset was used?
+3. Who originally collected the observations?
+4. Is the original dataset available?
+5. Has the data been transformed?
+6. Are the methods documented?
+7. Is a newer version available?
+
+The report may be a secondary source even when it appears authoritative.
+
+:::
+
+# Part XIV: Using AI-Assisted Search
+
+AI tools can help researchers:
+
+* brainstorm search terms;
+* identify possible data repositories;
+* translate search queries;
+* summarize documentation;
+* generate API request examples;
+* explain unfamiliar file formats;
+* develop code for cleaning data; and
+* compare possible measurement strategies.
+
+However, an AI system may:
+
+* invent a dataset;
+* provide an obsolete URL;
+* confuse similarly named sources;
+* misstate geographic or temporal coverage;
+* omit licensing restrictions;
+* inaccurately describe variables; or
+* cite a source that does not support the claim.
+:::
+
+::: {.ai-angle}
+## Treat AI Output as a Lead, Not Evidence
+
+When an AI system recommends a dataset:
+
+1. Visit the official source.
+2. Confirm that the dataset exists.
+3. Inspect the documentation.
+4. Verify the variables and coverage.
+5. Confirm the current version.
+6. Review the license.
+7. Record the actual source, not merely the AI response.
+
+A useful AI prompt might be:
+
+```text
+I am studying whether Chinese infrastructure projects influence public
+attitudes toward China in African countries. Suggest categories of data
+I would need, possible types of repositories to search, alternative search
+terms, and likely measurement limitations. Do not invent specific datasets.
+```
+
+This uses AI to improve the search process without treating it as an authoritative source.
+:::
+
+# Part XV: Evaluating a Potential Dataset
+
+Locating a dataset is only the beginning. The researcher must determine whether it is suitable for the project.
+
+## Relevance
+
+Ask:
+
+* Does the dataset measure the concept in the research question?
+* Are the variables direct measures or proxies?
+* Does the unit of analysis match the study?
+* Does the dataset cover the relevant population?
+* Are the geographic areas appropriate?
+* Does the time period fit the question?
+
+A dataset can be high quality but irrelevant to a particular research design.
+
+## Provenance
+
+**Data provenance** describes where the data originated and how they reached their current form.
+
+Identify:
+
+* who originally collected the data;
+* who processed the data;
+* who currently distributes the data;
+* whether multiple sources were combined;
+* what transformations occurred;
+* whether the raw observations are available; and
+* whether the source chain is documented.
+
+A dataset downloaded from a university website may still originate from government records, news reports, sensors, surveys, or another database.
+
+## Authority and Expertise
+
+Consider:
+
+* Who created the dataset?
+* Does the organization have relevant expertise?
+* Are the authors identifiable?
+* Is the project affiliated with a credible institution?
+* Is the methodology publicly available?
+* Has the dataset been used in peer-reviewed research?
+* Is there a process for reporting errors?
+
+Authority should be evaluated alongside transparency. A prestigious organization can still produce poorly documented data.
+
+## Coverage
+
+Examine:
+
+* geographic coverage;
+* temporal coverage;
+* population coverage;
+* sector coverage;
+* event coverage;
+* language coverage;
+* frequency of observation;
+* known exclusions; and
+* changes in coverage over time.
+
+Do not assume that a dataset described as “global” includes every country or territory.
+
+## Completeness
+
+Questions include:
+
+* Are records missing?
+* Are some countries or years more complete than others?
+* Are values absent because nothing occurred or because nothing was reported?
+* Are missing-value codes documented?
+* Are recent periods incomplete because of reporting delays?
+* Are some fields optional?
+
+Distinguish carefully among:
+
+* zero;
+* missing;
+* unknown;
+* not applicable;
+* not reported; and
+* not yet available.
+
+These values do not mean the same thing.
+
+## Accuracy
+
+Accuracy concerns how closely the recorded value reflects the real-world phenomenon.
+
+Potential errors include:
+
+* data-entry mistakes;
+* inaccurate coordinates;
+* duplicated events;
+* incorrect dates;
+* mistranslation;
+* inconsistent coding;
+* false reports;
+* outdated values;
+* rounding;
+* estimation error; and
+* conversion errors.
+
+Some sources include confidence scores or uncertainty ranges. Preserve these fields when possible.
+
+## Reliability
+
+Reliability concerns whether the collection and coding procedures produce consistent results.
+
+Ask:
+
+* Are coders trained?
+* Is intercoder reliability reported?
+* Are automated classifications validated?
+* Are coding rules clear?
+* Would another researcher classify the observation similarly?
+* Did definitions change over time?
+
+## Validity
+
+Validity concerns whether the variable actually represents the intended concept.
+
+For example:
+
+* Military spending is not identical to military capability.
+* Internet searches are not identical to public opinion.
+* Reported protests are not identical to all protests.
+* Nighttime lights are not identical to economic productivity.
+* Social-media posts are not identical to population sentiment.
+* Patent counts are not identical to technological quality.
+
+A useful proxy can still be valid for a limited purpose, but the researcher must explain the connection between the proxy and the concept.
+
+## Timeliness
+
+Determine:
+
+* when the dataset was last updated;
+* how frequently it is updated;
+* whether recent records are provisional;
+* whether historical records are revised;
+* whether publication lags vary; and
+* whether the project is still maintained.
+
+A dataset can have a recent webpage while containing old observations.
+
+## Consistency
+
+Look for changes in:
+
+* variable definitions;
+* country codes;
+* geographic boundaries;
+* units;
+* currencies;
+* collection methods;
+* survey wording;
+* file structure;
+* classification categories; and
+* source availability.
+
+A time series may appear continuous even though its underlying methodology changed.
+
+## Granularity
+
+Granularity refers to the level of detail.
+
+Examples include:
+
+* daily versus annual;
+* individual versus household;
+* city versus country;
+* transaction versus company;
+* event versus conflict;
+* pixel versus province.
+
+More granular data are not automatically better. Highly detailed data may contain more noise, privacy risk, and missingness.
+
+## Documentation
+
+A usable dataset should ideally include:
+
+* a codebook;
+* variable definitions;
+* collection procedures;
+* source descriptions;
+* inclusion and exclusion rules;
+* missing-value conventions;
+* known limitations;
+* version information;
+* licensing conditions;
+* contact information; and
+* citation instructions.
+
+Poor documentation increases the risk of analytical error.
+
+## Accessibility and Format
+
+Consider whether the data are:
+
+* downloadable;
+* machine readable;
+* searchable;
+* available without a login;
+* restricted to a subscription;
+* provided through an API;
+* limited to an interactive dashboard;
+* available only as a PDF;
+* stored in a proprietary format; or
+* accessible only after an application.
+
+A dashboard may display data without providing the underlying records.
+
+## Licensing and Usage Restrictions
+
+Review whether you may:
+
+* download the data;
+* reproduce the data;
+* modify the data;
+* merge it with other sources;
+* share it with classmates;
+* publish portions of it;
+* post it to GitHub;
+* use it commercially;
+* create derivative products; or
+* redistribute cleaned versions.
+
+Record the license at the time of download because terms may change.
+
+# Part XVI: Reading a Codebook
+
+A codebook explains how a dataset is organized and how its variables should be interpreted.
+
+A codebook may include:
+
+* variable name;
+* variable label;
+* description;
+* data type;
+* unit;
+* allowable values;
+* missing-value codes;
+* source;
+* coding instructions;
+* examples; and
+* notes on comparability.
+
+Example:
+
+| Variable       | Label                         | Values                | Notes                               |
+| -------------- | ----------------------------- | --------------------- | ----------------------------------- |
+| `country_iso3` | ISO three-letter country code | `KEN`, `NGA`, `GHA`   | Standardized country identifier     |
+| `event_date`   | Date of event                 | `YYYY-MM-DD`          | May reflect best-known date         |
+| `event_type`   | Category of event             | Protest, Riot, Battle | Definitions in methodology          |
+| `fatalities`   | Estimated deaths              | Nonnegative integer   | May be revised                      |
+| `source_count` | Number of sources             | Integer               | Not necessarily independent sources |
+
+::: {.callout-warning}
+
+## Never Guess What a Code Means
+
+A value of `9`, `99`, `-1`, or `999` may represent missing or unknown data rather than a real observation.
+
+Always check the codebook before calculating averages, totals, or statistical models.
+
+:::
+
+## Questions to Ask While Reading a Codebook
+
+1. What does each row represent?
+2. What does each column represent?
+3. Which variable uniquely identifies a row?
+4. Are identifiers stable over time?
+5. Which variables are original and which are derived?
+6. How are missing values encoded?
+7. Are categories mutually exclusive?
+8. Are text labels and numeric codes both provided?
+9. What units are used?
+10. Are values nominal, ordinal, interval, or ratio?
+11. Have any variables been discontinued?
+12. Are some variables available only for certain years or cases?
+
+# Part XX: Primary, Secondary, and Derived Data
+
+## Primary Data
+
+Primary data are collected directly for the research project.
+
+Examples include:
+
+* surveys;
+* interviews;
+* experiments;
+* field observations;
+* sensor readings;
+* original document coding;
+* image interpretation; and
+* laboratory measurements.
+
+Advantages include control over the measurement process and alignment with the research question. Disadvantages include cost, time, access constraints, ethical requirements, and limited scale.
+
+## Secondary Data
+
+Secondary data were collected by someone else.
+
+Examples include:
+
+* government statistics;
+* existing surveys;
+* administrative records;
+* published event databases;
+* commercial datasets; and
+* archival collections.
+
+Advantages include speed, scale, and lower cost. Disadvantages include limited control over definitions, coverage, and collection procedures.
+
+## Derived Data
+
+Derived data are created by transforming other data.
+
+Examples include:
+
+* indexes;
+* ratios;
+* moving averages;
+* model predictions;
+* geocoded records;
+* sentiment scores;
+* network-centrality measures;
+* interpolated values;
+* satellite-derived estimates; and
+* machine-learning classifications.
+
+Derived variables can be highly useful but introduce additional assumptions. Researchers should document the transformation process and preserve the underlying source variables.
+
+# Part XXI: Structured, Semi-Structured, and Unstructured Data
+
+## Structured Data
+
+Structured data follow a predefined tabular or relational format.
+
+Examples include:
+
+* spreadsheets;
+* CSV files;
+* relational databases;
+* survey matrices; and
+* statistical files.
+
+Structured data are usually easiest to analyze.
+
+## Semi-Structured Data
+
+Semi-structured data contain organizational markers but do not necessarily follow a simple table.
+
+Examples include:
+
+* JSON;
+* XML;
+* HTML;
+* log files;
+* email headers; and
+* API responses.
+
+These formats often require parsing before analysis.
+
+## Unstructured Data
+
+Unstructured data do not arrive as rows and columns.
+
+Examples include:
+
+* reports;
+* speeches;
+* articles;
+* photographs;
+* satellite images;
+* audio;
+* video;
+* social-media posts; and
+* interview transcripts.
+
+Unstructured data can be converted into structured variables through:
+
+* manual coding;
+* natural-language processing;
+* computer vision;
+* transcription;
+* named-entity recognition;
+* topic modeling;
+* sentiment analysis; and
+* supervised classification.
+
+The conversion process itself becomes part of the research methodology.
+
+# Part XXIV: Common Search Failures
+
+## Searching Only the Exact Research Question
+
+A full research question may be too complex for a search engine.
+
+Instead of:
+
+```text
+Does Chinese infrastructure investment improve African public opinion
+toward China after controlling for economic development?
+```
+
+search the components separately:
+
+```text
+Chinese infrastructure projects Africa dataset
+Afrobarometer attitudes toward China
+Africa district economic indicators
+geocoded Chinese development finance
+```
+
+## Using Only One Vocabulary
+
+A search for `foreign aid` may miss datasets categorized as:
+
+* development finance;
+* official development assistance;
+* grants;
+* concessional lending;
+* project finance;
+* overseas development;
+* development cooperation; or
+* foreign assistance.
+
+## Searching Only Google
+
+General search engines may not index:
+
+* library databases;
+* subscription resources;
+* dynamic portals;
+* archival collections;
+* APIs;
+* replication repositories; or
+* local-language sources.
+
+## Downloading Without Reading the Documentation
+
+A file may look usable while containing:
+
+* coded missing values;
+* estimated records;
+* duplicated observations;
+* partial coverage;
+* incompatible units;
+* changed definitions; or
+* restricted variables.
+
+## Assuming the File Name Describes the Contents
+
+A file named `global_data.csv` may contain only 50 countries or five years.
+
+Inspect the actual rows, columns, metadata, and documentation.
+
+## Treating a Dashboard as the Dataset
+
+Interactive dashboards may:
+
+* apply hidden filters;
+* round values;
+* display only recent years;
+* omit uncertainty;
+* aggregate observations;
+* change over time; or
+* prevent bulk download.
+
+Look for a download page, API, or source-data link.
+
+## Ignoring Version Information
+
+Datasets are revised. A later release may:
+
+* add cases;
+* correct errors;
+* change variable names;
+* recode historical observations;
+* remove records;
+* alter geographic boundaries; or
+* adopt a new methodology.
+
+Record the version or download date.
+
+## Failing to Save the Original Data
+
+Websites disappear and files are replaced. Preserve the original file whenever licensing permits.
+
+Do not overwrite it with the cleaned version.
+
+## Confusing “No Results” with “No Data”
+
+An unsuccessful search may mean:
+
+* the terminology is wrong;
+* the data use another language;
+* the data are stored in a report;
+* the source is not indexed;
+* access requires a library;
+* the data are available through an API;
+* the organization must be contacted;
+* the records are restricted; or
+* the data genuinely do not exist.
+
+# Part XXV: Documenting the Data Search
+
+A reproducible project should maintain a record for every serious candidate source, including sources that were rejected.
+
+## Recommended Source Log
+
+| Field               | Description                                |
+| ------------------- | ------------------------------------------ |
+| Source name         | Official name of dataset or collection     |
+| Publisher           | Organization distributing the data         |
+| Original collector  | Organization that created the observations |
+| URL                 | Official landing or download page          |
+| Access date         | Date the source was accessed               |
+| Version             | Release number or date                     |
+| File name           | Name of the downloaded file                |
+| Format              | CSV, XLSX, JSON, PDF, GeoPackage, etc.     |
+| Unit of analysis    | What each row represents                   |
+| Geographic coverage | Countries, regions, coordinates            |
+| Temporal coverage   | Start and end dates                        |
+| Key variables       | Variables relevant to the project          |
+| Methodology         | Link or citation to documentation          |
+| License             | Terms governing use and sharing            |
+| Strengths           | Why the source is useful                   |
+| Limitations         | Known weaknesses                           |
+| Decision            | Use, reject, or investigate further        |
+| Rejection reason    | Why an unused source was excluded          |
+
+## Why Record Rejected Sources?
+
+Rejected sources help demonstrate that the researcher:
+
+* considered alternatives;
+* made deliberate methodological choices;
+* recognized important limitations;
+* did not select data solely because they supported an expected conclusion; and
+* can revisit earlier options if the design changes.
+
+# Part XXVIII: Contacting Data Owners
+
+Sometimes the data exist but are not publicly downloadable. If you run into this, you can consider contacting the organization that maintains the data to see if they will share it with you. While not all will be willing to share (as the authors may be using the data for their own research), some may be willing to provide access if you explain your research question and how you intend to use the data.
+
+A professional request should explain:
+
+* who you are;
+* your institutional affiliation;
+* the research topic;
+* the specific data requested;
+* the intended use;
+* the desired format;
+* whether the results will be published;
+* how the source will be credited; and
+* any relevant deadline.
+
+Avoid asking vaguely for “all of your data.” Demonstrate that you have reviewed the public materials and know what you need.
+
+A data owner may:
+
+* provide the data;
+* direct you to an existing source;
+* offer a limited version;
+* require an agreement;
+* charge a fee;
+* request a research proposal;
+* prohibit redistribution; or
+* decline the request.
+
+Record any restrictions attached to the data.
+
+# Part XXX: Ethical Data Discovery
+
+Researchers must consider not only whether data can be found, but whether they should be collected, combined, or published.
+
+Questions include:
+
+* Does the dataset contain personally identifiable information?
+* Could individuals be reidentified?
+* Does combining datasets create new privacy risks?
+* Does the source involve vulnerable populations?
+* Was meaningful consent obtained?
+* Could publication expose people to harm?
+* Are locations sensitive?
+* Does the dataset reflect surveillance or coercive collection?
+* Are protected or classified materials involved?
+* Does the project require institutional review?
+
+::: {.callout-warning}
+
+## Mosaic Effects
+
+Separate pieces of non-sensitive information can become sensitive when combined.
+
+For example, occupation, approximate location, event date, and organizational affiliation may collectively identify an individual even when names have been removed.
+
+:::
+
+## Data Minimization
+
+Collect only the data needed to answer the research question.
+
+Do not retain sensitive fields merely because they are available.
+
+Consider:
+
+* removing direct identifiers;
+* reducing geographic precision;
+* aggregating small categories;
+* limiting access;
+* encrypting sensitive files;
+* separating identifiers from analytical data;
+* defining a retention period; and
+* documenting who may use the data.
+
+
+# Part XXXIV: Key Takeaways
+
+Finding data is an analytical process rather than a clerical task.
+
+The most important principles are:
+
+1. Begin with the research question, not the first available dataset.
+2. Translate concepts into multiple search terms and possible measures.
+3. Search across general engines, specialized databases, repositories, archives, APIs, and institutional websites.
+4. Trace secondary sources back to the original data.
+5. Read the codebook and methodology before conducting analysis.
+6. Evaluate relevance, validity, reliability, coverage, completeness, and timeliness.
+7. Record sources that were considered but rejected.
+8. Preserve raw data and document every transformation.
+9. Review licensing, privacy, ethical, and legal constraints.
+10. Treat unavailable or incomplete data as a substantive limitation of the research design.
+
 
 ---
 
@@ -467,17 +1500,9 @@ Adcock, R., & Collier, D. (2001). Measurement validity: A shared standard for qu
 
 > The definitive treatment of measurement validity in social science research. Directly applicable to operationalization and variable selection for intelligence research designs.
 
-Marrin, S. (2007). Intelligence analysis theory: Explaining and predicting analytic responsibilities. *Intelligence and National Security*, *22*(6), 821–846. <https://doi.org/10.1080/02684520701770202>
-
-> Examines whether intelligence analysis can be codified into systematic methodological practice. Relevant to the hypothesis development and structured analytic technique content in this lecture.
-
 Tetlock, P. E. (1999). Theory-driven reasoning about plausible pasts and probable futures in world politics. *American Journal of Political Science*, *43*(2), 335–366. <https://doi.org/10.2307/2991799>
 
 > Examines how analysts' theoretical frameworks shape what hypotheses they consider and what evidence they weight.
-
-Haggard, S., & Noland, M. (2010). Sanctioning North Korea: The political economy of denuclearization and proliferation. *Asian Survey*, *50*(3), 539–568. <https://doi.org/10.1525/as.2010.50.3.539>
-
-> Empirical examination of feedback dynamics in the North Korea sanctions case — directly relevant to the systems thinking case studies in this lecture.
 
 Cederman, L. E. (2003). Modeling the size of wars: From billiard balls to sandpiles. *American Political Science Review*, *97*(1), 135–150. <https://doi.org/10.1017/S0003055403000571>
 

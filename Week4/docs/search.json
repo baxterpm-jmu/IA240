@@ -1,0 +1,513 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "",
+    "text": "Good analysis begins with good questions and a clear understanding of the phenomenon being studied. This lecture covers research design for intelligence problems — hypothesis formulation, methodology selection, variable operationalization — and then introduces ways to find and evaluate data to test those hypotheses."
+  },
+  {
+    "objectID": "index.html#defining-hypothesis",
+    "href": "index.html#defining-hypothesis",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Defining Hypothesis",
+    "text": "Defining Hypothesis\nA hypothesis is a testable proposition about a relationship or difference between variables. It represents an analyst’s informed expectation about how the world works — a claim that can be confirmed, disconfirmed, or refined through evidence.\nA good hypothesis:\n\nIs stated in precise, unambiguous terminology\nStates an expected relationship or difference between two or more variables\nIs testable — there must exist data that could, in principle, prove it wrong\nIs grounded in prior knowledge, theory, or literature\n\n\n\n\n\n\n\nNoteHypotheses in Intelligence vs. Academic Research\n\n\n\nAcademic hypotheses typically take the form: “Higher X is associated with greater Y.” Intelligence hypotheses often take a probabilistic form: “We assess that there is a greater than 60% probability that State A will conduct a ballistic missile test within the next 90 days.” Both require the same underlying logic: a specific claim, derived from prior knowledge, that is falsifiable by evidence."
+  },
+  {
+    "objectID": "index.html#what-makes-a-hypothesis-testable",
+    "href": "index.html#what-makes-a-hypothesis-testable",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "What Makes a Hypothesis Testable?",
+    "text": "What Makes a Hypothesis Testable?\nFor a hypothesis to be testable:\n\nAll key concepts must be operationalized — defined in terms of measurable variables\nThere must exist data capable of producing evidence for or against it\nA plausible mechanism must connect the independent variable(s) to the dependent variable\nAlternative explanations must be articulable and distinguishable from the primary hypothesis"
+  },
+  {
+    "objectID": "index.html#practice-exercise-nfl-receiver-data",
+    "href": "index.html#practice-exercise-nfl-receiver-data",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Practice Exercise — NFL Receiver Data",
+    "text": "Practice Exercise — NFL Receiver Data\nConsider the following dataset of NFL skill position players:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAge\nPosition\nInjury\nStarter\nYards\nTDs\nYrs Pro\nWinning Team\nPlayoffs\nPro Bowl\n\n\n\n\n25\nRB\nYes\nYes\n800\n4\n3\nYes\nNo\nNo\n\n\n29\nRB\nNo\nYes\n1300\n18\n7\nYes\nNo\nYes\n\n\n32\nRB\nNo\nYes\n1200\n7\n9\nNo\nNo\nNo\n\n\n22\nRB\nNo\nNo\n850\n7\n1\nYes\nYes\nNo\n\n\n29\nRB\nNo\nYes\n700\n15\n8\nYes\nYes\nNo\n\n\n28\nWR\nYes\nYes\n600\n7\n5\nNo\nNo\nNo\n\n\n27\nWR\nNo\nYes\n1350\n7\n5\nYes\nNo\nNo\n\n\n26\nTE\nNo\nYes\n1200\n10\n4\nYes\nYes\nYes\n\n\n25\nTE\nYes\nNo\n800\n6\n3\nYes\nYes\nNo\n\n\n26\nWR\nNo\nYes\n1500\n5\n4\nYes\nNo\nNo\n\n\n\n\n\n\n\n\n\nTipDiscussion: What Hypotheses Does This Data Suggest?\n\n\n\nLooking at these variables, what relationships might be worth testing? Consider: - What is the relationship between yards/TDs and Pro Bowl selection? - Does being on a winning team predict playoff appearances independent of individual performance? - How does age interact with injury and performance metrics? - What is the role of years of professional experience in predicting output?\nFor each hypothesis: identify the independent variable, dependent variable, and expected direction of the relationship."
+  },
+  {
+    "objectID": "index.html#quantitative-research",
+    "href": "index.html#quantitative-research",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Quantitative Research",
+    "text": "Quantitative Research\nQuantitative research is centered on numerical data and statistical analysis. It seeks to identify patterns, relationships, and trends that can be generalized across populations.\nCharacteristics: structured, objective, replicable, uses statistical inference.\nCommon methods: surveys and questionnaires, experiments, secondary data analysis.\n\n\n\n\n\n\nNoteSecondary Data Analysis in Intelligence\n\n\n\nMuch intelligence analysis is secondary data analysis by definition — analysts rarely collect their own data from scratch. Understanding how existing data was collected, cleaned, and coded is therefore essential before drawing conclusions from it."
+  },
+  {
+    "objectID": "index.html#qualitative-research",
+    "href": "index.html#qualitative-research",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Qualitative Research",
+    "text": "Qualitative Research\nQualitative research seeks to understand meanings, experiences, and social processes through non-numerical data. It is often exploratory and context-sensitive.\nCharacteristics: flexible, inductive, produces depth over breadth.\nCommon methods: interviews, focus groups, case studies — in-depth examination of a single unit to understand broader dynamics."
+  },
+  {
+    "objectID": "index.html#mixed-methods-research",
+    "href": "index.html#mixed-methods-research",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Mixed-Methods Research",
+    "text": "Mixed-Methods Research\n\n\nSequential Designs\nOne method informs the next. For example: qualitative interviews identify themes → quantitative survey tests those themes at scale.\n\n\nConcurrent Designs\nBoth methods run simultaneously and findings are integrated during analysis, producing a holistic picture that neither alone could achieve."
+  },
+  {
+    "objectID": "index.html#operationalization",
+    "href": "index.html#operationalization",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Operationalization",
+    "text": "Operationalization\nOperationalization is the process of defining how an abstract concept will be measured in concrete, observable terms.\n\n\n\n\n\n\n\n\nAbstract Concept\nPossible Operationalization\nLimitation\n\n\n\n\nState instability\nAnti-government demonstrations per year\nMisses rural unrest; biased toward media-covered events\n\n\nMilitary capability\nDefense spending as % of GDP\nIgnores efficiency, technology quality, training\n\n\nPopular support\nSurvey approval ratings\nSurvey conditions may not reflect genuine opinion\n\n\nRadicalization\nAttendance at extremist events\nUnderestimates online radicalization\n\n\n\n\n\n\n\n\n\nNoteThe Operationalization Problem in Intelligence\n\n\n\nMany of the concepts most important to intelligence — resolve, intent, morale, legitimacy — resist clean operationalization. Analysts often use proxy indicators: observable behaviors that correlate with the unmeasurable concept. The key discipline is being explicit about what your proxy does and does not capture."
+  },
+  {
+    "objectID": "index.html#unit-of-analysis",
+    "href": "index.html#unit-of-analysis",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Unit of Analysis",
+    "text": "Unit of Analysis\nThe unit of analysis is the entity about which you are making claims. Common units in intelligence analysis:\n\nIndividual — persons of interest, leaders, operatives\nOrganization — armed groups, companies, government agencies\nEvent — attacks, protests, elections, financial transactions\nState/country — the most common unit in quantitative IR\nDyads — pairs of states, organizations, or actors\n\n\n\n\n\n\n\nWarningThe Ecological Fallacy\n\n\n\nDrawing conclusions about individuals from aggregate data is the ecological fallacy. If a country has high per capita income and high support for a political movement, it does not follow that wealthy individuals drive that support. Always match the level of your data to the level of your claim."
+  },
+  {
+    "objectID": "index.html#levels-of-analysis",
+    "href": "index.html#levels-of-analysis",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Levels of Analysis",
+    "text": "Levels of Analysis\n\n\n\n\n\n\n\n\nLevel\nFocus\nExample Question\n\n\n\n\nIndividual\nLeaders, key decision-makers\nDoes Putin’s risk tolerance differ from his advisors’?\n\n\nOrganizational\nBureaucratic/institutional factors\nHow does IRGC organizational culture affect operational decisions?\n\n\nState\nDomestic political, economic, military factors\nDoes regime type predict likelihood of WMD pursuit?\n\n\nSystemic\nStructure of the international system\nDoes unipolarity reduce great-power conflict?"
+  },
+  {
+    "objectID": "index.html#variable-types",
+    "href": "index.html#variable-types",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Variable Types",
+    "text": "Variable Types\n\n\n\nDependent Variable (DV)\n\nThe outcome you are trying to explain or predict.\n\nIndependent Variable (IV)\n\nThe factor you believe causes or predicts variation in the DV.\n\nControl Variable\n\nA factor held constant to isolate the IV–DV relationship.\n\nConfounding Variable\n\nA third variable that affects both IV and DV, creating a spurious appearance of causation.\n\nMediating Variable\n\nA variable through which the IV affects the DV.\n\n\n\n\n\n\n\n\n\n\nTipDiscussion: Operationalizing Threat\n\n\n\nIn small groups, choose one of the following questions. Identify: (a) the DV and how to measure it, (b) the primary IV and how to operationalize it, (c) at least one likely confounder, and (d) the most significant limitation of your operationalization.\n\nDo states facing existential threats pursue nuclear weapons more frequently?\nDoes social media use increase the likelihood of mass protests?\nDoes foreign economic aid reduce armed conflict in recipient countries?"
+  },
+  {
+    "objectID": "index.html#start-with-the-research-question",
+    "href": "index.html#start-with-the-research-question",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Start with the Research Question",
+    "text": "Start with the Research Question\nBefore searching for data, break the research question into its major components.\nConsider the question:\n\nHow have Chinese infrastructure investments affected public attitudes toward China in African countries since 2010?\n\nThis question contains several searchable components:\n\n\n\n\n\n\n\nComponent\nExamples of Search Concepts\n\n\n\n\nActor\nChina, Chinese government, Chinese firms, Belt and Road Initiative\n\n\nActivity\nInfrastructure investment, development finance, foreign direct investment, construction projects\n\n\nOutcome\nPublic opinion, attitudes, favorability, trust, sentiment\n\n\nLocation\nAfrica, African countries, specific country names\n\n\nTime period\n2010–present\n\n\nUnit of analysis\nIndividual survey respondent, country-year, infrastructure project, province, district\n\n\nPossible comparison\nAreas with and without Chinese projects; before and after investment\n\n\n\nEach component suggests different data needs. The investment activity may require project-level financial data, while the outcome may require public-opinion surveys. Geographic analysis may require project coordinates and subnational administrative boundaries.\n\n\n\n\n\n\nTipConvert the Question into a Data Requirements Table\n\n\n\nBefore opening a search engine, create a table like the following:\n\n\n\n\n\n\n\n\n\nInformation Needed\nIdeal Measure\nPossible Data Source\nLikely Limitation\n\n\n\n\nChinese infrastructure investment\nProject value, location, start date, sector\nAidData, government records, company reports\nMissing projects or uncertain values\n\n\nPublic attitudes toward China\nSurvey response measuring favorability\nAfrobarometer or national surveys\nInconsistent questions across years\n\n\nLocal socioeconomic conditions\nIncome, population, urbanization\nWorld Bank, national statistics, satellite data\nDifferent geographic units\n\n\nPolitical conditions\nRegime type, election timing, conflict\nV-Dem, ACLED, election databases\nMeasurement uncertainty\n\n\n\nThis step helps prevent unfocused searching and makes it easier to recognize when a dataset is useful."
+  },
+  {
+    "objectID": "index.html#concepts-variables-and-search-terms",
+    "href": "index.html#concepts-variables-and-search-terms",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Concepts, Variables, and Search Terms",
+    "text": "Concepts, Variables, and Search Terms\nResearchers search more effectively when they distinguish between a concept and the terms that may be used to describe it.\nA concept such as political instability may appear in data sources under terms such as:\n\nprotests;\nriots;\ncivil unrest;\npolitical violence;\ndemonstrations;\ncoups;\ngovernment turnover;\nregime instability;\nstate fragility; or\nconflict events.\n\nDifferent organizations may use different terminology for similar phenomena. A narrow search using only one phrase can therefore miss relevant sources.\n\nBuild a Search Vocabulary\nFor each major concept, identify:\n\nSynonyms — words with similar meanings.\nBroader terms — categories that include the concept.\nNarrower terms — specific forms of the concept.\nRelated terms — concepts that are not identical but commonly appear alongside it.\nInstitutional terminology — language used by governments, international organizations, or industries.\nAcronyms and abbreviations — both formal and informal.\nAlternative spellings — including British and American spelling.\nHistorical terminology — names or categories used in earlier periods.\nLocal-language terms — especially when researching non-English-speaking countries.\n\nFor example:\n\n\n\n\n\n\n\nConcept\nPossible Search Terms\n\n\n\n\nArtificial intelligence\nAI, machine learning, deep learning, automated decision systems, algorithmic systems\n\n\nGovernment spending\npublic expenditure, government expenditure, budget outlays, fiscal spending\n\n\nCyberattack\ncyber attack, computer network attack, data breach, intrusion, ransomware incident\n\n\nMigration\nimmigration, emigration, displacement, refugee flows, population movement\n\n\nMilitary power\ndefense capabilities, armed forces, military capacity, force structure, combat power\n\n\n\n\n\n\n\n\n\nNoteSearch Terms Are Not Measures\n\n\n\nFinding a source that uses the phrase “military power” does not mean the source measures military power in a way that fits your project.\nOne dataset may measure military power using military expenditure. Another may use troop numbers, equipment inventories, technological capacity, logistics, or an index combining several indicators. Always inspect the source’s operational definition and coding procedures. This will tell you exactly how the concept is measured."
+  },
+  {
+    "objectID": "index.html#crawling-indexing-and-ranking",
+    "href": "index.html#crawling-indexing-and-ranking",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Crawling, Indexing, and Ranking",
+    "text": "Crawling, Indexing, and Ranking\nSearch engines operate through three core processes:\n\nCrawling — automated bots traverse the web by following hyperlinks and discovering pages.\nIndexing — discovered content is analyzed, parsed, categorized, and stored in the search engine’s database.\nRanking — when a query is submitted, the engine scores indexed pages according to relevance, authority, usability, freshness, location, and other signals.\n\nThese processes have important implications for researchers, as being able to manipulate the search engine’s behavior can improve the quality of results (saving time and improving your products!)\nA search engine does not search the entire internet in real time. It searches its own index of content that its crawlers have discovered and chosen to store. Some materials may be:\n\ntoo new to have been indexed;\nblocked from crawlers;\nhidden behind a login;\nstored in a database that generates pages only after a query;\npoorly linked from other websites;\navailable only through an application programming interface;\nburied below sponsored advertisements or other content;\ncontained in scanned files;\nlocated in an archive;\nremoved from the live web; or\nintentionally excluded from search results.\n\nThis means that “I could not find it on Google” is not equivalent to “it does not exist.” If you can’t find something, it means you need to change your search strategy."
+  },
+  {
+    "objectID": "index.html#the-surface-web-and-the-deep-web",
+    "href": "index.html#the-surface-web-and-the-deep-web",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "The Surface Web and the Deep Web",
+    "text": "The Surface Web and the Deep Web\nThe surface web consists of pages that ordinary search engines can discover and index.\nThe deep web includes online content that is not readily indexed, such as:\n\nsubscription databases;\npassword-protected portals;\ndynamically generated database results;\ninternal government systems;\nacademic library collections;\ncloud storage;\nprivate company databases;\nAPI-accessible data;\narchived records; and\npages blocked through technical settings.\n\nThe deep web is not inherently illegal or suspicious. Much of the world’s most valuable research data is part of the deep web because it is stored in structured databases rather than ordinary webpages. It also accounts for an estimated 90% to 99% of the internet’s content.\nThe dark web is a much smaller category involving networks designed to obscure the location or identity of users and services. It is not a synonym for the deep web.\n\n\n\n\n\n\nWarningSearch Results Are Curated, Not Neutral\n\n\n\nSearch rankings are influenced by algorithms, commercial incentives, location, language, search history, popularity, search-engine optimization, and content availability.\nThe first result is not necessarily:\n\nthe most accurate source;\nthe original source;\nthe most complete dataset;\nthe most recent version;\nthe most methodologically appropriate source; or\nthe least biased source.\n\nSearch engines help locate evidence. They do not evaluate the evidence for you."
+  },
+  {
+    "objectID": "index.html#search-broadly-then-narrow",
+    "href": "index.html#search-broadly-then-narrow",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Search Broadly, Then Narrow",
+    "text": "Search Broadly, Then Narrow\nA productive search often moves through several stages, from broad exploratory searching to targeted searching, source verification, gap searching, and citation chaining. This process is iterative: new sources may suggest new search terms, which may lead to new sources, and so on. Additionally, your search strategy will evolve as you learn more about the topic, the available data, and the limitations of those data.\n\nStage 1: Exploratory Searching\nBegin with broad queries to learn how organizations and scholars describe the topic. You can also start with reading broader literature to identify key terms, organizations, and datasets. This stage is about discovery, not precision.\nExample Search Parameters:\nChinese infrastructure investment Africa data\nglobal cyber incident database\npublic opinion China Africa survey\nmilitary expenditure dataset country year\nAt this stage, the goal is not necessarily to find the final dataset. The goal is to discover:\n\ncommon terminology;\nmajor organizations;\ndataset names;\nprominent researchers;\nrelevant reports;\ndata portals;\nvariables used in prior studies; and\nreferences to original sources.\n\n\n\nStage 2: Targeted Searching\nOnce important terms and organizations are known, narrow the search.\nAidData Chinese development finance dataset methodology\nsite:afrobarometer.org China survey data\nsite:worldbank.org military expenditure csv\n\"cyber incident database\" methodology\n\n\nStage 3: Source Verification\nAfter locating a possible dataset, search specifically for its documentation.\n\"dataset name\" codebook\n\"dataset name\" methodology\n\"dataset name\" data dictionary\n\"dataset name\" validation\n\"dataset name\" limitations\n\"dataset name\" replication\n\"dataset name\" version history\n\n\nStage 4: Gap Searching\nIdentify what is missing and search for complementary sources.\nFor example:\nChinese infrastructure project coordinates Africa\nAfrica subnational population raster data\nAfrican administrative boundaries shapefile\nAfrobarometer geocoded survey data access\n\n\nStage 5: Citation Chaining\nUse a strong article, report, or dataset as a starting point.\n\nBackward citation searching examines the sources cited by the item.\nForward citation searching identifies later publications that cited the item.\nAuthor searching finds additional work by the same researchers.\nDataset citation searching identifies studies that used the same data.\nInstitution searching identifies related products from the organization.\n\nCitation chaining is often more productive than repeatedly changing keywords.\n\n\n\n\n\n\nTipKeep a Search Log\n\n\n\nA search log will allow for you to document the process so that you can go back and identify gaps in your searches, to redo searches if there is something that you missed, and to better document your research. The below is just an example, please tailor it to your own needs.\n\n\n\n\n\n\n\n\n\n\nDate\nSearch Tool\nQuery\nUseful Result\nDecision\n\n\n\n\n2026-08-20\nGoogle\n\"Chinese development finance\" Africa dataset\nAidData portal\nReview methodology\n\n\n2026-08-20\nGoogle Scholar\nChina infrastructure African public opinion\nSeveral journal articles\nExamine cited datasets\n\n\n2026-08-21\nJMU Library\nChinese investment Africa survey\nAfrobarometer studies\nLocate survey files\n\n\n\nA search log demonstrates that the search was systematic and helps you avoid repeating unsuccessful queries."
+  },
+  {
+    "objectID": "index.html#exact-phrase-searching",
+    "href": "index.html#exact-phrase-searching",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Exact Phrase Searching",
+    "text": "Exact Phrase Searching\nUse quotation marks to search for an exact sequence of words. That said, you will want to avoid quotation marks when you want the search engine to include synonyms or alternate word orders.\nSearch Parameters\n\"artificial intelligence readiness index\"\n\"Chinese development finance\"\n\"global terrorism database\"\nExact phrase searching is useful for:\n\ndataset titles\nreport titles\ndistinctive quotations\npolicy names\norganization names\netc."
+  },
+  {
+    "objectID": "index.html#excluding-terms",
+    "href": "index.html#excluding-terms",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Excluding Terms",
+    "text": "Excluding Terms\nUse a minus sign to remove unwanted results. Do not place a space between the minus sign and the excluded term, or it won’t work.\nSearch Parameters\npython network analysis -snake\njaguar population data -car\nGeorgia election data -country"
+  },
+  {
+    "objectID": "index.html#searching-within-a-website-or-domain",
+    "href": "index.html#searching-within-a-website-or-domain",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Searching Within a Website or Domain",
+    "text": "Searching Within a Website or Domain\nUse site: to restrict results to a website or domain.\nSearch Parameters\nsite:worldbank.org governance indicators\nsite:un.org refugee data\nsite:gov \"artificial intelligence\"\nsite:mil China strategy filetype:pdf\nsite:edu conflict dataset\nYou can use site: with:\n\na complete domain: site:worldbank.org;\na subdomain: site:data.worldbank.org;\na broad domain type: site:gov;\na country-code domain: site:gov.uk; or\na specific organization.\n\n\n\n\n\n\n\nNoteBe Careful with Domain Assumptions\n\n\n\nA .org domain is not automatically nonpartisan, a .gov source is not automatically complete, and a .edu page is not necessarily peer reviewed.\nDomain type provides context, not proof of quality."
+  },
+  {
+    "objectID": "index.html#searching-for-file-types",
+    "href": "index.html#searching-for-file-types",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Searching for File Types",
+    "text": "Searching for File Types\nUse filetype: to find specific document formats.\nSearch Parameters\nfiletype:csv military expenditure\nfiletype:xlsx election results\nfiletype:pdf \"annual threat assessment\"\nfiletype:json conflict events\nfiletype:geojson administrative boundaries\nfiletype:shp population boundaries\nfiletype:zip satellite data\nCommon file types include:\n\n\n\nOperator\nTypical Content\n\n\n\n\nfiletype:csv\nTabular data\n\n\nfiletype:xlsx\nExcel workbooks\n\n\nfiletype:json\nStructured web or API data\n\n\nfiletype:xml\nStructured records\n\n\nfiletype:pdf\nReports, documentation, codebooks\n\n\nfiletype:pptx\nBriefings and presentations\n\n\nfiletype:docx\nReports and administrative documents\n\n\nfiletype:zip\nCompressed datasets\n\n\nfiletype:geojson\nGeographic vector data\n\n\nfiletype:kml\nGeographic features\n\n\nfiletype:shp\nReferences to shapefile components\n\n\n\nA shapefile normally consists of several files packaged together, so searching for filetype:zip may be more effective than searching only for .shp."
+  },
+  {
+    "objectID": "index.html#searching-page-titles",
+    "href": "index.html#searching-page-titles",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Searching Page Titles",
+    "text": "Searching Page Titles\nUse intitle: when an important term should appear in the page title.\nSearch Parameters\nintitle:dataset cyber incidents\nintitle:\"annual report\" OPEC\nintitle:codebook migration\nintitle:methodology corruption index\nUse allintitle: when all listed terms should appear in the title.\nallintitle: China Africa investment dataset"
+  },
+  {
+    "objectID": "index.html#searching-urls",
+    "href": "index.html#searching-urls",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Searching URLs",
+    "text": "Searching URLs\nUse inurl: to search for terms within a web address.\nSearch Parameters\ninurl:data conflict events\ninurl:download population estimates\ninurl:api election results\ninurl:dataset China trade\nThis can help locate sections of large websites that are dedicated to data, downloads, or APIs."
+  },
+  {
+    "objectID": "index.html#combining-search-operators",
+    "href": "index.html#combining-search-operators",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Combining Search Operators",
+    "text": "Combining Search Operators\nOperators become more powerful when combined.\nSearch Parameters\nsite:gov filetype:xlsx \"foreign assistance\"\nsite:un.org filetype:csv refugee population\nsite:edu intitle:dataset \"political violence\"\nsite:worldbank.org inurl:download filetype:zip boundaries\n\"China\" \"public opinion\" Africa filetype:pdf after:2020\nDo not over-constrain the first search. If a query returns no useful results, remove one operator or substitute a broader term."
+  },
+  {
+    "objectID": "index.html#boolean-logic",
+    "href": "index.html#boolean-logic",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Boolean Logic",
+    "text": "Boolean Logic\nMany academic databases support Boolean operators.\n\nAND requires both terms.\nOR accepts either term.\nNOT excludes a term.\nParentheses group related terms.\n\nExample:\nSearch Parameters\n(China OR Chinese OR \"Belt and Road\") AND\n(investment OR infrastructure OR \"development finance\") AND\n(Africa OR Kenya OR Nigeria OR Ethiopia)\nSearch engines do not all interpret Boolean logic in exactly the same way. Google and Google Scholar both support Boolean operators, but to make them function correctly on these sites they must be typed in ALL CAPS. Library databases usually provide more consistent Boolean support than general web search engines."
+  },
+  {
+    "objectID": "index.html#wildcards-and-truncation",
+    "href": "index.html#wildcards-and-truncation",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Wildcards and Truncation",
+    "text": "Wildcards and Truncation\nSome academic databases allow a wildcard or truncation symbol.\nSearch Parameters\nmigrat*\nThis may return:\n\nmigration;\nmigrant;\nmigrants;\nmigratory; and\nmigrating.\n\nThe supported symbol varies. Common symbols include *, ?, and $. Consult the database’s help page before relying on truncation."
+  },
+  {
+    "objectID": "index.html#proximity-searching",
+    "href": "index.html#proximity-searching",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Proximity Searching",
+    "text": "Proximity Searching\nSome databases allow researchers to find words appearing near one another at intervals you are able to specify.\nSearch Parameters\nChina NEAR/5 infrastructure\ncyber W/3 attack\nartificial intelligence N5 military\nThe syntax varies by platform and may not work on all platforms. Proximity searches are useful when two terms are related but may not appear as an exact phrase."
+  },
+  {
+    "objectID": "index.html#date-restrictions",
+    "href": "index.html#date-restrictions",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Date Restrictions",
+    "text": "Date Restrictions\nSome search engines support date operators or provide date filters through the interface.\nSearch Parameters\n\"climate change\" after:2023\n\"annual threat assessment\" before:2025\n\"artificial intelligence strategy\" after:2024-01-01\nDate restrictions should be used cautiously. A webpage’s displayed or indexed date may represent:\n\noriginal publication;\nmost recent update;\nmigration to a new website;\nmetadata creation; or\nthe date the search engine discovered the page.\n\nAlways verify the date within the source itself."
+  },
+  {
+    "objectID": "index.html#treat-ai-output-as-a-lead-not-evidence",
+    "href": "index.html#treat-ai-output-as-a-lead-not-evidence",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Treat AI Output as a Lead, Not Evidence",
+    "text": "Treat AI Output as a Lead, Not Evidence\nWhen an AI system recommends a dataset:\n\nVisit the official source.\nConfirm that the dataset exists.\nInspect the documentation.\nVerify the variables and coverage.\nConfirm the current version.\nReview the license.\nRecord the actual source, not merely the AI response."
+  },
+  {
+    "objectID": "index.html#relevance",
+    "href": "index.html#relevance",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Relevance",
+    "text": "Relevance\nAsk:\n\nDoes the dataset measure the concept in the research question?\nAre the variables direct measures or proxies?\nDoes the unit of analysis match the study?\nDoes the dataset cover the relevant population?\nAre the geographic areas appropriate?\nDoes the time period fit the question?\n\nA dataset can be high quality but irrelevant to a particular research design."
+  },
+  {
+    "objectID": "index.html#provenance",
+    "href": "index.html#provenance",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Provenance",
+    "text": "Provenance\nData provenance describes where the data originated and how they reached their current form.\nIdentify:\n\nwho originally collected the data;\nwho processed the data;\nwho currently distributes the data;\nwhether multiple sources were combined;\nwhat transformations occurred;\nwhether the raw observations are available; and\nwhether the source chain is documented.\n\nA dataset downloaded from a university website may still originate from government records, news reports, sensors, surveys, or another database."
+  },
+  {
+    "objectID": "index.html#authority-and-expertise",
+    "href": "index.html#authority-and-expertise",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Authority and Expertise",
+    "text": "Authority and Expertise\nConsider:\n\nWho created the dataset?\nDoes the organization have relevant expertise?\nAre the authors identifiable?\nIs the project affiliated with a credible institution?\nIs the methodology publicly available?\nHas the dataset been used in peer-reviewed research?\nIs there a process for reporting errors?\n\nAuthority should be evaluated alongside transparency. A prestigious organization can still produce poorly documented data."
+  },
+  {
+    "objectID": "index.html#coverage",
+    "href": "index.html#coverage",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Coverage",
+    "text": "Coverage\nExamine:\n\ngeographic coverage;\ntemporal coverage;\npopulation coverage;\nsector coverage;\nevent coverage;\nlanguage coverage;\nfrequency of observation;\nknown exclusions; and\nchanges in coverage over time.\n\nDo not assume that a dataset described as “global” includes every country or territory."
+  },
+  {
+    "objectID": "index.html#completeness",
+    "href": "index.html#completeness",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Completeness",
+    "text": "Completeness\nQuestions include:\n\nAre records missing?\nAre some countries or years more complete than others?\nAre values absent because nothing occurred or because nothing was reported?\nAre missing-value codes documented?\nAre recent periods incomplete because of reporting delays?\nAre some fields optional?\n\nDistinguish carefully among:\n\nzero;\nmissing;\nunknown;\nnot applicable;\nnot reported; and\nnot yet available.\n\nThese values do not mean the same thing."
+  },
+  {
+    "objectID": "index.html#accuracy",
+    "href": "index.html#accuracy",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Accuracy",
+    "text": "Accuracy\nAccuracy concerns how closely the recorded value reflects the real-world phenomenon.\nPotential errors include:\n\ndata-entry mistakes;\ninaccurate coordinates;\nduplicated events;\nincorrect dates;\nmistranslation;\ninconsistent coding;\nfalse reports;\noutdated values;\nrounding;\nestimation error; and\nconversion errors.\n\nSome sources include confidence scores or uncertainty ranges. Preserve these fields when possible."
+  },
+  {
+    "objectID": "index.html#reliability",
+    "href": "index.html#reliability",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Reliability",
+    "text": "Reliability\nReliability concerns whether the collection and coding procedures produce consistent results.\nAsk:\n\nAre coders trained?\nIs intercoder reliability reported?\nAre automated classifications validated?\nAre coding rules clear?\nWould another researcher classify the observation similarly?\nDid definitions change over time?"
+  },
+  {
+    "objectID": "index.html#validity",
+    "href": "index.html#validity",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Validity",
+    "text": "Validity\nValidity concerns whether the variable actually represents the intended concept.\nFor example:\n\nMilitary spending is not identical to military capability.\nInternet searches are not identical to public opinion.\nReported protests are not identical to all protests.\nNighttime lights are not identical to economic productivity.\nSocial-media posts are not identical to population sentiment.\nPatent counts are not identical to technological quality.\n\nA useful proxy can still be valid for a limited purpose, but the researcher must explain the connection between the proxy and the concept."
+  },
+  {
+    "objectID": "index.html#timeliness",
+    "href": "index.html#timeliness",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Timeliness",
+    "text": "Timeliness\nDetermine:\n\nwhen the dataset was last updated;\nhow frequently it is updated;\nwhether recent records are provisional;\nwhether historical records are revised;\nwhether publication lags vary; and\nwhether the project is still maintained.\n\nA dataset can have a recent webpage while containing old observations."
+  },
+  {
+    "objectID": "index.html#consistency",
+    "href": "index.html#consistency",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Consistency",
+    "text": "Consistency\nLook for changes in:\n\nvariable definitions;\ncountry codes;\ngeographic boundaries;\nunits;\ncurrencies;\ncollection methods;\nsurvey wording;\nfile structure;\nclassification categories; and\nsource availability.\n\nA time series may appear continuous even though its underlying methodology changed."
+  },
+  {
+    "objectID": "index.html#granularity",
+    "href": "index.html#granularity",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Granularity",
+    "text": "Granularity\nGranularity refers to the level of detail.\nExamples include:\n\ndaily versus annual;\nindividual versus household;\ncity versus country;\ntransaction versus company;\nevent versus conflict;\npixel versus province.\n\nMore granular data are not automatically better. Highly detailed data may contain more noise, privacy risk, and missingness."
+  },
+  {
+    "objectID": "index.html#documentation",
+    "href": "index.html#documentation",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Documentation",
+    "text": "Documentation\nA usable dataset should ideally include:\n\na codebook;\nvariable definitions;\ncollection procedures;\nsource descriptions;\ninclusion and exclusion rules;\nmissing-value conventions;\nknown limitations;\nversion information;\nlicensing conditions;\ncontact information; and\ncitation instructions.\n\nPoor documentation increases the risk of analytical error."
+  },
+  {
+    "objectID": "index.html#accessibility-and-format",
+    "href": "index.html#accessibility-and-format",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Accessibility and Format",
+    "text": "Accessibility and Format\nConsider whether the data are:\n\ndownloadable;\nmachine readable;\nsearchable;\navailable without a login;\nrestricted to a subscription;\nprovided through an API;\nlimited to an interactive dashboard;\navailable only as a PDF;\nstored in a proprietary format; or\naccessible only after an application.\n\nA dashboard may display data without providing the underlying records."
+  },
+  {
+    "objectID": "index.html#licensing-and-usage-restrictions",
+    "href": "index.html#licensing-and-usage-restrictions",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Licensing and Usage Restrictions",
+    "text": "Licensing and Usage Restrictions\nReview whether you may:\n\ndownload the data;\nreproduce the data;\nmodify the data;\nmerge it with other sources;\nshare it with classmates;\npublish portions of it;\npost it to GitHub;\nuse it commercially;\ncreate derivative products; or\nredistribute cleaned versions.\n\nRecord the license at the time of download because terms may change."
+  },
+  {
+    "objectID": "index.html#questions-to-ask-while-reading-a-codebook",
+    "href": "index.html#questions-to-ask-while-reading-a-codebook",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Questions to Ask While Reading a Codebook",
+    "text": "Questions to Ask While Reading a Codebook\n\nWhat does each row represent?\nWhat does each column represent?\nWhich variable uniquely identifies a row?\nAre identifiers stable over time?\nWhich variables are original and which are derived?\nHow are missing values encoded?\nAre categories mutually exclusive?\nAre text labels and numeric codes both provided?\nWhat units are used?\nAre values nominal, ordinal, interval, or ratio?\nHave any variables been discontinued?\nAre some variables available only for certain years or cases?"
+  },
+  {
+    "objectID": "index.html#aligning-multiple-levels-of-data",
+    "href": "index.html#aligning-multiple-levels-of-data",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Aligning Multiple Levels of Data",
+    "text": "Aligning Multiple Levels of Data\nA project may combine:\n\nindividual survey responses;\ndistrict-level infrastructure data;\nnational economic indicators; and\nyearly political measures.\n\nThis creates a multilevel structure. The researcher must decide:\n\nwhich geographic unit will be used;\nhow observations will be aggregated;\nhow dates will be aligned;\nwhether boundaries changed;\nwhether repeated observations exist; and\nwhether the analytical method accounts for clustering."
+  },
+  {
+    "objectID": "index.html#date-fields-may-represent-different-things",
+    "href": "index.html#date-fields-may-represent-different-things",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Date Fields May Represent Different Things",
+    "text": "Date Fields May Represent Different Things\nA dataset may contain:\n\nevent date;\nreport date;\npublication date;\nobservation date;\nstart date;\nend date;\nupdate date;\nretrieval date; and\ncoding date.\n\nThese are not interchangeable.\nFor a conflict event, the event may have occurred on Monday, been reported on Tuesday, entered into the database on Thursday, and revised the following month."
+  },
+  {
+    "objectID": "index.html#temporal-alignment",
+    "href": "index.html#temporal-alignment",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Temporal Alignment",
+    "text": "Temporal Alignment\nWhen merging sources, determine whether the values refer to:\n\ncalendar year;\nfiscal year;\nacademic year;\nquarter;\nmonth;\nweek;\nexact date;\nsurvey fieldwork period; or\na multi-year estimate.\n\nA value labeled 2025 may refer to an annual total, a midyear estimate, a fiscal period, or data released in 2025 about events from 2024."
+  },
+  {
+    "objectID": "index.html#place-names-are-not-stable-identifiers",
+    "href": "index.html#place-names-are-not-stable-identifiers",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Place Names Are Not Stable Identifiers",
+    "text": "Place Names Are Not Stable Identifiers\nThe same place may have:\n\nalternate spellings;\nlocal-language names;\ncolonial names;\nabbreviated names;\ndisputed names;\ntransliterations; or\nmultiple places with the same name.\n\nExamples include:\nCôte d'Ivoire / Ivory Coast\nTürkiye / Turkey\nEswatini / Swaziland\nKyiv / Kiev\nDemocratic Republic of the Congo / Congo-Kinshasa / DRC\nUse stable identifiers when possible, such as:\n\nISO country codes;\nFIPS codes;\nadministrative codes;\ngeographic database identifiers;\nlatitude and longitude; or\nofficial statistical-area codes."
+  },
+  {
+    "objectID": "index.html#boundary-changes",
+    "href": "index.html#boundary-changes",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Boundary Changes",
+    "text": "Boundary Changes\nGeographic boundaries may change through:\n\nannexation;\nsecession;\nredistricting;\nadministrative reform;\nmunicipal consolidation;\nborder disputes; or\nchanges in coding practices.\n\nA province in 2010 may not have the same boundaries as a province with the same name in 2025."
+  },
+  {
+    "objectID": "index.html#coordinate-precision",
+    "href": "index.html#coordinate-precision",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Coordinate Precision",
+    "text": "Coordinate Precision\nCoordinates may represent:\n\nthe exact location;\na city center;\na district centroid;\na randomly displaced survey point;\nan approximate location;\nthe location of a report rather than an event; or\nthe headquarters of an organization.\n\nNever assume that latitude and longitude imply exact precision."
+  },
+  {
+    "objectID": "index.html#primary-data",
+    "href": "index.html#primary-data",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Primary Data",
+    "text": "Primary Data\nPrimary data are collected directly for the research project.\nExamples include:\n\nsurveys;\ninterviews;\nexperiments;\nfield observations;\nsensor readings;\noriginal document coding;\nimage interpretation; and\nlaboratory measurements.\n\nAdvantages include control over the measurement process and alignment with the research question. Disadvantages include cost, time, access constraints, ethical requirements, and limited scale."
+  },
+  {
+    "objectID": "index.html#secondary-data",
+    "href": "index.html#secondary-data",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Secondary Data",
+    "text": "Secondary Data\nSecondary data were collected by someone else.\nExamples include:\n\ngovernment statistics;\nexisting surveys;\nadministrative records;\npublished event databases;\ncommercial datasets; and\narchival collections.\n\nAdvantages include speed, scale, and lower cost. Disadvantages include limited control over definitions, coverage, and collection procedures."
+  },
+  {
+    "objectID": "index.html#derived-data",
+    "href": "index.html#derived-data",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Derived Data",
+    "text": "Derived Data\nDerived data are created by transforming other data.\nExamples include:\n\nindexes;\nratios;\nmoving averages;\nmodel predictions;\ngeocoded records;\nsentiment scores;\nnetwork-centrality measures;\ninterpolated values;\nsatellite-derived estimates; and\nmachine-learning classifications.\n\nDerived variables can be highly useful but introduce additional assumptions. Researchers should document the transformation process and preserve the underlying source variables."
+  },
+  {
+    "objectID": "index.html#structured-data",
+    "href": "index.html#structured-data",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Structured Data",
+    "text": "Structured Data\nStructured data follow a predefined tabular or relational format.\nExamples include:\n\nspreadsheets;\nCSV files;\nrelational databases;\nsurvey matrices; and\nstatistical files.\n\nStructured data are usually easiest to analyze."
+  },
+  {
+    "objectID": "index.html#semi-structured-data",
+    "href": "index.html#semi-structured-data",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Semi-Structured Data",
+    "text": "Semi-Structured Data\nSemi-structured data contain organizational markers but do not necessarily follow a simple table.\nExamples include:\n\nJSON;\nXML;\nHTML;\nlog files;\nemail headers; and\nAPI responses.\n\nThese formats often require parsing before analysis."
+  },
+  {
+    "objectID": "index.html#unstructured-data",
+    "href": "index.html#unstructured-data",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Unstructured Data",
+    "text": "Unstructured Data\nUnstructured data do not arrive as rows and columns.\nExamples include:\n\nreports;\nspeeches;\narticles;\nphotographs;\nsatellite images;\naudio;\nvideo;\nsocial-media posts; and\ninterview transcripts.\n\nUnstructured data can be converted into structured variables through:\n\nmanual coding;\nnatural-language processing;\ncomputer vision;\ntranscription;\nnamed-entity recognition;\ntopic modeling;\nsentiment analysis; and\nsupervised classification.\n\nThe conversion process itself becomes part of the research methodology."
+  },
+  {
+    "objectID": "index.html#common-merge-keys",
+    "href": "index.html#common-merge-keys",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Common Merge Keys",
+    "text": "Common Merge Keys\nDatasets may be linked using:\n\nunique record ID;\ncountry code;\ngeographic code;\norganization name;\nperson ID;\ndate;\nyear;\nlatitude and longitude;\naddress;\nproject identifier;\ndocument identifier; or\ncombinations of several fields."
+  },
+  {
+    "objectID": "index.html#exact-matching",
+    "href": "index.html#exact-matching",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Exact Matching",
+    "text": "Exact Matching\nExact matching requires identical values.\nFor example:\nKEN + 2025\nmay link a Kenyan country-year observation across two datasets.\nExact matching works best when sources use standardized identifiers."
+  },
+  {
+    "objectID": "index.html#fuzzy-matching",
+    "href": "index.html#fuzzy-matching",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Fuzzy Matching",
+    "text": "Fuzzy Matching\nFuzzy matching may be necessary when names differ.\nExamples:\nInternational Business Machines\nIBM\nIBM Corporation\nI.B.M.\nFuzzy matching introduces uncertainty. Researchers should:\n\nstandardize text;\nremove punctuation where appropriate;\ncompare multiple fields;\nset a similarity threshold;\nmanually inspect uncertain matches; and\nretain a record of matching decisions."
+  },
+  {
+    "objectID": "index.html#spatial-matching",
+    "href": "index.html#spatial-matching",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Spatial Matching",
+    "text": "Spatial Matching\nSpatial joins can connect records based on geographic location.\nExamples include:\n\nassigning events to districts;\nlinking survey points to nearby infrastructure;\ncalculating distance to a border;\nidentifying the administrative region containing a coordinate; and\ncombining raster values with point locations.\n\nSpatial matching requires attention to coordinate systems, boundary dates, and geographic precision."
+  },
+  {
+    "objectID": "index.html#temporal-matching",
+    "href": "index.html#temporal-matching",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Temporal Matching",
+    "text": "Temporal Matching\nSources may need to be aligned by:\n\nexact date;\nmonth;\nquarter;\nyear;\nnearest prior observation;\nrolling window; or\nperiod before and after an event.\n\nThe matching rule should follow the causal or analytical logic of the research design.\n\n\n\n\n\n\nWarningA Successful Merge Can Still Be Wrong\n\n\n\nSoftware may merge rows without producing an error even when:\n\nidentifiers are duplicated;\ncountry codes refer to different systems;\ndates have different meanings;\ngeographic units changed;\nnames are incorrectly matched; or\none-to-many relationships were not expected.\n\nAlways validate the merge."
+  },
+  {
+    "objectID": "index.html#searching-only-the-exact-research-question",
+    "href": "index.html#searching-only-the-exact-research-question",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Searching Only the Exact Research Question",
+    "text": "Searching Only the Exact Research Question\nA full research question may be too complex for a search engine.\nInstead of:\nDoes Chinese infrastructure investment improve African public opinion\ntoward China after controlling for economic development?\nsearch the components separately:\nChinese infrastructure projects Africa dataset\nAfrobarometer attitudes toward China\nAfrica district economic indicators\ngeocoded Chinese development finance"
+  },
+  {
+    "objectID": "index.html#using-only-one-vocabulary",
+    "href": "index.html#using-only-one-vocabulary",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Using Only One Vocabulary",
+    "text": "Using Only One Vocabulary\nA search for foreign aid may miss datasets categorized as:\n\ndevelopment finance;\nofficial development assistance;\ngrants;\nconcessional lending;\nproject finance;\noverseas development;\ndevelopment cooperation; or\nforeign assistance."
+  },
+  {
+    "objectID": "index.html#searching-only-google",
+    "href": "index.html#searching-only-google",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Searching Only Google",
+    "text": "Searching Only Google\nGeneral search engines may not index:\n\nlibrary databases;\nsubscription resources;\ndynamic portals;\narchival collections;\nAPIs;\nreplication repositories; or\nlocal-language sources."
+  },
+  {
+    "objectID": "index.html#downloading-without-reading-the-documentation",
+    "href": "index.html#downloading-without-reading-the-documentation",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Downloading Without Reading the Documentation",
+    "text": "Downloading Without Reading the Documentation\nA file may look usable while containing:\n\ncoded missing values;\nestimated records;\nduplicated observations;\npartial coverage;\nincompatible units;\nchanged definitions; or\nrestricted variables."
+  },
+  {
+    "objectID": "index.html#assuming-the-file-name-describes-the-contents",
+    "href": "index.html#assuming-the-file-name-describes-the-contents",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Assuming the File Name Describes the Contents",
+    "text": "Assuming the File Name Describes the Contents\nA file named global_data.csv may contain only 50 countries or five years.\nInspect the actual rows, columns, metadata, and documentation."
+  },
+  {
+    "objectID": "index.html#treating-a-dashboard-as-the-dataset",
+    "href": "index.html#treating-a-dashboard-as-the-dataset",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Treating a Dashboard as the Dataset",
+    "text": "Treating a Dashboard as the Dataset\nInteractive dashboards may:\n\napply hidden filters;\nround values;\ndisplay only recent years;\nomit uncertainty;\naggregate observations;\nchange over time; or\nprevent bulk download.\n\nLook for a download page, API, or source-data link."
+  },
+  {
+    "objectID": "index.html#ignoring-version-information",
+    "href": "index.html#ignoring-version-information",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Ignoring Version Information",
+    "text": "Ignoring Version Information\nDatasets are revised. A later release may:\n\nadd cases;\ncorrect errors;\nchange variable names;\nrecode historical observations;\nremove records;\nalter geographic boundaries; or\nadopt a new methodology.\n\nRecord the version or download date."
+  },
+  {
+    "objectID": "index.html#failing-to-save-the-original-data",
+    "href": "index.html#failing-to-save-the-original-data",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Failing to Save the Original Data",
+    "text": "Failing to Save the Original Data\nWebsites disappear and files are replaced. Preserve the original file whenever licensing permits.\nDo not overwrite it with the cleaned version."
+  },
+  {
+    "objectID": "index.html#confusing-no-results-with-no-data",
+    "href": "index.html#confusing-no-results-with-no-data",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Confusing “No Results” with “No Data”",
+    "text": "Confusing “No Results” with “No Data”\nAn unsuccessful search may mean:\n\nthe terminology is wrong;\nthe data use another language;\nthe data are stored in a report;\nthe source is not indexed;\naccess requires a library;\nthe data are available through an API;\nthe organization must be contacted;\nthe records are restricted; or\nthe data genuinely do not exist."
+  },
+  {
+    "objectID": "index.html#recommended-source-log",
+    "href": "index.html#recommended-source-log",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Recommended Source Log",
+    "text": "Recommended Source Log\n\n\n\nField\nDescription\n\n\n\n\nSource name\nOfficial name of dataset or collection\n\n\nPublisher\nOrganization distributing the data\n\n\nOriginal collector\nOrganization that created the observations\n\n\nURL\nOfficial landing or download page\n\n\nAccess date\nDate the source was accessed\n\n\nVersion\nRelease number or date\n\n\nFile name\nName of the downloaded file\n\n\nFormat\nCSV, XLSX, JSON, PDF, GeoPackage, etc.\n\n\nUnit of analysis\nWhat each row represents\n\n\nGeographic coverage\nCountries, regions, coordinates\n\n\nTemporal coverage\nStart and end dates\n\n\nKey variables\nVariables relevant to the project\n\n\nMethodology\nLink or citation to documentation\n\n\nLicense\nTerms governing use and sharing\n\n\nStrengths\nWhy the source is useful\n\n\nLimitations\nKnown weaknesses\n\n\nDecision\nUse, reject, or investigate further\n\n\nRejection reason\nWhy an unused source was excluded"
+  },
+  {
+    "objectID": "index.html#why-record-rejected-sources",
+    "href": "index.html#why-record-rejected-sources",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Why Record Rejected Sources?",
+    "text": "Why Record Rejected Sources?\nRejected sources help demonstrate that the researcher:\n\nconsidered alternatives;\nmade deliberate methodological choices;\nrecognized important limitations;\ndid not select data solely because they supported an expected conclusion; and\ncan revisit earlier options if the design changes."
+  },
+  {
+    "objectID": "index.html#recommended-folder-structure",
+    "href": "index.html#recommended-folder-structure",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Recommended Folder Structure",
+    "text": "Recommended Folder Structure\nproject/\n│\n├── data/\n│   ├── raw/\n│   ├── interim/\n│   ├── processed/\n│   └── external/\n│\n├── documentation/\n│   ├── codebooks/\n│   ├── methodology/\n│   ├── licenses/\n│   └── source_log.xlsx\n│\n├── scripts/\n│   ├── download/\n│   ├── cleaning/\n│   ├── analysis/\n│   └── visualization/\n│\n├── output/\n│   ├── figures/\n│   ├── tables/\n│   └── reports/\n│\n└── README.md\n\nRaw Data\nThe raw folder should contain the source exactly as received whenever possible.\nDo not manually edit raw files.\n\n\nInterim Data\nThe interim folder contains partially processed data, such as:\n\nstandardized names;\nconverted formats;\ngeocoded records;\ndeduplicated files; and\nmerged intermediate tables.\n\n\n\nProcessed Data\nThe processed folder contains analysis-ready data.\nEvery change from the raw data should be reproducible through code or clearly documented procedures.\n\n\n\n\n\n\nImportantPreserve the Original Download\n\n\n\nWhen permitted:\n\nDownload the source.\nSave it in the raw-data folder.\nRecord the download date and URL.\nCalculate a file hash.\nMake transformations on a copy or through code.\nNever overwrite the original."
+  },
+  {
+    "objectID": "index.html#data-minimization",
+    "href": "index.html#data-minimization",
+    "title": "Week 4: Research Design and Finding Data",
+    "section": "Data Minimization",
+    "text": "Data Minimization\nCollect only the data needed to answer the research question.\nDo not retain sensitive fields merely because they are available.\nConsider:\n\nremoving direct identifiers;\nreducing geographic precision;\naggregating small categories;\nlimiting access;\nencrypting sensitive files;\nseparating identifiers from analytical data;\ndefining a retention period; and\ndocumenting who may use the data."
+  }
+]
