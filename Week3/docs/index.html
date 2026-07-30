@@ -39,7 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-d6fbb5bfb24a4f1906c428146fc3bdde.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-87573694577e7cdfd47a8ef5cf47a6ae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-706fa289bf1ed9a50d4845be1f82839d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -106,8 +106,24 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#why-a-disciplined-workflow-matters" id="toc-why-a-disciplined-workflow-matters" class="nav-link" data-scroll-target="#why-a-disciplined-workflow-matters">Why a Disciplined Workflow Matters</a></li>
   <li><a href="#core-workflow-stages" id="toc-core-workflow-stages" class="nav-link" data-scroll-target="#core-workflow-stages">Core Workflow Stages</a></li>
-  <li><a href="#the-intelligence-data-lifecycle" id="toc-the-intelligence-data-lifecycle" class="nav-link" data-scroll-target="#the-intelligence-data-lifecycle">The Intelligence Data Lifecycle</a></li>
-  <li><a href="#add-something-on-ai-and-this-process" id="toc-add-something-on-ai-and-this-process" class="nav-link" data-scroll-target="#add-something-on-ai-and-this-process">’’’ Add something on AI and this process’’’</a></li>
+  </ul></li>
+  <li><a href="#part-vi-ai-and-the-analytical-workflow" id="toc-part-vi-ai-and-the-analytical-workflow" class="nav-link" data-scroll-target="#part-vi-ai-and-the-analytical-workflow">Part VI: AI and the Analytical Workflow</a>
+  <ul class="collapse">
+  <li><a href="#how-does-ai-fit-into-the-analytical-workflow" id="toc-how-does-ai-fit-into-the-analytical-workflow" class="nav-link" data-scroll-target="#how-does-ai-fit-into-the-analytical-workflow">How does AI fit into the Analytical Workflow?</a>
+  <ul class="collapse">
+  <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection">1. Data Collection</a></li>
+  <li><a href="#data-cleaning-and-preprocessing" id="toc-data-cleaning-and-preprocessing" class="nav-link" data-scroll-target="#data-cleaning-and-preprocessing">2. Data Cleaning and Preprocessing</a></li>
+  <li><a href="#data-transformation-and-integration" id="toc-data-transformation-and-integration" class="nav-link" data-scroll-target="#data-transformation-and-integration">3. Data Transformation and Integration</a></li>
+  <li><a href="#analysis-and-modeling" id="toc-analysis-and-modeling" class="nav-link" data-scroll-target="#analysis-and-modeling">4. Analysis and Modeling</a></li>
+  <li><a href="#validation-and-quality-assurance" id="toc-validation-and-quality-assurance" class="nav-link" data-scroll-target="#validation-and-quality-assurance">5. Validation and Quality Assurance</a></li>
+  <li><a href="#visualization-and-communication" id="toc-visualization-and-communication" class="nav-link" data-scroll-target="#visualization-and-communication">6. Visualization and Communication</a></li>
+  <li><a href="#feedback-and-iteration" id="toc-feedback-and-iteration" class="nav-link" data-scroll-target="#feedback-and-iteration">7. Feedback and Iteration</a></li>
+  </ul></li>
+  <li><a href="#appropriate-uses-of-ai" id="toc-appropriate-uses-of-ai" class="nav-link" data-scroll-target="#appropriate-uses-of-ai">Appropriate Uses of AI</a></li>
+  <li><a href="#human-responsibilities" id="toc-human-responsibilities" class="nav-link" data-scroll-target="#human-responsibilities">Human Responsibilities</a>
+  <ul class="collapse">
+  <li><a href="#a-practical-humanai-workflow" id="toc-a-practical-humanai-workflow" class="nav-link" data-scroll-target="#a-practical-humanai-workflow">A Practical Human–AI Workflow</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#suggested-readings" id="toc-suggested-readings" class="nav-link" data-scroll-target="#suggested-readings">Suggested Readings</a></li>
   </ul>
@@ -503,10 +519,7 @@ Communicate findings in a form appropriate to the consumer—written product, br
 <dl>
 <dt>Reliability</dt>
 <dd>
-<ul>
-<li>Are the data collected and measured consistently?</li>
-<li>If you use the same instrument at different times or by different collectors, do you get the same result? Inconsistent collection procedures undermine comparability.</li>
-</ul>
+Are the data collected and measured consistently? If you use the same instrument at different times or by different collectors, do you get the same result? Inconsistent collection procedures undermine comparability.
 </dd>
 <dt>Validity</dt>
 <dd>
@@ -518,7 +531,7 @@ Combining multiple data types and sources to strengthen findings and reduce blin
 </dd>
 <dt>Ethical Issues</dt>
 <dd>
-Unstructured and OSINT data often involves private individuals who did not consent to intelligence collection. Privacy, misrepresentation, and manipulation risks must be weighed, especially when data informs operations or policy that affects those individuals.
+Unstructured and OSINT data can often involve private individuals who did not consent to intelligence collection. Privacy, misrepresentation, and manipulation risks must be weighed, especially when data informs operations or policy that affects those individuals.
 </dd>
 </dl>
 </div>
@@ -530,13 +543,15 @@ Unstructured and OSINT data often involves private individuals who did not conse
 <h1>Part V: The Data Workflow and Analytical Process</h1>
 <section id="why-a-disciplined-workflow-matters" class="level2">
 <h2 class="anchored" data-anchor-id="why-a-disciplined-workflow-matters">Why a Disciplined Workflow Matters</h2>
-<p>Intelligence analysis deals with noisy, incomplete, and uncertain data collected under adversarial conditions. Without a disciplined analytical process:</p>
+<p>Analysis deals with noisy, incomplete, and uncertain data collected (sometimes under adversarial conditions). Without a disciplined analytical process:</p>
 <ul>
 <li>Conclusions may be driven by assumptions rather than evidence</li>
 <li>Errors introduced in early stages compound through the analysis</li>
 <li>Results cannot be reviewed, replicated, or challenged by colleagues or consumers</li>
+<li>Bias may go undetected, leading to flawed judgments and decisions</li>
+<li>Effort put in may not be utilized effectively, leading to wasting time and resources on irrelevant data or methods</li>
 </ul>
-<p>A documented workflow makes analysis <strong>traceable</strong>, <strong>reproducible</strong>, and <strong>auditable</strong>.</p>
+<p>A <strong>documented</strong> workflow makes analysis <em>traceable</em>, <em>reproducible</em>, and <em>auditable</em>.</p>
 </section>
 <section id="core-workflow-stages" class="level2">
 <h2 class="anchored" data-anchor-id="core-workflow-stages">Core Workflow Stages</h2>
@@ -546,7 +561,10 @@ Unstructured and OSINT data often involves private individuals who did not conse
 <li><dl>
 <dt>Data Collection</dt>
 <dd>
-Gather raw data from classified, commercial, or open sources. Includes structured (databases), unstructured (text, images), and semi-structured (JSON, logs) data. Document every source, access date, and known limitations.
+Gather raw data from classified, commercial, or open sources. Includes structured (databases), unstructured (text, images), and semi-structured (JSON, logs) data. Document every source you use (and those that you don’t, as it may be relevant later on), the bibliographical information, why you think it will be useful, and what is a limitation of the data. I would also recommend <strong>downloading</strong> the data, as sometimes websites change or go down, and you want to be able to replicate your analysis later on.
+</dd>
+<dd>
+<em>I realize this seems like a lot of documenting, but it will be critically important as you progress through the IA program and in your career.</em>
 </dd>
 </dl></li>
 <li><dl>
@@ -589,21 +607,188 @@ Review the impact and accuracy of analysis. Adjust collection priorities or meth
 </div>
 </div>
 </section>
-<section id="the-intelligence-data-lifecycle" class="level2">
-<h2 class="anchored" data-anchor-id="the-intelligence-data-lifecycle">The Intelligence Data Lifecycle</h2>
+</section>
+<section id="part-vi-ai-and-the-analytical-workflow" class="level1">
+<h1>Part VI: AI and the Analytical Workflow</h1>
+<p><strong><em>How can the present-day AI models assist in this workflow?</em></strong></p>
+<p>Present-day AI models can support nearly every stage of the analytical workflow, but their most appropriate role is generally to <strong>augment human judgment rather than replace it</strong>. AI can accelerate repetitive tasks, identify patterns, generate possible interpretations, and help analysts interact with large volumes of information. However, analysts remain responsible for evaluating sources, selecting appropriate methods, validating results, and determining whether a conclusion is sufficiently supported by the available evidence.</p>
+<p><em>At this stage of development, AI is best suited for <strong>well-bounded tasks</strong> rather than open-ended analysis.</em></p>
+<section id="how-does-ai-fit-into-the-analytical-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="how-does-ai-fit-into-the-analytical-workflow">How does AI fit into the Analytical Workflow?</h2>
+<section id="data-collection" class="level3">
+<h3 class="anchored" data-anchor-id="data-collection">1. Data Collection</h3>
+<p>AI tools can help analysts locate, retrieve, and organize potentially relevant information. Examples include:</p>
+<ul>
+<li>Generating search terms, Boolean queries, and alternative spellings or transliterations.</li>
+<li>Monitoring large numbers of news reports, documents, databases, or social-media posts.</li>
+<li>Extracting text from documents, images, audio, or video.</li>
+<li>Identifying named entities such as people, organizations, locations, weapons systems, and events.</li>
+<li>Translating foreign-language materials to support initial review.</li>
+<li>Classifying collected material by topic, source, geographic area, or estimated relevance.</li>
+</ul>
+<p>AI can greatly expand the amount of material an analyst can review, but it can also increase the amount of irrelevant or low-quality information collected. The analyst must still evaluate the reliability, credibility, access date, provenance, and potential bias of each source. AI-generated summaries should not substitute for examining the original material.</p>
+</section>
+<section id="data-cleaning-and-preprocessing" class="level3">
+<h3 class="anchored" data-anchor-id="data-cleaning-and-preprocessing">2. Data Cleaning and Preprocessing</h3>
+<p>AI can assist with repetitive cleaning tasks, particularly when working with text or inconsistently formatted records. It may help:</p>
+<ul>
+<li>Identify likely duplicates or near-duplicate documents.</li>
+<li>Standardize dates, place names, organization names, and other values.</li>
+<li>Extract structured variables from unstructured text.</li>
+<li>Detect missing, unusual, or potentially erroneous values.</li>
+<li>Classify spam, bot-generated content, advertisements, or irrelevant material.</li>
+<li>Generate Python, R, SQL, or spreadsheet formulas for cleaning data.</li>
+<li>Suggest regular expressions for extracting recurring patterns.</li>
+</ul>
+<p>These outputs should be treated as recommendations rather than unquestioned corrections. An AI system may “clean” away an unusual observation that is actually important or may incorrectly decide that two similar names refer to the same person. Preserve the original data and maintain a record of every significant transformation.</p>
+</section>
+<section id="data-transformation-and-integration" class="level3">
+<h3 class="anchored" data-anchor-id="data-transformation-and-integration">3. Data Transformation and Integration</h3>
+<p>AI models can help convert data into forms that are easier to analyze. They can:</p>
+<ul>
+<li>Recommend appropriate variables and units of analysis.</li>
+<li>Reformat text, tables, dates, coordinates, and categorical values.</li>
+<li>Generate code for reshaping, aggregating, or joining datasets.</li>
+<li>Suggest possible matching fields across datasets.</li>
+<li>Assist with entity resolution when names or identifiers differ.</li>
+<li>Create preliminary coding schemes for qualitative material.</li>
+<li>Convert narrative reporting into structured event records.</li>
+</ul>
+<p>Integration is an especially high-risk stage because incorrect matches can quietly introduce errors into the entire analysis. AI-generated joins and entity matches should therefore include confidence scores or review flags whenever possible. Analysts should manually inspect a sample of matched and unmatched records.</p>
+</section>
+<section id="analysis-and-modeling" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-and-modeling">4. Analysis and Modeling</h3>
+<p>AI can support exploratory, statistical, computational, and qualitative analysis. Depending on the task, it may:</p>
+<ul>
+<li>Generate descriptive summaries of a dataset.</li>
+<li>Identify potential trends, clusters, anomalies, or relationships.</li>
+<li>Recommend statistical tests or modeling approaches.</li>
+<li>Generate and explain analytical code.</li>
+<li>Assist with text classification, topic modeling, sentiment analysis, or document comparison.</li>
+<li>Extract actors and relationships for network analysis.</li>
+<li>Generate competing hypotheses or alternative explanations.</li>
+<li>Identify evidence that supports or contradicts an argument.</li>
+<li>Translate technical model results into accessible language.</li>
+</ul>
+<p>Generative AI is particularly useful as a <strong>hypothesis-generation tool</strong>. For example, an analyst might ask a model to propose several explanations for an observed increase in military activity. These possibilities can help broaden the analyst’s thinking, but they are not findings until they are evaluated against evidence.</p>
+<p>AI-generated analysis can sound confident even when it is incorrect. Models may select an inappropriate statistical test, misunderstand the unit of analysis, invent a source, or interpret correlation as causation. Analysts must understand the method well enough to evaluate whether the model’s recommendation is appropriate.</p>
+</section>
+<section id="validation-and-quality-assurance" class="level3">
+<h3 class="anchored" data-anchor-id="validation-and-quality-assurance">5. Validation and Quality Assurance</h3>
+<p>AI can serve as a useful—but imperfect—second reviewer. It can be prompted to:</p>
+<ul>
+<li>Identify weaknesses in an argument.</li>
+<li>Search for missing assumptions or logical inconsistencies.</li>
+<li>Generate alternative interpretations of the evidence.</li>
+<li>Compare findings across models, time periods, or data subsets.</li>
+<li>Review code for likely errors.</li>
+<li>Check whether claims are supported by the evidence provided.</li>
+<li>Create test cases for evaluating an analytical procedure.</li>
+<li>Simulate how a skeptical reviewer or decision-maker might respond.</li>
+</ul>
+<p>One useful approach is to ask the model to <strong>challenge the analysis rather than confirm it</strong>. For example:</p>
+<blockquote class="blockquote">
+<p>Identify three plausible reasons this conclusion could be wrong. For each reason, explain what additional evidence would increase or decrease confidence in the conclusion.</p>
+</blockquote>
+<p>AI review is NOT independent validation when the system relies on the same data, assumptions, or prompts as the original analysis. Important findings should still be reviewed thoroughly by qualified people and, when possible, tested using independent sources or methods.</p>
+</section>
+<section id="visualization-and-communication" class="level3">
+<h3 class="anchored" data-anchor-id="visualization-and-communication">6. Visualization and Communication</h3>
+<p>AI can help analysts transform technical findings into products designed for different audiences. It can:</p>
+<ul>
+<li>Recommend an appropriate chart or map for a specific analytical question.</li>
+<li>Generate visualization code.</li>
+<li>Draft titles, annotations, captions, and explanatory text.</li>
+<li>Summarize findings at different levels of technical detail.</li>
+<li>Convert a lengthy analysis into a briefing, executive summary, or talking points.</li>
+<li>Adapt the same findings for policymakers, technical analysts, or the public.</li>
+<li>Review whether the main takeaway is clear.</li>
+<li>Suggest ways to reduce clutter or improve accessibility.</li>
+</ul>
+<p>The analyst must ensure that the final product accurately represents the evidence. AI may exaggerate certainty, omit important qualifications, or emphasize the most dramatic finding rather than the most defensible one. Every written claim, number, label, and citation should be verified before dissemination.</p>
+</section>
+<section id="feedback-and-iteration" class="level3">
+<h3 class="anchored" data-anchor-id="feedback-and-iteration">7. Feedback and Iteration</h3>
+<p>AI can help organize feedback and convert it into concrete revisions. For example, it can:</p>
+<ul>
+<li>Summarize reviewer comments.</li>
+<li>Group feedback into methodological, substantive, and presentation issues.</li>
+<li>Identify recurring questions from consumers.</li>
+<li>Recommend revisions to collection plans.</li>
+<li>Generate updated code or analytical procedures.</li>
+<li>Compare different versions of a product.</li>
+<li>Maintain a structured list of assumptions, limitations, and unresolved questions.</li>
+</ul>
+<p>Feedback can also be used to improve how the analyst interacts with the AI system. Prompts, examples, source restrictions, and review procedures should be refined as the analyst learns which tasks the system performs reliably and which require greater supervision.</p>
+</section>
+</section>
+<section id="appropriate-uses-of-ai" class="level2">
+<h2 class="anchored" data-anchor-id="appropriate-uses-of-ai">Appropriate Uses of AI</h2>
 <div class="col-pair">
 <div class="col-left">
-<p><strong>Collection → Processing → Analysis</strong></p>
-<p>Raw data from any source requires processing before analysis. Processing involves: tagging metadata, parsing documents, extracting named entities, and removing noise. Only then is the data ready for statistical or computational treatment.</p>
+<p><strong>AI is most valuable when the task involves:</strong></p>
+<ul>
+<li>Processing a large volume of material.</li>
+<li>Repeating a clearly defined procedure.</li>
+<li>Producing a preliminary draft or starting point.</li>
+<li>Generating multiple alternatives for consideration.</li>
+<li>Translating between technical and nontechnical language.</li>
+<li>Helping an analyst explore unfamiliar data or methods.</li>
+<li>Identifying items that require human review.</li>
+</ul>
 </div>
 <div class="col-right">
-<p><strong>Interpretation → Dissemination → Feedback</strong></p>
-<p>Analytical results must be <em>interpreted</em>—linked to the original intelligence question and decision need. Dissemination must be tailored to the consumer’s expertise. Feedback from consumers informs future collection priorities, closing the intelligence cycle.</p>
+<p><strong>AI is less appropriate when the task requires:</strong></p>
+<ul>
+<li>Access to information the model has not been given.</li>
+<li>Precise factual recall without source verification.</li>
+<li>Evaluation of highly ambiguous or deceptive evidence.</li>
+<li>Understanding sensitive institutional or cultural context.</li>
+<li>Making legal, ethical, operational, or policy decisions.</li>
+<li>Assigning final confidence to an intelligence judgment.</li>
+<li>Processing classified or restricted information in an unauthorized system.</li>
+</ul>
 </div>
 </div>
 </section>
-<section id="add-something-on-ai-and-this-process" class="level2">
-<h2 class="anchored" data-anchor-id="add-something-on-ai-and-this-process">’’’ Add something on AI and this process’’’</h2>
+<section id="human-responsibilities" class="level2">
+<h2 class="anchored" data-anchor-id="human-responsibilities">Human Responsibilities</h2>
+<p>The use of AI does not transfer analytical responsibility to the model. The analyst remains responsible for:</p>
+<ol type="1">
+<li><p><strong>Protecting the data.</strong> Do not enter classified, controlled, proprietary, personally identifiable, or otherwise restricted information into an unauthorized AI system.</p></li>
+<li><p><strong>Verifying the evidence.</strong> Trace factual claims to their original sources. Do not cite an AI-generated response as evidence for a substantive claim.</p></li>
+<li><p><strong>Evaluating the method.</strong> Confirm that the selected analytical technique is appropriate for the question, data, and unit of analysis.</p></li>
+<li><p><strong>Documenting AI use.</strong> Record the system used, the task it performed, important prompts or settings, and how its outputs were reviewed or modified.</p></li>
+<li><p><strong>Preserving reproducibility.</strong> Save the original data, code, prompts, outputs, and decision rules needed to reconstruct the analysis.</p></li>
+<li><p><strong>Communicating uncertainty.</strong> Clearly distinguish observed facts, assumptions, model outputs, inferences, and judgments.</p></li>
+<li><p><strong>Making the final judgment.</strong> The analyst—not the AI system—must decide what the evidence supports and how confidently it supports it.</p></li>
+</ol>
+<section id="a-practical-humanai-workflow" class="level3 ai-practice">
+<h3 class="anchored" data-anchor-id="a-practical-humanai-workflow">A Practical Human–AI Workflow</h3>
+<p>A responsible workflow may follow this sequence:</p>
+<ol type="1">
+<li>The analyst defines the question, scope, and evidence requirements.</li>
+<li>AI assists with a clearly bounded task.</li>
+<li>The analyst reviews the output for factual and methodological errors.</li>
+<li>Claims are checked against original sources and data.</li>
+<li>Code or procedures are tested using known examples.</li>
+<li>Important results are replicated or independently reviewed.</li>
+<li>The analyst revises the product and documents how AI contributed.</li>
+<li>The analyst takes responsibility for the final conclusion.</li>
+</ol>
+<p>The central question should therefore not be simply, <em>“Can AI perform this task?”</em> A better set of questions is:</p>
+<ul>
+<li><strong>What part of the task can AI perform reliably?</strong></li>
+<li><strong>What information does the system need?</strong></li>
+<li><strong>How will its output be verified?</strong></li>
+<li><strong>What errors could it introduce?</strong></li>
+<li><strong>What decisions must remain with the analyst?</strong></li>
+</ul>
+<blockquote class="blockquote">
+<p><strong>Key Takeaway:</strong> AI can make an analytical workflow faster and more scalable, but speed is not the same as rigor. The quality of AI-assisted analysis ultimately depends on the quality of the data, the structure of the task, the analyst’s subject-matter and methodological knowledge, and the strength of the validation process.</p>
+</blockquote>
+</section>
+<hr>
 </section>
 </section>
 <section id="suggested-readings" class="level1">

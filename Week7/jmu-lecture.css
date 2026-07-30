@@ -692,7 +692,7 @@ section.footnotes ol li {
 }
 
 /* Header bar — bleeds to the panel edges, overriding global h3 styling */
-.ai-practice > h3:first-child {
+.ai-practice h3 {
   display: flex;
   align-items: center;
   gap: 0.55em;
@@ -708,7 +708,7 @@ section.footnotes ol li {
 }
 
 /* Monospace "AI" badge in gold */
-.ai-practice > h3:first-child::before {
+.ai-practice h3::before {
   content: "AI";
   flex: 0 0 auto;
   background-color: var(--jmu-gold);
@@ -765,7 +765,7 @@ section.footnotes ol li {
 }
 
 /* Header bar — bleeds to the panel edges, overriding global h3 styling */
-.ai-angle > h3:first-child {
+.ai-angle h3 {
   display: flex;
   align-items: center;
   gap: 0.5em;
@@ -781,7 +781,7 @@ section.footnotes ol li {
 }
 
 /* Diamond marker before the label */
-.ai-angle > h3:first-child::before {
+.ai-angle h3::before {
   content: "\25C6";
   flex: 0 0 auto;
   color: var(--jmu-purple);
@@ -808,4 +808,16 @@ section.footnotes ol li {
     margin-left: 0;
     margin-right: 0;
   }
+}
+
+/* Quarto wraps headings in <section>; neutralize its spacing so the
+   .ai-practice / .ai-angle header bars still bleed to the panel edges */
+.ai-practice > section,
+.ai-angle > section {
+  margin: 0;
+  padding: 0;
+}
+.ai-practice section > *:last-child,
+.ai-angle section > *:last-child {
+  margin-bottom: 0;
 }

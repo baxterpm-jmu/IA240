@@ -27,7 +27,11 @@ Good analysis begins with good questions and a clear understanding of the phenom
 By the end of this lecture, you should be able to:
 </p>
 
-- 
+- Formulate clear, testable hypotheses by identifying expected relationships among variables, plausible causal mechanisms, and competing explanations.
+- Translate abstract concepts into measurable variables and indicators while identifying the limitations, assumptions, and potential validity problems associated with each operationalization.
+- Design a systematic data-search strategy by breaking a research question into searchable components, developing a broad search vocabulary, and using search operators, specialized databases, repositories, and citation chaining.
+- Evaluate whether a dataset is fit for a specific research purpose by examining its relevance, provenance, coverage, completeness, validity, reliability, timeliness, documentation, and unit of analysis.
+- Document and manage the data-discovery process responsibly by maintaining search and source logs, reading codebooks and licensing terms, preserving original data, and identifying ethical, privacy, and reproducibility concerns.
 :::
 
 # Part I: The Role of the Hypothesis
@@ -52,10 +56,10 @@ Academic hypotheses typically take the form: "Higher X is associated with greate
 
 For a hypothesis to be testable:
 
-1. All key concepts must be **operationalized** — defined in terms of measurable variables
-2. There must exist **data** capable of producing evidence for or against it
-3. A plausible mechanism must connect the independent variable(s) to the dependent variable
-4. Alternative explanations must be articulable and distinguishable from the primary hypothesis
+1.  All key concepts must be **operationalized** — defined in terms of measurable variables
+2.  There must exist **data** capable of producing evidence for or against it
+3.  A plausible mechanism must connect the independent variable(s) to the dependent variable
+4.  Alternative explanations must be articulable and distinguishable from the primary hypothesis
 
 ---
 
@@ -63,7 +67,7 @@ For a hypothesis to be testable:
 
 ## Practice Exercise — NFL Receiver Data
 
-Consider the following dataset of NFL skill position players:
+Consider the following dataset of NFL skill position players. What are some hypostheses you could generate from this data? What relationships might be worth exploring further? 
 
 | Age | Position | Injury | Starter | Yards | TDs | Yrs Pro | Winning Team | Playoffs | Pro Bowl |
 |---|---|---|---|---|---|---|---|---|---|

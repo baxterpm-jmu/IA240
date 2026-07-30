@@ -232,7 +232,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#part-vi-missing-data-typology-and-implications" id="toc-part-vi-missing-data-typology-and-implications" class="nav-link" data-scroll-target="#part-vi-missing-data-typology-and-implications">Part VI: Missing Data — Typology and Implications</a>
   <ul class="collapse">
   <li><a href="#not-all-missing-data-is-the-same" id="toc-not-all-missing-data-is-the-same" class="nav-link" data-scroll-target="#not-all-missing-data-is-the-same">Not All Missing Data Is the Same</a></li>
-  <li><a href="#the-intelligence-application" id="toc-the-intelligence-application" class="nav-link" data-scroll-target="#the-intelligence-application">The Intelligence Application</a></li>
   <li><a href="#common-handling-approaches-and-their-limits" id="toc-common-handling-approaches-and-their-limits" class="nav-link" data-scroll-target="#common-handling-approaches-and-their-limits">Common Handling Approaches (and their limits)</a></li>
   </ul></li>
   <li><a href="#part-vii-data-integration" id="toc-part-vii-data-integration" class="nav-link" data-scroll-target="#part-vii-data-integration">Part VII: Data Integration</a>
@@ -356,7 +355,10 @@ An ordered scale with equal intervals between values, but no true zero point. Ze
 <li><dl>
 <dt>Ratio Scale</dt>
 <dd>
-An interval scale with a true, meaningful zero — zero indicates complete absence of the attribute. All arithmetic operations including ratios are valid. <strong>Examples:</strong> weight, income, distance, duration, number of casualties, GDP in dollars.
+An interval scale with a true, meaningful zero — zero indicates complete absence of the attribute. All arithmetic operations including ratios are valid.
+</dd>
+<dd>
+<strong>Examples:</strong> weight, income, distance, duration, number of casualties, GDP in dollars.
 </dd>
 </dl></li>
 <li><dl>
@@ -381,6 +383,19 @@ A special case of nominal data with exactly two values, often coded 0/1. <strong
 <p>Nominal → Ordinal → Interval → Ratio. Each level <em>includes</em> the properties of the one before it. Ratio data gives you the most information; nominal gives you the least.</p>
 </div>
 </div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Why?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Why is correctly identifying and using the appropriate scale matter for your data and analysis?</p>
+</div>
+</div>
 <hr>
 </section>
 </section>
@@ -388,11 +403,11 @@ A special case of nominal data with exactly two values, often coded 0/1. <strong
 <h1>Part II: Database Concepts</h1>
 <section id="what-is-a-database" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-a-database">What is a Database?</h2>
-<p>A <strong>database</strong> is an organized, structured collection of data that enables efficient storage, retrieval, updating, and management. Every IC data platform — from classified warehouses to commercial analytics tools like Palantir — is built on relational database principles.</p>
+<p>A <strong>database</strong> is an organized, structured collection of data that enables efficient storage, retrieval, updating, and management. Almost every data platform — from classified warehouses to commercial analytics tools like Palantir — is built on relational database principles.</p>
 </section>
 <section id="tables-fields-and-records" class="level2">
 <h2 class="anchored" data-anchor-id="tables-fields-and-records">Tables, Fields, and Records</h2>
-<p>Every relational database is built from tables:</p>
+<p>Every relational database is built from a simple table.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -435,6 +450,7 @@ A special case of nominal data with exactly two values, often coded 0/1. <strong
 </div>
 <div class="callout-body-container callout-body">
 <p>Well-structured databases are <strong>tall</strong> (many rows, fewer columns), not <strong>wide</strong> (few rows, many columns). Each row is one observation; each column is one variable. Violating this — putting “Year 2020 GDP,” “Year 2021 GDP,” “Year 2022 GDP” as three separate columns — makes joining, querying, and analysis far more difficult. This is the <strong>tidy data</strong> principle.</p>
+<p>In the previous example, it would be better to seperate your observations in the dyads, where each row would be a country and a specific year, then to have a single column as GDP.</p>
 </div>
 </div>
 </section>
@@ -663,9 +679,6 @@ The probability of being missing depends on the missing value itself. Example: s
 </dl>
 </div>
 </div>
-</section>
-<section id="the-intelligence-application" class="level2">
-<h2 class="anchored" data-anchor-id="the-intelligence-application">The Intelligence Application</h2>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -741,7 +754,7 @@ The probability of being missing depends on the missing value itself. Example: s
 </section>
 <section id="integration-in-the-intelligence-community" class="level2">
 <h2 class="anchored" data-anchor-id="integration-in-the-intelligence-community">Integration in the Intelligence Community</h2>
-<p>The IC operates from a collection philosophy of all-source analysis: HUMINT, SIGINT, IMINT, GEOINT, OSINT, and MASINT all provide partial pictures that only make sense when fused. The transition from single-source reporting to all-source assessment is the integration problem in its most consequential form.</p>
+<p>The IC operates from a collection philosophy of all-source analysis: HUMINT, SIGINT, IMINT, GEOINT, OSINT, and MASINT all provide partial pictures that often will only make sense when fused. The transition from single-source reporting to all-source assessment is the integration problem in its most consequential form.</p>
 <p>At the data level, integration requires:</p>
 <ul>
 <li>A <strong>common key</strong> to link records across datasets (country code, person identifier, geographic coordinate, date)</li>
@@ -749,6 +762,19 @@ The probability of being missing depends on the missing value itself. Example: s
 <li><strong>Temporal alignment</strong> (data collected at different frequencies or with different lags requires aggregation or interpolation)</li>
 <li><strong>Level-of-analysis compatibility</strong> (country-level data cannot be merged with individual-level data without aggregation decisions that embed analytical judgment)</li>
 </ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Integration is the hardest obstacle you will face in my courses…
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This will be the most difficult aspect for many of you and requires thinking that moves beyond your comfort zone. Functionally, you need to think about evidence <strong>and</strong> how it fits with other evidence, rather than thining about disparate datasets as evidence that automatically go together as they are linked by topic, etc.</p>
+</div>
+</div>
 </section>
 <section id="why-integration-is-difficult" class="level2">
 <h2 class="anchored" data-anchor-id="why-integration-is-difficult">Why Integration Is Difficult</h2>
@@ -1033,7 +1059,7 @@ A dataset that covered 50 countries in 2005 and 80 in 2020 will show apparent ch
 </section>
 <section id="programming-languages" class="level2">
 <h2 class="anchored" data-anchor-id="programming-languages">Programming Languages</h2>
-<p>For anything beyond a single query — statistical modeling, automation, reproducible workflows, machine learning — analysts turn to general-purpose languages. <strong>R</strong> (with the tidyverse and ggplot2) is built for statistics, exploratory data analysis, and visualization. <strong>Python</strong> (with pandas, NumPy, and scikit-learn) is a general-purpose language strong in automation, machine learning, text processing, and API access. <strong>Julia</strong> targets high-performance numerical computing. Their shared advantage over spreadsheets is <strong>reproducibility</strong>: the analysis is written as code that can be reviewed, rerun, and audited — the computational embodiment of the data dictionary’s “analytical contract” (Part X).</p>
+<p>For anything beyond a single query — statistical modeling, automation, reproducible workflows, machine learning — analysts turn to general-purpose languages. <strong>R</strong> (with the tidyverse and ggplot2) is built for statistics, exploratory data analysis, and visualization. <strong>Python</strong> (with pandas, NumPy, and scikit-learn) is a general-purpose language strong in automation, machine learning, text processing, and API access. Their shared advantage over spreadsheets is <strong>reproducibility</strong>: the analysis is written as code that can be reviewed, rerun, and audited — the computational embodiment of the data dictionary’s “analytical contract” (Part X).</p>
 </section>
 <section id="application-programming-interfaces-apis" class="level2">
 <h2 class="anchored" data-anchor-id="application-programming-interfaces-apis">Application Programming Interfaces (APIs)</h2>
@@ -1043,7 +1069,7 @@ A dataset that covered 50 countries in 2005 and 80 in 2020 will show apparent ch
 </section>
 <section id="software-discussed-in-this-course" class="level2">
 <h2 class="anchored" data-anchor-id="software-discussed-in-this-course">Software Discussed in This Course</h2>
-<p>The table below inventories the major tools introduced across IA 240 — what each does, the kind of data it operates on, and where it appears in the course.</p>
+<p>The table below inventories the major tools introduced across the IA curriculum — what each does, the kind of data it operates on, and where it will likely appear.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -1085,60 +1111,54 @@ A dataset that covered 50 countries in 2005 and 80 in 2020 will show apparent ch
 <td>Machine-learning classification and NLP (Week 9)</td>
 </tr>
 <tr class="odd">
-<td><strong>Julia</strong></td>
-<td>High-performance numerical and scientific computing</td>
-<td>Numeric/structured data</td>
-<td>Listed among core languages for computation at scale (Week 3)</td>
-</tr>
-<tr class="even">
 <td><strong>NetLogo</strong></td>
 <td>Agent-based modeling environment</td>
 <td>Agent rules + synthetic environment</td>
 <td>Schelling segregation and insurgency ABMs (Week 10)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>Mesa / Repast</strong></td>
 <td>Code frameworks for larger agent-based models</td>
 <td>Agent rules / synthetic data</td>
 <td>Building an ABM in Python or Java (Week 10)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>Gephi</strong></td>
 <td>Network visualization and metrics (centrality, communities)</td>
 <td>Network/graph data (nodes &amp; edges)</td>
 <td>Visualizing a covert network (Week 11)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>NetworkX / igraph / statnet</strong></td>
 <td>Programmatic social network analysis</td>
 <td>Network/graph data</td>
 <td>Computing centrality on the 9/11 network (Week 11)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>Maltego</strong></td>
 <td>OSINT link analysis and entity mapping</td>
 <td>Entities and relationships (OSINT)</td>
 <td>Mapping relationships from open sources (Week 11)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>Palantir Gotham</strong></td>
 <td>Enterprise data integration; network and timeline analysis</td>
 <td>Fused multi-source (structured + unstructured)</td>
 <td>IC-scale integration and link analysis (Weeks 9, 11)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>i2 Analyst’s Notebook</strong></td>
 <td>Link and timeline charting for investigations</td>
 <td>Entities, relationships, events</td>
 <td>Charting relationships and time-slicing a network (Week 11)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>GIS</strong> (ArcGIS, QGIS)</td>
 <td>Store, analyze, and map spatial data; overlay and spatial statistics</td>
 <td>Geospatial vector and raster data</td>
 <td>Hot-spot analysis of conflict events (Week 12)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>Google Earth</strong></td>
 <td>Explore imagery and geospatial data; geolocation</td>
 <td>Satellite/aerial imagery + geospatial data</td>

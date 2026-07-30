@@ -25,7 +25,7 @@
     "href": "index.html#practice-exercise-nfl-receiver-data",
     "title": "Week 4: Research Design and Finding Data",
     "section": "Practice Exercise — NFL Receiver Data",
-    "text": "Practice Exercise — NFL Receiver Data\nConsider the following dataset of NFL skill position players:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAge\nPosition\nInjury\nStarter\nYards\nTDs\nYrs Pro\nWinning Team\nPlayoffs\nPro Bowl\n\n\n\n\n25\nRB\nYes\nYes\n800\n4\n3\nYes\nNo\nNo\n\n\n29\nRB\nNo\nYes\n1300\n18\n7\nYes\nNo\nYes\n\n\n32\nRB\nNo\nYes\n1200\n7\n9\nNo\nNo\nNo\n\n\n22\nRB\nNo\nNo\n850\n7\n1\nYes\nYes\nNo\n\n\n29\nRB\nNo\nYes\n700\n15\n8\nYes\nYes\nNo\n\n\n28\nWR\nYes\nYes\n600\n7\n5\nNo\nNo\nNo\n\n\n27\nWR\nNo\nYes\n1350\n7\n5\nYes\nNo\nNo\n\n\n26\nTE\nNo\nYes\n1200\n10\n4\nYes\nYes\nYes\n\n\n25\nTE\nYes\nNo\n800\n6\n3\nYes\nYes\nNo\n\n\n26\nWR\nNo\nYes\n1500\n5\n4\nYes\nNo\nNo\n\n\n\n\n\n\n\n\n\nTipDiscussion: What Hypotheses Does This Data Suggest?\n\n\n\nLooking at these variables, what relationships might be worth testing? Consider: - What is the relationship between yards/TDs and Pro Bowl selection? - Does being on a winning team predict playoff appearances independent of individual performance? - How does age interact with injury and performance metrics? - What is the role of years of professional experience in predicting output?\nFor each hypothesis: identify the independent variable, dependent variable, and expected direction of the relationship."
+    "text": "Practice Exercise — NFL Receiver Data\nConsider the following dataset of NFL skill position players. What are some hypostheses you could generate from this data? What relationships might be worth exploring further?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAge\nPosition\nInjury\nStarter\nYards\nTDs\nYrs Pro\nWinning Team\nPlayoffs\nPro Bowl\n\n\n\n\n25\nRB\nYes\nYes\n800\n4\n3\nYes\nNo\nNo\n\n\n29\nRB\nNo\nYes\n1300\n18\n7\nYes\nNo\nYes\n\n\n32\nRB\nNo\nYes\n1200\n7\n9\nNo\nNo\nNo\n\n\n22\nRB\nNo\nNo\n850\n7\n1\nYes\nYes\nNo\n\n\n29\nRB\nNo\nYes\n700\n15\n8\nYes\nYes\nNo\n\n\n28\nWR\nYes\nYes\n600\n7\n5\nNo\nNo\nNo\n\n\n27\nWR\nNo\nYes\n1350\n7\n5\nYes\nNo\nNo\n\n\n26\nTE\nNo\nYes\n1200\n10\n4\nYes\nYes\nYes\n\n\n25\nTE\nYes\nNo\n800\n6\n3\nYes\nYes\nNo\n\n\n26\nWR\nNo\nYes\n1500\n5\n4\nYes\nNo\nNo\n\n\n\n\n\n\n\n\n\nTipDiscussion: What Hypotheses Does This Data Suggest?\n\n\n\nLooking at these variables, what relationships might be worth testing? Consider: - What is the relationship between yards/TDs and Pro Bowl selection? - Does being on a winning team predict playoff appearances independent of individual performance? - How does age interact with injury and performance metrics? - What is the role of years of professional experience in predicting output?\nFor each hypothesis: identify the independent variable, dependent variable, and expected direction of the relationship."
   },
   {
     "objectID": "index.html#quantitative-research",
@@ -193,7 +193,7 @@
     "href": "index.html#treat-ai-output-as-a-lead-not-evidence",
     "title": "Week 4: Research Design and Finding Data",
     "section": "Treat AI Output as a Lead, Not Evidence",
-    "text": "Treat AI Output as a Lead, Not Evidence\nWhen an AI system recommends a dataset:\n\nVisit the official source.\nConfirm that the dataset exists.\nInspect the documentation.\nVerify the variables and coverage.\nConfirm the current version.\nReview the license.\nRecord the actual source, not merely the AI response."
+    "text": "Treat AI Output as a Lead, Not Evidence\nWhen an AI system recommends a dataset:\n\nVisit the official source.\nConfirm that the dataset exists.\nInspect the documentation.\nVerify the variables and coverage.\nConfirm the current version.\nReview the license.\nRecord the actual source, not merely the AI response.\n\nA useful AI prompt might be:\nI am studying whether Chinese infrastructure projects influence public\nattitudes toward China in African countries. Suggest categories of data\nI would need, possible types of repositories to search, alternative search\nterms, and likely measurement limitations. Do not invent specific datasets.\nThis uses AI to improve the search process without treating it as an authoritative source."
   },
   {
     "objectID": "index.html#relevance",
@@ -301,48 +301,6 @@
     "text": "Questions to Ask While Reading a Codebook\n\nWhat does each row represent?\nWhat does each column represent?\nWhich variable uniquely identifies a row?\nAre identifiers stable over time?\nWhich variables are original and which are derived?\nHow are missing values encoded?\nAre categories mutually exclusive?\nAre text labels and numeric codes both provided?\nWhat units are used?\nAre values nominal, ordinal, interval, or ratio?\nHave any variables been discontinued?\nAre some variables available only for certain years or cases?"
   },
   {
-    "objectID": "index.html#aligning-multiple-levels-of-data",
-    "href": "index.html#aligning-multiple-levels-of-data",
-    "title": "Week 4: Research Design and Finding Data",
-    "section": "Aligning Multiple Levels of Data",
-    "text": "Aligning Multiple Levels of Data\nA project may combine:\n\nindividual survey responses;\ndistrict-level infrastructure data;\nnational economic indicators; and\nyearly political measures.\n\nThis creates a multilevel structure. The researcher must decide:\n\nwhich geographic unit will be used;\nhow observations will be aggregated;\nhow dates will be aligned;\nwhether boundaries changed;\nwhether repeated observations exist; and\nwhether the analytical method accounts for clustering."
-  },
-  {
-    "objectID": "index.html#date-fields-may-represent-different-things",
-    "href": "index.html#date-fields-may-represent-different-things",
-    "title": "Week 4: Research Design and Finding Data",
-    "section": "Date Fields May Represent Different Things",
-    "text": "Date Fields May Represent Different Things\nA dataset may contain:\n\nevent date;\nreport date;\npublication date;\nobservation date;\nstart date;\nend date;\nupdate date;\nretrieval date; and\ncoding date.\n\nThese are not interchangeable.\nFor a conflict event, the event may have occurred on Monday, been reported on Tuesday, entered into the database on Thursday, and revised the following month."
-  },
-  {
-    "objectID": "index.html#temporal-alignment",
-    "href": "index.html#temporal-alignment",
-    "title": "Week 4: Research Design and Finding Data",
-    "section": "Temporal Alignment",
-    "text": "Temporal Alignment\nWhen merging sources, determine whether the values refer to:\n\ncalendar year;\nfiscal year;\nacademic year;\nquarter;\nmonth;\nweek;\nexact date;\nsurvey fieldwork period; or\na multi-year estimate.\n\nA value labeled 2025 may refer to an annual total, a midyear estimate, a fiscal period, or data released in 2025 about events from 2024."
-  },
-  {
-    "objectID": "index.html#place-names-are-not-stable-identifiers",
-    "href": "index.html#place-names-are-not-stable-identifiers",
-    "title": "Week 4: Research Design and Finding Data",
-    "section": "Place Names Are Not Stable Identifiers",
-    "text": "Place Names Are Not Stable Identifiers\nThe same place may have:\n\nalternate spellings;\nlocal-language names;\ncolonial names;\nabbreviated names;\ndisputed names;\ntransliterations; or\nmultiple places with the same name.\n\nExamples include:\nCôte d'Ivoire / Ivory Coast\nTürkiye / Turkey\nEswatini / Swaziland\nKyiv / Kiev\nDemocratic Republic of the Congo / Congo-Kinshasa / DRC\nUse stable identifiers when possible, such as:\n\nISO country codes;\nFIPS codes;\nadministrative codes;\ngeographic database identifiers;\nlatitude and longitude; or\nofficial statistical-area codes."
-  },
-  {
-    "objectID": "index.html#boundary-changes",
-    "href": "index.html#boundary-changes",
-    "title": "Week 4: Research Design and Finding Data",
-    "section": "Boundary Changes",
-    "text": "Boundary Changes\nGeographic boundaries may change through:\n\nannexation;\nsecession;\nredistricting;\nadministrative reform;\nmunicipal consolidation;\nborder disputes; or\nchanges in coding practices.\n\nA province in 2010 may not have the same boundaries as a province with the same name in 2025."
-  },
-  {
-    "objectID": "index.html#coordinate-precision",
-    "href": "index.html#coordinate-precision",
-    "title": "Week 4: Research Design and Finding Data",
-    "section": "Coordinate Precision",
-    "text": "Coordinate Precision\nCoordinates may represent:\n\nthe exact location;\na city center;\na district centroid;\na randomly displaced survey point;\nan approximate location;\nthe location of a report rather than an event; or\nthe headquarters of an organization.\n\nNever assume that latitude and longitude imply exact precision."
-  },
-  {
     "objectID": "index.html#primary-data",
     "href": "index.html#primary-data",
     "title": "Week 4: Research Design and Finding Data",
@@ -383,41 +341,6 @@
     "title": "Week 4: Research Design and Finding Data",
     "section": "Unstructured Data",
     "text": "Unstructured Data\nUnstructured data do not arrive as rows and columns.\nExamples include:\n\nreports;\nspeeches;\narticles;\nphotographs;\nsatellite images;\naudio;\nvideo;\nsocial-media posts; and\ninterview transcripts.\n\nUnstructured data can be converted into structured variables through:\n\nmanual coding;\nnatural-language processing;\ncomputer vision;\ntranscription;\nnamed-entity recognition;\ntopic modeling;\nsentiment analysis; and\nsupervised classification.\n\nThe conversion process itself becomes part of the research methodology."
-  },
-  {
-    "objectID": "index.html#common-merge-keys",
-    "href": "index.html#common-merge-keys",
-    "title": "Week 4: Research Design and Finding Data",
-    "section": "Common Merge Keys",
-    "text": "Common Merge Keys\nDatasets may be linked using:\n\nunique record ID;\ncountry code;\ngeographic code;\norganization name;\nperson ID;\ndate;\nyear;\nlatitude and longitude;\naddress;\nproject identifier;\ndocument identifier; or\ncombinations of several fields."
-  },
-  {
-    "objectID": "index.html#exact-matching",
-    "href": "index.html#exact-matching",
-    "title": "Week 4: Research Design and Finding Data",
-    "section": "Exact Matching",
-    "text": "Exact Matching\nExact matching requires identical values.\nFor example:\nKEN + 2025\nmay link a Kenyan country-year observation across two datasets.\nExact matching works best when sources use standardized identifiers."
-  },
-  {
-    "objectID": "index.html#fuzzy-matching",
-    "href": "index.html#fuzzy-matching",
-    "title": "Week 4: Research Design and Finding Data",
-    "section": "Fuzzy Matching",
-    "text": "Fuzzy Matching\nFuzzy matching may be necessary when names differ.\nExamples:\nInternational Business Machines\nIBM\nIBM Corporation\nI.B.M.\nFuzzy matching introduces uncertainty. Researchers should:\n\nstandardize text;\nremove punctuation where appropriate;\ncompare multiple fields;\nset a similarity threshold;\nmanually inspect uncertain matches; and\nretain a record of matching decisions."
-  },
-  {
-    "objectID": "index.html#spatial-matching",
-    "href": "index.html#spatial-matching",
-    "title": "Week 4: Research Design and Finding Data",
-    "section": "Spatial Matching",
-    "text": "Spatial Matching\nSpatial joins can connect records based on geographic location.\nExamples include:\n\nassigning events to districts;\nlinking survey points to nearby infrastructure;\ncalculating distance to a border;\nidentifying the administrative region containing a coordinate; and\ncombining raster values with point locations.\n\nSpatial matching requires attention to coordinate systems, boundary dates, and geographic precision."
-  },
-  {
-    "objectID": "index.html#temporal-matching",
-    "href": "index.html#temporal-matching",
-    "title": "Week 4: Research Design and Finding Data",
-    "section": "Temporal Matching",
-    "text": "Temporal Matching\nSources may need to be aligned by:\n\nexact date;\nmonth;\nquarter;\nyear;\nnearest prior observation;\nrolling window; or\nperiod before and after an event.\n\nThe matching rule should follow the causal or analytical logic of the research design.\n\n\n\n\n\n\nWarningA Successful Merge Can Still Be Wrong\n\n\n\nSoftware may merge rows without producing an error even when:\n\nidentifiers are duplicated;\ncountry codes refer to different systems;\ndates have different meanings;\ngeographic units changed;\nnames are incorrectly matched; or\none-to-many relationships were not expected.\n\nAlways validate the merge."
   },
   {
     "objectID": "index.html#searching-only-the-exact-research-question",
@@ -495,13 +418,6 @@
     "title": "Week 4: Research Design and Finding Data",
     "section": "Why Record Rejected Sources?",
     "text": "Why Record Rejected Sources?\nRejected sources help demonstrate that the researcher:\n\nconsidered alternatives;\nmade deliberate methodological choices;\nrecognized important limitations;\ndid not select data solely because they supported an expected conclusion; and\ncan revisit earlier options if the design changes."
-  },
-  {
-    "objectID": "index.html#recommended-folder-structure",
-    "href": "index.html#recommended-folder-structure",
-    "title": "Week 4: Research Design and Finding Data",
-    "section": "Recommended Folder Structure",
-    "text": "Recommended Folder Structure\nproject/\n│\n├── data/\n│   ├── raw/\n│   ├── interim/\n│   ├── processed/\n│   └── external/\n│\n├── documentation/\n│   ├── codebooks/\n│   ├── methodology/\n│   ├── licenses/\n│   └── source_log.xlsx\n│\n├── scripts/\n│   ├── download/\n│   ├── cleaning/\n│   ├── analysis/\n│   └── visualization/\n│\n├── output/\n│   ├── figures/\n│   ├── tables/\n│   └── reports/\n│\n└── README.md\n\nRaw Data\nThe raw folder should contain the source exactly as received whenever possible.\nDo not manually edit raw files.\n\n\nInterim Data\nThe interim folder contains partially processed data, such as:\n\nstandardized names;\nconverted formats;\ngeocoded records;\ndeduplicated files; and\nmerged intermediate tables.\n\n\n\nProcessed Data\nThe processed folder contains analysis-ready data.\nEvery change from the raw data should be reproducible through code or clearly documented procedures.\n\n\n\n\n\n\nImportantPreserve the Original Download\n\n\n\nWhen permitted:\n\nDownload the source.\nSave it in the raw-data folder.\nRecord the download date and URL.\nCalculate a file hash.\nMake transformations on a copy or through code.\nNever overwrite the original."
   },
   {
     "objectID": "index.html#data-minimization",

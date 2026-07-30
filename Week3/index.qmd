@@ -314,9 +314,8 @@ A **documented** workflow makes analysis *traceable*, *reproducible*, and *audit
 ::: {dl}
 
 1. Data Collection
-:   Gather raw data from classified, commercial, or open sources. Includes structured (databases), unstructured (text, images), and semi-structured (JSON, logs) data. Document every source you use (and those that you don't, as it may be relevant later on), the bibliographical information, why you think it will be useful, and what is a limitation of the data. I would also recommend **download** the data, as sometimes websites change or go down, and you want to be able to replicate your analysis later on.
-
-I realize this seems like a lot of documenting, but it will be critically important as you progress through the IA program and in your career. 
+:   Gather raw data from classified, commercial, or open sources. Includes structured (databases), unstructured (text, images), and semi-structured (JSON, logs) data. Document every source you use (and those that you don't, as it may be relevant later on), the bibliographical information, why you think it will be useful, and what is a limitation of the data. I would also recommend **downloading** the data, as sometimes websites change or go down, and you want to be able to replicate your analysis later on.
+:   *I realize this seems like a lot of documenting, but it will be critically important as you progress through the IA program and in your career.*
 
 2. Data Cleaning and Preprocessing
 :   Remove errors, fill gaps, and standardize values to make data usable. Common issues: missing values (impute, interpolate, or flag), duplicates (identify by unique ID and remove), inconsistent formats (standardize date/time and coordinate formats), outliers (assess whether they are real signals or data errors), noise (filter irrelevant text, bot activity, or spam).
@@ -339,23 +338,196 @@ I realize this seems like a lot of documenting, but it will be critically import
 :::
 :::
 
-## The Intelligence Data Lifecycle
+# Part VI: AI and the Analytical Workflow
+
+***How can the present-day AI models assist in this workflow?***
+
+Present-day AI models can support nearly every stage of the analytical workflow, but their most appropriate role is generally to **augment human judgment rather than replace it**. AI can accelerate repetitive tasks, identify patterns, generate possible interpretations, and help analysts interact with large volumes of information. However, analysts remain responsible for evaluating sources, selecting appropriate methods, validating results, and determining whether a conclusion is sufficiently supported by the available evidence.
+
+*At this stage of development, AI is best suited for **well-bounded tasks** rather than open-ended analysis.*
+
+## How does AI fit into the Analytical Workflow?
+
+### 1. Data Collection
+
+AI tools can help analysts locate, retrieve, and organize potentially relevant information. Examples include:
+
+* Generating search terms, Boolean queries, and alternative spellings or transliterations.
+* Monitoring large numbers of news reports, documents, databases, or social-media posts.
+* Extracting text from documents, images, audio, or video.
+* Identifying named entities such as people, organizations, locations, weapons systems, and events.
+* Translating foreign-language materials to support initial review.
+* Classifying collected material by topic, source, geographic area, or estimated relevance.
+
+AI can greatly expand the amount of material an analyst can review, but it can also increase the amount of irrelevant or low-quality information collected. The analyst must still evaluate the reliability, credibility, access date, provenance, and potential bias of each source. AI-generated summaries should not substitute for examining the original material.
+
+### 2. Data Cleaning and Preprocessing
+
+AI can assist with repetitive cleaning tasks, particularly when working with text or inconsistently formatted records. It may help:
+
+* Identify likely duplicates or near-duplicate documents.
+* Standardize dates, place names, organization names, and other values.
+* Extract structured variables from unstructured text.
+* Detect missing, unusual, or potentially erroneous values.
+* Classify spam, bot-generated content, advertisements, or irrelevant material.
+* Generate Python, R, SQL, or spreadsheet formulas for cleaning data.
+* Suggest regular expressions for extracting recurring patterns.
+
+These outputs should be treated as recommendations rather than unquestioned corrections. An AI system may “clean” away an unusual observation that is actually important or may incorrectly decide that two similar names refer to the same person. Preserve the original data and maintain a record of every significant transformation.
+
+### 3. Data Transformation and Integration
+
+AI models can help convert data into forms that are easier to analyze. They can:
+
+* Recommend appropriate variables and units of analysis.
+* Reformat text, tables, dates, coordinates, and categorical values.
+* Generate code for reshaping, aggregating, or joining datasets.
+* Suggest possible matching fields across datasets.
+* Assist with entity resolution when names or identifiers differ.
+* Create preliminary coding schemes for qualitative material.
+* Convert narrative reporting into structured event records.
+
+Integration is an especially high-risk stage because incorrect matches can quietly introduce errors into the entire analysis. AI-generated joins and entity matches should therefore include confidence scores or review flags whenever possible. Analysts should manually inspect a sample of matched and unmatched records.
+
+### 4. Analysis and Modeling
+
+AI can support exploratory, statistical, computational, and qualitative analysis. Depending on the task, it may:
+
+* Generate descriptive summaries of a dataset.
+* Identify potential trends, clusters, anomalies, or relationships.
+* Recommend statistical tests or modeling approaches.
+* Generate and explain analytical code.
+* Assist with text classification, topic modeling, sentiment analysis, or document comparison.
+* Extract actors and relationships for network analysis.
+* Generate competing hypotheses or alternative explanations.
+* Identify evidence that supports or contradicts an argument.
+* Translate technical model results into accessible language.
+
+Generative AI is particularly useful as a **hypothesis-generation tool**. For example, an analyst might ask a model to propose several explanations for an observed increase in military activity. These possibilities can help broaden the analyst’s thinking, but they are not findings until they are evaluated against evidence.
+
+AI-generated analysis can sound confident even when it is incorrect. Models may select an inappropriate statistical test, misunderstand the unit of analysis, invent a source, or interpret correlation as causation. Analysts must understand the method well enough to evaluate whether the model’s recommendation is appropriate.
+
+### 5. Validation and Quality Assurance
+
+AI can serve as a useful—but imperfect—second reviewer. It can be prompted to:
+
+* Identify weaknesses in an argument.
+* Search for missing assumptions or logical inconsistencies.
+* Generate alternative interpretations of the evidence.
+* Compare findings across models, time periods, or data subsets.
+* Review code for likely errors.
+* Check whether claims are supported by the evidence provided.
+* Create test cases for evaluating an analytical procedure.
+* Simulate how a skeptical reviewer or decision-maker might respond.
+
+One useful approach is to ask the model to **challenge the analysis rather than confirm it**. For example:
+
+> Identify three plausible reasons this conclusion could be wrong. For each reason, explain what additional evidence would increase or decrease confidence in the conclusion.
+
+AI review is NOT independent validation when the system relies on the same data, assumptions, or prompts as the original analysis. Important findings should still be reviewed thoroughly by qualified people and, when possible, tested using independent sources or methods.
+
+### 6. Visualization and Communication
+
+AI can help analysts transform technical findings into products designed for different audiences. It can:
+
+* Recommend an appropriate chart or map for a specific analytical question.
+* Generate visualization code.
+* Draft titles, annotations, captions, and explanatory text.
+* Summarize findings at different levels of technical detail.
+* Convert a lengthy analysis into a briefing, executive summary, or talking points.
+* Adapt the same findings for policymakers, technical analysts, or the public.
+* Review whether the main takeaway is clear.
+* Suggest ways to reduce clutter or improve accessibility.
+
+The analyst must ensure that the final product accurately represents the evidence. AI may exaggerate certainty, omit important qualifications, or emphasize the most dramatic finding rather than the most defensible one. Every written claim, number, label, and citation should be verified before dissemination.
+
+### 7. Feedback and Iteration
+
+AI can help organize feedback and convert it into concrete revisions. For example, it can:
+
+* Summarize reviewer comments.
+* Group feedback into methodological, substantive, and presentation issues.
+* Identify recurring questions from consumers.
+* Recommend revisions to collection plans.
+* Generate updated code or analytical procedures.
+* Compare different versions of a product.
+* Maintain a structured list of assumptions, limitations, and unresolved questions.
+
+Feedback can also be used to improve how the analyst interacts with the AI system. Prompts, examples, source restrictions, and review procedures should be refined as the analyst learns which tasks the system performs reliably and which require greater supervision.
+
+## Appropriate Uses of AI
 
 ::: {.col-pair}
 ::: {.col-left}
-**Collection → Processing → Analysis**
 
-Raw data from any source requires processing before analysis. Processing involves: tagging metadata, parsing documents, extracting named entities, and removing noise. Only then is the data ready for statistical or computational treatment.
+**AI is most valuable when the task involves:**
+
+* Processing a large volume of material.
+* Repeating a clearly defined procedure.
+* Producing a preliminary draft or starting point.
+* Generating multiple alternatives for consideration.
+* Translating between technical and nontechnical language.
+* Helping an analyst explore unfamiliar data or methods.
+* Identifying items that require human review.
 :::
 ::: {.col-right}
-**Interpretation → Dissemination → Feedback**
 
-Analytical results must be *interpreted*—linked to the original intelligence question and decision need. Dissemination must be tailored to the consumer's expertise. Feedback from consumers informs future collection priorities, closing the intelligence cycle.
+**AI is less appropriate when the task requires:**
+
+* Access to information the model has not been given.
+* Precise factual recall without source verification.
+* Evaluation of highly ambiguous or deceptive evidence.
+* Understanding sensitive institutional or cultural context.
+* Making legal, ethical, operational, or policy decisions.
+* Assigning final confidence to an intelligence judgment.
+* Processing classified or restricted information in an unauthorized system.
 :::
 :::
 
+## Human Responsibilities
 
-''' Add something on AI and this process'''
+The use of AI does not transfer analytical responsibility to the model. The analyst remains responsible for:
+
+1. **Protecting the data.** Do not enter classified, controlled, proprietary, personally identifiable, or otherwise restricted information into an unauthorized AI system.
+
+2. **Verifying the evidence.** Trace factual claims to their original sources. Do not cite an AI-generated response as evidence for a substantive claim.
+
+3. **Evaluating the method.** Confirm that the selected analytical technique is appropriate for the question, data, and unit of analysis.
+
+4. **Documenting AI use.** Record the system used, the task it performed, important prompts or settings, and how its outputs were reviewed or modified.
+
+5. **Preserving reproducibility.** Save the original data, code, prompts, outputs, and decision rules needed to reconstruct the analysis.
+
+6. **Communicating uncertainty.** Clearly distinguish observed facts, assumptions, model outputs, inferences, and judgments.
+
+7. **Making the final judgment.** The analyst—not the AI system—must decide what the evidence supports and how confidently it supports it.
+
+::: {.ai-practice}
+### A Practical Human–AI Workflow
+
+A responsible workflow may follow this sequence:
+
+1. The analyst defines the question, scope, and evidence requirements.
+2. AI assists with a clearly bounded task.
+3. The analyst reviews the output for factual and methodological errors.
+4. Claims are checked against original sources and data.
+5. Code or procedures are tested using known examples.
+6. Important results are replicated or independently reviewed.
+7. The analyst revises the product and documents how AI contributed.
+8. The analyst takes responsibility for the final conclusion.
+
+The central question should therefore not be simply, *“Can AI perform this task?”* A better set of questions is:
+
+* **What part of the task can AI perform reliably?**
+* **What information does the system need?**
+* **How will its output be verified?**
+* **What errors could it introduce?**
+* **What decisions must remain with the analyst?**
+
+> **Key Takeaway:** AI can make an analytical workflow faster and more scalable, but speed is not the same as rigor. The quality of AI-assisted analysis ultimately depends on the quality of the data, the structure of the task, the analyst’s subject-matter and methodological knowledge, and the strength of the validation process.
+
+:::
+
 ---
 
 # Suggested Readings

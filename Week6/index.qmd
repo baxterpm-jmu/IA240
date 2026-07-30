@@ -54,7 +54,8 @@ By the end of this lecture, you should be able to:
 :   An ordered scale with equal intervals between values, but no true zero point. Zero is arbitrary — it does not mean "absence" of the attribute. **Examples:** temperature in Celsius or Fahrenheit (0°C does not mean "no temperature"), IQ scores, calendar years. **Valid operations:** mean, standard deviation, Pearson correlation. Ratios are *not* valid (40°C is not "twice as hot" as 20°C).
 
 4. Ratio Scale
-:   An interval scale with a true, meaningful zero — zero indicates complete absence of the attribute. All arithmetic operations including ratios are valid. **Examples:** weight, income, distance, duration, number of casualties, GDP in dollars.
+:   An interval scale with a true, meaningful zero — zero indicates complete absence of the attribute. All arithmetic operations including ratios are valid. 
+:   **Examples:** weight, income, distance, duration, number of casualties, GDP in dollars.
 
 5. Binary Scale
 :   A special case of nominal data with exactly two values, often coded 0/1. **Examples:** treaty membership (Yes/No), conflict onset (1 = conflict this year, 0 = no conflict), gender in binary operationalizations. Also called *dummy variables* in regression analysis.
@@ -67,17 +68,24 @@ By the end of this lecture, you should be able to:
 Nominal → Ordinal → Interval → Ratio. Each level *includes* the properties of the one before it. Ratio data gives you the most information; nominal gives you the least.
 :::
 
+::: {.callout-important}
+
+## Why?
+
+Why is correctly identifying and using the appropriate scale matter for your data and analysis?
+
+:::
 ---
 
 # Part II: Database Concepts
 
 ## What is a Database?
 
-A **database** is an organized, structured collection of data that enables efficient storage, retrieval, updating, and management. Every IC data platform — from classified warehouses to commercial analytics tools like Palantir — is built on relational database principles.
+A **database** is an organized, structured collection of data that enables efficient storage, retrieval, updating, and management. Almost every data platform — from classified warehouses to commercial analytics tools like Palantir — is built on relational database principles.
 
 ## Tables, Fields, and Records
 
-Every relational database is built from tables:
+Every relational database is built from a simple table. 
 
 | Concept | Definition | Analogy |
 |---|---|---|
@@ -88,6 +96,8 @@ Every relational database is built from tables:
 ::: {.callout-note}
 ## The "Tall Rectangle" Rule
 Well-structured databases are **tall** (many rows, fewer columns), not **wide** (few rows, many columns). Each row is one observation; each column is one variable. Violating this — putting "Year 2020 GDP," "Year 2021 GDP," "Year 2022 GDP" as three separate columns — makes joining, querying, and analysis far more difficult. This is the **tidy data** principle.
+
+In the previous example, it would be better to seperate your observations in the dyads, where each row would be a country and a specific year, then to have a single column as GDP.
 :::
 
 ## Database Keys
@@ -231,8 +241,6 @@ Missing Not at Random (MNAR)
 :::
 :::
 
-## The Intelligence Application
-
 ::: {.callout-warning}
 ## MNAR is the Default Assumption for Intelligence Data
 In intelligence analysis, the assumption that data is MCAR or even MAR is almost always wrong. The most sensitive facilities are the least surveilled. The most dangerous individuals take the most precautions to avoid detection. The most repressive governments produce the least reliable official statistics. Data that is systematically missing because of the very phenomenon you are studying is the rule, not the exception. Analysts who impute missing values as if they were MCAR introduce exactly the kind of bias that makes analysis misleading precisely in the highest-stakes cases.
@@ -258,7 +266,7 @@ Data integration — combining information from multiple sources into a unified 
 
 ## Integration in the Intelligence Community
 
-The IC operates from a collection philosophy of all-source analysis: HUMINT, SIGINT, IMINT, GEOINT, OSINT, and MASINT all provide partial pictures that only make sense when fused. The transition from single-source reporting to all-source assessment is the integration problem in its most consequential form.
+The IC operates from a collection philosophy of all-source analysis: HUMINT, SIGINT, IMINT, GEOINT, OSINT, and MASINT all provide partial pictures that often will only make sense when fused. The transition from single-source reporting to all-source assessment is the integration problem in its most consequential form.
 
 At the data level, integration requires:
 
@@ -266,6 +274,13 @@ At the data level, integration requires:
 - **Consistent units and scales** (all monetary figures in the same currency and year; all dates in the same format)
 - **Temporal alignment** (data collected at different frequencies or with different lags requires aggregation or interpolation)
 - **Level-of-analysis compatibility** (country-level data cannot be merged with individual-level data without aggregation decisions that embed analytical judgment)
+
+::: {.callout-important}
+## Integration is the hardest obstacle you will face in my courses...
+
+This will be the most difficult aspect for many of you and requires thinking that moves beyond your comfort zone. Functionally, you need to think about evidence **and** how it fits with other evidence, rather than thining about disparate datasets as evidence that automatically go together as they are linked by topic, etc. 
+
+:::
 
 ## Why Integration Is Difficult
 
@@ -422,7 +437,7 @@ SQL is how analysts work with IC data warehouses and large relational datasets �
 
 ## Programming Languages
 
-For anything beyond a single query — statistical modeling, automation, reproducible workflows, machine learning — analysts turn to general-purpose languages. **R** (with the tidyverse and ggplot2) is built for statistics, exploratory data analysis, and visualization. **Python** (with pandas, NumPy, and scikit-learn) is a general-purpose language strong in automation, machine learning, text processing, and API access. **Julia** targets high-performance numerical computing. Their shared advantage over spreadsheets is **reproducibility**: the analysis is written as code that can be reviewed, rerun, and audited — the computational embodiment of the data dictionary's "analytical contract" (Part X).
+For anything beyond a single query — statistical modeling, automation, reproducible workflows, machine learning — analysts turn to general-purpose languages. **R** (with the tidyverse and ggplot2) is built for statistics, exploratory data analysis, and visualization. **Python** (with pandas, NumPy, and scikit-learn) is a general-purpose language strong in automation, machine learning, text processing, and API access. Their shared advantage over spreadsheets is **reproducibility**: the analysis is written as code that can be reviewed, rerun, and audited — the computational embodiment of the data dictionary's "analytical contract" (Part X).
 
 ## Application Programming Interfaces (APIs)
 
@@ -436,7 +451,7 @@ This request retrieves Iran's GDP series from the World Bank's public API. APIs 
 
 ## Software Discussed in This Course
 
-The table below inventories the major tools introduced across IA 240 — what each does, the kind of data it operates on, and where it appears in the course.
+The table below inventories the major tools introduced across the IA curriculum — what each does, the kind of data it operates on, and where it will likely appear.
 
 | Software / Tool | What It Does | Type of Data It Uses | Example in This Course |
 |---|---|---|---|
@@ -444,7 +459,6 @@ The table below inventories the major tools introduced across IA 240 — what ea
 | **SQL** (SQLite, PostgreSQL) | Query and join records in relational databases | Structured relational tables with keys | Filtering and joining conflict-event tables (this week) |
 | **R** (tidyverse, ggplot2) | Statistical computing, EDA, modeling, visualization | Structured/tabular data; text | Descriptive statistics and hypothesis testing (Week 7); regression (Week 8) |
 | **Python** (pandas, scikit-learn) | General-purpose analysis, automation, ML, API calls | Structured, text, and image data | Machine-learning classification and NLP (Week 9) |
-| **Julia** | High-performance numerical and scientific computing | Numeric/structured data | Listed among core languages for computation at scale (Week 3) |
 | **NetLogo** | Agent-based modeling environment | Agent rules + synthetic environment | Schelling segregation and insurgency ABMs (Week 10) |
 | **Mesa / Repast** | Code frameworks for larger agent-based models | Agent rules / synthetic data | Building an ABM in Python or Java (Week 10) |
 | **Gephi** | Network visualization and metrics (centrality, communities) | Network/graph data (nodes & edges) | Visualizing a covert network (Week 11) |

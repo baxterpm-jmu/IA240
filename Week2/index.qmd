@@ -42,7 +42,6 @@ By the end of this lecture, you should be able to:
 
 :::
 
-
 # Part I: Intelligence Collection Methods
 
 ## IC Collection Disciplines
