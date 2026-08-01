@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 7: Descriptive Statistics, EDA, and Hypothesis Testing – IA 240: Technology Applications in a Networked World</title>
+<title>Week 7: Descriptive Statistics, EDA, and Hypothesis Testing</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,30 +23,29 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-d6fbb5bfb24a4f1906c428146fc3bdde.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-511b1172525efeb7864905c019c1fe79.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-d6fbb5bfb24a4f1906c428146fc3bdde.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-b06557a30df05222234ebdf7c223b5ec.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -102,103 +101,14 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">IA 240: Technology Applications in a Networked World</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-weekly-materials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Weekly Materials</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-weekly-materials">    
-        <li>
-    <a class="dropdown-item" href="../Week1/index.html">
- <span class="dropdown-text">Week 1: Technology and the Intelligence Cycle</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../Week2/index.html">
- <span class="dropdown-text">Week 2: Data Types, Sources, and Collection Methods</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../Week3/index.html">
- <span class="dropdown-text">Week 3: Introduction to Data Science and the Analytical Workflow</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../Week4/index.html">
- <span class="dropdown-text">Week 4: Research Design and Finding Data</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../Week5/index.html">
- <span class="dropdown-text">Week 5: Probability and Uncertainty in Analysis</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../Week6/index.html">
- <span class="dropdown-text">Week 6: Data Structures, Databases, and Computational Tools</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../Week7/index.html">
- <span class="dropdown-text">Week 7: Descriptive Statistics, EDA, and Hypothesis Testing (and Fall Break!)</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../Week8/index.html">
- <span class="dropdown-text">Week 8: Data Modeling: Regression and Model Evaluation</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../Week9/index.html">
- <span class="dropdown-text">Week 9: Machine Learning and Natural Language Processing</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../Week10/index.html">
- <span class="dropdown-text">Week 10: Systems Thinking and Agent-Based Modeling</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../Week11/index.html">
- <span class="dropdown-text">Week 11: Social Network Analysis</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../Week12/index.html">
- <span class="dropdown-text">Week 12: Geospatial and GEOINT Analysis</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../Week13/index.html">
- <span class="dropdown-text">Week 13: Principles of Data Visualization</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../Week15/index.html">
- <span class="dropdown-text">Week 15: Communicating Analysis</span></a>
-  </li>  
-    </ul>
-  </li>
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
-</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contents</h2>
    
   <ul>
@@ -241,6 +151,10 @@ window.Quarto = {
   <li><a href="#suggested-readings" id="toc-suggested-readings" class="nav-link" data-scroll-target="#suggested-readings">Suggested Readings</a></li>
   </ul>
 </nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -476,61 +390,6 @@ Attempts to establish cause-and-effect relationships, not just correlations. Req
 </tr>
 </tbody>
 </table>
-<p>The table above summarizes each technique; the worked examples below use small, invented datasets to show what each chart actually looks like and what an analyst reads from it.</p>
-<section id="histogram" class="level4">
-<h4 class="anchored" data-anchor-id="histogram">Histogram</h4>
-<figure style="text-align:center;margin:1.2rem 0;" class="figure">
-<svg viewbox="0 0 460 290" width="460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Histogram of a right-skewed distribution">
-<line x1="55" y1="30" x2="55" y2="245" stroke="#595959" stroke-width="1"></line> <line x1="55" y1="245" x2="430" y2="245" stroke="#595959" stroke-width="1"></line> <rect x="55" y="197" width="40" height="48" fill="#450084" stroke="#ffffff"></rect> <rect x="97" y="138" width="40" height="107" fill="#450084" stroke="#ffffff"></rect> <rect x="138" y="78" width="40" height="167" fill="#450084" stroke="#ffffff"></rect> <rect x="180" y="30" width="40" height="215" fill="#450084" stroke="#ffffff"></rect> <rect x="222" y="66" width="40" height="179" fill="#450084" stroke="#ffffff"></rect> <rect x="263" y="114" width="40" height="131" fill="#450084" stroke="#ffffff"></rect> <rect x="305" y="161" width="40" height="84" fill="#450084" stroke="#ffffff"></rect> <rect x="347" y="197" width="40" height="48" fill="#450084" stroke="#ffffff"></rect> <rect x="388" y="221" width="40" height="24" fill="#450084" stroke="#ffffff"></rect> <text x="242" y="272" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333333">Incident size (small → large)</text> <text x="20" y="137" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333333" transform="rotate(-90 20 137)">Frequency</text>
-</svg>
-</figure>
-<p>A histogram groups a single continuous variable into bins and plots how many observations fall in each. Here the bulk of incidents are small, with a peak in the third bin and a long tail of a few large events trailing to the right — the classic shape of a <strong>right-skewed</strong> distribution, common in casualty counts and financial data. It answers the first question of any analysis: what does the distribution of this variable actually look like?</p>
-</section>
-<section id="box-plot" class="level4">
-<h4 class="anchored" data-anchor-id="box-plot">Box Plot</h4>
-<figure style="text-align:center;margin:1.2rem 0;" class="figure">
-<svg viewbox="0 0 460 290" width="460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Box plot showing quartiles, whiskers, and an outlier">
-<line x1="55" y1="30" x2="55" y2="245" stroke="#595959" stroke-width="1"></line> <line x1="55" y1="245" x2="430" y2="245" stroke="#595959" stroke-width="1"></line> <line x1="235" y1="99" x2="235" y2="62" stroke="#450084" stroke-width="1.5"></line> <line x1="235" y1="159" x2="235" y2="202" stroke="#450084" stroke-width="1.5"></line> <line x1="220" y1="62" x2="250" y2="62" stroke="#450084" stroke-width="1.5"></line> <line x1="220" y1="202" x2="250" y2="202" stroke="#450084" stroke-width="1.5"></line> <rect x="175" y="99" width="120" height="60" fill="#B599CE" stroke="#450084" stroke-width="1.5"></rect> <line x1="175" y1="133" x2="295" y2="133" stroke="#450084" stroke-width="2.5"></line> <circle cx="235" cy="39" r="4" fill="#CBB677" stroke="#450084"></circle> <text x="305" y="66" font-family="sans-serif" font-size="10" fill="#333333">Max (whisker)</text> <text x="305" y="102" font-family="sans-serif" font-size="10" fill="#333333">Q3</text> <text x="305" y="137" font-family="sans-serif" font-size="10" fill="#333333">Median</text> <text x="305" y="162" font-family="sans-serif" font-size="10" fill="#333333">Q1</text> <text x="305" y="205" font-family="sans-serif" font-size="10" fill="#333333">Min (whisker)</text> <text x="248" y="42" font-family="sans-serif" font-size="10" fill="#AD9C65">Outlier</text> <text x="20" y="137" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333333" transform="rotate(-90 20 137)">Value</text>
-</svg>
-</figure>
-<p>A box plot compresses the five-number summary into one figure: the box spans the interquartile range (Q1 to Q3), the thick line marks the median, and the whiskers reach to the most extreme values within 1.5×IQR. The single point above the top whisker is an <strong>outlier</strong> flagged for investigation. Box plots are most useful for comparing the spread and center of several groups side by side.</p>
-</section>
-<section id="scatter-plot" class="level4">
-<h4 class="anchored" data-anchor-id="scatter-plot">Scatter Plot</h4>
-<figure style="text-align:center;margin:1.2rem 0;" class="figure">
-<svg viewbox="0 0 460 290" width="460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scatter plot showing a positive relationship">
-<line x1="55" y1="30" x2="55" y2="245" stroke="#595959" stroke-width="1"></line> <line x1="55" y1="245" x2="430" y2="245" stroke="#595959" stroke-width="1"></line> <line x1="70" y1="205" x2="400" y2="60" stroke="#CBB677" stroke-width="2" stroke-dasharray="5,4"></line> <circle cx="92" cy="202" r="4" fill="#450084"></circle> <circle cx="123" cy="185" r="4" fill="#450084"></circle> <circle cx="149" cy="181" r="4" fill="#450084"></circle> <circle cx="168" cy="148" r="4" fill="#450084"></circle> <circle cx="198" cy="155" r="4" fill="#450084"></circle> <circle cx="224" cy="127" r="4" fill="#450084"></circle> <circle cx="250" cy="138" r="4" fill="#450084"></circle> <circle cx="280" cy="99" r="4" fill="#450084"></circle> <circle cx="303" cy="112" r="4" fill="#450084"></circle> <circle cx="325" cy="77" r="4" fill="#450084"></circle> <circle cx="355" cy="86" r="4" fill="#450084"></circle> <circle cx="385" cy="52" r="4" fill="#450084"></circle> <text x="242" y="272" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333333">Hours studied</text> <text x="20" y="137" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333333" transform="rotate(-90 20 137)">Exam score</text>
-</svg>
-</figure>
-<p>A scatter plot places each observation at its (x, y) coordinates to expose the relationship between two continuous variables. These points rise together — higher study hours pair with higher exam scores — indicating a <strong>positive correlation</strong> (the dashed line traces the trend). Scatter plots also reveal clusters, nonlinearity, and points that break the pattern, none of which a summary statistic would show.</p>
-</section>
-<section id="bar-chart" class="level4">
-<h4 class="anchored" data-anchor-id="bar-chart">Bar Chart</h4>
-<figure style="text-align:center;margin:1.2rem 0;" class="figure">
-<svg viewbox="0 0 460 290" width="460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart of counts across five categories">
-<line x1="55" y1="30" x2="55" y2="245" stroke="#595959" stroke-width="1"></line> <line x1="55" y1="245" x2="430" y2="245" stroke="#595959" stroke-width="1"></line> <rect x="69" y="110" width="48" height="135" fill="#450084"></rect> <rect x="144" y="55" width="48" height="190" fill="#450084"></rect> <rect x="219" y="127" width="48" height="118" fill="#450084"></rect> <rect x="294" y="30" width="48" height="215" fill="#450084"></rect> <rect x="369" y="85" width="48" height="160" fill="#450084"></rect> <text x="93" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">Sedan</text> <text x="168" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">SUV</text> <text x="243" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">Truck</text> <text x="318" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">Van</text> <text x="393" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">Bus</text> <text x="20" y="137" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333333" transform="rotate(-90 20 137)">Count</text>
-</svg>
-</figure>
-<p>A bar chart compares a numeric value — here a simple count — across distinct <strong>categories</strong>. Unlike a histogram, the bars are separated by gaps because the x-axis is categorical, not continuous, and the order of categories carries no numeric meaning. This one shows vans and SUVs are the most frequent vehicle types in the dataset; bar charts are the default for frequencies or proportions across groups.</p>
-</section>
-<section id="line-graph" class="level4">
-<h4 class="anchored" data-anchor-id="line-graph">Line Graph</h4>
-<figure style="text-align:center;margin:1.2rem 0;" class="figure">
-<svg viewbox="0 0 460 290" width="460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Line graph of a value trending upward over eight months">
-<line x1="55" y1="30" x2="55" y2="245" stroke="#595959" stroke-width="1"></line> <line x1="55" y1="245" x2="430" y2="245" stroke="#595959" stroke-width="1"></line> <polyline points="55,164 109,143 162,151 216,116 269,105 323,119 376,84 430,68" fill="none" stroke="#450084" stroke-width="2"></polyline> <circle cx="55" cy="164" r="3.5" fill="#CBB677" stroke="#450084"></circle> <circle cx="109" cy="143" r="3.5" fill="#CBB677" stroke="#450084"></circle> <circle cx="162" cy="151" r="3.5" fill="#CBB677" stroke="#450084"></circle> <circle cx="216" cy="116" r="3.5" fill="#CBB677" stroke="#450084"></circle> <circle cx="269" cy="105" r="3.5" fill="#CBB677" stroke="#450084"></circle> <circle cx="323" cy="119" r="3.5" fill="#CBB677" stroke="#450084"></circle> <circle cx="376" cy="84" r="3.5" fill="#CBB677" stroke="#450084"></circle> <circle cx="430" cy="68" r="3.5" fill="#CBB677" stroke="#450084"></circle> <text x="55" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">Jan</text> <text x="109" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">Feb</text> <text x="162" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">Mar</text> <text x="216" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">Apr</text> <text x="269" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">May</text> <text x="323" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">Jun</text> <text x="376" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">Jul</text> <text x="430" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">Aug</text> <text x="20" y="137" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333333" transform="rotate(-90 20 137)">Value</text>
-</svg>
-</figure>
-<p>A line graph connects observations in sequence, almost always over <strong>time</strong>, so the eye follows the trajectory rather than individual points. This series drifts upward from January to August despite a couple of month-to-month dips, showing an overall increasing trend. Line graphs make trends, cycles, and abrupt changes in time-series data immediately visible.</p>
-</section>
-<section id="heatmap" class="level4">
-<h4 class="anchored" data-anchor-id="heatmap">Heatmap</h4>
-<figure style="text-align:center;margin:1.2rem 0;" class="figure">
-<svg viewbox="0 0 460 300" width="460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Heatmap of a correlation matrix across five variables">
-<text x="130" y="34" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">V1</text> <text x="170" y="34" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">V2</text> <text x="210" y="34" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">V3</text> <text x="250" y="34" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">V4</text> <text x="290" y="34" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">V5</text> <text x="105" y="64" text-anchor="end" font-family="sans-serif" font-size="10" fill="#333333">V1</text> <text x="105" y="104" text-anchor="end" font-family="sans-serif" font-size="10" fill="#333333">V2</text> <text x="105" y="144" text-anchor="end" font-family="sans-serif" font-size="10" fill="#333333">V3</text> <text x="105" y="184" text-anchor="end" font-family="sans-serif" font-size="10" fill="#333333">V4</text> <text x="105" y="224" text-anchor="end" font-family="sans-serif" font-size="10" fill="#333333">V5</text> <rect x="110" y="40" width="40" height="40" fill="#450084" fill-opacity="1.0" stroke="#ffffff"></rect><text x="130" y="64" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">1.0</text> <rect x="150" y="40" width="40" height="40" fill="#450084" fill-opacity="0.8" stroke="#ffffff"></rect><text x="170" y="64" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">0.8</text> <rect x="190" y="40" width="40" height="40" fill="#450084" fill-opacity="0.3" stroke="#ffffff"></rect><text x="210" y="64" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">0.3</text> <rect x="230" y="40" width="40" height="40" fill="#450084" fill-opacity="0.6" stroke="#ffffff"></rect><text x="250" y="64" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">0.6</text> <rect x="270" y="40" width="40" height="40" fill="#450084" fill-opacity="0.1" stroke="#ffffff"></rect><text x="290" y="64" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">0.1</text> <rect x="110" y="80" width="40" height="40" fill="#450084" fill-opacity="0.8" stroke="#ffffff"></rect><text x="130" y="104" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">0.8</text> <rect x="150" y="80" width="40" height="40" fill="#450084" fill-opacity="1.0" stroke="#ffffff"></rect><text x="170" y="104" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">1.0</text> <rect x="190" y="80" width="40" height="40" fill="#450084" fill-opacity="0.4" stroke="#ffffff"></rect><text x="210" y="104" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">0.4</text> <rect x="230" y="80" width="40" height="40" fill="#450084" fill-opacity="0.5" stroke="#ffffff"></rect><text x="250" y="104" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">0.5</text> <rect x="270" y="80" width="40" height="40" fill="#450084" fill-opacity="0.2" stroke="#ffffff"></rect><text x="290" y="104" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">0.2</text> <rect x="110" y="120" width="40" height="40" fill="#450084" fill-opacity="0.3" stroke="#ffffff"></rect><text x="130" y="144" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">0.3</text> <rect x="150" y="120" width="40" height="40" fill="#450084" fill-opacity="0.4" stroke="#ffffff"></rect><text x="170" y="144" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">0.4</text> <rect x="190" y="120" width="40" height="40" fill="#450084" fill-opacity="1.0" stroke="#ffffff"></rect><text x="210" y="144" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">1.0</text> <rect x="230" y="120" width="40" height="40" fill="#450084" fill-opacity="0.7" stroke="#ffffff"></rect><text x="250" y="144" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">0.7</text> <rect x="270" y="120" width="40" height="40" fill="#450084" fill-opacity="0.9" stroke="#ffffff"></rect><text x="290" y="144" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">0.9</text> <rect x="110" y="160" width="40" height="40" fill="#450084" fill-opacity="0.6" stroke="#ffffff"></rect><text x="130" y="184" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">0.6</text> <rect x="150" y="160" width="40" height="40" fill="#450084" fill-opacity="0.5" stroke="#ffffff"></rect><text x="170" y="184" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">0.5</text> <rect x="190" y="160" width="40" height="40" fill="#450084" fill-opacity="0.7" stroke="#ffffff"></rect><text x="210" y="184" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">0.7</text> <rect x="230" y="160" width="40" height="40" fill="#450084" fill-opacity="1.0" stroke="#ffffff"></rect><text x="250" y="184" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">1.0</text> <rect x="270" y="160" width="40" height="40" fill="#450084" fill-opacity="0.4" stroke="#ffffff"></rect><text x="290" y="184" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">0.4</text> <rect x="110" y="200" width="40" height="40" fill="#450084" fill-opacity="0.1" stroke="#ffffff"></rect><text x="130" y="224" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">0.1</text> <rect x="150" y="200" width="40" height="40" fill="#450084" fill-opacity="0.2" stroke="#ffffff"></rect><text x="170" y="224" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">0.2</text> <rect x="190" y="200" width="40" height="40" fill="#450084" fill-opacity="0.9" stroke="#ffffff"></rect><text x="210" y="224" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">0.9</text> <rect x="230" y="200" width="40" height="40" fill="#450084" fill-opacity="0.4" stroke="#ffffff"></rect><text x="250" y="224" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">0.4</text> <rect x="270" y="200" width="40" height="40" fill="#450084" fill-opacity="1.0" stroke="#ffffff"></rect><text x="290" y="224" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">1.0</text> <text x="340" y="120" font-family="sans-serif" font-size="10" fill="#333333">Darker =</text> <text x="340" y="134" font-family="sans-serif" font-size="10" fill="#333333">stronger</text> <text x="340" y="148" font-family="sans-serif" font-size="10" fill="#333333">correlation</text>
-</svg>
-</figure>
-<p>A heatmap encodes the values of a matrix as color intensity, letting the eye scan many numbers at once. This one is a <strong>correlation matrix</strong>: each cell shows how strongly two variables move together, with darker cells indicating stronger correlations and the diagonal always equal to 1.0 (each variable with itself). The dark V3–V5 cell (0.9) signals a pair worth investigating, while pale cells like V1–V5 (0.1) show variables that are nearly unrelated. Heatmaps make structure across dozens of variables visible in a way a table of numbers cannot.</p>
-</section>
 </section>
 <section id="identifying-outliers" class="level3">
 <h3 class="anchored" data-anchor-id="identifying-outliers">Identifying Outliers</h3>
@@ -1257,5 +1116,5 @@ A trend present in multiple groups of data disappears or reverses when the group
 
 
 
-<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

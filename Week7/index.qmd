@@ -3,9 +3,7 @@ title: "Week 7: Descriptive Statistics, EDA, and Hypothesis Testing"
 subtitle: "IA 240: Technology Applications in a Networked World"
 ---
 
-# Section 1: Descriptive Statistics and Exploratory Data Analysis (EDA)
-
-Before testing hypotheses, analysts must understand what their data looks like. Descriptive statistics and exploratory data analysis (EDA) are the systematic tools for that understanding — revealing distributions, central tendencies, variability, outliers, and relationships that formal models can miss or distort if applied without first examining the data.
+Before testing hypotheses, analysts must understand what their data looks like. Descriptive statistics and exploratory data analysis (EDA) are the tools that help us understand the data by revealing distributions, central tendencies, variability, outliers, and relationships that formal models can miss or distort if applied without first examining the data.
 
 ::: {.callout-important}
 ## Required Reading Before Tuesday Class
@@ -92,6 +90,12 @@ EDA serves four purposes:
 
 ### Summary Statistics (Descriptive Statistics)
 
+Summary statistics, also called descriptive statistics, reduce a dataset to a small set of numbers that capture its most important features. Instead of inspecting thousands of individual observations one at a time, an analyst can describe the entire dataset with a handful of values that answer three basic questions: what is a typical value, how spread out are the observations, and what shape does the distribution take. These measures fall into three families — central tendency (the center of the data), dispersion (how much the data vary around that center), and distribution shape (whether the data are symmetric, skewed, or heavy-tailed) — each covered below.
+
+What they tell us is the first, orienting picture of the data before any formal testing begins. A typical value establishes a baseline; a measure of spread indicates how reliable or variable that baseline is; and the shape reveals whether the "average" is even meaningful, since a single outlier or a long tail can make a mean deeply misleading. Taken together, these numbers surface data-quality problems, expose extreme values, and make otherwise incomparable datasets comparable.
+
+We use them for two practical reasons. First, they are the fastest way to build an honest understanding of what the data actually contain, which guards against drawing conclusions from artifacts, errors, or unrepresentative samples. Second, they determine which analytical methods are appropriate: whether the mean or the median better represents the center, whether variability is large enough to matter, and whether the distribution meets the assumptions that later hypothesis tests and models depend on. It is worth emphasizing that descriptive statistics *describe* the data at hand — they summarize the sample without yet drawing inferences about a larger population, which is the separate task of inferential statistics.
+
 **Central Tendency:**
 
 | Measure | Definition | Best for |
@@ -125,6 +129,179 @@ EDA serves four purposes:
 | **Line Graph** | Trends over time (time series) |
 | **Heatmap** | Correlations or patterns across many variables simultaneously |
 
+The table above summarizes each technique; the worked examples below use small, invented datasets to show what each chart actually looks like and what an analyst reads from it.
+
+#### Histogram
+
+<figure style="text-align:center;margin:1.2rem 0;">
+<svg viewBox="0 0 460 290" width="460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Histogram of a right-skewed distribution">
+<line x1="55" y1="30" x2="55" y2="245" stroke="#595959" stroke-width="1"/>
+<line x1="55" y1="245" x2="430" y2="245" stroke="#595959" stroke-width="1"/>
+<rect x="55" y="197" width="40" height="48" fill="#450084" stroke="#ffffff"/>
+<rect x="97" y="138" width="40" height="107" fill="#450084" stroke="#ffffff"/>
+<rect x="138" y="78" width="40" height="167" fill="#450084" stroke="#ffffff"/>
+<rect x="180" y="30" width="40" height="215" fill="#450084" stroke="#ffffff"/>
+<rect x="222" y="66" width="40" height="179" fill="#450084" stroke="#ffffff"/>
+<rect x="263" y="114" width="40" height="131" fill="#450084" stroke="#ffffff"/>
+<rect x="305" y="161" width="40" height="84" fill="#450084" stroke="#ffffff"/>
+<rect x="347" y="197" width="40" height="48" fill="#450084" stroke="#ffffff"/>
+<rect x="388" y="221" width="40" height="24" fill="#450084" stroke="#ffffff"/>
+<text x="242" y="272" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333333">Incident size (small &#8594; large)</text>
+<text x="20" y="137" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333333" transform="rotate(-90 20 137)">Frequency</text>
+</svg>
+</figure>
+
+A histogram groups a single continuous variable into bins and plots how many observations fall in each. Here the bulk of incidents are small, with a peak in the third bin and a long tail of a few large events trailing to the right — the classic shape of a **right-skewed** distribution, common in casualty counts and financial data. It answers the first question of any analysis: what does the distribution of this variable actually look like?
+
+#### Box Plot
+
+<figure style="text-align:center;margin:1.2rem 0;">
+<svg viewBox="0 0 460 290" width="460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Box plot showing quartiles, whiskers, and an outlier">
+<line x1="55" y1="30" x2="55" y2="245" stroke="#595959" stroke-width="1"/>
+<line x1="55" y1="245" x2="430" y2="245" stroke="#595959" stroke-width="1"/>
+<line x1="235" y1="99" x2="235" y2="62" stroke="#450084" stroke-width="1.5"/>
+<line x1="235" y1="159" x2="235" y2="202" stroke="#450084" stroke-width="1.5"/>
+<line x1="220" y1="62" x2="250" y2="62" stroke="#450084" stroke-width="1.5"/>
+<line x1="220" y1="202" x2="250" y2="202" stroke="#450084" stroke-width="1.5"/>
+<rect x="175" y="99" width="120" height="60" fill="#B599CE" stroke="#450084" stroke-width="1.5"/>
+<line x1="175" y1="133" x2="295" y2="133" stroke="#450084" stroke-width="2.5"/>
+<circle cx="235" cy="39" r="4" fill="#CBB677" stroke="#450084"/>
+<text x="305" y="66" font-family="sans-serif" font-size="10" fill="#333333">Max (whisker)</text>
+<text x="305" y="102" font-family="sans-serif" font-size="10" fill="#333333">Q3</text>
+<text x="305" y="137" font-family="sans-serif" font-size="10" fill="#333333">Median</text>
+<text x="305" y="162" font-family="sans-serif" font-size="10" fill="#333333">Q1</text>
+<text x="305" y="205" font-family="sans-serif" font-size="10" fill="#333333">Min (whisker)</text>
+<text x="248" y="42" font-family="sans-serif" font-size="10" fill="#AD9C65">Outlier</text>
+<text x="20" y="137" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333333" transform="rotate(-90 20 137)">Value</text>
+</svg>
+</figure>
+
+A box plot compresses the five-number summary into one figure: the box spans the interquartile range (Q1 to Q3), the thick line marks the median, and the whiskers reach to the most extreme values within 1.5×IQR. The single point above the top whisker is an **outlier** flagged for investigation. Box plots are most useful for comparing the spread and center of several groups side by side.
+
+#### Scatter Plot
+
+<figure style="text-align:center;margin:1.2rem 0;">
+<svg viewBox="0 0 460 290" width="460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scatter plot showing a positive relationship">
+<line x1="55" y1="30" x2="55" y2="245" stroke="#595959" stroke-width="1"/>
+<line x1="55" y1="245" x2="430" y2="245" stroke="#595959" stroke-width="1"/>
+<line x1="70" y1="205" x2="400" y2="60" stroke="#CBB677" stroke-width="2" stroke-dasharray="5,4"/>
+<circle cx="92" cy="202" r="4" fill="#450084"/>
+<circle cx="123" cy="185" r="4" fill="#450084"/>
+<circle cx="149" cy="181" r="4" fill="#450084"/>
+<circle cx="168" cy="148" r="4" fill="#450084"/>
+<circle cx="198" cy="155" r="4" fill="#450084"/>
+<circle cx="224" cy="127" r="4" fill="#450084"/>
+<circle cx="250" cy="138" r="4" fill="#450084"/>
+<circle cx="280" cy="99" r="4" fill="#450084"/>
+<circle cx="303" cy="112" r="4" fill="#450084"/>
+<circle cx="325" cy="77" r="4" fill="#450084"/>
+<circle cx="355" cy="86" r="4" fill="#450084"/>
+<circle cx="385" cy="52" r="4" fill="#450084"/>
+<text x="242" y="272" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333333">Hours studied</text>
+<text x="20" y="137" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333333" transform="rotate(-90 20 137)">Exam score</text>
+</svg>
+</figure>
+
+A scatter plot places each observation at its (x, y) coordinates to expose the relationship between two continuous variables. These points rise together — higher study hours pair with higher exam scores — indicating a **positive correlation** (the dashed line traces the trend). Scatter plots also reveal clusters, nonlinearity, and points that break the pattern, none of which a summary statistic would show.
+
+#### Bar Chart
+
+<figure style="text-align:center;margin:1.2rem 0;">
+<svg viewBox="0 0 460 290" width="460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart of counts across five categories">
+<line x1="55" y1="30" x2="55" y2="245" stroke="#595959" stroke-width="1"/>
+<line x1="55" y1="245" x2="430" y2="245" stroke="#595959" stroke-width="1"/>
+<rect x="69" y="110" width="48" height="135" fill="#450084"/>
+<rect x="144" y="55" width="48" height="190" fill="#450084"/>
+<rect x="219" y="127" width="48" height="118" fill="#450084"/>
+<rect x="294" y="30" width="48" height="215" fill="#450084"/>
+<rect x="369" y="85" width="48" height="160" fill="#450084"/>
+<text x="93" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">Sedan</text>
+<text x="168" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">SUV</text>
+<text x="243" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">Truck</text>
+<text x="318" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">Van</text>
+<text x="393" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">Bus</text>
+<text x="20" y="137" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333333" transform="rotate(-90 20 137)">Count</text>
+</svg>
+</figure>
+
+A bar chart compares a numeric value — here a simple count — across distinct **categories**. Unlike a histogram, the bars are separated by gaps because the x-axis is categorical, not continuous, and the order of categories carries no numeric meaning. This one shows vans and SUVs are the most frequent vehicle types in the dataset; bar charts are the default for frequencies or proportions across groups.
+
+#### Line Graph
+
+<figure style="text-align:center;margin:1.2rem 0;">
+<svg viewBox="0 0 460 290" width="460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Line graph of a value trending upward over eight months">
+<line x1="55" y1="30" x2="55" y2="245" stroke="#595959" stroke-width="1"/>
+<line x1="55" y1="245" x2="430" y2="245" stroke="#595959" stroke-width="1"/>
+<polyline points="55,164 109,143 162,151 216,116 269,105 323,119 376,84 430,68" fill="none" stroke="#450084" stroke-width="2"/>
+<circle cx="55" cy="164" r="3.5" fill="#CBB677" stroke="#450084"/>
+<circle cx="109" cy="143" r="3.5" fill="#CBB677" stroke="#450084"/>
+<circle cx="162" cy="151" r="3.5" fill="#CBB677" stroke="#450084"/>
+<circle cx="216" cy="116" r="3.5" fill="#CBB677" stroke="#450084"/>
+<circle cx="269" cy="105" r="3.5" fill="#CBB677" stroke="#450084"/>
+<circle cx="323" cy="119" r="3.5" fill="#CBB677" stroke="#450084"/>
+<circle cx="376" cy="84" r="3.5" fill="#CBB677" stroke="#450084"/>
+<circle cx="430" cy="68" r="3.5" fill="#CBB677" stroke="#450084"/>
+<text x="55" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">Jan</text>
+<text x="109" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">Feb</text>
+<text x="162" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">Mar</text>
+<text x="216" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">Apr</text>
+<text x="269" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">May</text>
+<text x="323" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">Jun</text>
+<text x="376" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">Jul</text>
+<text x="430" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">Aug</text>
+<text x="20" y="137" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#333333" transform="rotate(-90 20 137)">Value</text>
+</svg>
+</figure>
+
+A line graph connects observations in sequence, almost always over **time**, so the eye follows the trajectory rather than individual points. This series drifts upward from January to August despite a couple of month-to-month dips, showing an overall increasing trend. Line graphs make trends, cycles, and abrupt changes in time-series data immediately visible.
+
+#### Heatmap
+
+<figure style="text-align:center;margin:1.2rem 0;">
+<svg viewBox="0 0 460 300" width="460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Heatmap of a correlation matrix across five variables">
+<text x="130" y="34" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">V1</text>
+<text x="170" y="34" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">V2</text>
+<text x="210" y="34" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">V3</text>
+<text x="250" y="34" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">V4</text>
+<text x="290" y="34" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">V5</text>
+<text x="105" y="64" text-anchor="end" font-family="sans-serif" font-size="10" fill="#333333">V1</text>
+<text x="105" y="104" text-anchor="end" font-family="sans-serif" font-size="10" fill="#333333">V2</text>
+<text x="105" y="144" text-anchor="end" font-family="sans-serif" font-size="10" fill="#333333">V3</text>
+<text x="105" y="184" text-anchor="end" font-family="sans-serif" font-size="10" fill="#333333">V4</text>
+<text x="105" y="224" text-anchor="end" font-family="sans-serif" font-size="10" fill="#333333">V5</text>
+<rect x="110" y="40" width="40" height="40" fill="#450084" fill-opacity="1.0" stroke="#ffffff"/><text x="130" y="64" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">1.0</text>
+<rect x="150" y="40" width="40" height="40" fill="#450084" fill-opacity="0.8" stroke="#ffffff"/><text x="170" y="64" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">0.8</text>
+<rect x="190" y="40" width="40" height="40" fill="#450084" fill-opacity="0.3" stroke="#ffffff"/><text x="210" y="64" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">0.3</text>
+<rect x="230" y="40" width="40" height="40" fill="#450084" fill-opacity="0.6" stroke="#ffffff"/><text x="250" y="64" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">0.6</text>
+<rect x="270" y="40" width="40" height="40" fill="#450084" fill-opacity="0.1" stroke="#ffffff"/><text x="290" y="64" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">0.1</text>
+<rect x="110" y="80" width="40" height="40" fill="#450084" fill-opacity="0.8" stroke="#ffffff"/><text x="130" y="104" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">0.8</text>
+<rect x="150" y="80" width="40" height="40" fill="#450084" fill-opacity="1.0" stroke="#ffffff"/><text x="170" y="104" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">1.0</text>
+<rect x="190" y="80" width="40" height="40" fill="#450084" fill-opacity="0.4" stroke="#ffffff"/><text x="210" y="104" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">0.4</text>
+<rect x="230" y="80" width="40" height="40" fill="#450084" fill-opacity="0.5" stroke="#ffffff"/><text x="250" y="104" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">0.5</text>
+<rect x="270" y="80" width="40" height="40" fill="#450084" fill-opacity="0.2" stroke="#ffffff"/><text x="290" y="104" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">0.2</text>
+<rect x="110" y="120" width="40" height="40" fill="#450084" fill-opacity="0.3" stroke="#ffffff"/><text x="130" y="144" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">0.3</text>
+<rect x="150" y="120" width="40" height="40" fill="#450084" fill-opacity="0.4" stroke="#ffffff"/><text x="170" y="144" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">0.4</text>
+<rect x="190" y="120" width="40" height="40" fill="#450084" fill-opacity="1.0" stroke="#ffffff"/><text x="210" y="144" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">1.0</text>
+<rect x="230" y="120" width="40" height="40" fill="#450084" fill-opacity="0.7" stroke="#ffffff"/><text x="250" y="144" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">0.7</text>
+<rect x="270" y="120" width="40" height="40" fill="#450084" fill-opacity="0.9" stroke="#ffffff"/><text x="290" y="144" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">0.9</text>
+<rect x="110" y="160" width="40" height="40" fill="#450084" fill-opacity="0.6" stroke="#ffffff"/><text x="130" y="184" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">0.6</text>
+<rect x="150" y="160" width="40" height="40" fill="#450084" fill-opacity="0.5" stroke="#ffffff"/><text x="170" y="184" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">0.5</text>
+<rect x="190" y="160" width="40" height="40" fill="#450084" fill-opacity="0.7" stroke="#ffffff"/><text x="210" y="184" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">0.7</text>
+<rect x="230" y="160" width="40" height="40" fill="#450084" fill-opacity="1.0" stroke="#ffffff"/><text x="250" y="184" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">1.0</text>
+<rect x="270" y="160" width="40" height="40" fill="#450084" fill-opacity="0.4" stroke="#ffffff"/><text x="290" y="184" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">0.4</text>
+<rect x="110" y="200" width="40" height="40" fill="#450084" fill-opacity="0.1" stroke="#ffffff"/><text x="130" y="224" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">0.1</text>
+<rect x="150" y="200" width="40" height="40" fill="#450084" fill-opacity="0.2" stroke="#ffffff"/><text x="170" y="224" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">0.2</text>
+<rect x="190" y="200" width="40" height="40" fill="#450084" fill-opacity="0.9" stroke="#ffffff"/><text x="210" y="224" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">0.9</text>
+<rect x="230" y="200" width="40" height="40" fill="#450084" fill-opacity="0.4" stroke="#ffffff"/><text x="250" y="224" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#333333">0.4</text>
+<rect x="270" y="200" width="40" height="40" fill="#450084" fill-opacity="1.0" stroke="#ffffff"/><text x="290" y="224" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ffffff">1.0</text>
+<text x="340" y="120" font-family="sans-serif" font-size="10" fill="#333333">Darker =</text>
+<text x="340" y="134" font-family="sans-serif" font-size="10" fill="#333333">stronger</text>
+<text x="340" y="148" font-family="sans-serif" font-size="10" fill="#333333">correlation</text>
+</svg>
+</figure>
+
+A heatmap encodes the values of a matrix as color intensity, letting the eye scan many numbers at once. This one is a **correlation matrix**: each cell shows how strongly two variables move together, with darker cells indicating stronger correlations and the diagonal always equal to 1.0 (each variable with itself). The dark V3–V5 cell (0.9) signals a pair worth investigating, while pale cells like V1–V5 (0.1) show variables that are nearly unrelated. Heatmaps make structure across dozens of variables visible in a way a table of numbers cannot.
+
 ### Identifying Outliers
 
 Methods for detecting outliers:
@@ -138,24 +315,26 @@ Methods for detecting outliers:
 Never automatically remove outliers. An outlier in a conflict event dataset might represent a genuine atrocity. An outlier in an economic dataset might represent a data entry error—or a genuine crisis. Investigate before deciding how to handle each case. Document your decision and its rationale.
 :::
 
-### Generating Hypotheses from EDA
+## Generating Hypotheses from EDA
 
-EDA transitions analysis from *description* to *explanation*:
+EDA transitions analysis from *description* to *explanation* by examining in greater detail the patterns that exist in the data. 
 
 1. **Describe the observed pattern:** "There is a positive relationship between hours studied and exam scores"
 2. **Consider potential mechanisms:** Why might this relationship exist? What underlying process produces it?
 3. **Formulate a testable hypothesis:** "Students who study for more than 10 hours per week achieve significantly higher exam scores than those who study fewer than 10 hours"
+
+Once a hypothesis is stated in testable terms, the analyst specifies exactly how it would be evaluated: which variables are involved, what comparison is made, and what result would support the hypothesis versus undermine it. In the example above, this means comparing mean exam scores between the two study groups with a formal statistical test rather than relying on the visual impression alone.
+
+This stage carries a critical discipline: EDA can *generate* hypotheses, but it cannot *confirm* them. The data that suggested a pattern and the data used to test that pattern should not be the same. Searching a dataset until an interesting relationship appears and then testing that relationship on the very same data will almost always produce a result that looks significant but may reflect nothing more than noise. Genuine confirmation requires new or held-out data and a hypothesis fixed *before* the test is run — the distinction between exploratory and confirmatory analysis, and the reason the caution below is worth taking seriously.
 
 ::: {.callout-note}
 ## Spurious Correlations — A Caution
 EDA can produce misleading patterns. Correlations between unrelated time series are common when both trend over time. Visualizations can suggest relationships that are coincidental, not causal. Always ask: *what mechanism could produce this pattern?* If none exists, treat the correlation with skepticism. For memorable examples: [tylervigen.com/spurious-correlations](https://www.tylervigen.com/spurious-correlations).
 :::
 
-# Section 2: Inferential Statistics and Hypothesis Testing
+While descriptive statistics tell you what the data looks like, inferential statistics let you draw conclusions about the world beyond your data and evaluate whether observed patterns are likely to reflect genuine relationships or could plausibly have occurred by chance. This section covers the major statistical tests, the logic of hypothesis testing, and the critical limitations and failure modes of statistical inference that every analyst must internalize. 
 
-Descriptive statistics tell you what the data looks like. Inferential statistics let you draw conclusions about the world beyond your data — and evaluate whether observed patterns are likely to reflect genuine relationships or could plausibly have occurred by chance. This lecture covers the major statistical tests, the logic of hypothesis testing, and the critical limitations and failure modes of statistical inference that every analyst must internalize.
-
-# Part I: Handling Variable Types in Analysis
+# Part III: Handling Variable Types in Analysis
 
 ## Variable Type Determines Method
 
@@ -206,7 +385,7 @@ Can take any value in a range. Often ratio-scaled.
 
 ---
 
-# Part II: Statistical Tests for Hypothesis Testing
+# Part IV: Statistical Tests for Hypothesis Testing
 
 ## Overview
 

@@ -455,19 +455,17 @@ The table below inventories the major tools introduced across the IA curriculum 
 
 | Software / Tool | What It Does | Type of Data It Uses | Example in This Course |
 |---|---|---|---|
-| **Microsoft Excel** | Enter, clean, compute, and chart small datasets; pivot tables | Small structured/tabular data | Reasoning about the NFL receiver dataset (Week 4); drafting a data dictionary |
-| **SQL** (SQLite, PostgreSQL) | Query and join records in relational databases | Structured relational tables with keys | Filtering and joining conflict-event tables (this week) |
-| **R** (tidyverse, ggplot2) | Statistical computing, EDA, modeling, visualization | Structured/tabular data; text | Descriptive statistics and hypothesis testing (Week 7); regression (Week 8) |
-| **Python** (pandas, scikit-learn) | General-purpose analysis, automation, ML, API calls | Structured, text, and image data | Machine-learning classification and NLP (Week 9) |
-| **NetLogo** | Agent-based modeling environment | Agent rules + synthetic environment | Schelling segregation and insurgency ABMs (Week 10) |
-| **Mesa / Repast** | Code frameworks for larger agent-based models | Agent rules / synthetic data | Building an ABM in Python or Java (Week 10) |
-| **Gephi** | Network visualization and metrics (centrality, communities) | Network/graph data (nodes & edges) | Visualizing a covert network (Week 11) |
-| **NetworkX / igraph / statnet** | Programmatic social network analysis | Network/graph data | Computing centrality on the 9/11 network (Week 11) |
-| **Maltego** | OSINT link analysis and entity mapping | Entities and relationships (OSINT) | Mapping relationships from open sources (Week 11) |
-| **Palantir Gotham** | Enterprise data integration; network and timeline analysis | Fused multi-source (structured + unstructured) | IC-scale integration and link analysis (Weeks 9, 11) |
-| **i2 Analyst's Notebook** | Link and timeline charting for investigations | Entities, relationships, events | Charting relationships and time-slicing a network (Week 11) |
-| **GIS** (ArcGIS, QGIS) | Store, analyze, and map spatial data; overlay and spatial statistics | Geospatial vector and raster data | Hot-spot analysis of conflict events (Week 12) |
-| **Google Earth** | Explore imagery and geospatial data; geolocation | Satellite/aerial imagery + geospatial data | Open-source geolocation of a photo (Weeks 2, 12) |
+| **Microsoft Excel** | Enter, clean, compute, and chart small datasets; pivot tables | Small structured/tabular data | Reasoning about the NFL receiver dataset; drafting a data dictionary |
+| **SQL** (SQLite, PostgreSQL) | Query and join records in relational databases | Structured relational tables with keys | Filtering and joining conflict-event tables  |
+| **R** (tidyverse, ggplot2) | Statistical computing, EDA, modeling, visualization | Structured/tabular data; text | Descriptive statistics and hypothesis testing ; regression  |
+| **Python** (pandas, scikit-learn) | General-purpose analysis, automation, ML, API calls | Structured, text, and image data | Machine-learning classification and NLP |
+| **NetLogo** | Agent-based modeling environment | Agent rules + synthetic environment | Schelling segregation and insurgency ABMs |
+| **Mesa / Repast** | Code frameworks for larger agent-based models | Agent rules / synthetic data | Building an ABM in Python or Java |
+| **Gephi** | Network visualization and metrics (centrality, communities) | Network/graph data (nodes & edges) | Visualizing a covert network |
+| **NetworkX / igraph / statnet** | Programmatic social network analysis | Network/graph data | Computing centrality on the 9/11 network |
+| **i2 Analyst's Notebook** | Link and timeline charting for investigations | Entities, relationships, events | Charting relationships and time-slicing a network |
+| **GIS** (ArcGIS, QGIS) | Store, analyze, and map spatial data; overlay and spatial statistics | Geospatial vector and raster data | Hot-spot analysis of conflict events |
+| **Google Earth** | Explore imagery and geospatial data; geolocation | Satellite/aerial imagery + geospatial data | Open-source geolocation of a photo |
 
 ::: {.callout-tip}
 ## A Pattern Worth Noticing
