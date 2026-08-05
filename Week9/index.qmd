@@ -171,15 +171,23 @@ Example: a deep decision tree that memorizes every quirk of the training set.
 
 **The optimal model** minimizes total error = Bias² + Variance + Irreducible Error. Regularization methods (L1/L2 penalties, dropout in neural networks) control variance; more complex models reduce bias.
 
+## Why this matters for you as an analyst
+
+ML models are not magic. They are statistical tools that require careful problem specification, data preparation, and evaluation. THey are build by people and will reflect the biases and assumptions made by those people or that is built into the data. So, a model trained on historical data may encode historical biases. For example, ML tools are often used in hiring practices to quickly screen candidates -- if a group is underrepresented in the training data or if only a certain experience is reflected in the data, the model may perpetuate an existing biases.
+
+In your everyday life, think about times when you have been exposed to ML models? Coming up empty? What about when you are searching for a product online and the search engine returns results based on your previous searches? Or when you are using a navigation app that suggests routes based on traffic patterns? Or when you are hit with targetted advertising have you searched for something or spent time on a certain website? These are all examples of ML models at work. They take in data about your behavior and use it to make predictions about what you might want or need based on its training data. 
+
+ ML models can be extremely useful for identifying patterns and trends in data and to do this quickly and at scale. That said, we need to be aware of how the model was trained (to identify biases), what algorithms are used (to understand how it weights things), and the limitations of the model (to understand what it can and cannot do). 
+
 ---
 
 # Part III: Sentiment Analysis
 
 ## What is Sentiment Analysis?
 
-Sentiment analysis is the computational process of identifying and extracting subjective information — opinions, attitudes, emotions — from textual data. It transforms unstructured text into quantifiable sentiment dimensions.
+Sentiment analysis is the computational process of identifying and extracting subjective information — opinions, attitudes, emotions — from textual data. It transforms unstructured text into quantifiable sentiment dimensions. We do this by using natural language processing (NLP) techniques and machine learning algorithms to classify text as positive, negative, or neutral, and to measure the intensity of sentiment expressed.  
 
-Applications in intelligence: monitoring foreign government media sentiment toward the United States; tracking social media responses to policy announcements; analyzing extremist forum content for radicalization signals.
+The value in sentiment analysis is to not just monitor information, but to quickly classify it purpose and intent. Ways this can be used in the the intelligence analysis space: monitoring foreign government media sentiment toward the United States; tracking social media responses to policy announcements; analyzing extremist forum content for radicalization signals.
 
 ## Processing Pipeline
 
@@ -187,10 +195,10 @@ Applications in intelligence: monitoring foreign government media sentiment towa
 ::: {dl}
 
 Text Preprocessing
-:   Clean raw text: **tokenization** (splitting text into words/subwords), removing stop words, stemming or lemmatization (reducing words to root form), correcting spelling/encoding errors.
+:   Clean raw text: **tokenization** (splitting text into words/subwords), removing stop words, stemming or lemmatization (reducing words to root form), correcting spelling/encoding errors. This allows for consistent representation of text for analysis.
 
 Feature Extraction
-:   Convert preprocessed text into numerical features. Methods: **bag-of-words** (count of each word), **TF-IDF** (term frequency–inverse document frequency), **word embeddings** (Word2Vec, GloVe), and **contextual embeddings** (from transformer models like BERT).
+:   Convert preprocessed text into numerical features. This can be done via a number of differen approaches, all of which will tell you something different about the information: **bag-of-words** (count of each word), **TF-IDF** (term frequency–inverse document frequency), **word embeddings** (Word2Vec, GloVe), and **contextual embeddings** (from transformer models like BERT).
 
 Classification / Scoring
 :   Apply a model to assign sentiment scores or categories. **Rule-based methods** use lexicons of pre-scored words. **Machine learning methods** train classifiers on labeled datasets. **Hybrid approaches** combine both.
@@ -221,6 +229,33 @@ Intensity
 ::: {.callout-warning}
 ## Limitations of Sentiment Analysis
 Sentiment analysis tools built on English-language training data perform poorly on other languages, dialects, or specialized registers. Sarcasm and irony are notoriously difficult to detect algorithmically. Domain adaptation (fine-tuning on relevant corpora) and contextual human review remain essential for analytical reliability in intelligence applications.
+:::
+
+## Why NLP Matters in Intelligence Analysis
+
+A substantial fraction of intelligence-relevant information is text: intercepted communications, media reporting, social media posts, diplomatic cables, technical documents, extremist forum content, scientific publications, financial reports. NLP is the subfield of ML that enables computational analysis of this unstructured text.
+
+**Core NLP tasks relevant to intelligence:**
+
+::: {.key-terms}
+::: {dl}
+
+Named Entity Recognition (NER)
+:   Automatically identifying and classifying named entities in text: persons, organizations, locations, dates, facilities, weapons systems, financial values. Enables automated extraction of relational data from unstructured text at scale.
+
+Topic Modeling
+:   Unsupervised discovery of latent thematic structure in a corpus. Latent Dirichlet Allocation (LDA) and similar methods identify groups of co-occurring words that represent coherent topics. Applications: monitoring foreign media coverage, identifying thematic shifts in extremist forum content.
+
+Machine Translation
+:   Neural machine translation (as in Google Translate and equivalent classified systems) enables rapid translation of foreign-language sources. Limitations: specialized vocabulary (weapons systems, technical terminology, regional dialects) often translates poorly; irony, sarcasm, and culturally specific meaning are poorly handled.
+
+Summarization
+:   Automatic extraction or generation of key points from longer documents. Extractive summarization selects important sentences; abstractive summarization generates novel summary text. Quality varies significantly by domain and text type.
+
+Large Language Models (LLMs)
+:   Transformer-based models (GPT, Claude, Gemini, and classified equivalents) trained on vast text corpora that can answer questions, summarize, translate, generate, and analyze text through natural language interfaces. LLMs do not have access to real-time information without retrieval augmentation, and they generate plausible-sounding but sometimes factually incorrect text ("hallucinations"). Their use in classified environments is subject to significant access control and verification requirements.
+
+:::
 :::
 
 ---
@@ -284,9 +319,7 @@ Researchers Chesney and Citron (2019) coined the term "liar's dividend" to descr
 
 ---
 
----
-
-# Part V: Case Studies — ML Applied to Real Problems
+# Part V: Case Studies - Machine Learning in Intelligence Practice
 
 ## Case 1: GDELT and Global Event Detection
 
@@ -330,18 +363,62 @@ In 2016, ProPublica published an investigation into **COMPAS** (Correctional Off
 
 The algorithm's developers (Northpointe) countered that the model was equally accurate across racial groups when measured differently — a genuine statistical dispute that reveals that **fairness has multiple mathematical definitions that cannot all be satisfied simultaneously** when base rates differ across groups.
 
-**Why this matters for intelligence analysis:**
-
 ::: {.callout-warning}
 ## Algorithmic Bias is a Data Science Problem, Not Just an Ethics Problem
 The COMPAS case illustrates that training data encodes historical patterns — including historical patterns of unequal treatment. A model trained on historically biased data will reproduce those biases at scale and with apparent mathematical authority. Any predictive model used in an intelligence or security context (threat scoring, travel screening, financial monitoring) faces the same structural risk. Knowing this is part of being a data-literate analyst.
 :::
 
-## Case 3: NSA SKYNET — ML-Based Targeting
+## Case 3: Project Maven — Automated Imagery Exploitation
 
-This case is examined in detail in Part V of this lecture, in the context of ML deployment in intelligence practice. The core data science lesson: inadequate problem specification, small and uncertain training data, and insufficient validation can produce a model that is confidently wrong — with life-or-death consequences. See Part V for the full methodological analysis.
+Project Maven (formally the Algorithmic Warfare Cross-Functional Team) was established by the U.S. Department of Defense in 2017 to apply ML to the problem of processing video footage from unmanned aerial systems (UAS). The scale of the problem was enormous: DoD was generating vastly more video than human imagery analysts could review in anything approaching real time.
 
----
+**Technical approach:** Convolutional neural networks trained on labeled imagery to identify vehicles, people, structures, and activities of military interest. The system flagged frames of interest for human review rather than making autonomous targeting decisions.
+
+**The Google controversy:** The contract was initially performed by Google, which triggered a significant employee backlash. Over 3,000 Google employees signed a letter objecting to the company's involvement in weapons systems. Google declined to renew the contract in 2018, citing ethical concerns. The project subsequently moved to other contractors.
+
+**Analytical implications:** Project Maven illustrated both the genuine capability of ML for imagery exploitation and the complex organizational and ethical dimensions of deploying ML in lethal operations contexts. The "human-on-the-loop" model — where humans review ML outputs and make final targeting decisions — remains contested because human reviewers may not be able to meaningfully evaluate the ML system's confidence level.
+
+## Case 4: Adversarial Machine Learning
+
+ML models can be deliberately attacked to cause misclassification. **Adversarial examples** — inputs constructed with small, carefully designed perturbations that are imperceptible to humans but cause ML models to misclassify with high confidence — are a fundamental vulnerability of current deep learning architectures.
+
+**Intelligence applications of adversarial ML:**
+
+::: {.col-pair}
+::: {.col-left}
+**Offensive (adversary uses against IC)**
+
+- Generate satellite imagery containing adversarial perturbations that cause automated change detection to miss facility expansions
+- Create facial images that defeat recognition systems while appearing normal to human reviewers
+- Craft SIGINT content designed to cause NLP classifiers to misclassify message intent
+- "Poison" training data by inserting labeled examples that introduce systematic misclassification for specific targets
+:::
+::: {.col-right}
+**Defensive considerations**
+
+- ML models used in consequential decision-making must be evaluated for adversarial robustness, not just clean-data accuracy
+- Adversarial testing ("red-teaming" the ML system) is a required component of responsible deployment
+- Human review of ML outputs is partially a defense against adversarial attacks — humans are robust to the specific perturbations that fool CNNs
+- Data provenance matters: poisoned training data is the hardest adversarial attack to detect and mitigate
+:::
+:::
+
+::: {.callout-warning}
+## Model Opacity and Accountability
+Explainability — the ability to understand *why* a model made a specific prediction — is a fundamental requirement for responsible ML deployment in intelligence contexts. A model that cannot explain its predictions cannot be reviewed for adversarial manipulation, cannot be audited for bias, and cannot support the "human-on-the-loop" accountability requirement. The tension between model complexity (which increases predictive accuracy) and interpretability (which decreases with complexity) is one of the central unsolved problems in responsible AI deployment. See Rudin (2019) in the readings below.
+:::
+
+## Case 5: NSA SKYNET — Targeting by ML
+
+Classified NSA documents released by Edward Snowden included references to a program called SKYNET that applied ML to metadata (call records, device identifiers, location data) to identify suspected Al-Qaeda couriers in Pakistan. The program reportedly used a random forest classifier trained on behavioral metadata features.
+
+A 2016 analysis by Ars Technica and Human Rights Data Analysis Group researchers examined the publicly available training data and model description and identified significant methodological concerns:
+
+- The model was trained on extremely small numbers of confirmed terrorist examples — a classic small-sample problem that tends to produce overfit models with poor out-of-sample accuracy
+- The feature engineering included features that conflate innocent behavior with terrorism indicators (e.g., "uses multiple SIM cards" describes both operational security tradecraft and ordinary behavior in regions with unreliable mobile networks)
+- The reported false positive rate — if the model was applied at scale to the Pakistani mobile phone population — would have flagged thousands to tens of thousands of innocent individuals
+
+**The consequence:** Individuals flagged by SKYNET's output were reportedly placed on target lists. The drone strike program in Pakistan was documented to have killed individuals based on pattern-of-life and metadata analysis rather than positive identification. If the SKYNET model had the false positive rates suggested by the independent analysis, some of those strikes may have been based on a flawed ML prediction.
 
 ---
 
@@ -385,102 +462,6 @@ Consider each of the following intelligence-adjacent applications of ML. For eac
 
 ---
 
----
-
-# Part VII: Machine Learning in Intelligence Practice
-
-## From Research to Operations
-
-Machine learning has moved from research demonstrations to operational deployment across the intelligence community and military. The following cases illustrate both the capabilities and the significant analytical and ethical challenges.
-
-## Case 1: Project Maven — Automated Imagery Exploitation
-
-Project Maven (formally the Algorithmic Warfare Cross-Functional Team) was established by the U.S. Department of Defense in 2017 to apply ML to the problem of processing video footage from unmanned aerial systems (UAS). The scale of the problem was enormous: DoD was generating vastly more video than human imagery analysts could review in anything approaching real time.
-
-**Technical approach:** Convolutional neural networks trained on labeled imagery to identify vehicles, people, structures, and activities of military interest. The system flagged frames of interest for human review rather than making autonomous targeting decisions.
-
-**The Google controversy:** The contract was initially performed by Google, which triggered a significant employee backlash. Over 3,000 Google employees signed a letter objecting to the company's involvement in weapons systems. Google declined to renew the contract in 2018, citing ethical concerns. The project subsequently moved to other contractors.
-
-**Analytical implications:** Project Maven illustrated both the genuine capability of ML for imagery exploitation and the complex organizational and ethical dimensions of deploying ML in lethal operations contexts. The "human-on-the-loop" model — where humans review ML outputs and make final targeting decisions — remains contested because human reviewers may not be able to meaningfully evaluate the ML system's confidence level.
-
-## Case 2: Adversarial Machine Learning
-
-ML models can be deliberately attacked to cause misclassification. **Adversarial examples** — inputs constructed with small, carefully designed perturbations that are imperceptible to humans but cause ML models to misclassify with high confidence — are a fundamental vulnerability of current deep learning architectures.
-
-**Intelligence applications of adversarial ML:**
-
-::: {.col-pair}
-::: {.col-left}
-**Offensive (adversary uses against IC)**
-
-- Generate satellite imagery containing adversarial perturbations that cause automated change detection to miss facility expansions
-- Create facial images that defeat recognition systems while appearing normal to human reviewers
-- Craft SIGINT content designed to cause NLP classifiers to misclassify message intent
-- "Poison" training data by inserting labeled examples that introduce systematic misclassification for specific targets
-:::
-::: {.col-right}
-**Defensive considerations**
-
-- ML models used in consequential decision-making must be evaluated for adversarial robustness, not just clean-data accuracy
-- Adversarial testing ("red-teaming" the ML system) is a required component of responsible deployment
-- Human review of ML outputs is partially a defense against adversarial attacks — humans are robust to the specific perturbations that fool CNNs
-- Data provenance matters: poisoned training data is the hardest adversarial attack to detect and mitigate
-:::
-:::
-
-::: {.callout-warning}
-## Model Opacity and Accountability
-Explainability — the ability to understand *why* a model made a specific prediction — is a fundamental requirement for responsible ML deployment in intelligence contexts. A model that cannot explain its predictions cannot be reviewed for adversarial manipulation, cannot be audited for bias, and cannot support the "human-on-the-loop" accountability requirement. The tension between model complexity (which increases predictive accuracy) and interpretability (which decreases with complexity) is one of the central unsolved problems in responsible AI deployment. See Rudin (2019) in the readings below.
-:::
-
-## Case 3: NSA SKYNET — Targeting by ML
-
-Classified NSA documents released by Edward Snowden included references to a program called SKYNET that applied ML to metadata (call records, device identifiers, location data) to identify suspected Al-Qaeda couriers in Pakistan. The program reportedly used a random forest classifier trained on behavioral metadata features.
-
-A 2016 analysis by Ars Technica and Human Rights Data Analysis Group researchers examined the publicly available training data and model description and identified significant methodological concerns:
-
-- The model was trained on extremely small numbers of confirmed terrorist examples — a classic small-sample problem that tends to produce overfit models with poor out-of-sample accuracy
-- The feature engineering included features that conflate innocent behavior with terrorism indicators (e.g., "uses multiple SIM cards" describes both operational security tradecraft and ordinary behavior in regions with unreliable mobile networks)
-- The reported false positive rate — if the model was applied at scale to the Pakistani mobile phone population — would have flagged thousands to tens of thousands of innocent individuals
-
-**The consequence:** Individuals flagged by SKYNET's output were reportedly placed on target lists. The drone strike program in Pakistan was documented to have killed individuals based on pattern-of-life and metadata analysis rather than positive identification. If the SKYNET model had the false positive rates suggested by the independent analysis, some of those strikes may have been based on a flawed ML prediction.
-
----
-
----
-
-# Part VIII: Natural Language Processing in Intelligence Analysis
-
-## Why NLP Matters
-
-A substantial fraction of intelligence-relevant information is text: intercepted communications, media reporting, social media posts, diplomatic cables, technical documents, extremist forum content, scientific publications, financial reports. NLP is the subfield of ML that enables computational analysis of this unstructured text.
-
-**Core NLP tasks relevant to intelligence:**
-
-::: {.key-terms}
-::: {dl}
-
-Named Entity Recognition (NER)
-:   Automatically identifying and classifying named entities in text: persons, organizations, locations, dates, facilities, weapons systems, financial values. Enables automated extraction of relational data from unstructured text at scale.
-
-Topic Modeling
-:   Unsupervised discovery of latent thematic structure in a corpus. Latent Dirichlet Allocation (LDA) and similar methods identify groups of co-occurring words that represent coherent topics. Applications: monitoring foreign media coverage, identifying thematic shifts in extremist forum content.
-
-Machine Translation
-:   Neural machine translation (as in Google Translate and equivalent classified systems) enables rapid translation of foreign-language sources. Limitations: specialized vocabulary (weapons systems, technical terminology, regional dialects) often translates poorly; irony, sarcasm, and culturally specific meaning are poorly handled.
-
-Summarization
-:   Automatic extraction or generation of key points from longer documents. Extractive summarization selects important sentences; abstractive summarization generates novel summary text. Quality varies significantly by domain and text type.
-
-Large Language Models (LLMs)
-:   Transformer-based models (GPT, Claude, Gemini, and classified equivalents) trained on vast text corpora that can answer questions, summarize, translate, generate, and analyze text through natural language interfaces. LLMs do not have access to real-time information without retrieval augmentation, and they generate plausible-sounding but sometimes factually incorrect text ("hallucinations"). Their use in classified environments is subject to significant access control and verification requirements.
-
-:::
-:::
-
----
-
----
 
 # Suggested Readings
 
