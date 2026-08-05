@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Week 3: Introduction to Data Science and the Analytical Workflow – IA 240: Technology Applications in a Networked World</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -32,15 +38,14 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-d6fbb5bfb24a4f1906c428146fc3bdde.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-5b655c3981aac5d904c8f649deda9219.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-511b1172525efeb7864905c019c1fe79.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-04f5553be0315c82b08a40d1e884de73.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -421,49 +426,33 @@ By the end of this lecture, you should be able to:
 <div class="timeline">
 <div class="{dl}">
 <ol type="1">
-<li><dl>
-<dt>Problem Statement</dt>
-<dd>
-Before collecting a single data point, define what you are trying to answer. A problem statement is an explanation of the gap between what is known and what needs to be known, and why that gap matters. In intelligence, this is often framed as: <em>What is the probability that X will occur?</em> or <em>What factors are driving Y?</em> A weak problem statement produces a weak analysis regardless of data quality.
-</dd>
-</dl></li>
-<li><dl>
-<dt>Identification &amp; Procurement</dt>
-<dd>
-Identify what data exists that is relevant to the problem. Determine how to obtain it—open sources, databases, collection operations, surveys. Document provenance, collection methodology, and known limitations before analysis begins. Critical thinking and creativity are key elements here!
-</dd>
-</dl></li>
-<li><dl>
-<dt>Selection</dt>
-<dd>
-Not all available data is relevant. Select the variables, time ranges, geographic units, and sources that directly help you understand and address the problem statement. This decision embeds analytical judgment (i.e., what you exclude matters as much as what you include).
-</dd>
-</dl></li>
-<li><dl>
-<dt>Preprocessing &amp; Transformation</dt>
-<dd>
-Clean the data (address missing values, inconsistencies, and errors), standardize formats, and transform variables for analysis (e.g., converting categorical to numerical, creating ratio variables, normalizing scales). Unfortunately, this is typically 80% of total project time! :cry:
-</dd>
-</dl></li>
-<li><dl>
-<dt>EDA and Modeling</dt>
-<dd>
-Explore the data visually and statistically to understand its structure and relationships before applying formal models. Then apply appropriate analytical or statistical methods to test hypotheses or discover patterns.
-</dd>
-</dl></li>
-<li><dl>
-<dt>Interpretation</dt>
-<dd>
-Translate statistical outputs into intelligence judgments. What do the results mean for the problem statement? What is the confidence level? What alternative explanations have been considered?
-</dd>
-</dl></li>
-<li><dl>
-<dt>Knowledge / Dissemination</dt>
-<dd>
-Communicate findings in a form appropriate to the consumer—written product, briefing, dashboard, or visualization.
-</dd>
-</dl></li>
+<li>Problem Statement</li>
 </ol>
+<p>: Before collecting a single data point, define what you are trying to answer. A problem statement is an explanation of the gap between what is known and what needs to be known, and why that gap matters. In intelligence, this is often framed as: <em>What is the probability that X will occur?</em> or <em>What factors are driving Y?</em> A weak problem statement produces a weak analysis regardless of data quality.</p>
+<ol start="2" type="1">
+<li>Identification &amp; Procurement</li>
+</ol>
+<p>: Identify what data exists that is relevant to the problem. Determine how to obtain it—open sources, databases, collection operations, surveys. Document provenance, collection methodology, and known limitations before analysis begins. Critical thinking and creativity are key elements here!</p>
+<ol start="3" type="1">
+<li>Selection</li>
+</ol>
+<p>: Not all available data is relevant. Select the variables, time ranges, geographic units, and sources that directly help you understand and address the problem statement. This decision embeds analytical judgment (i.e., what you exclude matters as much as what you include).</p>
+<ol start="4" type="1">
+<li>Preprocessing &amp; Transformation</li>
+</ol>
+<p>: Clean the data (address missing values, inconsistencies, and errors), standardize formats, and transform variables for analysis (e.g., converting categorical to numerical, creating ratio variables, normalizing scales). Unfortunately, this is typically 80% of total project time! :cry:</p>
+<ol start="5" type="1">
+<li>EDA and Modeling</li>
+</ol>
+<p>: Explore the data visually and statistically to understand its structure and relationships before applying formal models. Then apply appropriate analytical or statistical methods to test hypotheses or discover patterns.</p>
+<ol start="6" type="1">
+<li>Interpretation</li>
+</ol>
+<p>: Translate statistical outputs into intelligence judgments. What do the results mean for the problem statement? What is the confidence level? What alternative explanations have been considered?</p>
+<ol start="7" type="1">
+<li>Knowledge / Dissemination</li>
+</ol>
+<p>: Communicate findings in a form appropriate to the consumer—written product, briefing, dashboard, or visualization.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -644,52 +633,38 @@ Unstructured and OSINT data can often involve private individuals who did not co
 <div class="timeline">
 <div class="{dl}">
 <ol type="1">
-<li><dl>
-<dt>Data Collection</dt>
-<dd>
-Gather raw data from classified, commercial, or open sources. Includes structured (databases), unstructured (text, images), and semi-structured (JSON, logs) data. Document every source you use (and those that you don’t, as it may be relevant later on), the bibliographical information, why you think it will be useful, and what is a limitation of the data. I would also recommend <strong>downloading</strong> the data, as sometimes websites change or go down, and you want to be able to replicate your analysis later on.
-</dd>
+<li>Data Collection</li>
+</ol>
+<dl>
+<dt>: Gather raw data from classified, commercial, or open sources. Includes structured (databases), unstructured (text, images), and semi-structured (JSON, logs) data. Document every source you use (and those that you don’t, as it may be relevant later on), the bibliographical information, why you think it will be useful, and what is a limitation of the data. I would also recommend <strong>downloading</strong> the data, as sometimes websites change or go down, and you want to be able to replicate your analysis later on.</dt>
 <dd>
 <em>I realize this seems like a lot of documenting, but it will be critically important as you progress through the IA program and in your career.</em>
 </dd>
-</dl></li>
-<li><dl>
-<dt>Data Cleaning and Preprocessing</dt>
+<dt>2. Data Cleaning and Preprocessing</dt>
 <dd>
 Remove errors, fill gaps, and standardize values to make data usable. Common issues: missing values (impute, interpolate, or flag), duplicates (identify by unique ID and remove), inconsistent formats (standardize date/time and coordinate formats), outliers (assess whether they are real signals or data errors), noise (filter irrelevant text, bot activity, or spam).
 </dd>
-</dl></li>
-<li><dl>
-<dt>Data Transformation and Integration</dt>
+<dt>3. Data Transformation and Integration</dt>
 <dd>
 Convert raw data into analytical formats. Align units, time intervals, and coordinate systems. Aggregate or disaggregate to the appropriate level of analysis (e.g., event-level → country-year). Combine multiple datasets through join operations; validate joins by manually spot-checking records.
 </dd>
-</dl></li>
-<li><dl>
-<dt>Analysis and Modeling</dt>
+<dt>4. Analysis and Modeling</dt>
 <dd>
 Apply statistical or computational techniques to discover meaning. Combine descriptive summaries with inferential or predictive models.
 </dd>
-</dl></li>
-<li><dl>
-<dt>Validation and Quality Assurance</dt>
+<dt>5. Validation and Quality Assurance</dt>
 <dd>
 Check results for plausibility. Run sensitivity analyses—do conclusions hold under different assumptions or subsets of data? Seek independent review.
 </dd>
-</dl></li>
-<li><dl>
-<dt>Visualization and Communication</dt>
+<dt>6. Visualization and Communication</dt>
 <dd>
 Translate findings into products appropriate to the consumer. Tailor complexity to audience expertise (Meeting 26).
 </dd>
-</dl></li>
-<li><dl>
-<dt>Feedback and Iteration</dt>
+<dt>7. Feedback and Iteration</dt>
 <dd>
 Review the impact and accuracy of analysis. Adjust collection priorities or methods for future cycles. The analytical process is iterative, not linear.
 </dd>
-</dl></li>
-</ol>
+</dl>
 </div>
 </div>
 </section>

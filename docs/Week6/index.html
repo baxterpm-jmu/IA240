@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Week 6: Data Structures, Databases, and Computational Tools – IA 240: Technology Applications in a Networked World</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -67,15 +73,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-d6fbb5bfb24a4f1906c428146fc3bdde.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-5b655c3981aac5d904c8f649deda9219.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-511b1172525efeb7864905c019c1fe79.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-04f5553be0315c82b08a40d1e884de73.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -334,40 +339,30 @@ By the end of this lecture, you should be able to:
 <div class="key-terms">
 <div class="{dl}">
 <ol type="1">
-<li><dl>
-<dt>Nominal Scale</dt>
-<dd>
-An unordered set of categories identified only by name or label. Numbers, if used, have no mathematical meaning. You can only determine <em>sameness</em> or <em>difference</em>. <strong>Examples:</strong> country names, ethnic group, religious affiliation, vehicle type. <strong>Valid operations:</strong> counting, mode, frequency tables, chi-square tests.
-</dd>
-</dl></li>
-<li><dl>
-<dt>Ordinal Scale</dt>
-<dd>
-An ordered set of categories. You know the direction of difference (A &gt; B) but <em>not</em> the magnitude — the intervals between ranks are not assumed equal. <strong>Examples:</strong> military rank (Private &lt; Corporal &lt; Sergeant), education level, Likert survey responses (Strongly Disagree → Strongly Agree), threat level (Low / Medium / High). <strong>Valid operations:</strong> median, percentiles, rank-order correlations (Spearman’s rho).
-</dd>
-</dl></li>
-<li><dl>
-<dt>Interval Scale</dt>
-<dd>
-An ordered scale with equal intervals between values, but no true zero point. Zero is arbitrary — it does not mean “absence” of the attribute. <strong>Examples:</strong> temperature in Celsius or Fahrenheit (0°C does not mean “no temperature”), IQ scores, calendar years. <strong>Valid operations:</strong> mean, standard deviation, Pearson correlation. Ratios are <em>not</em> valid (40°C is not “twice as hot” as 20°C).
-</dd>
-</dl></li>
-<li><dl>
-<dt>Ratio Scale</dt>
-<dd>
-An interval scale with a true, meaningful zero — zero indicates complete absence of the attribute. All arithmetic operations including ratios are valid.
-</dd>
+<li>Nominal Scale</li>
+</ol>
+<p>: An unordered set of categories identified only by name or label. Numbers, if used, have no mathematical meaning. You can only determine <em>sameness</em> or <em>difference</em>. <strong>Examples:</strong> country names, ethnic group, religious affiliation, vehicle type. <strong>Valid operations:</strong> counting, mode, frequency tables, chi-square tests.</p>
+<ol start="2" type="1">
+<li>Ordinal Scale</li>
+</ol>
+<p>: An ordered set of categories. You know the direction of difference (A &gt; B) but <em>not</em> the magnitude — the intervals between ranks are not assumed equal. <strong>Examples:</strong> military rank (Private &lt; Corporal &lt; Sergeant), education level, Likert survey responses (Strongly Disagree → Strongly Agree), threat level (Low / Medium / High). <strong>Valid operations:</strong> median, percentiles, rank-order correlations (Spearman’s rho).</p>
+<ol start="3" type="1">
+<li>Interval Scale</li>
+</ol>
+<p>: An ordered scale with equal intervals between values, but no true zero point. Zero is arbitrary — it does not mean “absence” of the attribute. <strong>Examples:</strong> temperature in Celsius or Fahrenheit (0°C does not mean “no temperature”), IQ scores, calendar years. <strong>Valid operations:</strong> mean, standard deviation, Pearson correlation. Ratios are <em>not</em> valid (40°C is not “twice as hot” as 20°C).</p>
+<ol start="4" type="1">
+<li>Ratio Scale</li>
+</ol>
+<dl>
+<dt>: An interval scale with a true, meaningful zero — zero indicates complete absence of the attribute. All arithmetic operations including ratios are valid.</dt>
 <dd>
 <strong>Examples:</strong> weight, income, distance, duration, number of casualties, GDP in dollars.
 </dd>
-</dl></li>
-<li><dl>
-<dt>Binary Scale</dt>
+<dt>5. Binary Scale</dt>
 <dd>
 A special case of nominal data with exactly two values, often coded 0/1. <strong>Examples:</strong> treaty membership (Yes/No), conflict onset (1 = conflict this year, 0 = no conflict), gender in binary operationalizations. Also called <em>dummy variables</em> in regression analysis.
 </dd>
-</dl></li>
-</ol>
+</dl>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">

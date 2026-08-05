@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Week 1: Technology and the Intelligence Cycle – IA 240: Technology Applications in a Networked World</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -32,15 +38,14 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-d6fbb5bfb24a4f1906c428146fc3bdde.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-5b655c3981aac5d904c8f649deda9219.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-511b1172525efeb7864905c019c1fe79.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-04f5553be0315c82b08a40d1e884de73.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -769,37 +774,25 @@ Information interpreted through the lens of prior experience, judgment, and cont
 <div class="timeline">
 <div class="{dl}">
 <ol type="1">
-<li><dl>
-<dt>Planning and Direction</dt>
-<dd>
-Policymakers, commanders, and other consumers of intelligence identify their decision needs and communicate them to the IC as <strong>intelligence requirements</strong>. These requirements are prioritized and translated into <strong>collection requirements</strong> — specific questions that collection systems and human sources are tasked to answer. The outputs of this stage are collection plans and tasking orders. Example: the National Intelligence Priorities Framework (NIPF) ranks collection priorities across intelligence topics and countries.
-</dd>
-</dl></li>
-<li><dl>
-<dt>Collection</dt>
-<dd>
-Raw information is gathered from all available sources — HUMINT, SIGINT, IMINT, OSINT, MASINT, CYBERINT, GEOINT — in accordance with the collection plan. Collection activities may be clandestine (covert technical collection, recruited human sources) or overt (embassy reporting, open-source monitoring). Not all collection is successful; gaps are common.
-</dd>
-</dl></li>
-<li><dl>
-<dt>Processing and Exploitation</dt>
-<dd>
-Raw collected data is converted into a form usable by analysts. This stage is often the most technically intensive: intercepted signals must be decrypted and transcribed; satellite imagery must be orthorectified and georeferenced; documents in foreign languages must be translated; terabytes of signals data must be filtered for relevant content. Many IC agencies have dedicated exploitation centers for each collection discipline.
-</dd>
-</dl></li>
-<li><dl>
-<dt>Analysis and Production</dt>
-<dd>
-Processed information is integrated, evaluated, interpreted, and converted into finished intelligence products — assessments, estimates, briefings, and warnings. This is where the data–information–knowledge transition fully occurs. Analysts apply structured analytic techniques (SATs), consult with subject matter experts, and coordinate across agencies to produce products that convey confidence levels and acknowledge uncertainty.
-</dd>
-</dl></li>
-<li><dl>
-<dt>Dissemination</dt>
-<dd>
-Finished intelligence products are delivered to policymakers, commanders, and other consumers. Products are tailored to the consumer’s needs: the President’s Daily Brief (PDB) is concise and action-oriented; a National Intelligence Estimate (NIE) is comprehensive and methodologically detailed. Feedback from consumers about what was useful (or not) loops back to Planning and Direction, starting the cycle again.
-</dd>
-</dl></li>
+<li>Planning and Direction</li>
 </ol>
+<p>: Policymakers, commanders, and other consumers of intelligence identify their decision needs and communicate them to the IC as <strong>intelligence requirements</strong>. These requirements are prioritized and translated into <strong>collection requirements</strong> — specific questions that collection systems and human sources are tasked to answer. The outputs of this stage are collection plans and tasking orders. Example: the National Intelligence Priorities Framework (NIPF) ranks collection priorities across intelligence topics and countries.</p>
+<ol start="2" type="1">
+<li>Collection</li>
+</ol>
+<p>: Raw information is gathered from all available sources — HUMINT, SIGINT, IMINT, OSINT, MASINT, CYBERINT, GEOINT — in accordance with the collection plan. Collection activities may be clandestine (covert technical collection, recruited human sources) or overt (embassy reporting, open-source monitoring). Not all collection is successful; gaps are common.</p>
+<ol start="3" type="1">
+<li>Processing and Exploitation</li>
+</ol>
+<p>: Raw collected data is converted into a form usable by analysts. This stage is often the most technically intensive: intercepted signals must be decrypted and transcribed; satellite imagery must be orthorectified and georeferenced; documents in foreign languages must be translated; terabytes of signals data must be filtered for relevant content. Many IC agencies have dedicated exploitation centers for each collection discipline.</p>
+<ol start="4" type="1">
+<li>Analysis and Production</li>
+</ol>
+<p>: Processed information is integrated, evaluated, interpreted, and converted into finished intelligence products — assessments, estimates, briefings, and warnings. This is where the data–information–knowledge transition fully occurs. Analysts apply structured analytic techniques (SATs), consult with subject matter experts, and coordinate across agencies to produce products that convey confidence levels and acknowledge uncertainty.</p>
+<ol start="5" type="1">
+<li>Dissemination</li>
+</ol>
+<p>: Finished intelligence products are delivered to policymakers, commanders, and other consumers. Products are tailored to the consumer’s needs: the President’s Daily Brief (PDB) is concise and action-oriented; a National Intelligence Estimate (NIE) is comprehensive and methodologically detailed. Feedback from consumers about what was useful (or not) loops back to Planning and Direction, starting the cycle again.</p>
 </div>
 </div>
 <figure style="margin:2rem 0;" class="figure">
